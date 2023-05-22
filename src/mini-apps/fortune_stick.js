@@ -1,0 +1,1 @@
+/* Fortune Stick code goes here */
