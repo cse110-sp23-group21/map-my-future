@@ -1,6 +1,10 @@
 /*  Molybdomancy Code Here  */
 
-//  List of shapes
+/**
+ * List of shapes
+ * 
+ * @author Gil Keidar
+ */
 const shapes = [
     {
         name: "Algae",
