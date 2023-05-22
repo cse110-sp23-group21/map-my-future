@@ -1,0 +1,50 @@
+name: Lint Code Base
+
+on: [push, pull_request]
+
+jobs:
+  create-docs:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      # Lets this job push the docs to the repository
+      contents: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Create documentation
+        uses: andstor/jsdoc-action@v1
+        with:
+          source_dir: ./src
+          recurse: true
+          output_dir: ./docs
+      - name: Add documentation to repository
+        run: |
+          git config --global user.email "keidar.gil@gmail.com"
+          git config --global user.name "Gil Keidar"
+          git add docs
+          git commit -m "Updated docs"
+          git push
+  
+  run-linter:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Lint Code Base
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: true
+          VALIDATE_JAVASCRIPT_ES: true
+          VALIDATE_PYTHON_BLACK: true
+          VALIDATE_HTML: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
