@@ -1,7 +1,7 @@
 /*  Molybdomancy Code Here  */
 
 /**
- * List of shapes
+ * List of shapes for molybdomancy
  * 
  * @author Gil Keidar
  */
