@@ -20,4 +20,19 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(`${locationName} is selected.`);
         });
     });
+
+    const zoomElement = document.getElementsByClassName('map')[0];
+    let zoom = 1;
+    const ZOOM_SPEED = 0.1;
+
+    document.addEventListener("wheel", function (e) {
+        if (e.deltaY > 0 & zoom < 2) {
+            zoomElement.style.transform = `scale(${zoom += ZOOM_SPEED})`;
+        } else {
+            if (zoom > 0.5) {
+                zoomElement.style.transform = `scale(${zoom -= ZOOM_SPEED})`;
+            }
+        }
+
+    });
 });
