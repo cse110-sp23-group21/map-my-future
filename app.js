@@ -35,6 +35,7 @@ function makeDraggable(evt) {
     let offset = { x: 0, y: 0 };
     let svg = evt.target;
     let transform = null;
+    var minX, minY, maxX, maxY;
     svg.addEventListener('mousedown', startDrag);
     svg.addEventListener('mousemove', drag);
     svg.addEventListener('mouseup', endDrag);
@@ -50,9 +51,18 @@ function makeDraggable(evt) {
             selectedElement = null;
             return;
         }
+
+        // Set drag constraint
+        if (selectedElement.classList.contains("confined")) {
+            bbox = selectedElement.getBBox();
+            minX = -100 - bbox.x;
+            maxX = 2200 - bbox.x - bbox.width;
+            minY = -30 - bbox.y;
+            maxY = 1200 - bbox.y - bbox.height;
+        }
         offset = getMousePosition(evt);
         let transforms = selectedElement.transform.baseVal;
-        
+
         if (transforms.length === 0 ||
             transforms.getItem(0).type !== SVGTransform.SVG_TRANSFORM_TRANSLATE) {
             // Create an transform that translates by (0, 0)
@@ -70,7 +80,17 @@ function makeDraggable(evt) {
         if (selectedElement) {
             evt.preventDefault();
             var coord = getMousePosition(evt);
-            transform.setTranslate(coord.x - offset.x, coord.y - offset.y);
+            var dx = coord.x - offset.x;
+            var dy = coord.y - offset.y;
+
+            // Add drag constraint
+            if (selectedElement.classList.contains("confined")) {
+                if (dx < minX) { dx = minX; }
+                else if (dx > maxX) { dx = maxX; }
+                if (dy < minY) { dy = minY; }
+                else if (dy > maxY) { dy = maxY; }
+            }
+            transform.setTranslate(dx, dy);
         }
     }
     function endDrag(evt) {
