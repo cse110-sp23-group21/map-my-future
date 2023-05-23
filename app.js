@@ -26,10 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const ZOOM_SPEED = 0.1;
 
     document.addEventListener("wheel", function (e) {
-        if (e.deltaY > 0 & zoom < 2) {
+        if (e.deltaY > 0 & zoom < 1.5) {
             zoomElement.style.transform = `scale(${zoom += ZOOM_SPEED})`;
         } else {
-            if (zoom > 0.5) {
+            if (zoom > 0.7) {
                 zoomElement.style.transform = `scale(${zoom -= ZOOM_SPEED})`;
             }
         }
