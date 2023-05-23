@@ -4,16 +4,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     const locations = document.querySelectorAll(".location");
 
-    // Highlight region when mouse hover
+    // Region clicked/selected
     locations.forEach(location => {
-        location.addEventListener('mouseover', () => {
-            location.classList.add('highlight');
-        });
-
-        location.addEventListener('mouseout', () => {
-            location.classList.remove('highlight');
-        });
-
         location.addEventListener('click', () => {
             const locationName = location.getAttribute('data-location');
             // Add navigation to mini-app during Sprint 2 here.
