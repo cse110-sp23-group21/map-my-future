@@ -5,6 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const locations = document.querySelectorAll(".location");
     const map = document.getElementsByClassName("map")[0];
 
+    // Background music
+    var bgm = new Audio('assets/map-my-future-bgm.ogg');
+    bgm.play();
+    bgm.loop = true;
+
     // Region clicked/selected
     locations.forEach(location => {
         location.addEventListener('click', () => {
