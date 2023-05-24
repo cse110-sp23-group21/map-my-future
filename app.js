@@ -19,20 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Zoom
-    let zoomLevel = 1;
-    const ZOOM_SPEED = 0.1;
-
-    document.addEventListener("wheel", function (e) {
-        if (e.deltaY > 0 & zoomLevel < 2) {
-            map.style.transform = `scale(${zoomLevel += ZOOM_SPEED})`;
-        } else {
-            if (zoomLevel > 1) {
-                map.style.transform = `scale(${zoomLevel -= ZOOM_SPEED})`;
-            }
-        }
-    });
-
 });
 
 function makeDraggable(evt) {
