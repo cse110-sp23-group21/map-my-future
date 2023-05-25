@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const map = document.getElementsByClassName("map")[0];
 
     // Background music
-    var bgm = new Audio('assets/map-my-future-bgm.ogg');
+    var bgm = new Audio('/assets/map-my-future-bgm.ogg');
     bgm.play();
     bgm.loop = true;
 
@@ -17,6 +17,32 @@ document.addEventListener("DOMContentLoaded", () => {
             // Add navigation to mini-app during Sprint 2 here.
             console.log(`${locationName} is selected.`);
         });
+    });
+
+    // Buttons
+    let musicEnabled = true;
+    let musicDuration = 0;
+    let showInfo = false;
+    const musicButton = document.getElementById('music-button');
+    const infoButton = document.getElementById('info-button');
+
+    musicButton.addEventListener('click', (e) => {
+        const musicImg = document.querySelectorAll('img')[0];
+        if (musicEnabled) {
+            musicImg.src = '/assets/audio_off.png';
+            bgm.pause();
+        }
+        else {
+            musicImg.src = '/assets/audio_on.png';
+            bgm.play();
+        }
+        musicEnabled = !musicEnabled;
+    });
+
+    infoButton.addEventListener('click', (e) => {
+        const infoPopup = document.getElementById('info-popup');
+        infoPopup.style.display = !showInfo ? 'flex' : 'none';
+        showInfo = !showInfo;
     });
 
 });
