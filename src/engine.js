@@ -6,16 +6,12 @@
  *  of its contents.
  */
 class FortuneEngine {
-  /**
-   * Creates a FortuneEngine object.
-   * @param {array} outcomes Array of possible outcomes.
+  /** Creates a FortuneEngine object.
+   * @param {app_name} string that gives name of fortune teller type
    */
   constructor (app_name) {
-    //this.outcomes = outcomes
-    //this.fortune_db = fortune_db
-    this.outcomes;
-    this.fortube_db;
     this.app_name = app_name
+    this.fortune_db = null;
   }
   
 
@@ -23,22 +19,31 @@ class FortuneEngine {
   // setter for setting fortune_db based on what we want to read
   // @param {JS_file} string of JSON file in ./mini-apps/${app_name}/${JS_file}
   db_reader (JS_file) {
+    //console.log(JS_file);
+    console.log(this.fortune_db);
 
-    fetch(JS_file)
+    fetch(`./src/mini-apps/${this.app_name}/${JS_file}`)
       .then(response => response.json())
       .then(data => {
 
         this.fortune_db = data;
-        console.log(fortune_db);
+        engine.db_dump(); // I want this to run after db_reader is finished, but can not call await correctly
 
       })
     .catch(error => console.error(error));
+    
   }
 
   add_outcomes (outcomes) {
     this.outcomes = outcomes
   }
 
+
+  // gives all object info to console
+  // @returns nothing
+  db_dump () {
+    console.log(this.fortune_db);
+  }
 
 
   /**
@@ -76,14 +81,19 @@ class FortuneEngine {
 //  Create outcome array (list of integers from 1 to 52)
 const array = []
 const app_name = 'cartomancy';
+const db_name = 'cartomancy.json';
 
 for (let i = 0; i < 52; i++) {
   array[i] = i + 1
 }
 
+
 //  Create a FortuneEngine object with this array
 const engine = new FortuneEngine(app_name)
 engine.add_outcomes(array);
+engine.db_reader(db_name);
+
+
 
 // TODO: If keeping getRandomSubset make sure 'outcomes' exists
 //  Generate 0- to 52- permutations of this array
