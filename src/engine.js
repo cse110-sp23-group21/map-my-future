@@ -10,9 +10,36 @@ class FortuneEngine {
    * Creates a FortuneEngine object.
    * @param {array} outcomes Array of possible outcomes.
    */
-  constructor (outcomes) {
+  constructor (app_name) {
+    //this.outcomes = outcomes
+    //this.fortune_db = fortune_db
+    this.outcomes;
+    this.fortube_db;
+    this.app_name = app_name
+  }
+  
+
+
+  // setter for setting fortune_db based on what we want to read
+  // @param {JS_file} string of JSON file in ./mini-apps/${app_name}/${JS_file}
+  db_reader (JS_file) {
+
+    fetch(JS_file)
+      .then(response => response.json())
+      .then(data => {
+
+        this.fortune_db = data;
+        console.log(fortune_db);
+
+      })
+    .catch(error => console.error(error));
+  }
+
+  add_outcomes (outcomes) {
     this.outcomes = outcomes
   }
+
+
 
   /**
    * Randomly selects numObjects objects from the outcome array and returns the
@@ -48,14 +75,17 @@ class FortuneEngine {
 
 //  Create outcome array (list of integers from 1 to 52)
 const array = []
+const app_name = 'cartomancy';
 
 for (let i = 0; i < 52; i++) {
   array[i] = i + 1
 }
 
 //  Create a FortuneEngine object with this array
-const engine = new FortuneEngine(array)
+const engine = new FortuneEngine(app_name)
+engine.add_outcomes(array);
 
+// TODO: If keeping getRandomSubset make sure 'outcomes' exists
 //  Generate 0- to 52- permutations of this array
 for (let i = 0; i <= array.length; i++) {
   console.log(`${i}-permutation:`, engine.getRandomSubset(i))
