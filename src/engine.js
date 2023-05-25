@@ -12,6 +12,7 @@ class FortuneEngine {
   constructor (app_name) {
     this.app_name = app_name
     this.fortune_db = null;
+    this.outcomes = null;
   }
   
 
@@ -27,7 +28,7 @@ class FortuneEngine {
       .then(data => {
 
         this.fortune_db = data;
-        engine.db_dump(); // I want this to run after db_reader is finished, but can not call await correctly
+        this.db_dump(); // I want this to run after db_reader is finished, but can not call await correctly
 
       })
     .catch(error => console.error(error));
