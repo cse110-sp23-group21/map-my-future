@@ -10,43 +10,39 @@ class FortuneEngine {
    * @param {app_name} string that gives name of fortune teller type
    */
   constructor (app_name) {
-    this.app_name = app_name
-    //this.fortune_db = null;
+    this.app_name = app_name;
+    // this.fortune_db = null;
     this.outcomes = null;
   }
-  
-
 
   // setter for setting fortune_db based on what we want to read
   // @param {JS_file} string of JSON file in ./mini-apps/${app_name}/${JS_file}
-  db_reader (JS_file) {
-    //console.log(JS_file);
-    console.log(this.fortune_db);
+  async db_reader (JS_file) {
+    console.log(JS_file);
+    // sconsole.log(this.fortune_db);
 
-    fetch(`./src/mini-apps/${this.app_name}/${JS_file}`)
+    await fetch(`./src/mini-apps/${this.app_name}/${JS_file}`)
       .then(response => response.json())
       .then(data => {
-
-        //this.fortune_db = data;
+        console.log(data);
+        // this.fortune_db = data;
         this.outcomes = data[element_name];
-        this.db_dump(); // I want this to run after db_reader is finished, but can not call await correctly
 
+        console.log('outcomes:', this.outcomes);
+        this.db_dump(); // I want this to run after db_reader is finished, but can not call await correctly
       })
-    .catch(error => console.error(error));
-    
+      .catch(error => console.error(error));
   }
 
   set_outcomes (outcomes) {
     this.outcomes = outcomes;
   }
 
-
   // gives all object info to console
   // @returns nothing
   db_dump () {
     console.log(this.outcomes);
   }
-
 
   /**
    * Randomly selects numObjects objects from the outcome array and returns the
@@ -60,50 +56,49 @@ class FortuneEngine {
    */
   getRandomSubset (numObjects) {
     //  Clone outcomes array
-    const permutation = [...this.outcomes]
-    //console.log(this.outcomes);
+    console.log('outcomes subset:', this.outcomes);
+    const permutation = [...this.outcomes];
+    console.log('outcomes:', this.outcomes);
 
     //  Implementation of Randomize-In-Place (Section 5.3 from Introduction to Algorithms by Cormen et al.)
-    for (var pair in this.outcomes) {
+    for (let i = 0; i < permutation.length; i++) {
       //  Get a random index from 0 to this.outcomes.length - 1
-      const randomIndex = Math.floor(Math.random() * this.outcomes.length)
+      const randomIndex = Math.floor(Math.random() * this.outcomes.length);
 
       //  Swap permutation[i] with permutation[randomIndex]
-      const temp = permutation[i]
-      permutation[i] = permutation[randomIndex]
-      permutation[randomIndex] = temp
+      const temp = permutation[i];
+      permutation[i] = permutation[randomIndex];
+      permutation[randomIndex] = temp;
     }
 
     //  Return subarray of first numObjects objects in the permutation array
-    return permutation.slice(0, numObjects)
+    return permutation.slice(0, numObjects);
   }
 }
 
 //  Example implementation
 
 //  Create outcome array (list of integers from 1 to 52)
-const array = []
+const array = [];
 const app_name = 'cartomancy';
 const db_name = 'cartomancy.json';
-const element_name = "option-result pair";
+const element_name = 'option-result pair';
 
 for (let i = 0; i < 52; i++) {
-  array[i] = i + 1
+  array[i] = i + 1;
 }
 
-
 //  Create a FortuneEngine object with this array
-const engine = new FortuneEngine(app_name)
-engine.db_reader(db_name);
-engine.set_outcomes(this.fortune_db);
-
-
+const engine = new FortuneEngine(app_name);
+engine.db_reader(db_name).then((val) => {
+  for (let i = 0; i <= array.length; i++) {
+    console.log(`${i}-permutation:`, engine.getRandomSubset(i));
+  }
+});
+// engine.set_outcomes(this.fortune_db);
 
 // TODO: If keeping getRandomSubset make sure 'outcomes' exists
 //  Generate 0- to 52- permutations of this array
-for (let i = 0; i <= array.length; i++) {
-  console.log(`${i}-permutation:`, engine.getRandomSubset(i))
-}
-
-
-
+/* for (let i = 0; i <= array.length; i++) {
+  console.log(`${i}-permutation:`, engine.getRandomSubset(i));
+} */
