@@ -11,7 +11,7 @@ class FortuneEngine {
    */
   constructor (app_name) {
     this.app_name = app_name
-    this.fortune_db = null;
+    //this.fortune_db = null;
     this.outcomes = null;
   }
   
@@ -27,7 +27,8 @@ class FortuneEngine {
       .then(response => response.json())
       .then(data => {
 
-        this.fortune_db = data;
+        //this.fortune_db = data;
+        this.outcomes = data[element_name];
         this.db_dump(); // I want this to run after db_reader is finished, but can not call await correctly
 
       })
@@ -35,15 +36,15 @@ class FortuneEngine {
     
   }
 
-  add_outcomes (outcomes) {
-    this.outcomes = outcomes
+  set_outcomes (outcomes) {
+    this.outcomes = outcomes;
   }
 
 
   // gives all object info to console
   // @returns nothing
   db_dump () {
-    console.log(this.fortune_db);
+    console.log(this.outcomes);
   }
 
 
@@ -60,9 +61,10 @@ class FortuneEngine {
   getRandomSubset (numObjects) {
     //  Clone outcomes array
     const permutation = [...this.outcomes]
+    //console.log(this.outcomes);
 
     //  Implementation of Randomize-In-Place (Section 5.3 from Introduction to Algorithms by Cormen et al.)
-    for (let i = 0; i < this.outcomes.length; i++) {
+    for (var pair in this.outcomes) {
       //  Get a random index from 0 to this.outcomes.length - 1
       const randomIndex = Math.floor(Math.random() * this.outcomes.length)
 
@@ -83,6 +85,7 @@ class FortuneEngine {
 const array = []
 const app_name = 'cartomancy';
 const db_name = 'cartomancy.json';
+const element_name = "option-result pair";
 
 for (let i = 0; i < 52; i++) {
   array[i] = i + 1
@@ -91,8 +94,8 @@ for (let i = 0; i < 52; i++) {
 
 //  Create a FortuneEngine object with this array
 const engine = new FortuneEngine(app_name)
-engine.add_outcomes(array);
 engine.db_reader(db_name);
+engine.set_outcomes(this.fortune_db);
 
 
 
