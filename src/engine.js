@@ -91,7 +91,7 @@ for (let i = 0; i < 52; i++) {
 //  Create a FortuneEngine object with this array
 const engine = new FortuneEngine(app_name);
 engine.db_reader(db_name).then((val) => {
-  for (let i = 0; i <= array.length; i++) {
+  for (let i = 0; i <= 8; i++) {
     console.log(`${i}-permutation:`, engine.getRandomSubset(i));
   }
 });
