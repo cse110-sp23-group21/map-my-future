@@ -1,0 +1,117 @@
+name: CI/CD push to dev
+run-name: CI/CD Dev Update (New Feature / Bug Fix)
+on: 
+  push:
+    branches:
+      - 'dev'
+jobs:
+  lint-javascript:
+    name: Lint JavaScript
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+      - name: Install Semi-Standard Style
+        run: npm install semistandard --global
+      - name: Run Semi-Standard Styler linter
+        run: |
+          pwd
+          cd src
+          ls
+          semistandard
+  lint-html-css:
+    name: Lint HTML & CSS
+    runs-on: ubuntu-latest
+
+    ############################################
+    # Grant status permission for MULTI_STATUS #
+    ############################################
+    permissions:
+      contents: read
+      packages: read
+      statuses: write
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+            fetch-depth: 0
+      - name: Lint HTML and CSS
+        uses: super-linter/super-linter/slim@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_HTML: true
+          VALIDATE_CSS: true
+          # Don't lint docs folder
+          # See https://github.com/marketplace/actions/super-linter#how-to-use
+          #FILTER_REGEX_EXCLUDE: .*docs/.*
+          # Only lint src folder
+          FILTER_REGEX_INCLUDE: .*src/.*
+  run-test-suite:
+    name: Run Test Suite
+    #needs: [lint-javascript, lint-html-css]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+        
+        # Add Test Suite integration with Jest / Puppeteer HERE!
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
+      - name: Run Test Suite
+        run: |
+          echo "Making sure Jest is installed..."
+          npm install --save-dev jest
+          echo "Running sanity tests..."
+          echo "Running exhaustive tests..."
+          npm test
+  create-dev-documentation:
+    name: Create Dev JSDocs
+    #needs: run-test-suite
+    #needs: [run-test-suite, lint-javascript]
+    needs: [run-test-suite, lint-javascript, lint-html-css]
+    runs-on: ubuntu-latest
+
+    permissions:
+      # Lets this job push the docs to the repository
+      contents: write
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+            persist-credentials: false
+            fetch-depth: 0
+      - name: Write Documentation
+        uses: andstor/jsdoc-action@v1
+        with:
+          source_dir: ./src
+          recurse: true
+          # See different templates here: https://cancerberosgx.github.io/jsdoc-templates-demo/demo/
+          #template: jaguarjs-jsdoc
+          template: clean-jsdoc-theme
+          front_page: README.md
+          config_file: config.json
+          output_dir: ./dev-docs
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add dev-docs
+          git commit -a -m "Updated Documentation" --allow-empty
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+      

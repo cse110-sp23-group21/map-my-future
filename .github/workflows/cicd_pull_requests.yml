@@ -1,0 +1,80 @@
+name: CI/CD pull request or general push
+run-name: CI/CD Pull Request / General Push
+on:
+  pull_request:
+  push:
+    branches-ignore:
+      - 'main'
+      - 'dev'
+jobs:
+  lint-javascript:
+    name: Lint JavaScript
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+      - name: Install Semi-Standard Style
+        run: npm install semistandard --global
+      - name: Run Semi-Standard Styler linter
+        run: |
+          pwd
+          cd src
+          ls
+          semistandard
+  lint-html-css:
+    name: Lint HTML & CSS
+    runs-on: ubuntu-latest
+
+    ############################################
+    # Grant status permission for MULTI_STATUS #
+    ############################################
+    permissions:
+      contents: read
+      packages: read
+      statuses: write
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+            fetch-depth: 0
+      - name: Lint HTML and CSS
+        uses: super-linter/super-linter/slim@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_HTML: true
+          VALIDATE_CSS: true
+          # Don't lint docs folder
+          # See https://github.com/marketplace/actions/super-linter#how-to-use
+          #FILTER_REGEX_EXCLUDE: .*docs/.*
+          # Only lint src folder
+          FILTER_REGEX_INCLUDE: .*src/.*
+  run-test-suite:
+    name: Run Test Suite
+    #needs: [lint-javascript, lint-html-css]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+        
+        # Add Test Suite integration with Jest / Puppeteer HERE!
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
+      - name: Run Test Suite
+        run: |
+          echo "Making sure Jest is installed..."
+          npm install --save-dev jest
+          echo "Running sanity tests..."
+          echo "Running exhaustive tests..."
+          npm test
+      
