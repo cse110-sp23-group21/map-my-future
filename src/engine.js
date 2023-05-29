@@ -1,5 +1,10 @@
 /* eslint-disable camelcase */
-const element_name = 'option-result pair';
+
+/**
+ * Expected field name in the mini-app's JSON file that contains
+ * the array of outcome objects for that mini-app.
+ */
+const JSON_OUTCOMES_FIELD = 'option-result pair';
 
 /**
  * The FortuneEngine class
@@ -7,59 +12,69 @@ const element_name = 'option-result pair';
  *  of its contents.
  */
 class FortuneEngine {
-  /** Creates a FortuneEngine object.
-   * @param {string} app_name that gives name of fortune teller type
+  /**
+   * Creates a FortuneEngine object.
+   * @param {string} app_name Name of the mini-app.
    */
   constructor (app_name) {
+    /**
+     * @property {string} app_name Mini-app name
+     */
     this.app_name = app_name;
-    // this.fortune_db = null;
+
+    /**
+     * @property {Array} outcomes Array of outcome objects
+     */
     this.outcomes = null;
   }
 
-  // setter for setting fortune_db based on what we want to read
-  // @param {JS_file} string of JSON file in ./mini-apps/${app_name}/${JS_file}
-  async db_reader (JS_file) {
-    console.log(JS_file);
-    // sconsole.log(this.fortune_db);
+  /**
+   * Populates the outcomes field with the contents of the JSON file
+   * @param {string} json_file Path to the JSON file that contains the array of
+   *    outcomes (in ./src/mini-apps/${this.app_name}/${json_file})
+   */
+  async db_reader (json_file) {
+    console.log(json_file);
 
-    await fetch(`./src/mini-apps/${this.app_name}/${JS_file}`)
+    await fetch(`./src/mini-apps/${this.app_name}/${json_file}`)
       .then(response => response.json())
       .then(data => {
-        // console.log(data);
-        // this.fortune_db = data;
-        this.outcomes = data[element_name];
+        this.outcomes = data[JSON_OUTCOMES_FIELD];
 
-        // console.log('outcomes:', this.outcomes);
-        this.db_dump(); // I want this to run after db_reader is finished, but can not call await correctly
+        // I want this to run after db_reader is finished, but can not call await correctly
+        this.db_dump();
       })
       .catch(error => console.error(error));
   }
 
+  /**
+   * Sets the outcomes array to the input array.
+   * @param {Array} outcomes Input array of outcome objects.
+   */
   set_outcomes (outcomes) {
     this.outcomes = outcomes;
   }
 
-  // gives all object info to console
-  // @returns nothing
+  /**
+   * Prints the outcomes array to the console.
+   */
   db_dump () {
     console.log(this.outcomes);
   }
 
   /**
-   * Randomly selects numObjects objects from the outcome array and returns the
+   * Randomly selects num_objects objects from the outcome array and returns the
    * subarray.
-   * @param {number} numObjects Number of objects to select from the outcomes array.
-   * @returns {array} subarray of outcome array that contains numObjects randomly selected objects.
+   * @param {number} num_objects Number of objects to select from the outcomes array.
+   * @returns {Array} Subarray of outcome array that contains num_objects randomly selected objects.
    * @example
    * // outcomes array is [1, 2, 3, 4]
-   * engine.getRandomSubset(2);   // e.g., returns [4, 2]
-   * engine.getRandomSubset(3);   // e.g., returns [3, 1, 4]
+   * engine.get_random_subset(2);   // e.g., returns [4, 2]
+   * engine.get_random_subset(3);   // e.g., returns [3, 1, 4]
    */
-  getRandomSubset (numObjects) {
+  get_random_subset (num_objects) {
     //  Clone outcomes array
-    // console.log('outcomes subset:', this.outcomes);
     const permutation = [...this.outcomes];
-    // console.log('outcomes:', this.outcomes);
 
     //  Implementation of Randomize-In-Place (Section 5.3 from Introduction to Algorithms by Cormen et al.)
     for (let i = 0; i < permutation.length; i++) {
@@ -73,32 +88,20 @@ class FortuneEngine {
     }
 
     //  Return subarray of first numObjects objects in the permutation array
-    return permutation.slice(0, numObjects);
+    return permutation.slice(0, num_objects);
   }
 }
 
 //  Example implementation
 
 //  Create outcome array (list of integers from 1 to 52)
-const array = [];
 const app_name = 'cartomancy';
 const db_name = 'cartomancy.json';
 
-for (let i = 0; i < 52; i++) {
-  array[i] = i + 1;
-}
-
 //  Create a FortuneEngine object with this array
 const engine = new FortuneEngine(app_name);
-engine.db_reader(db_name).then((val) => {
+engine.db_reader(db_name).then(() => {
   for (let i = 0; i <= 8; i++) {
-    console.log(`${i}-permutation:`, engine.getRandomSubset(i));
+    console.log(`${i}-permutation:`, engine.get_random_subset(i));
   }
 });
-// engine.set_outcomes(this.fortune_db);
-
-// TODO: If keeping getRandomSubset make sure 'outcomes' exists
-//  Generate 0- to 52- permutations of this array
-/* for (let i = 0; i <= array.length; i++) {
-  console.log(`${i}-permutation:`, engine.getRandomSubset(i));
-} */
