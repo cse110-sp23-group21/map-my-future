@@ -54,7 +54,7 @@ jobs:
           FILTER_REGEX_INCLUDE: .*src/.*
   run-test-suite:
     name: Run Test Suite
-    needs: [lint-javascript, lint-html-css]
+    #needs: [lint-javascript, lint-html-css]
     runs-on: ubuntu-latest
 
     steps:
@@ -77,7 +77,9 @@ jobs:
           npm test
   create-dev-documentation:
     name: Create Dev JSDocs
-    needs: run-test-suite
+    #needs: run-test-suite
+    #needs: [run-test-suite, lint-javascript]
+    needs: [run-test-suite, lint-javascript, lint-html-css]
     runs-on: ubuntu-latest
 
     permissions:

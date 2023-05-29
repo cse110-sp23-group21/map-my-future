@@ -56,7 +56,7 @@ jobs:
           FILTER_REGEX_INCLUDE: .*src/.*
   run-test-suite:
     name: Run Test Suite
-    needs: [lint-javascript, lint-html-css]
+    #needs: [lint-javascript, lint-html-css]
     runs-on: ubuntu-latest
 
     steps:
