@@ -3,7 +3,6 @@
 // Wait for all DOM to be ready
 document.addEventListener('DOMContentLoaded', () => {
   const locations = document.querySelectorAll('.location');
-  const map = document.getElementsByClassName('map')[0];
 
   // Background music
   const bgm = new Audio('../assets/map-my-future-bgm.ogg');
@@ -21,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Buttons
   let musicEnabled = true;
-  const musicDuration = 0;
   let showInfo = false;
   const musicButton = document.getElementById('music-button');
   const infoButton = document.getElementById('info-button');
@@ -50,7 +48,7 @@ function makeDraggable (evt) {
   let offset = { x: 0, y: 0 };
   const svg = evt.target;
   let transform = null;
-  let minX, minY, maxX, maxY;
+  let bbox, minX, minY, maxX, maxY;
   svg.addEventListener('mousedown', startDrag);
   svg.addEventListener('mousemove', drag);
   svg.addEventListener('mouseup', endDrag);
@@ -78,8 +76,8 @@ function makeDraggable (evt) {
     offset = getMousePosition(evt);
     const transforms = selectedElement.transform.baseVal;
 
-    if (transforms.length === 0 ||
-            transforms.getItem(0).type !== SVGTransform.SVG_TRANSFORM_TRANSLATE) {
+    // OR transforms.getItem(0).type !== SVGTransform.SVG_TRANSFORM_TRANSLATE
+    if (transforms.length === 0 ) {
       // Create an transform that translates by (0, 0)
       const translate = svg.createSVGTransform();
       translate.setTranslate(0, 0);
