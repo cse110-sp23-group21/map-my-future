@@ -5,9 +5,10 @@
   "scripts": {
     "test": "jest"
   },
-  "eslintConfig": {
-    "globals": {
-        "Audio": "writable"
+  "semistandard": {
+    "env": {
+        "browser": "true",
+        "jest": "true"
     }
   }
 }
