@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Background music
-  const bgm = new Audio('../assets/map-my-future-bgm.ogg');
+  const bgm = new Audio('../assets/map-my-future-bgm.ogg'); //  eslint-disable-line
   bgm.play();
   bgm.loop = true;
 
