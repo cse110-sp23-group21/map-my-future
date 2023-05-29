@@ -4,5 +4,10 @@
   },
   "scripts": {
     "test": "jest"
+  },
+  "eslintConfig": {
+    "globals": {
+        "Audio": "writable"
+    }
   }
 }
