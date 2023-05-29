@@ -1,4 +1,5 @@
-/*  Place 8Ball Engine Code Here */
+/* eslint-disable camelcase */
+const element_name = 'option-result pair';
 
 /**
  * The FortuneEngine class
@@ -82,7 +83,6 @@ class FortuneEngine {
 const array = [];
 const app_name = 'cartomancy';
 const db_name = 'cartomancy.json';
-const element_name = 'option-result pair';
 
 for (let i = 0; i < 52; i++) {
   array[i] = i + 1;

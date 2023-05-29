@@ -1,0 +1,10 @@
+{
+    "ops": {
+        "readme": "README.md",
+        "theme_opts": {
+            "homepageTitle": "Clean JSDoc theme",
+            "sections": ["Classes", "Modules", "Global"],
+            "includeFilesListInHomepage": true
+        }
+    }
+}
