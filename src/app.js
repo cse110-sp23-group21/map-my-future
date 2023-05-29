@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
     svg.addEventListener('mouseup', endDrag);
     svg.addEventListener('mouseleave', endDrag);
 
-    function getMousePosition(evt) {
+    function getMousePosition (evt) {
       const CTM = svg.getScreenCTM();
       return { x: (evt.clientX - CTM.e) / CTM.a, y: (evt.clientY - CTM.f) / CTM.d };
     }
-    function startDrag(evt) {
+    function startDrag (evt) {
       selectedElement = evt.target.parentNode;
       if (selectedElement.classList.contains('undraggable')) {
         selectedElement = null;
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
       offset.x -= transform.matrix.e;
       offset.y -= transform.matrix.f;
     }
-    function drag(evt) {
+    function drag (evt) {
       if (selectedElement) {
         evt.preventDefault();
         const coord = getMousePosition(evt);
@@ -66,10 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
         transform.setTranslate(dx, dy);
       }
     }
-    function endDrag(evt) {
+    function endDrag (evt) {
       selectedElement = null;
     }
-  }
+  };
 
   // Background music
   const bgm = new Audio('../assets/map-my-future-bgm.ogg');
