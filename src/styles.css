@@ -55,7 +55,7 @@ body {
 
 /* styling for info pop up screen */
 .info-popup {
-    display: flex;
+    display: none;
     position: fixed;
     bottom: 20px;
     right: 85px;
@@ -64,8 +64,7 @@ body {
     border-radius: 10%;
     background-color: #846e43;
     text-align: center;
-    justify-content: center;
-    display: none;
+    justify-content: center;    
 }
 
 .info-text {
