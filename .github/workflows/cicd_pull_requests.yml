@@ -21,11 +21,7 @@ jobs:
       - name: Install Semi-Standard Style
         run: npm install semistandard --global
       - name: Run Semi-Standard Styler linter
-        run: |
-          pwd
-          cd src
-          ls
-          semistandard
+        run: semistandard --env browser --env jest
   lint-html-css:
     name: Lint HTML & CSS
     runs-on: ubuntu-latest
