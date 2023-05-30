@@ -83,16 +83,16 @@ document.addEventListener('DOMContentLoaded', () => {
       // Add navigation to mini-app during Sprint 2 here.
       console.log(`${locationName} is selected.`);
       if (locationName === 'Cartomancy') {
-        window.location.href = './cartomancy/cartomancy.html';
+        window.location.href = './mini-apps/cartomancy/cartomancy.html';
       }
       else if (locationName == 'Molybdomancy') {
-        window.location.href = './molybdomancy/molybdomancy.html';
+        window.location.href = './mini-apps/molybdomancy/molybdomancy.html';
       }
       else if (locationName == 'Fortune Stick') {
-        window.location.href = './fortune_stick/fortune_stick.html';
+        window.location.href = './mini-apps/fortune_stick/fortune_stick.html';
       }
       else if (locationName == 'Yin Yang Coin') {
-        window.location.href = './yin_yang_coin/yin_yang_coin.html';
+        window.location.href = './mini-apps/yin_yang_coin/yin_yang_coin.html';
       }
     });
   });
