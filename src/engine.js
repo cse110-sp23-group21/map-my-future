@@ -31,12 +31,12 @@ class FortuneEngine {
   /**
    * Populates the outcomes field with the contents of the JSON file
    * @param {string} json_file Path to the JSON file that contains the array of
-   *    outcomes (in ./src/mini-apps/${this.app_name}/${json_file})
+   *    outcomes
    */
   async db_reader (json_file) {
     console.log(json_file);
 
-    await fetch(`./src/mini-apps/${this.app_name}/${json_file}`)
+    await fetch(json_file)
       .then(response => response.json())
       .then(data => {
         this.outcomes = data[JSON_OUTCOMES_FIELD];
@@ -105,3 +105,5 @@ engine.db_reader(db_name).then(() => {
     console.log(`${i}-permutation:`, engine.get_random_subset(i));
   }
 });
+
+export default FortuneEngine;
