@@ -10,7 +10,7 @@
     <title>Fortune Stick</title>
 </head>
 <body>
-    <script type="text/javascript" src="fortune_stick.js"></script>
+    <script type="module" src="fortune_stick.js"></script>
 
     <!-- Page Content (customize for each mini app!) -->
     <div class="center-div">
@@ -23,7 +23,7 @@
 
         <!-- Select Fortune Category -->
         <div class="categories">
-            <div class="card" onclick="selectCategory('career')">
+            <!--<div class="card" onclick="selectCategory('career')">
                 <h2>Career</h2>
             </div>
             
@@ -36,6 +36,21 @@
             </div>
             
             <div class="card" onclick="selectCategory('relationship')">
+                <h2>Relationship</h2>
+            </div> -->
+            <div class="card" id="career">
+                <h2>Career</h2>
+            </div>
+            
+            <div class="card" id="wealth">
+                <h2>Wealth</h2>
+            </div>
+            
+            <div class="card" id="health">
+                <h2>Health</h2>
+            </div>
+            
+            <div class="card" id="relationship">
                 <h2>Relationship</h2>
             </div>
         </div>
@@ -82,7 +97,7 @@
     <div id="info-popup" class="info-popup">
         <div class="info-text">
             <h1>Info</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nobis eaque cupiditate ea vitae fuga sed temporibus aperiam nisi eius omnis, hic similique culpa sequi architecto reiciendis a, soluta inventore.</p>
+            <p>Fortune sticks, also known as Kau Cim or Chien Tung in Chinese culture, are a popular form of divination. The fortune-telling process involves using a container full of numbered sticks, usually made from bamboo or wood, each corresponding to a specific prophecy or fortune.</p>
         </div>
     </div>
     

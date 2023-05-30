@@ -1,11 +1,18 @@
 /* customize for mini app! styling for buttons and onwards should remain untouched. */
 
 /* styling for page */
+@font-face {
+    font-family: "Chinese Shanghai Demo";
+    src: url('../../../assets/ChineseShangaiDemoVersionRegular.ttf');
+}
+
 body {
     display: flex;
     justify-content: center;
-    background-color: rgb(178 29 29);
+    /* background-color: rgb(178 29 29); */
+    background-image: url('../../../assets/background_fortunestick.png');
     font-family: 'Luxurious Script', cursive;
+    /*font-family: "Chinese Shanghai Demo";*/
 }
 
 .center-div {
@@ -18,6 +25,7 @@ body {
 .heading h1 {
     color: white;
     font-size: 42px;
+    font-family: "Chinese Shanghai Demo";
 }
 
 /* styling for category selection */
@@ -57,6 +65,7 @@ body {
 
 .card h2 {
     margin: 0px;
+    font-family: "Chinese Shanghai Demo";
 }
 
 /* styling for fortune display */
