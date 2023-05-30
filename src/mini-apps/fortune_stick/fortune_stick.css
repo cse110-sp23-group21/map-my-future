@@ -2,7 +2,9 @@
 
 /* styling for page */
 body {
-    background-color: rgb(178, 29, 29);
+    display: flex;
+    justify-content: center;
+    background-color: rgb(178 29 29);
     font-family: 'Luxurious Script', cursive;
 }
 
@@ -10,11 +12,60 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 85%;
 }
 
 .heading h1 {
     color: white;
     font-size: 42px;
+}
+
+.categories {
+    display: flex;
+    flex-direction: row;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../../assets/fortune_sticks_card.jpeg');
+    background-position: center;
+    background-size: 200px 400px;
+    width: 200px;
+    height: 400px;
+    color: white;
+    margin: 20px;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: opacity 1s ease;
+}
+
+.card:hover {
+    filter: brightness(0.8);
+}
+
+.card.fade {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card h2 {
+    margin: 0px;
+}
+
+.display-fortune {
+    display: none;
+}
+
+.display-fortune.show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
 }
 
 
@@ -29,6 +80,15 @@ body {
     position: fixed;
     bottom: 20px;
     left: 20px;
+}
+
+.button-container-bottom-center {
+    display: none;
+}
+
+.button-container-bottom-center.show {
+    position: fixed;
+    bottom: 20px;
 }
   
 .menu-button {

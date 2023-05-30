@@ -7,10 +7,10 @@
 
     <!-- make sure to change for your own mini app's html/css/js and page title -->
     <link rel="stylesheet" href="fortune_stick.css">
-    <script type="text/javascript" src="fortune_stick.js"></script>
     <title>Fortune Stick</title>
 </head>
 <body>
+    <script type="text/javascript" src="fortune_stick.js"></script>
 
     <!-- Page Content (customize for each mini app!) -->
     <div class="center-div">
@@ -20,7 +20,38 @@
         </div>
 
         <!-- add page content here -->
+
+        <!-- Select Fortune Category -->
+        <div class="categories">
+            <div class="card" onclick="selectCategory('career')">
+                <h2>Career</h2>
+            </div>
+            
+            <div class="card" onclick="selectCategory('wealth')">
+                <h2>Wealth</h2>
+            </div>
+            
+            <div class="card" onclick="selectCategory('health')">
+                <h2>Health</h2>
+            </div>
+            
+            <div class="card" onclick="selectCategory('relationship')">
+                <h2>Relationship</h2>
+            </div>
+        </div>
+
+        <!-- Fortune Stick Animation -->
         
+        <!-- Reading Fortune -->
+        <div class="display-fortune">
+            <div class="fortune-img">
+
+            </div>
+            <div class="fortune-text">
+                <h2 id="fortune-message">Your fortune for...</h2>
+                <h4 id="fortune-received">Received fortune message...</h4>
+            </div>
+        </div>
         
     </div>
     
@@ -35,11 +66,14 @@
     </div>
 
     <div class="button-container-bottom-right">
-        <a href="#" id="reset-button" class="menu-button">
-            <img src="../../../assets/reset.png" id="reset" alt="Reset">
-        </a>
         <a href="#" id="info-button" class="menu-button">
             <img src="../../../assets/info.png" id="info" alt="Info">
+        </a>
+    </div>
+
+    <div class="button-container-bottom-center">
+        <a href="#" id="reset-button" class="menu-button">
+            <img src="../../../assets/reset.png" id="reset" alt="Reset">
         </a>
     </div>
 
