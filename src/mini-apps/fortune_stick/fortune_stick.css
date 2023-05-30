@@ -20,9 +20,18 @@ body {
     font-size: 42px;
 }
 
+/* styling for category selection */
+
 .categories {
     display: flex;
     flex-direction: row;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.categories.hide {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .card {
@@ -46,17 +55,15 @@ body {
     filter: brightness(0.8);
 }
 
-.card.fade {
-    opacity: 0;
-    pointer-events: none;
-}
-
 .card h2 {
     margin: 0px;
 }
 
+/* styling for fortune display */
+
 .display-fortune {
-    display: none;
+    opacity: 0;
+    transition: opacity 1s ease;
 }
 
 .display-fortune.show {
@@ -66,8 +73,26 @@ body {
     align-items: center;
     text-align: center;
     color: white;
+    opacity: 1;
 }
 
+.fortune-img img {
+    width: 250px;
+    height: 250px;
+}
+
+.fortune-text {
+    width: 60%;
+}
+
+.reset-button-container {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.reset-button-container.show {
+    opacity: 1;
+}
 
 /* styling for buttons */
 .button-container-bottom-right {
@@ -80,15 +105,6 @@ body {
     position: fixed;
     bottom: 20px;
     left: 20px;
-}
-
-.button-container-bottom-center {
-    display: none;
-}
-
-.button-container-bottom-center.show {
-    position: fixed;
-    bottom: 20px;
 }
   
 .menu-button {

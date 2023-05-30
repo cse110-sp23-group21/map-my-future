@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const infoButton = document.getElementById('info-button');
 
   musicButton.addEventListener('click', (e) => {
-    const musicImg = document.querySelectorAll('img')[0];
+    console.log('music');
+    const musicImg = document.querySelectorAll('img')[2];
     if (musicEnabled) {
       musicImg.src = '../../../assets/audio_off.png';
       bgm.pause();
@@ -37,11 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Reset Button
   const resetButton = document.getElementById('reset-button');
   resetButton.addEventListener('click', (e) => {
-    const container = document.getElementsByClassName('display-fortune')[0];
-
-    categories.style.display = 'flex';
-    container.classList.remove('show');
-    container.removeChild()
+    window.location.reload();
   });
 })
 
@@ -52,14 +49,9 @@ function selectCategory(category) {
   const cards = document.getElementsByClassName('card');
   const categories = document.getElementsByClassName('categories')[0];
 
-  for (const card of cards) {
-    card.classList.add('fade');
-  }
+  categories.classList.add('hide');
 
   setTimeout(() => {
-    for (const card of cards) {
-      card.classList.remove('fade');
-    }
     categories.style.display = 'none';
     displayFortune();
   }, 1000);
@@ -67,9 +59,7 @@ function selectCategory(category) {
 
 function displayFortune() {
   const container = document.getElementsByClassName('display-fortune')[0];
-  const resetButton = document.getElementsByClassName('button-container-bottom-center')[0];
-
-  console.log(resetButton);
+  const resetButton = document.getElementsByClassName('reset-button-container')[0];
 
   const message = document.getElementById('fortune-message');
   const fortune = document.getElementById('fortune-received');
