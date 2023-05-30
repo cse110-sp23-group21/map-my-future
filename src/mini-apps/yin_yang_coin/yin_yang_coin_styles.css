@@ -1,0 +1,49 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background: antiquewhite;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    margin: 0;
+}
+
+#mini-app-title {
+    border: 1px red solid;
+}
+
+main {
+    border: 1px red solid;
+}
+
+footer {
+    height: 15vh;
+    border: 1px red solid;
+    margin: 0;
+    /*position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    
+}
+
+/* #center {
+    display: flex;
+    /* flex-grow: 1; 
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+
+
+} */
+
+.button1 {
+    background-color: black;
+    color: white;
+    font-size: 50px;
+    border: none;
+    cursor: pointer;
+}
