@@ -1,22 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yin Yang Coin</title>
-    <link rel="stylesheet" href="yin_yang_coin_styles.css">
+    <title>Yin Yang Mysterious World</title>
+    <link rel="stylesheet" type="text/css" href="yin_yang_coin_styles.css">
+    <link rel="icon" type="image/png" href="yin-yang-symbol-variant.png">
 </head>
 <body>
-    <div id="mini-app-title">
-        Yin Yang Coin
+    <div class="container">
+        <div class="grid">
+            <div class="top-grid">
+                <h1>
+                    <span>Welcome to</span>
+                    <span>Yin Yang</span>
+                    <span>Mysterious World</span>
+                </h1>
+            </div>
+            <div class="middle-grid">
+                <section id="side">
+                    <p>Side Info</p>
+                </section>
+                <section id="instructions">
+                    <p>Your instruction/expositionary text goes here.</p>
+                    <img id="instruction1" src="instructions1.png"/>
+                </section>
+                <!-- <section id="fortune-telling">
+                    <p>Your instruction/expositionary text goes here.</p>
+                    <aside id="lines">
+                    </aside>
+                    <main id="coins"></main>
+                </section> -->
+            </div>
+            <div class="bottom-grid">
+                <button class="action-button" value="start">Start</button>
+            </div>
+        </div>
     </div>
-    <main>
-        <div>Expository Information</div>
-    </main>
-    <footer>
-        <button>Start</button>
-    </footer>
+
+      <!-- Buttons -->
+      <div class="button-container-bottom-left">
+        <a href="#" id="music-button" class="menu-button">
+            <img src="../../../assets/audio_on.png" id="music" alt="Music">
+        </a>
+        <a href="../../index.html" id="home-button" class="menu-button">
+            <img src="../../../assets/home.png" id="home" alt="Home">
+        </a>
+    </div>
+
+    <div class="button-container-bottom-right">
+        <a href="#" id="info-button" class="menu-button">
+            <img src="../../../assets/info.png" id="info" alt="Info">
+        </a>
+    </div>
+
+
+    <!-- Info Pop Up Screen -->
+    <div id="info-popup" class="info-popup">
+        <div class="info-text">
+            <h1>Info</h1>
+            <p>Yin Yang Coin with 3 coins is a method dating back to the Zhou Dynasty (1046–256 BC). It involves throwing three coins six times to create hexagrams that symbolize different situations based on Yin and Yang lines. Each hexagram, of 64 possible combinations, carries specific interpretations. If "old" lines are thrown, they form a new hexagram symbolizing future changes. </p>
+        </div>
+    </div>
     <script type="module" src="yin_yang_coin.js"></script>
 </body>
 </html>
