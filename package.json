@@ -6,9 +6,9 @@
     "test": "jest"
   },
   "semistandard": {
-    "env": {
-        "browser": true,
-        "jest": true
-    }
+    "ignore": [
+        "dist/",
+        "docs/"
+    ]
   }
 }
