@@ -33,13 +33,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   // const mainElement = document.querySelector('main');
   // const footerElement = document.querySelector('footer');
 
+  //  Get button element
+  const buttonElement = document.querySelector('button');
+
   //  Read contents from JSON using FortuneEngine
   const engine = new FortuneEngine('ying_yang_coin');
 
   await engine.db_reader('yin_yang_coin.json');
 
-  const coinResult = engine.get_random_subset(1)[0];
+  //  Add button click event listener
+  buttonElement.addEventListener('click', (event) => {
+    const coinResult = engine.get_random_subset(1)[0];
 
-  console.log(coinResult);
+    console.log(coinResult.fullType);
+  });
+
   //  Start Screen
 });
