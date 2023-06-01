@@ -16,11 +16,12 @@ class FortuneEngine {
    * Creates a FortuneEngine object.
    * @param {string} app_name Name of the mini-app.
    * @example
+   * // Create a FortuneEngine object
    * const app_name = 'cartomancy';
    * const db_name = 'cartomancy.json';
    *
-   * // Create a FortuneEngine object
    * const engine = new FortuneEngine(app_name);
+   *
    * // Initialize the FortuneEngine object
    * engine.db_reader(db_name).then(() => {
    *   console.log("3 random cards:", engine.get_random_subset(3));
