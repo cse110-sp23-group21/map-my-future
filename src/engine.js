@@ -75,10 +75,9 @@ class FortuneEngine {
    * @returns {Array} The outcomes array in this FortuneEngine object.
    * @throws Will throw an error if not initialized.
    */
-  get_outcomes() {
-    if (!this.initialized)
-    {
-        throw new Error("Not yet initialized - call the initialize() method first.");
+  get_outcomes () {
+    if (!this.initialized) {
+      throw new Error('Not yet initialized - call the initialize() method first.');
     }
     return this.outcomes;
   }
@@ -88,9 +87,8 @@ class FortuneEngine {
    * @throws Will throw an error if not initialized.
    */
   db_dump () {
-    if (!this.initialized)
-    {
-        throw new Error("Not yet initialized - call the initialize() method first.");
+    if (!this.initialized) {
+      throw new Error('Not yet initialized - call the initialize() method first.');
     }
     console.log(this.outcomes);
   }
@@ -101,10 +99,9 @@ class FortuneEngine {
    *    read via db_reader()
    * @throws Will throw an error if not initialized.
    */
-  get_json_contents() {
-    if (!this.initialized)
-    {
-        throw new Error("Not yet initialized - call the initialize() method first.");
+  get_json_contents () {
+    if (!this.initialized) {
+      throw new Error('Not yet initialized - call the initialize() method first.');
     }
     return this.json_contents;
   }
@@ -121,9 +118,8 @@ class FortuneEngine {
    * @throws Will throw an error if not initialized.
    */
   get_random_subset (num_objects) {
-    if (!this.initialized)
-    {
-        throw new Error("Not yet initialized - call the initialize() method first.");
+    if (!this.initialized) {
+      throw new Error('Not yet initialized - call the initialize() method first.');
     }
     //  Clone outcomes array
     const permutation = [...this.outcomes];
@@ -143,7 +139,6 @@ class FortuneEngine {
     return permutation.slice(0, num_objects);
   }
 }
-
 
 /*
     //  Example implementation
