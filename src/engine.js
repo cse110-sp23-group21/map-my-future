@@ -15,6 +15,16 @@ class FortuneEngine {
   /**
    * Creates a FortuneEngine object.
    * @param {string} app_name Name of the mini-app.
+   * @example
+   * const app_name = 'cartomancy';
+   * const db_name = 'cartomancy.json';
+   *
+   * // Create a FortuneEngine object
+   * const engine = new FortuneEngine(app_name);
+   * // Initialize the FortuneEngine object
+   * engine.db_reader(db_name).then(() => {
+   *   console.log("3 random cards:", engine.get_random_subset(3));
+   * });
    */
   constructor (app_name) {
     /**
@@ -139,21 +149,5 @@ class FortuneEngine {
     return permutation.slice(0, num_objects);
   }
 }
-
-/*
-    //  Example implementation
-
-    //  Read JSON file
-    const app_name = 'cartomancy';
-    const db_name = './mini-apps/cartomancy/cartomancy.json';
-
-    //  Create a FortuneEngine object with this array
-    const engine = new FortuneEngine(app_name);
-    engine.db_reader(db_name).then(() => {
-    for (let i = 0; i <= engine.get_outcomes().length; i++) {
-        console.log(`${i}-permutation:`, engine.get_random_subset(i));
-    }
-    });
-*/
 
 export default FortuneEngine;
