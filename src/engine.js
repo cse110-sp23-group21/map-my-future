@@ -88,7 +88,7 @@ class FortuneEngine {
    */
   get_outcomes () {
     if (!this.initialized) {
-      throw new Error('Not yet initialized - call the initialize() method first.');
+      throw new Error('Not yet initialized - call the db_reader() method first.');
     }
     return this.outcomes;
   }
@@ -99,7 +99,7 @@ class FortuneEngine {
    */
   db_dump () {
     if (!this.initialized) {
-      throw new Error('Not yet initialized - call the initialize() method first.');
+      throw new Error('Not yet initialized - call the db_reader() method first.');
     }
     console.log(this.outcomes);
   }
@@ -112,7 +112,7 @@ class FortuneEngine {
    */
   get_json_contents () {
     if (!this.initialized) {
-      throw new Error('Not yet initialized - call the initialize() method first.');
+      throw new Error('Not yet initialized - call the db_reader() method first.');
     }
     return this.json_contents;
   }
@@ -130,7 +130,7 @@ class FortuneEngine {
    */
   get_random_subset (num_objects) {
     if (!this.initialized) {
-      throw new Error('Not yet initialized - call the initialize() method first.');
+      throw new Error('Not yet initialized - call the db_reader() method first.');
     }
     //  Clone outcomes array
     const permutation = [...this.outcomes];
