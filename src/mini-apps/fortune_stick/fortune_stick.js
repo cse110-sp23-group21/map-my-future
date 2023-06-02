@@ -6,7 +6,7 @@ const engine = new FortuneEngine();
 
 let selectedCategory = '';
 let receivedFortune = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad est, laboriosam optio molestias iste, quam perferendis vitae voluptatum minus ullam libero eum nisi. Necessitatibus ipsum alias, molestias adipisci doloremque totam!';
-const TYPING_SPEED = 20;
+const TYPING_SPEED = 35;
 
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -32,6 +32,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log("element's id:", cardElement.id);
 
     cardElement.addEventListener("click", (e) => {
+      cardElement.classList.toggle("turn-card");
+      
+
       selectCategory(cardElement.id);
     })
   })
@@ -66,13 +69,23 @@ document.addEventListener('DOMContentLoaded', async () => {
 function selectCategory(category) {
   selectedCategory = category;
 
-  const cards = document.getElementsByClassName('card');
-  const categories = document.getElementsByClassName('categories')[0];
+  const notChosen = document.querySelectorAll(`.card:not(#${category})`);
+  const allCards = document.getElementsByClassName('categories')[0];
 
-  categories.classList.add('hide');
+
+  for(let i = 0; i < notChosen.length; i++) {
+    notChosen[i].classList.toggle('hide');
+    notChosen[i].style.opacity = '0';
+    console.log(notChosen[i]);
+  }
+
+
+  let notChosenCards = document.getElementsByClassName('card hide');
+
 
   setTimeout(() => {
-    categories.style.display = 'none';
+    allCards.style.display = 'none';
+
     displayFortune();
   }, 1000);
 }
@@ -115,7 +128,7 @@ function displayFortune() {
     if (index >= receivedFortune.length) {
       clearInterval(typingInterval);
     }
-  }, 50); // this value controls the typing speed, adjust as desired
+  }, TYPING_SPEED); // this value controls the typing speed, adjust as desired
 }
 
 

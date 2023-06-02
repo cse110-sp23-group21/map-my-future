@@ -37,7 +37,8 @@ body {
     transition: opacity 1s ease;
 }
 
-.categories.hide {
+.hide {
+    transition: opacity 1s
     opacity: 0;
     pointer-events: none;
 }
@@ -92,6 +93,11 @@ body {
 
 .fortune-text {
     width: 60%;
+}
+
+#fortune-message {
+  margin: auto;
+  max-width: 8em;  
 }
 
 .reset-button-container {
@@ -151,6 +157,18 @@ body {
     background-color: #846e43;
     text-align: center;
     justify-content: center;    
+}
+
+.turn-card { 
+  transition: transform 0.8s ease;
+  /*transform-style: preserve-3d; */ /*no 3d included*/
+  transform: rotateY(90deg);
+
+}
+
+.remove-card {
+  transition: transform 0.8s;
+  visibility: transparent/
 }
 
 .info-text {
