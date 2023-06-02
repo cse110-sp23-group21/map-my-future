@@ -56,6 +56,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     musicEnabled = !musicEnabled;
   });
 
+  /**
+   * @name infoButtonClick
+   *  Make an action for info button when it's clicked.
+   *  It will briefly explain how the app works.
+   * @listens click When the user clicks on the info button, the info
+   * pop-up alternates between visible and invisible.
+   */
   infoButton.addEventListener('click', (e) => {
     const infoPopup = document.getElementById('info-popup');
     infoPopup.style.display = !showInfo ? 'flex' : 'none';
@@ -63,16 +70,29 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   //  Read contents from JSON using FortuneEngine
-  const engine = new FortuneEngine('ying_yang_coin');
+
+  /**
+   * FortuneEngine object used for generating 3-coin flips.
+   */
+  const engine = new FortuneEngine('yin_yang_coin');
 
   await engine.db_reader('yin_yang_coin.json');
 
+  /**
+   * Contents of the ying_yang_coin.json file.
+   */
   const jsonFile = engine.get_json_contents();
+
+  /**
+   * Array of 64 hexagram objects.
+   */
   const hexagrams = jsonFile.hexagrams;
 
   console.table(hexagrams);
 
-  //  Start Button
+  /**
+   * Start button elemen
+   */
   const buttonElement = document.querySelector('.action-button');
 
   /**
@@ -90,6 +110,9 @@ document.addEventListener('DOMContentLoaded', async () => {
    */
   let powerOfTwo = 1;
 
+  /**
+   *  Create the action for the button when it's clicked
+   */
   buttonElement.addEventListener('click', (event) => {
     const buttonElement = event.target;
     const buttonValue = buttonElement.value;
@@ -107,7 +130,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       case 'toss':
         // Backend Generation
 
-        // TODO: Set button as disabled
+        // Set button as disabled
         buttonElement.disabled = true;
 
         // TODO: Make it apparent in the UI that the button has been disabled
