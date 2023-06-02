@@ -29,21 +29,19 @@ import FortuneEngine from '../../engine.js';
 
 //  Wait for the DOM to be ready
 document.addEventListener('DOMContentLoaded', async () => {
-
   // Background music
-  //const bgm = new Audio('../../../assets/map-my-future-bgm.ogg'); //  eslint-disable-line
-  //bgm.play();
-  //bgm.loop = true;
+  // const bgm = new Audio('../../../assets/map-my-future-bgm.ogg'); //  eslint-disable-line
+  // bgm.play();
+  // bgm.loop = true;
 
   // Buttons
   let musicEnabled = true;
   let showInfo = false;
   const musicButton = document.getElementById('music-button');
   const infoButton = document.getElementById('info-button');
-  const instructionScreen = document.querySelector("#instructions");
-  const fortuneTellingScreen = document.querySelector("#fortune-telling");
+  const instructionScreen = document.querySelector('#instructions');
+  const fortuneTellingScreen = document.querySelector('#fortune-telling');
 
-  
   // Music & Info Buttons
   musicButton.addEventListener('click', (e) => {
     console.log('music');
@@ -69,14 +67,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   await engine.db_reader('yin_yang_coin.json');
 
+  const jsonFile = engine.get_json_contents();
+  const hexagrams = jsonFile.hexagrams;
+
+  console.table(hexagrams);
+
   //  Start Button
-  const buttonElement = document.querySelector(".action-button");
-  
+  const buttonElement = document.querySelector('.action-button');
+
   /**
    * Count up to 6 times for tossing
    */
   let tossCounter = 0;
-  
+
   /**
    * After 6 times tossing, it will access to the index in JSON file and pull out the result
    */
@@ -86,82 +89,85 @@ document.addEventListener('DOMContentLoaded', async () => {
    * Stores the current power of 2 (shifted once to the left in each iteration)
    */
   let powerOfTwo = 1;
-  
+
   buttonElement.addEventListener('click', (event) => {
     const buttonElement = event.target;
     const buttonValue = buttonElement.value;
     console.log(buttonValue);
-    
+
     // Start State
     switch (buttonValue) {
-      case "start":
+      case 'start':
         // Update Button State
-        buttonElement.value = "toss";
-        buttonElement.innerText = "Toss Coins";
+        buttonElement.value = 'toss';
+        buttonElement.innerText = 'Toss Coins';
         break;
-        
-    // Toss State
-      case "toss":
+
+        // Toss State
+      case 'toss':
         // Backend Generation
 
-        //  Generate a random result for tossing 3 coins
-        const coinResult = engine.get_random_subset(1)[0];
+        // TODO: Set button as disabled
+        buttonElement.disabled = true;
 
-        console.log("coinResult:", coinResult.value);
-        console.log("Power of two:", powerOfTwo);
-        
+        // TODO: Make it apparent in the UI that the button has been disabled
+        // https://codepen.io/robertwbradford/pen/NaMNJg (reference)
+
+        //  Generate a random result for tossing 3 coins
+        const coinResult = engine.get_random_subset(1)[0];  //  eslint-disable-line
+        console.log('coinResult:', coinResult.value);
+        console.log('Power of two:', powerOfTwo);
+
         //  Calculate the Hexagram Index
         hexagramIndex += coinResult.value * powerOfTwo;
         powerOfTwo = powerOfTwo << 1;
 
-        console.log("Hexagram Index:", hexagramIndex);
-        
-        
+        console.log('Hexagram Index:', hexagramIndex);
+
         tossCounter++;
-        console.log("Tossing coins! tossCounter =", tossCounter);
+        console.log('Tossing coins! tossCounter =', tossCounter);
 
         // Update Button State
-        if(tossCounter == 6) {
-          buttonElement.value = "result";
-          buttonElement.innerText = "Get Result";
+        if (tossCounter === 6) {
+          buttonElement.value = 'result';
+          buttonElement.innerText = 'Get Result';
         }
 
         // TODO: UI Generation
 
         // TODO: Lines
-        
-        // TODO: Coin Generation/Animation
 
+        // TODO: Coin Generation/Animation
+        // https://www.w3schools.com/jsref/prop_pushbutton_disabled.asp
+        // TODO: Re-enable button
+        buttonElement.disabled = false;
         break;
-        
-      case "result":
-        // TODO: Modify FortuneEngine to let you access the entire JSON object
+
+      case 'result':
+        // TODO: Modify FortuneEngine to let you access the entire JSON object - this is complete!
         // TODO: Backend - Map hexigram to intepretation
-        
-        
+        const hexagram = hexagrams[hexagramIndex];  //  eslint-disable-line
+
+        console.log('Hexagram Result:', hexagram);
+
         // TODO: UI - Clear the screen and then display the result
-        
+
         // Update Button State
-        buttonElement.value = "reset";
-        buttonElement.innerText = "New Round";
+        buttonElement.value = 'reset';
+        buttonElement.innerText = 'New Round';
         break;
-        
-      case "reset":
+
+      case 'reset':
         // Reset to initial state
         hexagramIndex = 0;
         tossCounter = 0;
         powerOfTwo = 1;
 
         // Update Button State
-        buttonElement.value = "start";
-        buttonElement.innerText = "Start";
+        buttonElement.value = 'start';
+        buttonElement.innerText = 'Start';
         break;
     }
-
-    
-    
-    // fortuneTellingScreen.style.display = "block";
-    // instructionScreen.style.display = "none";
   });
 
   //  Start Screen
