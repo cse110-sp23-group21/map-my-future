@@ -1,5 +1,10 @@
 // Main page map JavaScript file
 
+// Background music
+const bgm = new Audio('../assets/map-my-future-bgm.ogg'); //  eslint-disable-line
+bgm.play();
+bgm.loop = true;
+
 // Wait for all DOM to be ready
 document.addEventListener('DOMContentLoaded', () => {
   const locations = document.querySelectorAll('.location');
@@ -71,11 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
       selectedElement = null;
     }
   };
-
-  // Background music
-  const bgm = new Audio('../assets/map-my-future-bgm.ogg'); //  eslint-disable-line
-  bgm.play();
-  bgm.loop = true;
 
   // Region clicked/selected
   locations.forEach(location => {
