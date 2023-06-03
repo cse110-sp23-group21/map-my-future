@@ -3,6 +3,7 @@
 import FortuneEngine from "../../engine.js";
 
 const engine = new FortuneEngine();
+const APP_NAME = "fortune-stick";
 
 let selectedCategory = '';
 let receivedFortune = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad est, laboriosam optio molestias iste, quam perferendis vitae voluptatum minus ullam libero eum nisi. Necessitatibus ipsum alias, molestias adipisci doloremque totam!';
@@ -11,7 +12,7 @@ const TYPING_SPEED = 35;
 document.addEventListener('DOMContentLoaded', async () => {
 
   // Read JSON File
-  await engine.db_reader("./fortune_stick.json");
+  await engine.db_reader(`./${APP_NAME}.json`);
 
   // Background music
   const bgm = new Audio('../../../assets/30sec_water_lillies.mp3'); //  eslint-disable-line
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   musicButton.addEventListener('click', (e) => {
     console.log('music');
-    const musicImg = document.querySelectorAll('img')[2];
+    const musicImg = document.getElementById('music');
     if (musicEnabled) {
       musicImg.src = '../../../assets/audio_off.png';
       bgm.pause();
