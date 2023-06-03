@@ -159,19 +159,35 @@ body {
     justify-content: center;    
 }
 
-.turn-card { 
-  transition: transform 0.8s ease;
+.choose-card { 
+  /*transition: transform 0.8s ease;*/
   /*transform-style: preserve-3d; */ /*no 3d included*/
-  transform: rotateY(90deg);
-
+  left: 5000;
+  top: 500;
+  animation-name: moveAndTurn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 .remove-card {
   transition: transform 0.8s;
-  visibility: transparent/
+  visibility: transparent;
 }
 
 .info-text {
     color: white;
     width: 90%;
+}
+
+@keyframes moveAndTurn {
+  0% {
+  }
+  50% {
+    /*transform: translateX(-50%);*/
+  } 
+  100% {
+    /* TODO: find a way to move selected card to center
+    /*transform: translate(-50%, -50%) rotate(360deg);*/
+    transform: translate(0, 0) rotateY(90deg);
+  }
 }

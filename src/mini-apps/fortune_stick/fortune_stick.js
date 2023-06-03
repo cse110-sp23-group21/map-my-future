@@ -32,8 +32,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log("element's id:", cardElement.id);
 
     cardElement.addEventListener("click", (e) => {
-      cardElement.classList.toggle("turn-card");
-      
 
       selectCategory(cardElement.id);
     })
@@ -67,6 +65,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Select category card
 function selectCategory(category) {
+  chooseCardAnimation(category);
+
   selectedCategory = category;
 
   const notChosen = document.querySelectorAll(`.card:not(#${category})`);
@@ -76,12 +76,11 @@ function selectCategory(category) {
   for(let i = 0; i < notChosen.length; i++) {
     notChosen[i].classList.toggle('hide');
     notChosen[i].style.opacity = '0';
-    console.log(notChosen[i]);
+    //console.log(notChosen[i]);
   }
 
 
-  let notChosenCards = document.getElementsByClassName('card hide');
-
+  let notChosenCards = document.getElementsByClassName('card hide')[0];
 
   setTimeout(() => {
     allCards.style.display = 'none';
@@ -90,6 +89,20 @@ function selectCategory(category) {
   }, 1000);
 }
 
+// Animates the card that is chosen and adds the choose-card class
+// Currently only just spins it, hopefully also centers it later
+function chooseCardAnimation(category) {
+
+  let cardElement = document.getElementById(`${category}`);
+  
+  cardElement.classList.toggle("choose-card");
+  // get the center of the parent for a later animationk
+  //let relCenterCoord = document.getElementsByClassName('categories').offsetWidth / 2;
+
+  // can get position with the following
+  //console.log(document.getElementById(`${category}`).offsetLeft);
+
+}
 
 function displayFortune() {
   const container = document.getElementsByClassName('display-fortune')[0];
