@@ -47,11 +47,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   const coinDisplay = document.querySelector('.coin-display');
   const coins = document.getElementsByClassName('coins');
   const fortuneTellingScreen = document.querySelector('#fortune-telling');
-  const idk = document.getElementById('idk');
+  const sideGrid = document.querySelector('side-grid');
+  const grid1 = document.getElementById('grid-1');
+  const grid2 = document.getElementById('grid-2');
+  const grid3 = document.getElementById('grid-3');
+  const grid4 = document.getElementById('grid-4');
+  const grid5 = document.getElementById('grid-5');
+  const grid6 = document.getElementById('grid-6');
+  const gridList = [grid1, grid2, grid3, grid4, grid5, grid6];
 
-  idk.innerHTML += '<img id="line-image" src="line_instructions.PNG" alt="instruction image display failed."/>';
+  // idk.innerHTML += '<img id="line-image" src="line_instructions.PNG" alt="instruction image display failed."/>';
 
-  idk.innerHTML = "";
+  // idk.innerHTML = "";
 
   // Music & Info Buttons
   musicButton.addEventListener('click', (e) => {
@@ -143,7 +150,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // UI Generation
         // TODO: Lines
+        console.log(gridList[tossCounter]);
+        if(coinResult.type == 'Yin') {
+          gridList[tossCounter - 1].innerHTML += '<img id="line-image" src="broken_line.PNG" alt="instruction image display failed."/>';
+        }
+        else {
+          gridList[tossCounter - 1].innerHTML += '<img id="line-image" src="solid_line.PNG" alt="instruction image display failed."/>';
+        }
         
+
         // Coin Rotation
         const coinStates = coinResult.coins.toLowerCase();
         const coinState1 = coinStates.slice(0,1);
@@ -192,6 +207,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         lineTxt.style.display = 'block';
         lineImg.style.display = 'inline-block';
         instructionTxt.innerHTML = 'Your instruction/expositionary text goes here.'
+        for(let i = 0; i < 6; i++) {
+          console.log(gridList[i]);
+          gridList[i].innerHTML = '';
+        }
         break;
     }
     // fortuneTellingScreen.style.display = "block";

@@ -94,6 +94,12 @@ span {
     border-radius: 10px;
 }
 
+.side-grid {
+    display: grid;
+    gap: 10%;
+
+}
+
 #instructions {
     background-color: gray;
     border-radius: 10px;
