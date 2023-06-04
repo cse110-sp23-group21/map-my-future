@@ -28,6 +28,13 @@ h1 {
     height: auto;
 }
 
+#line-instructions {
+    width: 75%;
+    height: auto;
+    padding-left: 15%;
+
+}
+
 #line-image {
     width: 75%;
     height: auto;
@@ -88,17 +95,14 @@ span {
     grid-template-columns: 33% 67%;
 }
 
-#side {
+.side {
+    display: grid;
+    grid-template-rows: auto auto auto auto auto auto;
     background-color: gray;
     margin-right: 5%;
     border-radius: 10px;
 }
 
-.side-grid {
-    padding-top: 15%;
-    display: grid;
-    gap: 10%;
-}
 
 #instructions {
     background-color: gray;

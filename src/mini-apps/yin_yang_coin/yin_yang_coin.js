@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const instructionImg = document.getElementById('instruction-image');
   const instructionTxt = document.getElementById('instruction-text');
   const lineTxt = document.getElementById('line-txt');
-  const lineImg= document.getElementById('line-image');
+  const lineImg= document.getElementById('line-instructions');
   const coinDisplay = document.querySelector('.coin-display');
   const coins = document.getElementsByClassName('coins');
   const fortuneTellingScreen = document.querySelector('#fortune-telling');
@@ -145,13 +145,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         // UI Generation
-        // TODO: Lines
-        console.log(gridList[tossCounter]);
+        // Added Line Type to Side Bar
         if(coinResult.type == 'Yin') {
-          gridList[tossCounter - 1].innerHTML += '<img id="line-image" src="broken_line.PNG" alt="instruction image display failed."/>';
+          setTimeout(function() {
+            gridList[tossCounter - 1].innerHTML += '<img id="line-image" src="broken_line.PNG" alt="instruction image display failed."/>';
+          }, 3200);
         }
         else {
-          gridList[tossCounter - 1].innerHTML += '<img id="line-image" src="solid_line.PNG" alt="instruction image display failed."/>';
+          setTimeout(function() {
+            gridList[tossCounter - 1].innerHTML += '<img id="line-image" src="solid_line.PNG" alt="instruction image display failed."/>';
+          }, 3200);
         }
         
 
