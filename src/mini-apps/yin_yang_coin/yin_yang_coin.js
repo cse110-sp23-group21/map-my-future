@@ -40,6 +40,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   const musicButton = document.getElementById('music-button');
   const infoButton = document.getElementById('info-button');
   const instructionScreen = document.querySelector('#instructions');
+  const instructionImg = document.getElementById('instruction-image');
+  const instructionTxt = document.getElementById('instruction-text');
+  const coinDisplay = document.querySelector('.coin-display');
+  const coins = document.getElementsByClassName('coins');
   const fortuneTellingScreen = document.querySelector('#fortune-telling');
 
   // Music & Info Buttons
@@ -48,10 +52,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const musicImg = document.querySelector('#music');
     if (musicEnabled) {
       musicImg.src = '../../../assets/audio_off.png';
-      bgm.pause();
+      // bgm.pause();
     } else {
       musicImg.src = '../../../assets/audio_on.png';
-      bgm.play();
+      // bgm.play();
     }
     musicEnabled = !musicEnabled;
   });
@@ -124,13 +128,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Update Button State
         buttonElement.value = 'toss';
         buttonElement.innerText = 'Toss Coins';
+
+        // Update Content Screen
+        instructionImg.style.display = 'none';
+        instructionTxt.style.display = 'none';
+        coinDisplay.style.display = 'block';
+
         break;
 
         // Toss State
       case 'toss':
         // Backend Generation
 
-        // Set button as disabled
+        // Set button as disabled - for 3 seconds (that's how long the coins are flipped)
         buttonElement.disabled = true;
 
         // TODO: Make it apparent in the UI that the button has been disabled
@@ -156,9 +166,18 @@ document.addEventListener('DOMContentLoaded', async () => {
           buttonElement.innerText = 'Get Result';
         }
 
-        // TODO: UI Generation
-
+        // UI Generation
         // TODO: Lines
+
+        // Coin Rotation
+        const coinStates = coinResult.coins.toLowerCase();
+        const coinState1 = coinStates.slice(0, 1);
+        const coinState2 = coinStates.slice(1, 2);
+        const coinState3 = coinStates.slice(2, 3);
+
+        coins[0].style.animation = `${coinState1}-rotate-${tossCounter % 2} 3s ease forwards`;
+        coins[1].style.animation = `${coinState2}-rotate-${tossCounter % 2} 3s ease forwards`;
+        coins[2].style.animation = `${coinState3}-rotate-${tossCounter % 2} 3s ease forwards`;
 
         // TODO: Coin Generation/Animation
         // https://www.w3schools.com/jsref/prop_pushbutton_disabled.asp
@@ -178,6 +197,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Update Button State
         buttonElement.value = 'reset';
         buttonElement.innerText = 'New Round';
+
+        // Update Content Screen
+        coinDisplay.style.display = 'none';
+        instructionTxt.innerHTML = 'Intepretation';
+        instructionTxt.style.display = 'inline';
+
         break;
 
       case 'reset':
@@ -189,9 +214,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Update Button State
         buttonElement.value = 'start';
         buttonElement.innerText = 'Start';
+
+        // Update Content Screen
+        for (const coin of coins) {
+          coin.style.animation = 'none';
+        }
+        instructionTxt.style.display = 'block';
+        instructionImg.style.display = 'inline-block';
         break;
     }
+    // fortuneTellingScreen.style.display = "block";
+    // instructionScreen.style.display = "none";
   });
-
-  //  Start Screen
 });
