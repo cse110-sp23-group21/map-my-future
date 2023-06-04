@@ -65,8 +65,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Background music
   const bgm = new Audio('background_music1.mp3');
   const flipSound = new Audio('coin_flip.ogg');
-  bgm.play();
   bgm.loop = true;
+  bgm.volume = 0.3;
+  flipSound.volume = 0.4;
+  bgm.play();
 
   // Music Button
   musicButton.addEventListener('click', (event) => {
