@@ -24,6 +24,11 @@ h1 {
 }
 
 #instruction-image {
+    width: 70%;
+    height: auto;
+}
+
+#line-image {
     width: 75%;
     height: auto;
 }

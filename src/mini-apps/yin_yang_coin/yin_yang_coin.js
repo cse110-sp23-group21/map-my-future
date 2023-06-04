@@ -42,9 +42,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   const infoButton = document.getElementById('info-button');
   const instructionImg = document.getElementById('instruction-image');
   const instructionTxt = document.getElementById('instruction-text');
+  const lineTxt = document.getElementById('line-txt');
+  const lineImg= document.getElementById('line-image');
   const coinDisplay = document.querySelector('.coin-display');
   const coins = document.getElementsByClassName('coins');
   const fortuneTellingScreen = document.querySelector('#fortune-telling');
+  const idk = document.getElementById('idk');
+
+  idk.innerHTML += '<img id="line-image" src="line_instructions.PNG" alt="instruction image display failed."/>';
+
+  idk.innerHTML = "";
 
   // Music & Info Buttons
   musicButton.addEventListener('click', (e) => {
@@ -104,6 +111,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Update Content Screen
         instructionImg.style.display = 'none';
         instructionTxt.style.display = 'none';
+        lineTxt.style.display = 'none';
+        lineImg.style.display = 'none';
         coinDisplay.style.display = 'block';
 
         break;
@@ -180,6 +189,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         instructionTxt.style.display = 'block';
         instructionImg.style.display = 'inline-block';
+        lineTxt.style.display = 'block';
+        lineImg.style.display = 'inline-block';
+        instructionTxt.innerHTML = 'Your instruction/expositionary text goes here.'
         break;
     }
     // fortuneTellingScreen.style.display = "block";
