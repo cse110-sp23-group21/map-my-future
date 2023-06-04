@@ -63,7 +63,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   await engine.db_reader('yin_yang_coin.json');
 
   // Background music
-  const bgm = new Audio('../../../assets/map-my-future-bgm.ogg');
+  const bgm = new Audio('background_music1.mp3');
+  const flipSound = new Audio('coin_flip.ogg');
   bgm.play();
   bgm.loop = true;
 
@@ -141,9 +142,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const coinState2 = coinStates.slice(1,2);
         const coinState3 = coinStates.slice(2,3);
 
-        coins[0].style.animation = `${coinState1}-rotate-${tossCounter%2} 3s ease forwards`;
-        coins[1].style.animation = `${coinState2}-rotate-${tossCounter%2} 3s ease forwards`;
-        coins[2].style.animation = `${coinState3}-rotate-${tossCounter%2} 3s ease forwards`;
+        coins[0].style.animation = `${coinState1}-rotate-${tossCounter%2} 4.3s ease forwards`;
+        coins[1].style.animation = `${coinState2}-rotate-${tossCounter%2} 4.3s ease forwards`;
+        coins[2].style.animation = `${coinState3}-rotate-${tossCounter%2} 4.3s ease forwards`;
+        flipSound.play();
 
         break;
         
