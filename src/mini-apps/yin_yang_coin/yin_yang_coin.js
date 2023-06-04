@@ -65,13 +65,22 @@ document.addEventListener('DOMContentLoaded', async () => {
   const musicButton = document.getElementById('music-button');
   const infoButton = document.getElementById('info-button');
 
+  const lineImg= document.getElementById('line-image');
+  const lineTxt = document.getElementById('line-text');
   const instructionImg = document.getElementById('instruction-image');
   const instructionTxt = document.getElementById('instruction-text');
   const intepretationTxt = document.getElementById('interpretation-text');
   const character = document.getElementById('character');
   const coinDisplay = document.querySelector('.coin-display');
   const coins = document.getElementsByClassName('coins');
-  
+
+  const grid1 = document.getElementById('grid-1');
+  const grid2 = document.getElementById('grid-2');
+  const grid3 = document.getElementById('grid-3');
+  const grid4 = document.getElementById('grid-4');
+  const grid5 = document.getElementById('grid-5');
+  const grid6 = document.getElementById('grid-6');
+  const gridList = [grid1, grid2, grid3, grid4, grid5, grid6];
 
   let musicEnabled = true;
   let showInfo = false;
@@ -121,20 +130,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         buttonElement.innerText = 'Toss Coins';
 
         // Update Content Screen
+        lineTxt.innerHTML = 'Hexagram';
+        lineTxt.style.fontSize = '40px';
+
         instructionImg.style.display = 'none';
         instructionTxt.style.display = 'none';
+        lineImg.style.display = 'none';
         coinDisplay.style.display = 'block';
         break;
 
       case 'toss':
         // Backend Generation
-
-        // Set button as disabled - for 3 seconds (that's how long the coins are flipped)
-        buttonElement.disabled = true;
-
-        // TODO: Make it apparent in the UI that the button has been disabled
-        // https://codepen.io/robertwbradford/pen/NaMNJg (reference)
-
         //  Generate a random result for tossing 3 coins
         const coinResult = engine.get_random_subset(1)[0];  //  eslint-disable-line
         console.log('coinResult:', coinResult.value);
@@ -149,14 +155,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         tossCounter++;
         console.log('Tossing coins! tossCounter =', tossCounter);
 
+        // UI Generation
         // Update Button State
         if (tossCounter === 6) {
           buttonElement.value = 'result';
           buttonElement.innerText = 'Get Result';
         }
 
-        // UI Generation
-        // TODO: Lines
+        // Lines Animation
+        console.log(gridList[tossCounter]);
+        if(coinResult.type == 'Yin') {
+          gridList[tossCounter - 1].innerHTML += '<img id="line-image" src="broken_line.png" alt="broken line image display failed."/>';
+        }
+        else {
+          gridList[tossCounter - 1].innerHTML += '<img id="line-image" src="solid_line.png" alt="solid line image display failed."/>';
+        }
 
         // Coin Rotation
         const coinStates = coinResult.coins.toLowerCase();
@@ -169,9 +182,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         coins[2].style.animation = `${coinState3}-rotate-${tossCounter%2} 4.3s ease forwards`;
         flipSound.play();
 
-        // https://www.w3schools.com/jsref/prop_pushbutton_disabled.asp
-        // TODO: Re-enable button
-        buttonElement.disabled = false;
+        // Set button as disabled - for 4.5 seconds
+        buttonElement.style.pointerEvents = 'none';
+        setTimeout(() => {
+          buttonElement.style.pointerEvents = 'all';
+        }, 4500);
+
         break;
 
       case 'result':
@@ -185,8 +201,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Update Content Screen
         character.innerHTML = hexagram.character;
-        instructionTxt.innerHTML = hexagram.name;
-        intepretationTxt.innerHTML = hexagram.meaning;
+        instructionTxt.innerHTML = `"${hexagram.name}"`;
+        intepretationTxt.innerHTML = `"${hexagram.meaning}"`;
         
         character.className = 'active';
         if(hexagram.character.length === 2){
@@ -199,6 +215,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         coinDisplay.style.display = 'none';
         instructionTxt.style.display = 'block';
         intepretationTxt.style.display = 'inline-block';
+
+        // Set button as disabled - for 4 seconds
+        buttonElement.style.pointerEvents = 'none';
+        setTimeout(() => {
+          buttonElement.style.pointerEvents = 'all';
+        }, 4000);
 
         break;
 
@@ -218,11 +240,23 @@ document.addEventListener('DOMContentLoaded', async () => {
         character.innerHTML = '';
         intepretationTxt.innerHTML = '';
         instructionTxt.innerHTML = 'Instruction';
+        lineTxt.innerHTML = 'Side Info'
 
         character.className = 'inactive';
         instructionTxt.style.fontSize = '15px';
         instructionImg.style.display = 'inline-block';
         intepretationTxt.style.display = 'none';
+
+        // Update Side Screen
+        lineTxt.style.fontSize = '15px';
+        lineTxt.style.display = 'block';
+        lineImg.style.display = 'inline-block';
+        
+        for(let i = 0; i < 6; i++) {
+          console.log(gridList[i]);
+          gridList[i].innerHTML = '';
+        }
+
         break;
     }
   });

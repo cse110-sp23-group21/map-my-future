@@ -87,6 +87,10 @@ span:nth-child(3) {
     grid-template-columns: 33% 67%;
 }
 
+.side-grid {
+    display: grid;
+}
+
 #side {
     background-color: rgba(128, 128, 128, 50%);
     margin-right: 5%;
@@ -100,6 +104,11 @@ span:nth-child(3) {
 
 #instruction-image {
     width: 70%;
+    height: auto;
+}
+
+#line-image {
+    width: 65%;
     height: auto;
 }
 
@@ -240,6 +249,7 @@ span:nth-child(3) {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
+    cursor: pointer;
 }
 
 .button-container-bottom-right {
