@@ -1,16 +1,15 @@
 // all driver code should be within this event listener, ie adding other event listeners and calling on imported engine
 
-import FortuneEngine from "../../engine.js";
+import FortuneEngine from '../../engine.js';
 
 const engine = new FortuneEngine();
-const APP_NAME = "fortune-stick";
+const APP_NAME = 'fortune_stick';
 
 let selectedCategory = '';
-let receivedFortune = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad est, laboriosam optio molestias iste, quam perferendis vitae voluptatum minus ullam libero eum nisi. Necessitatibus ipsum alias, molestias adipisci doloremque totam!';
+const receivedFortune = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad est, laboriosam optio molestias iste, quam perferendis vitae voluptatum minus ullam libero eum nisi. Necessitatibus ipsum alias, molestias adipisci doloremque totam!';
 const TYPING_SPEED = 35;
 
 document.addEventListener('DOMContentLoaded', async () => {
-
   // Read JSON File
   await engine.db_reader(`./${APP_NAME}.json`);
 
@@ -24,19 +23,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   let showInfo = false;
   const musicButton = document.getElementById('music-button');
   const infoButton = document.getElementById('info-button');
-  const cardElements = document.querySelectorAll(".card");
+  const cardElements = document.querySelectorAll('.card');
 
   //  Add event listeners to the card elements
-  console.log("cardElements:", cardElements);
+  console.log('cardElements:', cardElements);
 
   cardElements.forEach(cardElement => {
     console.log("element's id:", cardElement.id);
 
-    cardElement.addEventListener("click", (e) => {
-
+    cardElement.addEventListener('click', (e) => {
       selectCategory(cardElement.id);
-    })
-  })
+    });
+  });
 
   musicButton.addEventListener('click', (e) => {
     console.log('music');
@@ -62,10 +60,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   resetButton.addEventListener('click', (e) => {
     window.location.reload();
   });
-})
+});
 
 // Select category card
-function selectCategory(category) {
+function selectCategory (category) {
   chooseCardAnimation(category);
 
   selectedCategory = category;
@@ -73,15 +71,13 @@ function selectCategory(category) {
   const notChosen = document.querySelectorAll(`.card:not(#${category})`);
   const allCards = document.getElementsByClassName('categories')[0];
 
-
-  for(let i = 0; i < notChosen.length; i++) {
+  for (let i = 0; i < notChosen.length; i++) {
     notChosen[i].classList.toggle('hide');
     notChosen[i].style.opacity = '0';
-    //console.log(notChosen[i]);
+    // console.log(notChosen[i]);
   }
 
-
-  let notChosenCards = document.getElementsByClassName('card hide')[0];
+  const notChosenCards = document.getElementsByClassName('card hide')[0];
 
   setTimeout(() => {
     allCards.style.display = 'none';
@@ -92,27 +88,25 @@ function selectCategory(category) {
 
 // Animates the card that is chosen and adds the choose-card class
 // Currently only just spins it, hopefully also centers it later
-function chooseCardAnimation(category) {
+function chooseCardAnimation (category) {
+  const cardElement = document.getElementById(`${category}`);
 
-  let cardElement = document.getElementById(`${category}`);
-  
-  cardElement.classList.toggle("choose-card");
+  cardElement.classList.toggle('choose-card');
   // get the center of the parent for a later animationk
-  //let relCenterCoord = document.getElementsByClassName('categories').offsetWidth / 2;
+  // let relCenterCoord = document.getElementsByClassName('categories').offsetWidth / 2;
 
   // can get position with the following
-  //console.log(document.getElementById(`${category}`).offsetLeft);
-
+  // console.log(document.getElementById(`${category}`).offsetLeft);
 }
 
-function displayFortune() {
+function displayFortune () {
   const container = document.getElementsByClassName('display-fortune')[0];
   const resetButton = document.getElementsByClassName('reset-button-container')[0];
 
   const message = document.getElementById('fortune-message');
   const fortune = document.getElementById('fortune-received');
 
-  let receivedFortune = engine.get_random_subset(1)[0][selectedCategory];
+  const receivedFortune = engine.get_random_subset(1)[0][selectedCategory];
 
   message.textContent = `Your fortune for ${selectedCategory} is:`;
 
@@ -125,7 +119,7 @@ function displayFortune() {
   let index = 0;
 
   // create a new audio object
-  const typingSound = new Audio("fortune_stick_reveal.ogg")
+  const typingSound = new Audio('fortune_stick_reveal.ogg');
   typingSound.currentTime = 0;
   typingSound.play();
   // set up the typing effect
@@ -134,8 +128,8 @@ function displayFortune() {
     fortune.textContent += receivedFortune[index];
 
     // play the typing sound
-    //typingSound.currentTime = 0; // reset sound to start
-    //typingSound.play();
+    // typingSound.currentTime = 0; // reset sound to start
+    // typingSound.play();
 
     index++;
     // if we've displayed the whole message, clear the interval
@@ -144,7 +138,6 @@ function displayFortune() {
     }
   }, TYPING_SPEED); // this value controls the typing speed, adjust as desired
 }
-
 
 // function displayFortune() {
 //   const container = document.getElementsByClassName('display-fortune')[0];
