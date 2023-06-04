@@ -31,9 +31,9 @@ import FortuneEngine from '../../engine.js';
 document.addEventListener('DOMContentLoaded', async () => {
 
   // Background music
-  //const bgm = new Audio('../../../assets/map-my-future-bgm.ogg'); //  eslint-disable-line
-  //bgm.play();
-  //bgm.loop = true;
+  // const bgm = new Audio('../../../assets/map-my-future-bgm.ogg'); //  eslint-disable-line
+  // bgm.play();
+  // bgm.loop = true;
 
   // Buttons
   let musicEnabled = true;
@@ -44,19 +44,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   const instructionTxt = document.getElementById('instruction-text');
   const coinDisplay = document.querySelector('.coin-display');
   const coins = document.getElementsByClassName('coins');
-  const fortuneTellingScreen = document.querySelector("#fortune-telling");
+  const fortuneTellingScreen = document.querySelector('#fortune-telling');
 
-  
   // Music & Info Buttons
   musicButton.addEventListener('click', (e) => {
     console.log('music');
     const musicImg = document.querySelectorAll('img')[0];
     if (musicEnabled) {
       musicImg.src = '../../../assets/audio_off.png';
-      bgm.pause();
+      // bgm.pause();
     } else {
       musicImg.src = '../../../assets/audio_on.png';
-      bgm.play();
+      // bgm.play();
     }
     musicEnabled = !musicEnabled;
   });
@@ -67,13 +66,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     showInfo = !showInfo;
   });
 
-  //  Read contents from JSON using FortuneEngine
+  // Read contents from JSON using FortuneEngine
   const engine = new FortuneEngine('ying_yang_coin');
 
   await engine.db_reader('yin_yang_coin.json');
 
-  //  Start Button
-  const buttonElement = document.querySelector(".action-button");
+  // Start Button
+  const buttonElement = document.querySelector('.action-button');
   
   /**
    * Count up to 6 times for tossing
@@ -97,15 +96,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     // Start State
     switch (buttonValue) {
-      case "start":
+      case 'start':
         // Update Button State
-        buttonElement.value = "toss";
-        buttonElement.innerText = "Toss Coins";
+        buttonElement.value = 'toss';
+        buttonElement.innerText = 'Toss Coins';
 
         // Update Content Screen
-        instructionImg.style.display = "none";
-        instructionTxt.style.display = "none";
-        coinDisplay.style.display = "block";
+        instructionImg.style.display = 'none';
+        instructionTxt.style.display = 'none';
+        coinDisplay.style.display = 'block';
 
         break;
         
@@ -115,34 +114,32 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Generate a random result for tossing 3 coins
         const coinResult = engine.get_random_subset(1)[0];
 
-        console.log("coinResult:", coinResult.value);
-        console.log("Power of two:", powerOfTwo);
+        console.log('coinResult:', coinResult.value);
+        console.log('Power of two:', powerOfTwo);
         
         // Calculate the Hexagram Index
         hexagramIndex += coinResult.value * powerOfTwo;
         powerOfTwo = powerOfTwo << 1;
 
-        console.log("Hexagram Index:", hexagramIndex);
-        
+        console.log('Hexagram Index:', hexagramIndex);
 
         tossCounter++;
-        console.log("Tossing coins! tossCounter =", tossCounter);
+        console.log('Tossing coins! tossCounter =', tossCounter);
 
         // Update Button State
-        if(tossCounter == 6) {
-          buttonElement.value = "result";
-          buttonElement.innerText = "Get Result";
+        if(tossCounter === 6) {
+          buttonElement.value = 'result';
+          buttonElement.innerText = 'Get Result';
         }
 
         // UI Generation
-
         // TODO: Lines
         
         // Coin Rotation
-        let coinStates= coinResult.coins.toLowerCase();
-        let coinState1 = coinStates.slice(0,1);
-        let coinState2 = coinStates.slice(1,2);
-        let coinState3 = coinStates.slice(2,3);
+        const coinStates = coinResult.coins.toLowerCase();
+        const coinState1 = coinStates.slice(0,1);
+        const coinState2 = coinStates.slice(1,2);
+        const coinState3 = coinStates.slice(2,3);
 
         coins[0].style.animation = `${coinState1}-rotate-${tossCounter%2} 3s ease forwards`;
         coins[1].style.animation = `${coinState2}-rotate-${tossCounter%2} 3s ease forwards`;
@@ -150,47 +147,42 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         break;
         
-      case "result":
+      case 'result':
         // TODO: Modify FortuneEngine to let you access the entire JSON object
         // TODO: Backend - Map hexigram to intepretation
         
-        
-        // TODO: UI - Clear the screen and then display the result
+        // TODO: UI - Display the result
         
         // Update Button State
-        buttonElement.value = "reset";
-        buttonElement.innerText = "New Round";
+        buttonElement.value = 'reset';
+        buttonElement.innerText = 'New Round';
 
         // Update Content Screen
-        coinDisplay.style.display = "none";
-        instructionTxt.innerHTML = "Intepretation";
-        instructionTxt.style.display = "inline";
+        coinDisplay.style.display = 'none';
+        instructionTxt.innerHTML = 'Intepretation';
+        instructionTxt.style.display = 'inline';
         
         break;
         
-      case "reset":
+      case 'reset':
         // Reset to initial state
         hexagramIndex = 0;
         tossCounter = 0;
         powerOfTwo = 1;
 
         // Update Button State
-        buttonElement.value = "start";
-        buttonElement.innerText = "Start";
+        buttonElement.value = 'start';
+        buttonElement.innerText = 'Start';
 
         // Update Content Screen
         for (const coin of coins) {
-          coin.style.animation = "none";
+          coin.style.animation = 'none';
         }
-        instructionTxt.style.display = "block";
-        instructionImg.style.display = "inline-block";
+        instructionTxt.style.display = 'block';
+        instructionImg.style.display = 'inline-block';
         break;
     }
-
-    
     // fortuneTellingScreen.style.display = "block";
     // instructionScreen.style.display = "none";
   });
-
-  //  Start Screen
 });

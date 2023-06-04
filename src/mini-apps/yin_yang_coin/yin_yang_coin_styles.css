@@ -19,7 +19,6 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #000;
-    text-align: center;
     transform: scale(0.94);
     animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
 }
@@ -164,7 +163,7 @@ p {
     padding: 20px 50px;
     border: none;
     background-color: #706f6f6f;
-    color: #000000;
+    color: #000;
     cursor: pointer;
     border-radius: 20px;
     font-size: 1.2rem;
@@ -229,8 +228,7 @@ p {
     font-size: 10px;
 }
 
-
-/*body {
+/* body {
     width: 100vw;
     height: 100vh;
     background: antiquewhite;
@@ -278,4 +276,4 @@ footer {
     font-size: 50px;
     border: none;
     cursor: pointer;
-}*/
+} */
