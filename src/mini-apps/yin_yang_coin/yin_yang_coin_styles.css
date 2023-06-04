@@ -95,9 +95,9 @@ span {
 }
 
 .side-grid {
+    padding-top: 15%;
     display: grid;
     gap: 10%;
-
 }
 
 #instructions {
