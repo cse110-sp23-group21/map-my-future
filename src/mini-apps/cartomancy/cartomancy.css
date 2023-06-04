@@ -1,0 +1,260 @@
+/* customize for mini app! styling for buttons and onwards should remain untouched. */
+
+/* styling for page */
+@font-face {
+    font-family: "Chinese Shanghai Demo";
+    src: url('../../../assets/ChineseShangaiDemoVersionRegular.ttf');
+}
+
+body {
+    display: flex;
+    justify-content: fit;
+    /* background-color: rgb(178 29 29); */
+    background-image: url('/assets/cartomancy-background.jpeg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Luxurious Script', cursive;
+    /*font-family: "Chinese Shanghai Demo";*/
+}
+
+.center-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85%;
+}
+
+/* styling for category selection */
+
+.deck {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    opacity: 1;
+    gap: 15px;
+    transition: opacity 1s ease;
+}
+
+.hide {
+    transition: opacity 1s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/assets/cartomancy-card-back.png');
+    background-position: center;
+    background-size: 200px 350px;
+    width: 200px;
+    height: 350px;
+    color: white;
+    margin: 20px;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: opacity 1s ease;
+    transition: 300ms ease-in-out;
+}
+
+
+
+.card + .card{
+    margin-left: -12.5%; 
+}
+.card:hover {
+    filter: brightness(0.8);
+    transform: rotate(-4deg); 
+    box-shadow: 0px 0px 20px #FFD700;
+    transition: 0.3s;
+}
+.card:hover ~ .card{
+    z-index: 1;
+    translate: 30px; 
+}
+
+.card h2 {
+    margin: 0px;
+    font-family: "Chinese Shanghai Demo";
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto; 
+    padding: 20px; 
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  .popup .close:hover {
+    color: #06D85F;
+  }
+  .popup .content {
+    max-height: 30%;
+    overflow: auto;
+  }
+  
+  @media screen and (max-width: 700px){
+    .box{
+      width: 70%;
+    }
+    .popup{
+      width: 70%;
+    }
+  }
+  
+
+
+/* styling for fortune display */
+
+.display-fortune {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.display-fortune.show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    opacity: 1;
+}
+
+.fortune-img img {
+    width: 250px;
+    height: 250px;
+}
+
+.fortune-text {
+    width: 60%;
+}
+
+#fortune-message {
+  margin: auto;
+  max-width: 8em;  
+}
+
+.reset-button-container {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.reset-button-container.show {
+    opacity: 1;
+}
+
+/* styling for buttons */
+.button-container-bottom-right {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.button-container-bottom-left {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+  
+.menu-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #846e43;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.menu-button img {
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) invert(1);
+}
+
+.menu-button:hover {
+    background-color: #857557;
+}
+
+/* styling for info pop up screen */
+.info-popup {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 85px;
+    width: 400px;
+    height: 300px;
+    border-radius: 10%;
+    background-color: #846e43;
+    text-align: center;
+    justify-content: center;    
+}
+
+.choose-card { 
+  /*transition: transform 0.8s ease;*/
+  /*transform-style: preserve-3d; */ /*no 3d included*/
+  left: 5000;
+  top: 500;
+  animation-name: moveAndTurn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.remove-card {
+  transition: transform 0.8s;
+  visibility: transparent;
+}
+
+.info-text {
+    color: white;
+    width: 90%;
+}
+
+@keyframes moveAndTurn {
+  0% {
+  }
+  50% {
+    /*transform: translateX(-50%);*/
+  } 
+  100% {
+    /* TODO: find a way to move selected card to center
+    /*transform: translate(-50%, -50%) rotate(360deg);*/
+    transform: translate(0, 0) rotateY(90deg);
+  }
+}

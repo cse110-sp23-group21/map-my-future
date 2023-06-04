@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await engine.db_reader(`./${APP_NAME}.json`);
 
   // Background music
-  const bgm = new Audio('cartomancy-audio.mp3'); //  eslint-disable-line
+  const bgm = new Audio('/assets/cartomancy-background-music.mp3'); //  eslint-disable-line
   bgm.play();
   bgm.loop = true;
 
