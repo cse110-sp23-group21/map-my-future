@@ -40,7 +40,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   let showInfo = false;
   const musicButton = document.getElementById('music-button');
   const infoButton = document.getElementById('info-button');
-  const instructionScreen = document.querySelector("#instructions");
+  const instructionImg = document.getElementById('instruction-image');
+  const instructionTxt = document.getElementById('instruction-text');
+  const coinDisplay = document.querySelector('.coin-display');
+  const coins = document.getElementsByClassName('coins');
   const fortuneTellingScreen = document.querySelector("#fortune-telling");
 
   
@@ -98,25 +101,30 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Update Button State
         buttonElement.value = "toss";
         buttonElement.innerText = "Toss Coins";
+
+        // Update Content Screen
+        instructionImg.style.display = "none";
+        instructionTxt.style.display = "none";
+        coinDisplay.style.display = "block";
+
         break;
         
     // Toss State
       case "toss":
         // Backend Generation
-
-        //  Generate a random result for tossing 3 coins
+        // Generate a random result for tossing 3 coins
         const coinResult = engine.get_random_subset(1)[0];
 
         console.log("coinResult:", coinResult.value);
         console.log("Power of two:", powerOfTwo);
         
-        //  Calculate the Hexagram Index
+        // Calculate the Hexagram Index
         hexagramIndex += coinResult.value * powerOfTwo;
         powerOfTwo = powerOfTwo << 1;
 
         console.log("Hexagram Index:", hexagramIndex);
         
-        
+
         tossCounter++;
         console.log("Tossing coins! tossCounter =", tossCounter);
 
@@ -126,11 +134,19 @@ document.addEventListener('DOMContentLoaded', async () => {
           buttonElement.innerText = "Get Result";
         }
 
-        // TODO: UI Generation
+        // UI Generation
 
         // TODO: Lines
         
-        // TODO: Coin Generation/Animation
+        // Coin Rotation
+        let coinStates= coinResult.coins.toLowerCase();
+        let coinState1 = coinStates.slice(0,1);
+        let coinState2 = coinStates.slice(1,2);
+        let coinState3 = coinStates.slice(2,3);
+
+        coins[0].style.animation = `${coinState1}-rotate-${tossCounter%2} 3s ease forwards`;
+        coins[1].style.animation = `${coinState2}-rotate-${tossCounter%2} 3s ease forwards`;
+        coins[2].style.animation = `${coinState3}-rotate-${tossCounter%2} 3s ease forwards`;
 
         break;
         
@@ -144,6 +160,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Update Button State
         buttonElement.value = "reset";
         buttonElement.innerText = "New Round";
+
+        // Update Content Screen
+        coinDisplay.style.display = "none";
+        instructionTxt.innerHTML = "Intepretation";
+        instructionTxt.style.display = "inline";
+        
         break;
         
       case "reset":
@@ -155,10 +177,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Update Button State
         buttonElement.value = "start";
         buttonElement.innerText = "Start";
+
+        // Update Content Screen
+        for (const coin of coins) {
+          coin.style.animation = "none";
+        }
+        instructionTxt.style.display = "block";
+        instructionImg.style.display = "inline-block";
         break;
     }
 
-    
     
     // fortuneTellingScreen.style.display = "block";
     // instructionScreen.style.display = "none";

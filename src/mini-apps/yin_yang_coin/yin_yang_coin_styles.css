@@ -3,6 +3,7 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
 }
+
 .container {
     display: flex;
     flex-direction: column;
@@ -23,8 +24,8 @@ h1 {
     animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
 }
 
-#instruction1 {
-    width: 70%;
+#instruction-image {
+    width: 75%;
     height: auto;
 }
 
@@ -50,7 +51,7 @@ span:nth-child(3) {
     100% {
         opacity: 1;
         filter: blur(0);
-    }    
+    }
 }
 
 span {
@@ -68,7 +69,8 @@ span {
     background-color: whitesmoke;
 }
 
-.top-grid, .bottom-grid {
+.top-grid,
+.bottom-grid {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,28 +85,62 @@ span {
 }
 
 #side {
-    /* display: flex;
-    box-sizing: content-box;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    justify-content: center; */
-    background-color:gray;
+    background-color: gray;
     margin-right: 5%;
     border-radius: 10px;
 }
 
 #instructions {
-    /* display: flex;
-    box-sizing: content-box;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    justify-content: center; */
-    background-color:gray;
+    background-color: gray;
     border-radius: 10px;
 }
 
+/* coin style and animation effect */
+.coin-display {
+    animation: none;
+    display: none;
+    margin-top: 23%;
+}
+
+@keyframes h-rotate-0 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(2250deg);
+    }
+}
+
+@keyframes h-rotate-1 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(2251deg);
+    }
+}
+
+@keyframes t-rotate-0 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(2430deg);
+    }
+}
+
+@keyframes t-rotate-1 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(2431deg);
+    }
+}
 
 /* #fortune-telling {
     display: none;
@@ -121,7 +157,7 @@ p {
     font-weight: 60;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 1s ease 1s;
+    /* transition: all 1s ease 1s; */
 }
 
 .action-button {
@@ -149,7 +185,7 @@ p {
     bottom: 20px;
     left: 20px;
 }
-  
+
 .menu-button {
     display: flex;
     justify-content: center;
