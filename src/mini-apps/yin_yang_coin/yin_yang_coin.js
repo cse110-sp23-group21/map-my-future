@@ -30,9 +30,9 @@ import FortuneEngine from '../../engine.js';
 //  Wait for the DOM to be ready
 document.addEventListener('DOMContentLoaded', async () => {
   // Background music
-  // const bgm = new Audio('../../../assets/map-my-future-bgm.ogg'); //  eslint-disable-line
+  const bgm = new Audio('../../../assets/map-my-future-bgm.ogg');
   // bgm.play();
-  // bgm.loop = true;
+  bgm.loop = true;
 
   // Buttons
   let musicEnabled = true;
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Music & Info Buttons
   musicButton.addEventListener('click', (e) => {
     console.log('music');
-    const musicImg = document.querySelectorAll('img')[0];
+    const musicImg = document.querySelector('#music');
     if (musicEnabled) {
       musicImg.src = '../../../assets/audio_off.png';
       bgm.pause();
