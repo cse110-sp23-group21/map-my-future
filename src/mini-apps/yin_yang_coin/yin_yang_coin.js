@@ -27,53 +27,17 @@
 
 import FortuneEngine from '../../engine.js';
 
-//  Wait for the DOM to be ready
+// Wait for the DOM to be ready
 document.addEventListener('DOMContentLoaded', async () => {
-
-  // Background music
-  // const bgm = new Audio('../../../assets/map-my-future-bgm.ogg'); //  eslint-disable-line
-  // bgm.play();
-  // bgm.loop = true;
-
-  // Buttons
-  let musicEnabled = true;
-  let showInfo = false;
+  // Accessible Buttons
   const musicButton = document.getElementById('music-button');
   const infoButton = document.getElementById('info-button');
-  const instructionImg = document.getElementById('instruction-image');
-  const instructionTxt = document.getElementById('instruction-text');
-  const coinDisplay = document.querySelector('.coin-display');
-  const coins = document.getElementsByClassName('coins');
-  const fortuneTellingScreen = document.querySelector('#fortune-telling');
-
-  // Music & Info Buttons
-  musicButton.addEventListener('click', (e) => {
-    console.log('music');
-    const musicImg = document.querySelectorAll('img')[0];
-    if (musicEnabled) {
-      musicImg.src = '../../../assets/audio_off.png';
-      // bgm.pause();
-    } else {
-      musicImg.src = '../../../assets/audio_on.png';
-      // bgm.play();
-    }
-    musicEnabled = !musicEnabled;
-  });
-
-  infoButton.addEventListener('click', (e) => {
-    const infoPopup = document.getElementById('info-popup');
-    infoPopup.style.display = !showInfo ? 'flex' : 'none';
-    showInfo = !showInfo;
-  });
-
-  // Read contents from JSON using FortuneEngine
-  const engine = new FortuneEngine('ying_yang_coin');
-
-  await engine.db_reader('yin_yang_coin.json');
-
-  // Start Button
   const buttonElement = document.querySelector('.action-button');
-  
+
+  // Accessible Variables
+  let musicEnabled = true;
+  let showInfo = false;
+
   /**
    * Count up to 6 times for tossing
    */
@@ -88,7 +52,43 @@ document.addEventListener('DOMContentLoaded', async () => {
    * Stores the current power of 2 (shifted once to the left in each iteration)
    */
   let powerOfTwo = 1;
+
+  const instructionImg = document.getElementById('instruction-image');
+  const instructionTxt = document.getElementById('instruction-text');
+  const coinDisplay = document.querySelector('.coin-display');
+  const coins = document.getElementsByClassName('coins');
+
+  // Read contents from JSON using FortuneEngine
+  const engine = new FortuneEngine('ying_yang_coin');
+  await engine.db_reader('yin_yang_coin.json');
+
+  // Background music
+  const bgm = new Audio('../../../assets/map-my-future-bgm.ogg');
+  bgm.play();
+  bgm.loop = true;
+
+  // Music Button
+  musicButton.addEventListener('click', (event) => {
+    console.log('music');
+    const musicImg = document.getElementById('music');
+    if (musicEnabled) {
+      musicImg.src = '../../../assets/audio_off.png';
+      bgm.pause();
+    } else {
+      musicImg.src = '../../../assets/audio_on.png';
+      bgm.play();
+    }
+    musicEnabled = !musicEnabled;
+  });
+
+  // Info Button
+  infoButton.addEventListener('click', (event) => {
+    const infoPopup = document.getElementById('info-popup');
+    infoPopup.style.display = !showInfo ? 'flex' : 'none';
+    showInfo = !showInfo;
+  });
   
+  // Action Button
   buttonElement.addEventListener('click', (event) => {
     const buttonElement = event.target;
     const buttonValue = buttonElement.value;
@@ -182,7 +182,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         instructionImg.style.display = 'inline-block';
         break;
     }
-    // fortuneTellingScreen.style.display = "block";
-    // instructionScreen.style.display = "none";
   });
+  
 });
