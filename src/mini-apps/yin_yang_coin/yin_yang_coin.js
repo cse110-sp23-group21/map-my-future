@@ -67,20 +67,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const lineImg= document.getElementById('line-image');
   const lineTxt = document.getElementById('line-text');
+  const gridList = document.querySelectorAll('#grid');
+
   const instructionImg = document.getElementById('instruction-image');
   const instructionTxt = document.getElementById('instruction-text');
   const intepretationTxt = document.getElementById('interpretation-text');
   const character = document.getElementById('character');
   const coinDisplay = document.querySelector('.coin-display');
   const coins = document.getElementsByClassName('coins');
-
-  const grid1 = document.getElementById('grid-1');
-  const grid2 = document.getElementById('grid-2');
-  const grid3 = document.getElementById('grid-3');
-  const grid4 = document.getElementById('grid-4');
-  const grid5 = document.getElementById('grid-5');
-  const grid6 = document.getElementById('grid-6');
-  const gridList = [grid1, grid2, grid3, grid4, grid5, grid6];
 
   let musicEnabled = true;
   let showInfo = false;
@@ -130,8 +124,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         buttonElement.innerText = 'Toss Coins';
 
         // Update Content Screen
-        lineTxt.innerHTML = 'Hexagram';
-        lineTxt.style.fontSize = '40px';
+        lineTxt.innerText = 'Record';
+        lineTxt.style.fontSize = '2.4rem';
 
         instructionImg.style.display = 'none';
         instructionTxt.style.display = 'none';
@@ -206,12 +200,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         character.className = 'active';
         if(hexagram.character.length === 2){
-          character.style.marginLeft = "15%";
+          character.style.marginRight = "1%";
         } else{
-          character.style.marginLeft = "21%";
+          character.style.marginRight = "3%";
         }
 
-        instructionTxt.style.fontSize = '40px';
+        instructionTxt.style.fontSize = '2.4rem';
         coinDisplay.style.display = 'none';
         instructionTxt.style.display = 'block';
         intepretationTxt.style.display = 'inline-block';
@@ -237,19 +231,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         for (const coin of coins) {
           coin.style.animation = 'none';
         }
+
         character.innerHTML = '';
         intepretationTxt.innerHTML = '';
         instructionTxt.innerHTML = 'Instruction';
-        lineTxt.innerHTML = 'Side Info'
+        lineTxt.innerHTML = 'Side Info';
 
         character.className = 'inactive';
-        instructionTxt.style.fontSize = '15px';
+        instructionTxt.style.fontSize = '1.4rem';
         instructionImg.style.display = 'inline-block';
         intepretationTxt.style.display = 'none';
 
         // Update Side Screen
-        lineTxt.style.fontSize = '15px';
-        lineTxt.style.display = 'block';
+        lineTxt.style.fontSize = '1.4rem';
         lineImg.style.display = 'inline-block';
         
         for(let i = 0; i < 6; i++) {

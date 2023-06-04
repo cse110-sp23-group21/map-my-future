@@ -15,10 +15,13 @@ h1 {
     animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
 }
 
+/* Text Style & Animation */
 p {
     padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
     color: white;
-    font-size: 15px;
+    font-size: 1.4rem;
     font-weight: 60;
     letter-spacing: 1px;
     transition: color 1s ease 1s;
@@ -55,6 +58,7 @@ span:nth-child(3) {
     animation: fade-in 1s 0.8s forwards cubic-bezier(0.11, 0, 0.5, 0);
 }
 
+/* Structure Frame */
 .container {
     display: flex;
     flex-direction: column;
@@ -102,33 +106,32 @@ span:nth-child(3) {
     border-radius: 10px;
 }
 
+/* Content Display */
 #instruction-image {
     width: 70%;
     height: auto;
 }
 
 #line-image {
-    width: 65%;
+    width: 63%;
     height: auto;
 }
 
 #interpretation-text {
     display: none;
-    padding-top: 35%;
-    padding-left: 2%;
-    padding-right: 2%;
+    font-size: 15px;
     padding-bottom: 5%;
 }
 
-/* result character and animation effect */
+/* Result Style & Animation */
 .inactive {
     display: none;
 }
 
 .active {
     display: flex;
-    position: fixed;
-    margin-top: -5%;
+    margin-top: -7%;
+    margin-bottom: 10%;
     align-items: center;
     justify-content: center;
     color: Black;
@@ -190,7 +193,7 @@ span:nth-child(3) {
 	}
 }
 
-/* coin style and animation effect */
+/* Coin Style & Animation */
 .coin-display {
     animation: none;
     display: none;
@@ -237,11 +240,11 @@ span:nth-child(3) {
     }
 }
 
-/* style for buttons */
+/* Button Style */
 .action-button {
     padding: 20px 50px;
     border: none;
-    background-color: #706f6f6f;
+    background-color: rgba(128, 128, 128, 50%);
     color: #000;
     cursor: pointer;
     border-radius: 20px;
@@ -249,7 +252,11 @@ span:nth-child(3) {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    cursor: pointer;
+}
+
+.action-button:hover{
+    background-color: rgba(32, 32, 32, 0.8);
+    color: white;
 }
 
 .button-container-bottom-right {
@@ -287,7 +294,7 @@ span:nth-child(3) {
     background-color: #857557;
 }
 
-/* style for info pop up screen */
+/* Info Screen Style */
 .info-popup {
     display: none;
     position: fixed;
