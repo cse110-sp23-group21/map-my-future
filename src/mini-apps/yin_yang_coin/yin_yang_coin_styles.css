@@ -94,6 +94,75 @@ span {
     border-radius: 10px;
 }
 
+.inactive {
+    display: none;
+}
+
+.active {
+    display: flex;
+    position: fixed;
+    margin-top: -5%;
+    align-items: center;
+    justify-content: center;
+    color: Black;
+    font-family: 'STXingkai';
+    font-size: 200px;
+    text-align: center;
+    -webkit-animation: blurFadeIn 3s ease-in backwards;
+	-moz-animation: blurFadeIn 3s ease-in backwards;
+	-ms-animation: blurFadeIn 3s ease-in backwards;
+	animation: blurFadeIn 3s ease-in backwards;
+}
+
+@-webkit-keyframes blurFadeIn {
+	0% {
+		opacity: 0;
+		text-shadow: 0px 0px 40px #fff;
+		-webkit-transform: scale(5);
+	}
+	50% {
+		opacity: 0.5;
+		text-shadow: 0px 0px 10px #fff;
+		-webkit-transform: scale(2);
+	}
+	100% {
+		opacity: 1;
+		text-shadow: 0px 0px 1px #fff;
+		-webkit-transform: scale(1);
+	}
+}
+
+@-moz-keyframes blurFadeIn {
+	0% {
+		opacity: 0;
+		text-shadow: 0px 0px 40px #fff;
+		-moz-transform: scale(5);
+	}
+	100% {
+		opacity: 1;
+		text-shadow: 0px 0px 1px #fff;
+		-moz-transform: scale(1);
+	}
+}
+
+@keyframes blurFadeIn {
+	0% {
+		opacity: 0;
+		text-shadow: 0px 0px 40px #fff;
+		transform: scale(5);
+	}
+	50% {
+		opacity: 0.5;
+		text-shadow: 0px 0px 10px #fff;
+		transform: scale(2);
+	}
+	100% {
+		opacity: 1;
+		text-shadow: 0px 0px 1px #fff;
+		transform: scale(1);
+	}
+}
+
 /* coin style and animation effect */
 .coin-display {
     animation: none;
@@ -152,7 +221,7 @@ p {
 
 #interpretation-text {
     display: none;
-    padding-top: 55%;
+    padding-top: 35%;
     padding-left: 2%;
     padding-right: 2%;
     padding-bottom: 5%;

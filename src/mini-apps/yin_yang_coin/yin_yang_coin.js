@@ -68,8 +68,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   const instructionImg = document.getElementById('instruction-image');
   const instructionTxt = document.getElementById('instruction-text');
   const intepretationTxt = document.getElementById('interpretation-text');
+  const character = document.getElementById('character');
   const coinDisplay = document.querySelector('.coin-display');
   const coins = document.getElementsByClassName('coins');
+  
 
   let musicEnabled = true;
   let showInfo = false;
@@ -173,25 +175,31 @@ document.addEventListener('DOMContentLoaded', async () => {
         break;
 
       case 'result':
-        // TODO: Modify FortuneEngine to let you access the entire JSON object - this is complete!
-        // TODO: Backend - Map hexigram to intepretation
+        // Map hexigram to intepretation
         const hexagram = hexagrams[hexagramIndex];  //  eslint-disable-line
-
         console.log('Hexagram Result:', hexagram);
-
-        // TODO: UI - Clear the screen and then display the result
 
         // Update Button State
         buttonElement.value = 'reset';
         buttonElement.innerText = 'New Round';
 
         // Update Content Screen
+        character.innerHTML = hexagram.character;
         instructionTxt.innerHTML = hexagram.name;
         intepretationTxt.innerHTML = hexagram.meaning;
+        
+        character.className = 'active';
+        if(hexagram.character.length === 2){
+          character.style.marginLeft = "15%";
+        } else{
+          character.style.marginLeft = "21%";
+        }
+
         instructionTxt.style.fontSize = '40px';
         coinDisplay.style.display = 'none';
         instructionTxt.style.display = 'block';
         intepretationTxt.style.display = 'inline-block';
+
         break;
 
       case 'reset':
@@ -207,8 +215,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         for (const coin of coins) {
           coin.style.animation = 'none';
         }
+        character.innerHTML = '';
         intepretationTxt.innerHTML = '';
         instructionTxt.innerHTML = 'Instruction';
+
+        character.className = 'inactive';
         instructionTxt.style.fontSize = '15px';
         instructionImg.style.display = 'inline-block';
         intepretationTxt.style.display = 'none';
