@@ -29,14 +29,9 @@ import FortuneEngine from '../../engine.js';
 
 // Wait for the DOM to be ready
 document.addEventListener('DOMContentLoaded', async () => {
-  // Accessible Buttons
-  const musicButton = document.getElementById('music-button');
-  const infoButton = document.getElementById('info-button');
-  const buttonElement = document.querySelector('.action-button');
-
-  // Accessible Variables
-  let musicEnabled = true;
-  let showInfo = false;
+  // Read contents from JSON using FortuneEngine
+  const engine = new FortuneEngine('ying_yang_coin');
+  await engine.db_reader('yin_yang_coin.json');
 
   /**
    * Count up to 6 times for tossing
@@ -53,14 +48,31 @@ document.addEventListener('DOMContentLoaded', async () => {
    */
   let powerOfTwo = 1;
 
+  /**
+   * Contents of the ying_yang_coin.json file.
+   */
+  const jsonFile = engine.get_json_contents();
+
+  /**
+   * Array of 64 hexagram objects.
+   */
+  const hexagrams = jsonFile.hexagrams; // eslint-disable-line
+
+  /**
+   * Start button element
+   */
+  const buttonElement = document.querySelector('.action-button');
+  const musicButton = document.getElementById('music-button');
+  const infoButton = document.getElementById('info-button');
+
   const instructionImg = document.getElementById('instruction-image');
   const instructionTxt = document.getElementById('instruction-text');
+  const intepretationTxt = document.getElementById('interpretation-text');
   const coinDisplay = document.querySelector('.coin-display');
   const coins = document.getElementsByClassName('coins');
 
-  // Read contents from JSON using FortuneEngine
-  const engine = new FortuneEngine('ying_yang_coin');
-  await engine.db_reader('yin_yang_coin.json');
+  let musicEnabled = true;
+  let showInfo = false;
 
   // Background music
   const bgm = new Audio('background_music1.mp3');
@@ -91,7 +103,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     showInfo = !showInfo;
   });
   
-  // Action Button
+  /**
+   *  Create the action for the button when it's clicked
+   */
   buttonElement.addEventListener('click', (event) => {
     const buttonElement = event.target;
     const buttonValue = buttonElement.value;
@@ -108,10 +122,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         instructionImg.style.display = 'none';
         instructionTxt.style.display = 'none';
         coinDisplay.style.display = 'block';
-
         break;
 
-        // Toss State
       case 'toss':
         // Backend Generation
 
@@ -155,7 +167,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         coins[2].style.animation = `${coinState3}-rotate-${tossCounter%2} 4.3s ease forwards`;
         flipSound.play();
 
-        // TODO: Coin Generation/Animation
         // https://www.w3schools.com/jsref/prop_pushbutton_disabled.asp
         // TODO: Re-enable button
         buttonElement.disabled = false;
@@ -175,14 +186,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         buttonElement.innerText = 'New Round';
 
         // Update Content Screen
+        instructionTxt.innerHTML = hexagram.name;
+        intepretationTxt.innerHTML = hexagram.meaning;
+        instructionTxt.style.fontSize = '40px';
         coinDisplay.style.display = 'none';
-        instructionTxt.innerHTML = 'Intepretation';
-        instructionTxt.style.display = 'inline';
-
+        instructionTxt.style.display = 'block';
+        intepretationTxt.style.display = 'inline-block';
         break;
 
       case 'reset':
-        // Reset to initial state
         hexagramIndex = 0;
         tossCounter = 0;
         powerOfTwo = 1;
@@ -195,8 +207,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         for (const coin of coins) {
           coin.style.animation = 'none';
         }
-        instructionTxt.style.display = 'block';
+        intepretationTxt.innerHTML = '';
+        instructionTxt.innerHTML = 'Instruction';
+        instructionTxt.style.fontSize = '15px';
         instructionImg.style.display = 'inline-block';
+        intepretationTxt.style.display = 'none';
         break;
     }
   });

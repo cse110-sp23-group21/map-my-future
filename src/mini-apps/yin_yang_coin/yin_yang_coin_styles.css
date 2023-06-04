@@ -142,13 +142,20 @@ span {
 }
 
 p {
+    padding-top: 2%;
     color: white;
-    cursor: pointer;
     font-size: 15px;
     font-weight: 60;
-    text-transform: uppercase;
     letter-spacing: 1px;
-    /* transition: all 1s ease 1s; */
+    transition: color 1s ease 1s;
+}
+
+#interpretation-text {
+    display: none;
+    padding-top: 55%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 5%;
 }
 
 .action-button {
