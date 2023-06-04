@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', async () => {
    * Count up to 6 times for tossing
    */
   let tossCounter = 0;
-  
+
   /**
    * After 6 times tossing, it will access to the index in JSON file and pull out the result
    */
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const buttonElement = event.target;
     const buttonValue = buttonElement.value;
     console.log(buttonValue);
-    
+
     // Start State
     switch (buttonValue) {
       case 'start':
@@ -108,17 +108,23 @@ document.addEventListener('DOMContentLoaded', async () => {
         coinDisplay.style.display = 'block';
 
         break;
-        
-    // Toss State
-      case "toss":
-        // Backend Generation
-        // Generate a random result for tossing 3 coins
-        const coinResult = engine.get_random_subset(1)[0];
 
+        // Toss State
+      case 'toss':
+        // Backend Generation
+
+        // Set button as disabled - for 3 seconds (that's how long the coins are flipped)
+        buttonElement.disabled = true;
+
+        // TODO: Make it apparent in the UI that the button has been disabled
+        // https://codepen.io/robertwbradford/pen/NaMNJg (reference)
+
+        //  Generate a random result for tossing 3 coins
+        const coinResult = engine.get_random_subset(1)[0];  //  eslint-disable-line
         console.log('coinResult:', coinResult.value);
         console.log('Power of two:', powerOfTwo);
-        
-        // Calculate the Hexagram Index
+
+        //  Calculate the Hexagram Index
         hexagramIndex += coinResult.value * powerOfTwo;
         powerOfTwo = powerOfTwo << 1;
 
@@ -128,33 +134,40 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log('Tossing coins! tossCounter =', tossCounter);
 
         // Update Button State
-        if(tossCounter === 6) {
+        if (tossCounter === 6) {
           buttonElement.value = 'result';
           buttonElement.innerText = 'Get Result';
         }
 
         // UI Generation
         // TODO: Lines
-        
+
         // Coin Rotation
         const coinStates = coinResult.coins.toLowerCase();
-        const coinState1 = coinStates.slice(0,1);
-        const coinState2 = coinStates.slice(1,2);
-        const coinState3 = coinStates.slice(2,3);
+        const coinState1 = coinStates.slice(0, 1);
+        const coinState2 = coinStates.slice(1, 2);
+        const coinState3 = coinStates.slice(2, 3);
 
         coins[0].style.animation = `${coinState1}-rotate-${tossCounter%2} 4.3s ease forwards`;
         coins[1].style.animation = `${coinState2}-rotate-${tossCounter%2} 4.3s ease forwards`;
         coins[2].style.animation = `${coinState3}-rotate-${tossCounter%2} 4.3s ease forwards`;
         flipSound.play();
 
+        // TODO: Coin Generation/Animation
+        // https://www.w3schools.com/jsref/prop_pushbutton_disabled.asp
+        // TODO: Re-enable button
+        buttonElement.disabled = false;
         break;
-        
+
       case 'result':
-        // TODO: Modify FortuneEngine to let you access the entire JSON object
+        // TODO: Modify FortuneEngine to let you access the entire JSON object - this is complete!
         // TODO: Backend - Map hexigram to intepretation
-        
-        // TODO: UI - Display the result
-        
+        const hexagram = hexagrams[hexagramIndex];  //  eslint-disable-line
+
+        console.log('Hexagram Result:', hexagram);
+
+        // TODO: UI - Clear the screen and then display the result
+
         // Update Button State
         buttonElement.value = 'reset';
         buttonElement.innerText = 'New Round';
@@ -163,9 +176,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         coinDisplay.style.display = 'none';
         instructionTxt.innerHTML = 'Intepretation';
         instructionTxt.style.display = 'inline';
-        
+
         break;
-        
+
       case 'reset':
         // Reset to initial state
         hexagramIndex = 0;
