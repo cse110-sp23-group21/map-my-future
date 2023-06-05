@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Xingkai";
+    src: url('chinese.stxingka.ttf') format('truetype');
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -143,7 +148,7 @@ span:nth-child(3) {
     align-items: center;
     justify-content: center;
     color: Black;
-    font-family: 'STXingkai';
+    font-family: 'Xingkai';
     font-size: 200px;
     text-align: center;
     -webkit-animation: blurFadeIn 3s ease-in backwards;
