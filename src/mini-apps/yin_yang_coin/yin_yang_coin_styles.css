@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500&display=swap');
+
 body {
     margin: 0;
     padding: 0;
@@ -8,12 +10,14 @@ body {
 
 h1 {
     padding-bottom: 1%;
-    font-size: 20px;
+    font-size: 4em;
+    font-family: 'Noto Serif', serif;
     font-weight: 600;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #000;
+    text-shadow: 1px 0px 10px rgb(255, 255, 255);
     transform: scale(0.94);
     animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
 }
@@ -25,6 +29,7 @@ p {
     padding-right: 2%;
     color: white;
     font-size: 1.4rem;
+    font-family: 'Noto Serif', serif;
     font-weight: 100;
     letter-spacing: 1px;
     transition: color 1s ease 1s;
