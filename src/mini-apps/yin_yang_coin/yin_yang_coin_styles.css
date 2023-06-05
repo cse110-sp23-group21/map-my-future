@@ -33,6 +33,21 @@ p {
     font-weight: 100;
     letter-spacing: 1px;
     transition: color 1s ease 1s;
+#instruction-image {
+    width: 70%;
+    height: auto;
+}
+
+#line-instructions {
+    width: 75%;
+    height: auto;
+    padding-left: 15%;
+
+}
+
+#line-image {
+    width: 75%;
+    height: auto;
 }
 
 @keyframes scale {
@@ -103,15 +118,14 @@ span:nth-child(3) {
     grid-template-columns: 33% 67%;
 }
 
-.side-grid {
+.side {
     display: grid;
-}
-
-#side {
-    background-color: rgba(128, 128, 128, 50%);
+    grid-template-rows: auto auto auto auto auto auto;
+    background-color: gray;
     margin-right: 5%;
     border-radius: 10px;
 }
+
 
 #instructions {
     background-color: rgba(128, 128, 128, 50%);

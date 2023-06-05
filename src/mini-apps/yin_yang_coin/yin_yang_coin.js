@@ -29,6 +29,34 @@ import FortuneEngine from '../../engine.js';
 
 // Wait for the DOM to be ready
 document.addEventListener('DOMContentLoaded', async () => {
+  // Background music
+  // const bgm = new Audio('../../../assets/map-my-future-bgm.ogg'); //  eslint-disable-line
+  // bgm.play();
+  // bgm.loop = true;
+
+  // Buttons
+  const fortuneTellingScreen = document.querySelector('#fortune-telling');
+
+  // Music & Info Buttons
+  musicButton.addEventListener('click', (e) => {
+    console.log('music');
+    const musicImg = document.querySelectorAll('img')[0];
+    if (musicEnabled) {
+      musicImg.src = '../../../assets/audio_off.png';
+      // bgm.pause();
+    } else {
+      musicImg.src = '../../../assets/audio_on.png';
+      // bgm.play();
+    }
+    musicEnabled = !musicEnabled;
+  });
+
+  infoButton.addEventListener('click', (e) => {
+    const infoPopup = document.getElementById('info-popup');
+    infoPopup.style.display = !showInfo ? 'flex' : 'none';
+    showInfo = !showInfo;
+  });
+
   // Read contents from JSON using FortuneEngine
   const engine = new FortuneEngine('ying_yang_coin');
   await engine.db_reader('yin_yang_coin.json');
@@ -129,6 +157,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         instructionImg.style.display = 'none';
         instructionTxt.style.display = 'none';
+        lineTxt.style.display = 'none';
         lineImg.style.display = 'none';
         coinDisplay.style.display = 'block';
         break;
@@ -156,13 +185,18 @@ document.addEventListener('DOMContentLoaded', async () => {
           buttonElement.innerText = 'Get Result';
         }
 
-        // Lines Animation
-        console.log(gridList[tossCounter]);
+        // UI Generation
+        // Added Line Type to Side Bar
         if (coinResult.type == 'Yin') {
-          gridList[tossCounter - 1].innerHTML += '<img id="line-image" src="broken_line.png" alt="broken line image display failed."/>';
+          setTimeout(function () {
+            gridList[tossCounter - 1].innerHTML += '<img id="line-image" src="broken_line.PNG" alt="instruction image display failed."/>';
+          }, 3200);
         } else {
-          gridList[tossCounter - 1].innerHTML += '<img id="line-image" src="solid_line.png" alt="solid line image display failed."/>';
+          setTimeout(function () {
+            gridList[tossCounter - 1].innerHTML += '<img id="line-image" src="solid_line.PNG" alt="instruction image display failed."/>';
+          }, 3200);
         }
+
 
         // Coin Rotation
         const coinStates = coinResult.coins.toLowerCase();
