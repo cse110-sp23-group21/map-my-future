@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const musicButton = document.getElementById('music-button');
   const infoButton = document.getElementById('info-button');
 
-  const lineImg= document.getElementById('line-image');
+  const lineImg = document.getElementById('line-image');
   const lineTxt = document.getElementById('line-text');
   const gridList = document.querySelectorAll('#grid');
 
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     infoPopup.style.display = !showInfo ? 'flex' : 'none';
     showInfo = !showInfo;
   });
-  
+
   /**
    *  Create the action for the button when it's clicked
    */
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Update Content Screen
         lineTxt.innerText = 'Record';
-        lineTxt.style.fontSize = '2.4rem';
+        lineTxt.style.fontSize = '40px';
 
         instructionImg.style.display = 'none';
         instructionTxt.style.display = 'none';
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Lines Animation
         console.log(gridList[tossCounter]);
-        if(coinResult.type == 'Yin') {
+        if (coinResult.type == 'Yin') {
           gridList[tossCounter - 1].innerHTML += '<img id="line-image" src="broken_line.png" alt="broken line image display failed."/>';
         }
         else {
@@ -171,16 +171,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         const coinState2 = coinStates.slice(1, 2);
         const coinState3 = coinStates.slice(2, 3);
 
-        coins[0].style.animation = `${coinState1}-rotate-${tossCounter%2} 4.3s ease forwards`;
-        coins[1].style.animation = `${coinState2}-rotate-${tossCounter%2} 4.3s ease forwards`;
-        coins[2].style.animation = `${coinState3}-rotate-${tossCounter%2} 4.3s ease forwards`;
+        coins[0].style.animation = `${coinState1}-rotate-${tossCounter % 2} 4.3s ease forwards`;
+        coins[1].style.animation = `${coinState2}-rotate-${tossCounter % 2} 4.3s ease forwards`;
+        coins[2].style.animation = `${coinState3}-rotate-${tossCounter % 2} 4.3s ease forwards`;
         flipSound.play();
 
-        // Set button as disabled - for 4.5 seconds
-        buttonElement.style.pointerEvents = 'none';
-        setTimeout(() => {
-          buttonElement.style.pointerEvents = 'all';
-        }, 4500);
+        // Set button delay
+        // buttonElement.style.pointerEvents = 'none';
+        // setTimeout(() => {
+        //   buttonElement.style.pointerEvents = 'all';
+        // }, 4500);
 
         break;
 
@@ -198,23 +198,30 @@ document.addEventListener('DOMContentLoaded', async () => {
         instructionTxt.innerHTML = `"${hexagram.name}"`;
         intepretationTxt.innerHTML = `"${hexagram.meaning}"`;
         
-        character.className = 'active';
-        if(hexagram.character.length === 2){
-          character.style.marginRight = "1%";
-        } else{
-          character.style.marginRight = "3%";
-        }
+        setTimeout(() => {
+          character.className = 'active';
+          if (hexagram.character.length === 2) {
+            character.style.marginRight = "1%";
+          } else {
+            character.style.marginRight = "3%";
+          }
+        }, 3500);
 
-        instructionTxt.style.fontSize = '2.4rem';
-        coinDisplay.style.display = 'none';
+        instructionTxt.style.animation = 'blurFadeIn 3s ease-in forwards';
+        instructionTxt.style.fontSize = '40px';
         instructionTxt.style.display = 'block';
-        intepretationTxt.style.display = 'inline-block';
+        coinDisplay.style.display = 'none';
 
-        // Set button as disabled - for 4 seconds
+        // Set animation delay
+        setTimeout(() => {
+          intepretationTxt.style.display = 'inline-block';
+        }, 7500);
+
+        // Set button delay
         buttonElement.style.pointerEvents = 'none';
         setTimeout(() => {
           buttonElement.style.pointerEvents = 'all';
-        }, 4000);
+        }, 11000);
 
         break;
 
@@ -239,14 +246,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         character.className = 'inactive';
         instructionTxt.style.fontSize = '1.4rem';
+        instructionTxt.style.animation = 'none';
         instructionImg.style.display = 'inline-block';
         intepretationTxt.style.display = 'none';
 
         // Update Side Screen
         lineTxt.style.fontSize = '1.4rem';
         lineImg.style.display = 'inline-block';
-        
-        for(let i = 0; i < 6; i++) {
+
+        for (let i = 0; i < 6; i++) {
           console.log(gridList[i]);
           gridList[i].innerHTML = '';
         }
@@ -254,5 +262,5 @@ document.addEventListener('DOMContentLoaded', async () => {
         break;
     }
   });
-  
+
 });

@@ -1,10 +1,13 @@
 body {
     margin: 0;
     padding: 0;
+    min-width: 800px; /* Minimum Shrinking */
+    overflow: hidden; /* Disable scrolling */
     font-family: Arial, sans-serif;
 }
 
 h1 {
+    padding-bottom: 1%;
     font-size: 20px;
     font-weight: 600;
     text-align: center;
@@ -22,7 +25,7 @@ p {
     padding-right: 2%;
     color: white;
     font-size: 1.4rem;
-    font-weight: 60;
+    font-weight: 100;
     letter-spacing: 1px;
     transition: color 1s ease 1s;
 }
@@ -74,6 +77,10 @@ span:nth-child(3) {
     height: 100%;
     text-align: center;
     background-image: url('background.png');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .top-grid,
@@ -120,7 +127,8 @@ span:nth-child(3) {
 #interpretation-text {
     display: none;
     font-size: 15px;
-    padding-bottom: 5%;
+    margin-bottom: 5%;
+    animation: blurFadeIn 3s ease-in forwards;
 }
 
 /* Result Style & Animation */
@@ -255,7 +263,7 @@ span:nth-child(3) {
 }
 
 .action-button:hover{
-    background-color: rgba(32, 32, 32, 0.8);
+    background-color: rgba(66, 45, 35, 70%);
     color: white;
 }
 
@@ -277,7 +285,7 @@ span:nth-child(3) {
     align-items: center;
     width: 50px;
     height: 50px;
-    background-color: #846e43;
+    background-color: rgba(66, 45, 35, 70%);
     border-radius: 50%;
     margin-bottom: 10px;
     text-decoration: none;
@@ -291,7 +299,7 @@ span:nth-child(3) {
 }
 
 .menu-button:hover {
-    background-color: #857557;
+    background-color: rgba(66, 45, 35, 50%);
 }
 
 /* Info Screen Style */
@@ -303,13 +311,13 @@ span:nth-child(3) {
     width: 400px;
     height: 300px;
     border-radius: 10%;
-    background-color: #846e43;
+    background-color: rgba(66, 45, 35, 70%);
     text-align: center;
     justify-content: center;
 }
 
-.info-text {
+.info-text p, .info-text h1 {
     color: white;
     width: 90%;
-    font-size: 10px;
+    font-size: 15px;
 }
