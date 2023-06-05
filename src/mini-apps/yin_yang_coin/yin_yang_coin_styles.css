@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500&display=swap');
+@font-face {
+    font-family: "Xingkai";
+    src: url('chinese.stxingka.ttf') format('truetype');
+}
 
 body {
     margin: 0;
@@ -28,8 +31,8 @@ p {
     padding-left: 2%;
     padding-right: 2%;
     color: white;
-    font-size: 1.4rem;
     font-family: 'Noto Serif', serif;
+    font-size: 2rem;
     font-weight: 100;
     letter-spacing: 1px;
     transition: color 1s ease 1s;
@@ -131,7 +134,7 @@ span:nth-child(3) {
 
 #interpretation-text {
     display: none;
-    font-size: 15px;
+    font-size: 1.5rem;
     margin-bottom: 5%;
     animation: blurFadeIn 3s ease-in forwards;
 }
@@ -143,12 +146,12 @@ span:nth-child(3) {
 
 .active {
     display: flex;
-    margin-top: -7%;
+    margin-top: -2%;
     margin-bottom: 10%;
     align-items: center;
     justify-content: center;
     color: Black;
-    font-family: 'STXingkai';
+    font-family: 'Xingkai';
     font-size: 200px;
     text-align: center;
     -webkit-animation: blurFadeIn 3s ease-in backwards;

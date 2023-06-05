@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Update Content Screen
         lineTxt.innerText = 'Record';
-        lineTxt.style.fontSize = '40px';
+        lineTxt.style.fontSize = '3rem';
 
         instructionImg.style.display = 'none';
         instructionTxt.style.display = 'none';
@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }, 3500);
 
         instructionTxt.style.animation = 'blurFadeIn 3s ease-in forwards';
-        instructionTxt.style.fontSize = '40px';
+        instructionTxt.style.fontSize = '3rem';
         instructionTxt.style.display = 'block';
         coinDisplay.style.display = 'none';
 
@@ -251,13 +251,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         lineTxt.innerHTML = 'Side Info';
 
         character.className = 'inactive';
-        instructionTxt.style.fontSize = '1.4rem';
+        instructionTxt.style.fontSize = '2rem';
         instructionTxt.style.animation = 'none';
         instructionImg.style.display = 'inline-block';
         intepretationTxt.style.display = 'none';
 
         // Update Side Screen
-        lineTxt.style.fontSize = '1.4rem';
+        lineTxt.style.fontSize = '2rem';
         lineImg.style.display = 'inline-block';
 
         for (let i = 0; i < 6; i++) {
