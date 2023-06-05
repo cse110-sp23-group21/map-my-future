@@ -151,10 +151,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // UI Generation
 
-        if (tossCounter === 6) {
+        /*if (tossCounter === 6) {
           buttonElement.value = 'result';
           buttonElement.innerText = 'Get Result';
-        }
+        } */
 
         // Lines Animation
         console.log(gridList[tossCounter]);
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         flipSound.play();
 
         // Set button delay
-        /* buttonElement.style.pointerEvents = 'none';
+        buttonElement.style.pointerEvents = 'none';
         buttonElement.innerText = 'Tossing Coins...';
         setTimeout(() => {
           buttonElement.style.pointerEvents = 'all';
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             buttonElement.value = 'result';
             buttonElement.innerText = 'Get Result';
           }
-        }, 4500); */
+        }, 4500);
 
         break;
 
