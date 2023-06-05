@@ -8,6 +8,7 @@ const APP_NAME = "cartomancy";
 document.addEventListener('DOMContentLoaded', async () => {
 
   // Read JSON File
+  // Taken of: https://www.thetarotguide.com/
   await engine.db_reader(`./${APP_NAME}.json`);
 
   // Background music
@@ -31,7 +32,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     cardElement.addEventListener("click", (e) => {
 
       //console.log("element's id:", cardElement.id);
-      selectCategory(cardElement.id);
+
+      // TODO: add card to pickContainer
+      addCard();
+
+
+      // TODO: only read after three have been chosen
+      readCards();
     });
   });
 
@@ -60,6 +67,51 @@ document.addEventListener('DOMContentLoaded', async () => {
     window.location.reload();
   });
 })
+
+/* Add this current card to the div container
+ * @Param perhaps the card itelf
+ */
+function addCard() {
+
+
+}
+
+/*
+ * Begin the fortune telling process by reading the chosen cards
+ */
+function readCards() {
+  // animations, grouping etc here
+  
+
+  // begins the stage of reading cards, 1-3 choices
+
+  const receivedFortunes = engine.get_random_subset(3);
+
+  const fortune1 = receivedFortunes[0];
+  const fortune2 = receivedFortunes[1];
+  const fortune3 = receivedFortunes[2];
+
+  const displayFortuneContainer = document.createElement('div');
+  displayFortuneContainer.classList.add('displayFortuneContainer');
+
+  console.log(receivedFortunes);
+
+
+  const TEMPDISPLAY = document.createElement('p');
+  const node = document.createTextNode('Display fortunes in this new div');
+  TEMPDISPLAY.classList.add('read-fortune');
+  
+  TEMPDISPLAY.appendChild(node);
+  displayFortuneContainer.appendChild(TEMPDISPLAY);
+
+  //const element = document.getElementById('body');
+  document.body.appendChild(displayFortuneContainer);
+
+
+  // output the results
+  console.log(fortune1['result']);
+
+}
 
 /*
 // all driver code should be within this event listener, ie adding other event listeners and calling on imported engine
