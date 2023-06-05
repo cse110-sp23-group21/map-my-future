@@ -29,3 +29,10 @@
 //    }
 // ];
 //
+
+
+function meltTin() {
+    var img = document.getElementById('tinImage');
+    img.style.transition = "all 2s";
+    img.style.transform = "scaleY(0.1)";
+}

@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+#middle img {
+    max-height: 50%;
+    object-fit: contain;
+}
+
+#bottom button {
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
