@@ -7,12 +7,60 @@
     <div id="top" class="section">
         <h1>Molybdomancy</h1>
     </div>
+
     <div id="middle" class="section">
-        <img id="tinImage" src="../../../assets/solid_tin.jpg">
+        <!-- <img id="tinImage" src="../../../assets/solid_tin.jpg"> -->
+        <!-- <p>Solid Tin</p> -->
+        <span id="text1">Solid Tin</span>
+        <span id="text2"></span>
     </div>
+
+    <svg id="filters">
+        <defs>
+            <filter id="threshold">
+                <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
+                                        0 1 0 0 0
+                                        0 0 1 0 0
+                                        0 0 0 255 -140" />
+            </filter>
+        </defs>
+    </svg>
+
+    <p id="interpretation"></p>
+
     <div id="bottom" class="section">
-        <button id="meltButton" onclick="meltTin()">Melt the Tin!</button>
+        <button id="meltButton">Melt the Tin!</button>
     </div>
-    <script src="molybdomancy.js"></script>
+
+
+    <!-- Buttons -->
+    <div class="button-container-bottom-left">
+        <a href="#" id="music-button" class="menu-button">
+            <img src="../../../assets/audio_on.png" id="music" alt="Music">
+        </a>
+        <a href="../../index.html" id="home-button" class="menu-button">
+            <img src="../../../assets/home.png" id="home" alt="Home">
+        </a>
+    </div>
+
+    <div class="button-container-bottom-right">
+        <a href="#" id="info-button" class="menu-button">
+            <img src="../../../assets/info.png" id="info" alt="Info">
+        </a>
+    </div>
+
+
+    <!-- Info Pop Up Screen -->
+    <div id="info-popup" class="info-popup">
+        <div class="info-text">
+            <h1>Info</h1>
+            <p>Yin Yang Coin with 3 coins is a method dating back to the Zhou Dynasty (1046–256 BC). It involves
+                throwing three coins six times to create hexagrams that symbolize different situations based on Yin and
+                Yang lines. Each hexagram, of 64 possible combinations, carries specific interpretations. If "old" lines
+                are thrown, they form a new hexagram symbolizing future changes. </p>
+        </div>
+    </div>
+    <script type="module" src="molybdomancy.js"></script>
+
 </body>
 </html>

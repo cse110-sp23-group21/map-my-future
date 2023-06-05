@@ -1,20 +1,339 @@
 {
-  {
-      "name": "Algae",
-      "description": "A circle with most of the metal on the ends rather than the center",
-      "img": "algae.jpg",
-      "meaning": "Longing for the Sea"
-  },
-  {
-      "name": "Algae2",
-      "description": "A circle with most of the metal on the ends rather than the center",
-      "img": "algae.jpg",
-      "meaning": "Longing for the Sea"
-  },
-  {
-      "name": "Algae3",
-      "description": "A circle with most of the metal on the ends rather than the center",
-      "img": "algae.jpg",
-      "meaning": "Longing for the Sea"
-  }
+    "option-result pair": [
+        {
+            "name": "Algae",
+            "emoji": "🌱",
+            "meaning": "longing for the sea"
+        },
+        {
+            "name": "Alien",
+            "emoji": "👽",
+            "meaning": "broaden your horizons"
+        },
+        {
+            "name": "Anchor",
+            "emoji": "⚓",
+            "meaning": "settling down"
+        },
+        {
+            "name:": "Angel",
+            "emoji": "👼",
+            "meaning": "faith and peace"
+        },
+        {
+            "name": "Antenna",
+            "emoji": "📡",
+            "meaning": "being receptive"
+        },
+        {
+            "name": "Axe",
+            "emoji": "🪓",
+            "meaning": "deep cuts"
+        },
+        {
+            "name": "Baby",
+            "emoji": "👶",
+            "meaning": "unexpected pregnancy"
+        },
+        {
+            "name": "Baguette",
+            "emoji": "🥖",
+            "meaning": "less is more"
+        },
+        {
+            "name": "Bell",
+            "emoji": "🔔",
+            "meaning": "count to 10 and mind your thoughts"
+        },
+        {
+            "name": "Bird",
+            "emoji": "🐦",
+            "meaning": "being free"
+        },
+        {
+            "name": "Can",
+            "emoji": "🥫",
+            "meaning": "take a cooking class"
+        },
+        {
+            "name": "Cape",
+            "emoji": "🦸",
+            "meaning": "don't hide"
+        },
+        {
+            "name": "Cup",
+            "emoji": "🥤",
+            "meaning": "install a home office"
+        },
+        {
+            "name": "Cocktail glass",
+            "emoji": "🍸",
+            "meaning": "plan a vacation"
+        },
+        {
+            "name": "Christmas tree",
+            "emoji": "🎄",
+            "meaning": "miracles happen"
+        },
+        {
+            "name": "Clown",
+            "emoji": "🤡",
+            "meaning": "spend less time in fron of the mirror"
+        },
+        {
+            "name": "Chinese symbol",
+            "emoji": "🈯",
+            "meaning": "travel to asia"
+        },
+        {
+            "name": "Cream topping",
+            "emoji": "🍨",
+            "meaning": "be happy without remorse"
+        },
+        {
+            "name": "Dachshund",
+            "emoji": "🐕",
+            "meaning": "develop hunting instinct"
+        },
+        {
+            "name": "Dancing woman",
+            "emoji": "💃",
+            "meaning": "learn a new dance"
+        },
+        {
+            "name": "Dart",
+            "emoji": "🎯",
+            "meaning": "don't lose your way"
+        },
+        {
+            "name": "Donkey",
+            "emoji": "🐴",
+            "meaning": "don't forget where you come from"
+        },
+        {
+            "name": "Dumbbell",
+            "emoji": "🏋️",
+            "meaning": "collect strength"
+        },
+        {
+            "name": "Ear",
+            "emoji": "👂",
+            "meaning": "listen better"
+        },
+        {
+            "name": "Feather",
+            "emoji": "🪶",
+            "meaning": "look forward to ease"
+        },
+        {
+            "name": "Finger",
+            "emoji": "👆",
+            "meaning": "beware of pick-pockets"
+        },
+        {
+            "name": "Flag",
+            "emoji": "🚩",
+            "meaning": "go back home"
+        },
+        {
+            "name": "Flower",
+            "emoji": "🌸",
+            "meaning": "making new friends"
+        },
+        {
+            "name": "Fruit",
+            "emoji": "🍎",
+            "meaning": "pretty things can hurt you"
+        },
+        {
+            "name": "Fox",
+            "emoji": "🦊",
+            "meaning": "make use of your dexerity"
+        },
+        {
+            "name": "Ghost",
+            "emoji": "👻",
+            "meaning": "surprises are waiting for you"
+        },
+        {
+            "name": "Ginger",
+            "emoji": " ", 
+            "meaning": "take care of your health"
+        },
+        {
+            "name": "Gondola",
+            "emoji": "🚡",
+            "meaning": "some ways are easier than others"
+        },
+        {
+            "name": "Hand",
+            "emoji": "🤚",
+            "meaning": "get to know new people"
+        },
+        {
+            "name": "Heart",
+            "emoji": "❤️",
+            "meaning": "falling in love"
+        },
+        {
+            "name": "Hedgehog",
+            "emoji": "🦔",
+            "meaning": "watch out!"
+        },
+        {
+            "name": "Island",
+            "emoji": "🏝️",
+            "meaning": "go travel"
+        },
+        {
+            "name": "Jelly fish",
+            "emoji": "🎐",          
+            "meaning": "still waters run deep"
+        },
+        {
+            "name": "Juwel",
+            "emoji": "💎",
+            "meaning": "sudden wealth"
+        },
+        {
+            "name": "Lizard",
+            "emoji": "🦎",
+            "meaning": "hot sommer"
+        },
+        {
+            "name": "Mistle toe",
+            "emoji": " ",
+            "meaning": "great love"
+        },
+        {
+            "name": "Mouse",
+            "emoji": "🐁",
+            "meaning": "build a house and start small"
+        },
+        {
+            "name": "Mushroom",
+            "emoji": "🍄",
+            "meaning": "be careful"
+        },
+        {
+            "name": "Needle",
+            "emoji": "🪡",
+            "meaning": "pay attention to detail"
+        },
+        {
+            "name": "Pants",
+            "emoji": "👖",
+            "meaning": "being down-to-earth"
+        },
+        {
+            "name": "Pigeon",
+            "emoji": "🕊️",
+            "meaning": "learn to fly"
+        },
+        {
+            "name": "Pillow",
+            "emoji": "💊👇",
+            "meaning": "good sleep"
+        },
+        {
+            "name": "Pipe",
+            "emoji": "🚰",
+            "meaning": "New invention"
+        },
+        {
+            "name": "Piston",
+            "emoji": "🔧",
+            "meaning": "contain yourself"
+        },
+        {
+            "name": "Rat",
+            "emoji": "🐀",
+            "meaning": "more illusion than reality"
+        },
+        {
+            "name": "Ring",
+            "emoji": "💍",
+            "meaning": "getting married soon"
+        },
+        {
+            "name": "Rope",
+            "emoji": "🪢",
+            "meaning": "good catch"
+        },
+        {
+            "name": "Scepter",
+            "emoji": "👑",
+            "meaning": "you will own a plot of land soon"
+        },
+        {
+            "name": "Sickle",
+            "emoji": "🤒📞",
+            "meaning": "great sowing results in great harvest"
+        },
+        {
+            "name": "Steering wheel",
+            "emoji": " ",              
+            "meaning": "you are on the right track"
+        },
+        {
+            "name": "Submarine",
+            "emoji": "🚤",
+            "meaning": "new discoveries"
+        },
+        {
+            "name": "Sun",
+            "emoji": "🌞",
+            "meaning": "feeling warmth"
+        },
+        {
+            "name": "Square",
+            "emoji": "🔲",
+            "meaning": "being very accurate"
+        },
+        {
+            "name": "Squirrel",
+            "emoji": "🐿️",
+            "meaning": "build a tree house"
+        },
+        {
+            "name": "Tongue",
+            "emoji": "👅",
+            "meaning": "watch your language"
+        },
+        {
+            "name": "Truck",
+            "emoji": "🚚",
+            "meaning": "carrying a burden on the shoulders"
+        },
+        {
+            "name": "Underwear",
+            "emoji": "🩲",
+            "meaning": "cheerfulness"
+        },
+        {
+            "name": "Vase",
+            "emoji": "🏺",
+            "meaning": "hidden talents"
+        },
+        {
+            "name": "Volcano",
+            "emoji": "🌋",
+            "meaning": "great passion and lust"
+        },
+        {
+            "name": "Waterfall",
+            "emoji": "💧🍂",                
+            "meaning": "infinite loop of positive happenings"
+        },
+        {
+            "name": "Yeti",
+            "emoji": "🦧",
+            "meaning": "make discoveries"
+        },
+        {
+            "name": "Yoga position",
+            "emoji": "🧘",
+            "meaning": "relaxation and inner peace"
+        }
+    ]
 }

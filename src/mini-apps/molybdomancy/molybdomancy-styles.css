@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:900&display=swap");
+
 body {
     display: flex;
     flex-direction: column;
@@ -9,7 +11,7 @@ body {
 }
 
 h1 {
-    font-size: 100px;
+    font-size: 10vh;
     font-weight: 700;
     text-align: center;
     margin: 0;
@@ -23,13 +25,128 @@ h1 {
     flex: 1;
 }
 
-#middle img {
+#middle {
+    display: grid;
+    grid-auto-rows: 1fr;
     max-height: 50%;
     object-fit: contain;
+
+    /* position: absolute; */
+    margin: auto;
+    width: 100vw;
+    height: 80pt;
+    top: 0;
+    bottom: 0;
+
+    filter: url(#threshold) blur(0.6px);
 }
 
 #bottom button {
-    padding: 10px 20px;
-    font-size: 20px;
+    padding: 2vh 5vh;
+    font-size: 3vh;
     cursor: pointer;
+    border-radius: 5vh;
+}
+
+#text1,
+#text2 {
+    position: absolute;
+    width: 100%;
+    display: inline-block;
+
+    font-family: "Raleway", sans-serif;
+    font-size: 80pt;
+
+    text-align: center;
+
+    user-select: none;
+}
+
+#interpretation {
+    text-align: center;
+    font-size: 4vh;
+    margin: auto;
+    animation: fade-in 3s ease-in;
+}
+
+@keyframes fade-in {
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+/* Button Style */
+.action-button {
+    /*padding: 20px 50px;*/
+    padding: 2vh 3vw;
+    border: none;
+    background-color: rgba(128, 128, 128, 50%);
+    color: #000;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.action-button:hover{
+    background-color: rgba(66, 45, 35, 70%);
+    color: white;
+}
+
+.button-container-bottom-right {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.button-container-bottom-left {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
+.menu-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(66, 45, 35, 70%);
+    border-radius: 50%;
+    margin-bottom: 10px;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.menu-button img {
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) invert(1);
+}
+
+.menu-button:hover {
+    background-color: rgba(66, 45, 35, 50%);
+}
+
+/* Info Screen Style */
+.info-popup {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 85px;
+    width: 400px;
+    height: 300px;
+    border-radius: 10%;
+    background-color: rgba(66, 45, 35, 70%);
+    text-align: center;
+    justify-content: center;
+}
+
+.info-text p, .info-text h1 {
+    color: white;
+    width: 90%;
+    font-size: 15px;
 }
