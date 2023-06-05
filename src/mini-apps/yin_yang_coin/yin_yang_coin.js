@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Background music
   const bgm = new Audio('background_music1.mp3');
-  const flipSound = new Audio('coin_flip.ogg');
+  const flipSound = new Audio('coin_flipv3.ogg');
   bgm.loop = true;
   bgm.volume = 0.3;
   flipSound.volume = 0.4;
@@ -160,8 +160,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log(gridList[tossCounter]);
         if (coinResult.type == 'Yin') {
           gridList[tossCounter - 1].innerHTML += '<img id="line-image" src="broken_line.png" alt="broken line image display failed."/>';
-        }
-        else {
+        } else {
           gridList[tossCounter - 1].innerHTML += '<img id="line-image" src="solid_line.png" alt="solid line image display failed."/>';
         }
 
@@ -177,10 +176,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         flipSound.play();
 
         // Set button delay
-        // buttonElement.style.pointerEvents = 'none';
-        // setTimeout(() => {
-        //   buttonElement.style.pointerEvents = 'all';
-        // }, 4500);
+        buttonElement.style.pointerEvents = 'none';
+        buttonElement.innerText = 'Tossing Coins...';
+        setTimeout(() => {
+          buttonElement.style.pointerEvents = 'all';
+          buttonElement.innerText = 'Toss Coins';
+        }, 4500);
 
         break;
 
@@ -197,13 +198,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         character.innerHTML = hexagram.character;
         instructionTxt.innerHTML = `"${hexagram.name}"`;
         intepretationTxt.innerHTML = `"${hexagram.meaning}"`;
-        
+
         setTimeout(() => {
           character.className = 'active';
           if (hexagram.character.length === 2) {
-            character.style.marginRight = "1%";
+            character.style.marginRight = '1%';
           } else {
-            character.style.marginRight = "3%";
+            character.style.marginRight = '3%';
           }
         }, 3500);
 
@@ -262,5 +263,4 @@ document.addEventListener('DOMContentLoaded', async () => {
         break;
     }
   });
-
 });
