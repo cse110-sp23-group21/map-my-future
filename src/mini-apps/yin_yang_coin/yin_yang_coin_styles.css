@@ -15,7 +15,7 @@ body {
 
 h1 {
     padding-bottom: 1%;
-    font-size: 4em;
+    font-size: 4vh;
     font-family: 'Noto Serif', serif;
     font-weight: 600;
     text-align: center;
@@ -129,7 +129,13 @@ span:nth-child(3) {
     height: auto;
 }
 
-#line-image {
+.animated-line-image {
+    animation: fadeIn 3s;
+    width: 63%;
+    height: auto;
+}
+
+.line-image {
     width: 63%;
     height: auto;
 }
@@ -161,6 +167,11 @@ span:nth-child(3) {
 	-ms-animation: blurFadeIn 3s ease-in backwards;
 	animation: blurFadeIn 3s ease-in backwards;
 }
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
 
 @-webkit-keyframes blurFadeIn {
 	0% {

@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const musicButton = document.getElementById('music-button');
   const infoButton = document.getElementById('info-button');
 
-  const lineImg = document.getElementById('line-image');
+  const lineImg = document.querySelector('.line-image');
   const lineTxt = document.getElementById('line-text');
   const gridList = document.querySelectorAll('#grid');
 
@@ -131,6 +131,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         instructionTxt.style.display = 'none';
         lineImg.style.display = 'none';
         coinDisplay.style.display = 'block';
+
         break;
 
       case 'toss':
@@ -159,9 +160,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Lines Animation
         console.log(gridList[tossCounter]);
         if (coinResult.type == 'Yin') {
-          gridList[tossCounter - 1].innerHTML += '<img id="line-image" src="broken_line.png" alt="broken line image display failed."/>';
+          setTimeout(function() {
+            gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="broken_line.PNG" alt="instruction image display failed."/>';
+          }, 4500);
         } else {
-          gridList[tossCounter - 1].innerHTML += '<img id="line-image" src="solid_line.png" alt="solid line image display failed."/>';
+          setTimeout(function() {
+            gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="solid_line.PNG" alt="instruction image display failed."/>';
+          }, 4500);
         }
 
         // Coin Rotation
