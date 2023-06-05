@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log('Tossing coins! tossCounter =', tossCounter);
 
         // UI Generation
-        // Update Button State
+
         if (tossCounter === 6) {
           buttonElement.value = 'result';
           buttonElement.innerText = 'Get Result';
@@ -176,12 +176,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         flipSound.play();
 
         // Set button delay
-        buttonElement.style.pointerEvents = 'none';
+        /* buttonElement.style.pointerEvents = 'none';
         buttonElement.innerText = 'Tossing Coins...';
         setTimeout(() => {
           buttonElement.style.pointerEvents = 'all';
           buttonElement.innerText = 'Toss Coins';
-        }, 4500);
+          // Update Button State
+          if (tossCounter === 6) {
+            buttonElement.value = 'result';
+            buttonElement.innerText = 'Get Result';
+          }
+        }, 4500); */
 
         break;
 
