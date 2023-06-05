@@ -95,7 +95,8 @@ span:nth-child(3) {
 
 .top-grid,
 .bottom-grid {
-    display: flex;
+    /*display: flex;*/
+    display: grid;
     align-items: center;
     justify-content: center;
 }
@@ -108,8 +109,16 @@ span:nth-child(3) {
     grid-template-columns: 33% 67%;
 }
 
+/*.content-grid {
+    grid-auto-rows: 1fr;
+}*/
+
 .side-grid {
     display: grid;
+    gap: 15%;
+    /*grid-template-rows: repeat(1fr, 6);*/
+    /*  StackOverflow reference: https://stackoverflow.com/questions/44488357/equal-height-rows-in-css-grid-layout  */
+    grid-auto-rows: 1fr;
 }
 
 #side {
@@ -130,7 +139,7 @@ span:nth-child(3) {
 }
 
 .animated-line-image {
-    animation: fadeIn 3s;
+    animation: fadeIn 3s ease;
     width: 63%;
     height: auto;
 }
@@ -142,10 +151,13 @@ span:nth-child(3) {
 
 #interpretation-text {
     display: none;
-    font-size: 1.5rem;
-    margin-bottom: 5%;
+    /*font-size: 1.5rem;*/
+    font-size: 2vh;
+    margin-bottom: 0%;
     animation: blurFadeIn 3s ease-in forwards;
 }
+
+
 
 /* Result Style & Animation */
 .inactive {
@@ -160,7 +172,8 @@ span:nth-child(3) {
     justify-content: center;
     color: Black;
     font-family: 'Xingkai';
-    font-size: 200px;
+    /*font-size: 200px;*/
+    font-size: 30vh;
     text-align: center;
     -webkit-animation: blurFadeIn 3s ease-in backwards;
 	-moz-animation: blurFadeIn 3s ease-in backwards;
@@ -271,7 +284,8 @@ span:nth-child(3) {
 
 /* Button Style */
 .action-button {
-    padding: 20px 50px;
+    /*padding: 20px 50px;*/
+    padding: 2vh 3vw;
     border: none;
     background-color: rgba(128, 128, 128, 50%);
     color: #000;

@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const lineImg = document.querySelector('.line-image');
   const lineTxt = document.getElementById('line-text');
   const gridList = document.querySelectorAll('#grid');
+  const contentGrid = document.querySelector('.content-grid');
 
   const instructionImg = document.getElementById('instruction-image');
   const instructionTxt = document.getElementById('instruction-text');
@@ -152,7 +153,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // UI Generation
 
-        /*if (tossCounter === 6) {
+        /* if (tossCounter === 6) {
           buttonElement.value = 'result';
           buttonElement.innerText = 'Get Result';
         } */
@@ -160,11 +161,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Lines Animation
         console.log(gridList[tossCounter]);
         if (coinResult.type == 'Yin') {
-          setTimeout(function() {
+          setTimeout(function () {
             gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="broken_line.PNG" alt="instruction image display failed."/>';
           }, 4500);
         } else {
-          setTimeout(function() {
+          setTimeout(function () {
             gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="solid_line.PNG" alt="instruction image display failed."/>';
           }, 4500);
         }
@@ -191,7 +192,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             buttonElement.value = 'result';
             buttonElement.innerText = 'Get Result';
           }
-        }, 4500);
+        }, 5500);
 
         break;
 
@@ -222,6 +223,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         instructionTxt.style.fontSize = '3rem';
         instructionTxt.style.display = 'block';
         coinDisplay.style.display = 'none';
+
+        contentGrid.style.display = 'grid';
 
         // Set animation delay
         setTimeout(() => {
@@ -260,6 +263,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         instructionTxt.style.animation = 'none';
         instructionImg.style.display = 'inline-block';
         intepretationTxt.style.display = 'none';
+
+        contentGrid.style.display = 'inline';
 
         // Update Side Screen
         lineTxt.style.fontSize = '2rem';
