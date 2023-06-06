@@ -68,11 +68,76 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 })
 
-function allowDrop(ev) {
-  ev.preventDefault(); 
+// Card selector counter 
+let i = 0; 
+
+// Allows cards to be selectable and dragged to satisfied palce 
+let sourceContainerID =''; 
+let droppedID =''; 
+const card1s = document.querySelectorAll('.card1');
+const card2s = document.querySelectorAll('.card2');
+const card3s = document.querySelectorAll('.card3');
+const pickContainer1 = document.querySelector('.pickContainer1');
+const pickContainer2 = document.querySelector('.pickContainer2');
+const pickContainer3 = document.querySelector('.pickContainer3');
+
+const card1sArray = Array.from(card1s);
+const card2sArray = Array.from(card2s); 
+const card3sArray = Array.from(card3s);
+
+card1s.forEach(card => {
+    card.addEventListener('dragstart', dragStart); 
+})
+card2s.forEach(card => {
+    card.addEventListener('dragstart', dragStart); 
+}); 
+card3s.forEach(card => {
+    card.addEventListener('dragstart', dragStart); 
+})
+
+pickContainer1.addEventListener('drop', dropped); 
+pickContainer1.addEventListener('dragenter', cancelDefault); 
+pickContainer1.addEventListener('dragover', cancelDefault); 
+
+pickContainer2.addEventListener('drop', dropped); 
+pickContainer2.addEventListener('dragenter', cancelDefault); 
+pickContainer2.addEventListener('dragover', cancelDefault); 
+
+pickContainer3.addEventListener('drop', dropped); 
+pickContainer3.addEventListener('dragenter', cancelDefault); 
+pickContainer3.addEventListener('dragover', cancelDefault); 
+
+function cancelDefault (e) {
+    e.preventDefault(); 
+    e.stopPropagation(); 
+    return false; 
 }
-function drag(ev) {
-  ev.dataTransfer.setData
+function dragStart (e) {
+    e.dataTransfer.setData('text/plain', e.target.id); 
+    sourceContainerID = this.parentElement.id; 
+    droppedID = this.id; 
+}
+function dropped (e) {
+    if (this.id !== sourceContainerID) {
+        cancelDefault(e); 
+        let id = e.dataTransfer.getData('text/plain'); 
+        if (droppedID == 'card1') {
+            const droppedElement = card1sArray[i];
+            e.target.appendChild(card1sArray[i]);
+            droppedElement.draggable = false; 
+            i++;  
+        }else if (droppedID == 'card2') {
+            const droppedElement = card2sArray[i];
+            e.target.appendChild(card2sArray[i]);
+            droppedElement.draggable = false; 
+            i++; 
+        }else if(droppedID == 'card3') {
+            const droppedElement = card3sArray[i];
+            e.target.appendChild(card3sArray[i]);
+            droppedElement.draggable = false; 
+            i++; 
+        }
+    }
 }
 
 /* Add this current card to the div container
