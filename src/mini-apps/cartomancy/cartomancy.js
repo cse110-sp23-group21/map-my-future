@@ -78,8 +78,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         cards.remove();
         console.log("turned display attr off");
       });
-
-      //readCardFortunes();
+      
+      readCards();
     }, 1000);
   }); 
 
@@ -118,9 +118,9 @@ let droppedID ='';
 const card1s = document.querySelectorAll('.card1');
 const card2s = document.querySelectorAll('.card2');
 const card3s = document.querySelectorAll('.card3');
-const pickContainer1 = document.querySelector('.pickContainer1');
-const pickContainer2 = document.querySelector('.pickContainer2');
-const pickContainer3 = document.querySelector('.pickContainer3');
+const pickContainer1 = document.getElementById('pickContainer1');
+const pickContainer2 = document.getElementById('pickContainer2');
+const pickContainer3 = document.getElementById('pickContainer3');
 
 const card1sArray = Array.from(card1s);
 const card2sArray = Array.from(card2s); 
@@ -212,29 +212,29 @@ function readCards() {
   const fortune2 = receivedFortunes[1];
   const fortune3 = receivedFortunes[2];
 
-  /*const pickedCardsArea = document.getElementById('pickContainer');*/
+  const pickedCardsArea = document.getElementById('pickContainer');
 
   // delete the previous stuff place for cards
   //const unchosenCards = document.getElementsByClassName('center-div')[0];
-  const unchosenCards = document.getElementById('cards-set-down');
-  unchosenCards.classList.add('hide-cards');
+  //const unchosenCards = document.getElementById('cards-set-down');
+  //unchosenCards.classList.add('hide-cards');
   setTimeout(() => {
     // FIXME: this should be unchosenCrds.style.display = 'none', but this resizes the screen
-    unchosenCards.style.opacity = '0'; 
+    //unchosenCards.style.opacity = '0'; 
     console.log("should of begun hiding cards");
 
     // now bring the fortune to the center
 
-    pickedCardsArea.style.transition = '2s';
+    //pickedCardsArea.style.transition = '2s';
     
-    pickedCardsArea.style.top = '45%';
-    pickedCardsArea.style.left = '40%';
+    //pickedCardsArea.style.top = '45%';
+    //pickedCardsArea.style.left = '40%';
 
 
     // now continue displaying the fortune
 
-    const displayFortuneContainer = document.createElement('div');
-    displayFortuneContainer.classList.add('displayFortuneContainer');
+    //const displayFortuneContainer = document.createElement('div');
+    //displayFortuneContainer.classList.add('displayFortuneContainer');
 
     console.log(receivedFortunes);
 
