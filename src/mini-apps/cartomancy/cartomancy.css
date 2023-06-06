@@ -152,15 +152,6 @@ body {
   transition: 300ms ease-in-out;
 }
 
-/*
-#pickContainer {
-  position: fixed;
-  font-size: 300%;
-  top: 70%;
-  left: 65%;
-  transition: ease 1s;
-}
-*/
 
 .card1 + .card1, .card3 + .card3{
     margin-left: -15.5%; 
