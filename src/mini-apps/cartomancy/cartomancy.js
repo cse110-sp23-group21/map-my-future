@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   const musicButton = document.getElementById('music-button');
   const infoButton = document.getElementById('info-button');
   const readFortuneButton = document.getElementById("read-fortune-button");
-  const cardElements = document.querySelectorAll('.card');
-  const cardsSet = document.getElementsById('cards-set-down');
+  const cardElements = document.querySelectorAll(".card");
+  const wholeDeck = document.querySelectorAll(".deck");
 
   /*
   //  Add event listeners to the card elements
@@ -60,19 +60,24 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     //console.log("Yeah you loaded thsi many cards:");
     
-    console.log(cardsPicked);
+    //console.log(cardsPicked);
 
     // put away cards, leaves 1
-    console.log(cardsSet);
-    cardsSet.classList.add('hide-cards');
+    console.log(wholeDeck);
+    wholeDeck.forEach( (cards) => {
+      cards.classList.add("hide-cards");
+    });
 
     console.log("should of begun hiding cards");
 
     setTimeout(() => {
 
-    console.log(cardsSet);
-      cardsSet.remove();
-      console.log("turned display attr off");
+    console.log(wholeDeck);
+      wholeDeck.forEach( (cards) => {
+        //cards.style.display = 'none'; // removes the 'perspective tag'
+        cards.remove();
+        console.log("turned display attr off");
+      });
 
       //readCardFortunes();
     }, 1000);
