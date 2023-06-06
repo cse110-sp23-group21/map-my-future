@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,95 +8,103 @@
     <!-- make sure to change for your own mini app's html/css/js and page title -->
     <link rel="stylesheet" href="cartomancy.css">
     <title>cartomancy</title>
-</head>
-<body>
+  </head>
+  <body>
     <script type="module" src="cartomancy.js"></script>
 
     <!-- Page Content (customize for each mini app!) -->
     <div class="center-div" id="cards-set-down">
 
-        <div class="heading">
-            <h1></h1>
-        </div>
+      <div class="heading">
+        <h1></h1>
+      </div>
 
-        <!-- add page content here -->
+      <!-- add page content here -->
 
-        <!-- Card Deck -->
+      <!-- Card Deck -->
 
-         
-            <div class="deck">
-                <div draggable = "true" class="card1" id="card1"></div>
-                <div draggable = "true" class="card1" id="card1"></div>
-                <div draggable = "true" class="card1" id="card1"></div>
-                <div draggable = "true" class="card1" id="card1"></div>
-                <div draggable = "true" class="card1" id="card1"></div>
-                <div draggable = "true" class="card1" id="card1"></div>
-                <div draggable = "true" class="card1" id="card1"></div>
-                <div draggable = "true" class="card1" id="card1"></div>
-                <div draggable = "true" class="card1" id="card1"></div>
-            </div>
-            <div id="pickContainer1" class="pickContainer1">
-            </div>
-            <div class="deck">
-                <div draggable = "true" class="card2" id="card2"></div>
-                <div draggable = "true" class="card2" id="card2"></div>
-                <div draggable = "true" class="card2" id="card2"></div>
-                <div draggable = "true" class="card2" id="card2"></div>
-                <div draggable = "true" class="card2" id="card2"></div>
-                <div draggable = "true" class="card2" id="card2"></div>
-                <div draggable = "true" class="card2" id="card2"></div>
-                <div draggable = "true" class="card2" id="card2"></div>
-                <div draggable = "true" class="card2" id="card2"></div>
-                <div draggable = "true" class="card2" id="card2"></div>
-            </div>
-            <div id="pickContainer2" class = "pickContainer2">
-            </div>
-            <div class="deck">
-                <div draggable = "true" class="card3" id="card3"></div>
-                <div draggable = "true" class="card3" id="card3"></div>
-                <div draggable = "true" class="card3" id="card3"></div>
-                <div draggable = "true" class="card3" id="card3"></div>
-                <div draggable = "true" class="card3" id="card3"></div>
-                <div draggable = "true" class="card3" id="card3"></div>
-                <div draggable = "true" class="card3" id="card3"></div>
-                <div draggable = "true" class="card3" id="card3"></div>
-                <div draggable = "true" class="card3" id="card3" ></div>
-            </div>
-            <div id="pickContainer3" class = "pickContainer3">
-            </div>
-    
-        
+
+      <div class="deck">
+        <div draggable = "true" class="card1" id="card1"></div>
+        <div draggable = "true" class="card1" id="card1"></div>
+        <div draggable = "true" class="card1" id="card1"></div>
+        <div draggable = "true" class="card1" id="card1"></div>
+        <div draggable = "true" class="card1" id="card1"></div>
+        <div draggable = "true" class="card1" id="card1"></div>
+        <div draggable = "true" class="card1" id="card1"></div>
+        <div draggable = "true" class="card1" id="card1"></div>
+        <div draggable = "true" class="card1" id="card1"></div>
+      </div>
+      <div id="pickContainer1" class="pickContainer1">
+      </div>
+      <div class="deck">
+        <div draggable = "true" class="card2" id="card2"></div>
+        <div draggable = "true" class="card2" id="card2"></div>
+        <div draggable = "true" class="card2" id="card2"></div>
+        <div draggable = "true" class="card2" id="card2"></div>
+        <div draggable = "true" class="card2" id="card2"></div>
+        <div draggable = "true" class="card2" id="card2"></div>
+        <div draggable = "true" class="card2" id="card2"></div>
+        <div draggable = "true" class="card2" id="card2"></div>
+        <div draggable = "true" class="card2" id="card2"></div>
+        <div draggable = "true" class="card2" id="card2"></div>
+      </div>
+      <div id="pickContainer2" class = "pickContainer2">
+      </div>
+      <div class="deck">
+        <div draggable = "true" class="card3" id="card3"></div>
+        <div draggable = "true" class="card3" id="card3"></div>
+        <div draggable = "true" class="card3" id="card3"></div>
+        <div draggable = "true" class="card3" id="card3"></div>
+        <div draggable = "true" class="card3" id="card3"></div>
+        <div draggable = "true" class="card3" id="card3"></div>
+        <div draggable = "true" class="card3" id="card3"></div>
+        <div draggable = "true" class="card3" id="card3"></div>
+        <div draggable = "true" class="card3" id="card3" ></div>
+      </div>
+      <div id="pickContainer3" class = "pickContainer3">
+      </div>
+
+
+
     </div>
 
-    <!-- Area for chosen place, FIXME: need to reintegrate -->
+    <!-- Area for chosen place, FIXME: need to reintegrate
     <div id="pickContainer">
       <p>Area to move chosen cards to</p>
     </div>
+    -->
 
-
-    <!-- Buttons -->
+    <!-- App Buttons -->
     <div class="button-container-bottom-left">
       <a href="#" id="music-button" class="menu-button">
         <img src="/assets/audio_on.png" id="music" alt="Music">
       </a>
-        <a href="../../index.html" id="home-button" class="menu-button">
-            <img src="/assets/home.png" id="home" alt="Home">
-        </a>
+      <a href="../../index.html" id="home-button" class="menu-button">
+        <img src="/assets/home.png" id="home" alt="Home">
+      </a>
+    </div>
+
+    <!-- Read Fortune Button -->
+    <div class="read-fortune-space" id="read-fortune-button">
+      <a id="read-fortune-anchor">
+        <img src="../../../assets/cards-button.png" alt="Read Fortune">
+      </a>
     </div>
 
     <div class="button-container-bottom-right">
-        <a href="#" id="info-button" class="menu-button">
-            <img src="../../../assets/info.png" id="info" alt="Info">
-        </a>
+      <a href="#" id="info-button" class="menu-button">
+        <img src="../../../assets/info.png" id="info" alt="Info">
+      </a>
     </div>
 
     <!-- Info Pop Up Screen -->
     <div id="info-popup" class="info-popup">
-        <div class="info-text">
-            <h1>Info</h1>
-            <p></p>
-        </div>
+      <div class="info-text">
+        <h1>Info</h1>
+        <p></p>
+      </div>
     </div>
-    
-</body>
+
+  </body>
 </html>

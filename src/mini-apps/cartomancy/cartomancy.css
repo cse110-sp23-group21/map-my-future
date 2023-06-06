@@ -94,6 +94,36 @@ body {
   transition: 300ms ease-in-out;
 }
 
+.read-fortune-space {
+    position: fixed;
+    right: 375px;
+    display: none; /* toggled when 3 cards are selected */
+    justify-content: center;
+    align-items: center;
+    top: 44%;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    text-decoration: none;
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, #1B1D15, #8257E5);
+    transition: opacity 500ms ease-in-out;
+}
+
+#read-fortune-anchor {
+    max-width: 85%;
+    color: white;
+    transition: opacity 1s ease;
+    transition: 300ms ease-in-out;
+    border-radius: 120%;
+}
+  
+
+#read-fortune-anchor img {
+    max-width: 100%;
+    filter: brightness(0) invert(1);
+}
+
 .hide {
     transition: opacity 1s;
     opacity: 0;
@@ -122,6 +152,7 @@ body {
   transition: 300ms ease-in-out;
 }
 
+/*
 #pickContainer {
   position: fixed;
   font-size: 300%;
@@ -129,6 +160,7 @@ body {
   left: 65%;
   transition: ease 1s;
 }
+*/
 
 .card1 + .card1, .card3 + .card3{
     margin-left: -15.5%; 

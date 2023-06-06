@@ -5,6 +5,8 @@ import FortuneEngine from "../../engine.js";
 const engine = new FortuneEngine();
 const APP_NAME = "cartomancy";
 
+let cardsPicked = 0; // counter when 3 cards are picked
+
 document.addEventListener('DOMContentLoaded', async () => {
 
   // Read JSON File
@@ -21,8 +23,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   let showInfo = false;
   const musicButton = document.getElementById('music-button');
   const infoButton = document.getElementById('info-button');
-  const cardElements = document.querySelectorAll(".card");
+  const readFortuneButton = document.getElementById("read-fortune-button");
+  const cardElements = document.querySelectorAll('.card');
+  const cardsSet = document.getElementsById('cards-set-down');
 
+  /*
   //  Add event listeners to the card elements
   console.log("cardElements:", cardElements);
 
@@ -41,6 +46,37 @@ document.addEventListener('DOMContentLoaded', async () => {
       readCards();
     });
   });
+  */
+
+
+  //  Add event listeners to the card elements
+  console.log("cardElements:", cardElements);
+
+
+  // add a listener for when cardsPicked = 3
+  // make the button visible
+
+  readFortuneButton.addEventListener("click", (e) => {
+
+    //console.log("Yeah you loaded thsi many cards:");
+    
+    console.log(cardsPicked);
+
+    // put away cards, leaves 1
+    console.log(cardsSet);
+    cardsSet.classList.add('hide-cards');
+
+    console.log("should of begun hiding cards");
+
+    setTimeout(() => {
+
+    console.log(cardsSet);
+      cardsSet.remove();
+      console.log("turned display attr off");
+
+      //readCardFortunes();
+    }, 1000);
+  }); 
 
   musicButton.addEventListener('click', (e) => {
     console.log('music');
@@ -66,7 +102,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   resetButton.addEventListener('click', (e) => {
     window.location.reload();
   });
-})
+});
 
 // Card selector counter 
 let i = 0; 
@@ -138,6 +174,14 @@ function dropped (e) {
             i++; 
         }
     }
+  cardsPicked++;
+
+  if(cardsPicked == 3) {
+    // assumes document is loaded
+    //console.log("reached 3 cards loaded");
+    document.querySelectorAll('.read-fortune-space')[0].style.display = 'flex';
+  }
+    
 }
 
 /* Add this current card to the div container
@@ -163,7 +207,7 @@ function readCards() {
   const fortune2 = receivedFortunes[1];
   const fortune3 = receivedFortunes[2];
 
-  const pickedCardsArea = document.getElementById('pickContainer');
+  /*const pickedCardsArea = document.getElementById('pickContainer');*/
 
   // delete the previous stuff place for cards
   //const unchosenCards = document.getElementsByClassName('center-div')[0];
