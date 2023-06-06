@@ -91,25 +91,50 @@ function readCards() {
   const fortune2 = receivedFortunes[1];
   const fortune3 = receivedFortunes[2];
 
-  const displayFortuneContainer = document.createElement('div');
-  displayFortuneContainer.classList.add('displayFortuneContainer');
+  const pickedCardsArea = document.getElementById('pickContainer');
 
-  console.log(receivedFortunes);
+  // delete the previous stuff place for cards
+  //const unchosenCards = document.getElementsByClassName('center-div')[0];
+  const unchosenCards = document.getElementById('cards-set-down');
+  unchosenCards.classList.add('hide-cards');
+  setTimeout(() => {
+    // FIXME: this should be unchosenCrds.style.display = 'none', but this resizes the screen
+    unchosenCards.style.opacity = '0'; 
+    console.log("should of begun hiding cards");
+
+    // now bring the fortune to the center
+
+    pickedCardsArea.style.transition = '2s';
+    
+    pickedCardsArea.style.top = '45%';
+    pickedCardsArea.style.left = '40%';
 
 
-  const TEMPDISPLAY = document.createElement('p');
-  const node = document.createTextNode('Display fortunes in this new div');
-  TEMPDISPLAY.classList.add('read-fortune');
-  
-  TEMPDISPLAY.appendChild(node);
-  displayFortuneContainer.appendChild(TEMPDISPLAY);
+    // now continue displaying the fortune
 
-  //const element = document.getElementById('body');
-  document.body.appendChild(displayFortuneContainer);
+    const displayFortuneContainer = document.createElement('div');
+    displayFortuneContainer.classList.add('displayFortuneContainer');
+
+    console.log(receivedFortunes);
+
+    /*
+
+    const TEMPDISPLAY = document.createElement('p');
+    const node = document.createTextNode('Display fortunes in this new div');
+    TEMPDISPLAY.classList.add('read-fortune');
+
+    TEMPDISPLAY.appendChild(node);
+    displayFortuneContainer.appendChild(TEMPDISPLAY);
+
+    //const element = document.getElementById('body');
+    document.body.appendChild(displayFortuneContainer);
+    */
 
 
-  // output the results
-  console.log(fortune1['result']);
+    // output the results
+    console.log(fortune1['result']);
+
+  }, 1000);
 
 }
 
