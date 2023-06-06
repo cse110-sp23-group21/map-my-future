@@ -68,6 +68,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 })
 
+function allowDrop(ev) {
+  ev.preventDefault(); 
+}
+function drag(ev) {
+  ev.dataTransfer.setData
+}
+
 /* Add this current card to the div container
  * @Param perhaps the card itelf
  */
