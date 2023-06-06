@@ -37,7 +37,7 @@ body {
     transition: opacity 1s ease;
 }
 
-.pickContainer1 {
+#pickContainer1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,7 +56,7 @@ body {
     transition: 300ms ease-in-out;
 }
 
-.pickContainer2 {
+#pickContainer2 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,7 +75,7 @@ body {
   transition: opacity 1s ease;
  
 }
-.pickContainer3 {
+#pickContainer3 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,6 +116,13 @@ body {
     transition: opacity 1s ease;
     transition: 300ms ease-in-out;
     border-radius: 120%;
+}
+
+.reset-button {
+    position: fixed;
+    right: 375px;
+    display: none;
+    background-image: linear-gradient(to bottom, #1B1D15, #8257E5);
 }
   
 
@@ -232,6 +239,7 @@ body {
   max-width: 8em;  
 }
 
+/*
 .reset-button-container {
     opacity: 0;
     transition: opacity 1s ease;
@@ -240,6 +248,7 @@ body {
 .reset-button-container.show {
     opacity: 1;
 }
+*/
 
 /* styling for buttons */
 .button-container-bottom-right {
