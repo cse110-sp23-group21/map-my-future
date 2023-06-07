@@ -37,10 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('intro').style.display = "none"; 
     origDeck.style.display = "initial";
     document.getElementById('start-button').style.display = "none";
-    document.body.style.backgroundImage = "url('/assets/cartomancy/cartomancy-background.jpeg')";
   });
-
-
 
   // button display:'flex' after 3 cards
   readFortuneButton.addEventListener("click", (e) => {
@@ -93,6 +90,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Card selector counter 
 let i = 0; 
+let pickCounter1 = 0; 
+let pickCounter2 = 0; 
+let pickCounter3 = 0; 
 
 // Allows cards to be selectable and dragged to satisfied palce 
 let sourceContainerID =''; 
@@ -150,25 +150,33 @@ function dropped (e) {
     cancelDefault(e); 
     let id = e.dataTransfer.getData('text/plain'); 
     if (droppedID == 'card1') {
-      const droppedElement = card1sArray[i];
-      e.target.appendChild(card1sArray[i]);
-      droppedElement.draggable = false; 
-      i++;  
+      if((e.target.id == 'pickcontainer1' || e.target.id == 'pickcontainer2' || e.target.id == 'pickcontainer3') || (e.target.id !== 'card1' && e.target.id !== 'card2' && e.target.id !== 'card3')){
+        const droppedElement = card1sArray[i];
+        e.target.appendChild(card1sArray[i]);
+        droppedElement.draggable = false; 
+        cardsPicked++;
+        i++;  
+      }
     } 
     else if (droppedID == 'card2') {
+      if ((e.target.id == 'pickcontainer1' || e.target.id == 'pickcontainer2' || e.target.id == 'pickcontainer3') || (e.target.id !== 'card1' && e.target.id !== 'card2' && e.target.id !== 'card3')) {
       const droppedElement = card2sArray[i];
       e.target.appendChild(card2sArray[i]);
       droppedElement.draggable = false; 
-      i++; 
+      cardsPicked++;
+      i++;
+      }
     } 
     else if(droppedID == 'card3') {
+      if((e.target.id == 'pickcontainer1' || e.target.id == 'pickcontainer2' || e.target.id == 'pickcontainer3') || (e.target.id !== 'card1' && e.target.id !== 'card2' && e.target.id !== 'card3')) {
       const droppedElement = card3sArray[i];
       e.target.appendChild(card3sArray[i]);
       droppedElement.draggable = false; 
+      cardsPicked++; 
       i++; 
-    }
+      }
   }
-  cardsPicked++;
+}
 
   // Enable reset button after card is picked
   if(cardsPicked == 1) {

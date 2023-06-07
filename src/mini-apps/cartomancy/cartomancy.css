@@ -150,12 +150,23 @@ body {
   justify-content: center;
   align-items: center;
   top: 44%;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+  width: 80px;
+  height: 80px;
   text-decoration: none;
   overflow: hidden;
-  background-image: linear-gradient(to bottom, #1B1D15, #8257E5);
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
   transition: opacity 500ms ease-in-out;
 }
 
@@ -169,18 +180,29 @@ body {
 
 #reset-button {
   position: fixed;
-  right: 375px;
-  top: 60%;
-  background-image: linear-gradient(to bottom, #1B1D15, #8257E5);
+  top: 10px;
+  left: 10px;
   width: 120px;
   height: 60px;
   display: none;
-  border-radius: 30px;
-  color: #FFFFFF;
-  font-size: 16px;
   align-items: center;
   justify-content: center;
-  font-family: 'Times New Roman', sans-serif;
+  font-family: 'Noto Serif', serif;
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 25px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
 #read-fortune-anchor img {
@@ -219,7 +241,7 @@ body {
 
 
 .card1 + .card1, .card3 + .card3{
-  margin-left: -15.5%; 
+  margin-left: -14.5%; 
 }
 
 .card1:hover, .card2:hover, .card3:hover {
@@ -234,7 +256,7 @@ body {
 }
 
 .card2 + .card2{
-  margin-left: -14.8%; 
+  margin-left: -14%; 
 }
 
 .overlay {
@@ -315,6 +337,7 @@ body {
   display: inline-block;
   font-weight: 600;
   font-size: 18px;
+  font-family: 'Noto Serif', serif;
   padding: 0 18px;
   line-height: 50px;
   text-align: center;
