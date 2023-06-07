@@ -248,10 +248,8 @@ function organizeCards(pick, fortune) {
   console.log(pick.firstChild);
   pick.removeChild(pick.firstChild);
 
-
-  // erase background of pickContainers
-  pick.style.backgroundImage = 'none';
-  pick.style.backgroundColor = 'transparent';
+  pick.classList.remove('pickContainer');
+  pick.classList.add('read-container');
 
   console.log("should of begun hiding cards");
   //console.log(pick);

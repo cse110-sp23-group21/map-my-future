@@ -15,39 +15,39 @@
 
 /* styling for introduction/instruction */ 
 #intro {
-display: intial; 
-margin: auto;
-width: 800px;
-height: 800px;
-position: center; 
-background-image: url('/assets/cartomancy/instruction-image.png') ;
-background-size: cover;
-background-position: center center; 
-overflow : hidden; 
+  display: intial; 
+  margin: auto;
+  width: 800px;
+  height: 800px;
+  position: center; 
+  background-image: url('/assets/cartomancy/instruction-image.png') ;
+  background-size: cover;
+  background-position: center center; 
+  overflow : hidden; 
 }
 
 /* animation for introduction and deck of card*/ 
 .drop-in, .start-button, .deck{
   animation: drop-in 1s ease 200ms backwards;
 }
- 
- .drop-in-2, .start-button{
+
+.drop-in-2, .start-button{
   animation: drop-in 1200ms ease 500ms backwards;
 }
- 
+
 @keyframes drop-in {
   from {
-   opacity: 0;
-   transform: translateY(-100px);
+    opacity: 0;
+    transform: translateY(-100px);
   }
   to {
-   opacity: 1;
-   transform: translate(0px);
+    opacity: 1;
+    transform: translate(0px);
   }
 }
- 
+
 body {
-  risplay : flex;
+  :isplay : flex;
   align-items : center;
   justify-content : center;  
   background-color: #43345d;
@@ -65,44 +65,46 @@ body {
 }
 
 #center-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 85%;
-    transition: ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 85%;
+  height: 85%;
+  transition: ease;
 }
 
 /* styling for card deck */
 .deck {
-    display: flex;
-    position:relative; left:-125px; top: -46px;
-    justify-content: center;
-    flex-direction: row;
-    opacity: 1;
-    gap: 5px;
-    transition: opacity 1s ease;
+  display: flex;
+  position:relative; left:-125px; top: -46px;
+  justify-content: center;
+  flex-direction: row;
+  opacity: 1;
+  gap: 5px;
+  transition: opacity 1s ease;
 }
 
-#pickContainer1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url('/assets/cartomancy/card-holder.png');
-    background-position: center;
-    background-size: cover; 
-    position: absolute;
-    top: -2%;
-    right: 0;
-    width: 350px;
-    height: 320px;
-    color: white;
-    margin: 20px;
-    cursor: move;
-    transition: opacity 1s ease;
-    transition: 300ms ease-in-out;
+.pickContainer.p1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  background-image: url('/assets/cartomancy/card-holder.png');
+  background-position: center;
+  background-size: cover; 
+  position: absolute;
+  top: -2%;
+  right: 0;
+  width: 350px;
+  height: 320px;
+  color: white;
+  margin: 20px;
+  cursor: move;
+  transition: opacity 1s ease;
+  transition: 300ms ease-in-out;
 }
 
-#pickContainer2 {
+.pickContainer.p2 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,9 +121,9 @@ body {
   margin: 20px;
   cursor: move;
   transition: opacity 1s ease;
- 
+
 }
-#pickContainer3 {
+.pickContainer.p3 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -141,54 +143,54 @@ body {
 }
 
 .read-fortune-space {
-    position: fixed;
-    right: 375px;
-    display: none; /* toggled when 3 cards are selected */
-    justify-content: center;
-    align-items: center;
-    top: 44%;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    text-decoration: none;
-    overflow: hidden;
-    background-image: linear-gradient(to bottom, #1B1D15, #8257E5);
-    transition: opacity 500ms ease-in-out;
+  position: fixed;
+  right: 375px;
+  display: none; /* toggled when 3 cards are selected */
+  justify-content: center;
+  align-items: center;
+  top: 44%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  text-decoration: none;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom, #1B1D15, #8257E5);
+  transition: opacity 500ms ease-in-out;
 }
 
 #read-fortune-anchor {
-    max-width: 85%;
-    color: white;
-    transition: opacity 1s ease;
-    transition: 300ms ease-in-out;
-    border-radius: 120%;
+  max-width: 85%;
+  color: white;
+  transition: opacity 1s ease;
+  transition: 300ms ease-in-out;
+  border-radius: 120%;
 }
 
 #reset-button {
-    position: fixed;
-    right: 375px;
-    top: 60%;
-    background-image: linear-gradient(to bottom, #1B1D15, #8257E5);
-    width: 120px;
-    height: 60px;
-    display: none;
-    border-radius: 30px;
-    color: #FFFFFF;
-    font-size: 16px;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Times New Roman', sans-serif;
+  position: fixed;
+  right: 375px;
+  top: 60%;
+  background-image: linear-gradient(to bottom, #1B1D15, #8257E5);
+  width: 120px;
+  height: 60px;
+  display: none;
+  border-radius: 30px;
+  color: #FFFFFF;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Times New Roman', sans-serif;
 }
-  
+
 #read-fortune-anchor img {
-    max-width: 100%;
-    filter: brightness(0) invert(1);
+  max-width: 100%;
+  filter: brightness(0) invert(1);
 }
 
 .hide {
-    transition: opacity 1s;
-    opacity: 0;
-    pointer-events: none;
+  transition: opacity 1s;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* hide's cards but moving them out */
@@ -216,18 +218,18 @@ body {
 
 
 .card1 + .card1, .card3 + .card3{
-    margin-left: -15.5%; 
+  margin-left: -15.5%; 
 }
 
 .card1:hover, .card2:hover, .card3:hover {
-    filter: brightness(0.8);
-    transform: rotate(-4deg); 
-    box-shadow: 0px 0px 20px #FFD700;
-    transition: 0.3s;
+  filter: brightness(0.8);
+  transform: rotate(-4deg); 
+  box-shadow: 0px 0px 20px #FFD700;
+  transition: 0.3s;
 }
 .card1:hover ~ .card1, .card2:hover ~ .card2, .card3:hover ~ .card3{
-    z-index: 1;
-    translate: 30px; 
+  z-index: 1;
+  translate: 30px; 
 }
 
 .card2 + .card2{
@@ -235,19 +237,19 @@ body {
 }
 
 .overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
 }
-  .overlay:target {
-    visibility: visible;
-    opacity: 1;
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
 }
 
 .box {
@@ -260,27 +262,27 @@ body {
 /* styling for fortune display */
 
 .display-fortune {
-    opacity: 0;
-    transition: opacity 1s ease;
+  opacity: 0;
+  transition: opacity 1s ease;
 }
 
 .display-fortune.show {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  opacity: 1;
 }
 
 .fortune-img img {
-    width: 250px;
-    height: 250px;
+  width: 250px;
+  height: 250px;
 }
 
 .fortune-text {
-    width: 60%;
+  width: 60%;
 }
 
 #fortune-message {
@@ -291,15 +293,15 @@ body {
 
 /* styling for buttons */
 .button-container-bottom-right {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
 }
 
 .button-container-bottom-left {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
 }
 
 .start-button {
@@ -338,40 +340,40 @@ body {
 }
 
 .menu-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: #846e43;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    text-decoration: none;
-    overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: #846e43;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  text-decoration: none;
+  overflow: hidden;
 }
 
 .menu-button img {
-    width: 30px;
-    height: 30px;
-    filter: brightness(0) invert(1);
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1);
 }
 
 .menu-button:hover {
-    background-color: #857557;
+  background-color: #857557;
 }
 
 /* styling for info pop up screen */
 .info-popup {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 85px;
-    width: 400px;
-    height: 300px;
-    border-radius: 10%;
-    background-color: #846e43;
-    text-align: center;
-    justify-content: center;  
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 85px;
+  width: 400px;
+  height: 300px;
+  border-radius: 10%;
+  background-color: #846e43;
+  text-align: center;
+  justify-content: center;  
 }
 
 .choose-card { 
@@ -390,23 +392,20 @@ body {
 }
 
 .info-text {
-    color: white;
-    width: 90%;
-    font-family: 'Noto Serif', serif;
+  color: white;
+  width: 90%;
+  font-family: 'Noto Serif', serif;
 }
 
 /*
  * css for reading.cardShows
  */
 
-#center-div .container{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Creates three equal-width columns */
-  grid-gap: 10px; /* Optional gap between items */
-  position : relative;
-  width: 95%;
-  flex-wrap : wrap;
-  padding : 30px;  
+#center-div.container{
+  flex-direction: row;
+  align-items: center; /* Center vertically */
+  /*top: 50%;*/
+  padding : 50px;  
 }
 
 .container .cardShow {
@@ -416,7 +415,7 @@ body {
   background-color : #fff;
   margin : 30px 10px;
   padding : 20px 15px;
-  
+
   display : flex;
   flex-direction : column;
   box-shadow : 0 5px 20px rgba(0,0,0,0.5);
@@ -432,7 +431,7 @@ body {
   position : relative;
   width : 360px;
   height : 360px;
-  
+
   top : -40%;
   left: 8px;
   box-shadow : 0 5px 20px rgba(0,0,0,0.2);
@@ -450,20 +449,30 @@ body {
   padding : 10px 15px;
   color : #111;
   text-align : center;
-  
+
   visibility : hidden;
   opacity : 0;
   transition : 0.3s ease-in-out;
-    
+
 }
 
 .container .cardShow:hover .content {
-   margin-top : 30px;
-   visibility : visible;
-   opacity : 1;
-   transition-delay: 0.2s;
-  
+  margin-top : 30px;
+  visibility : visible;
+  opacity : 1;
+  transition-delay: 0.2s;
+
 }
+
+
+.read-container {
+  margin-top: 10%;
+  margin-left: 2%;
+  display: flex;
+  background-image: none;
+  background-position: center;
+}
+
 
 /* 
  * animations
