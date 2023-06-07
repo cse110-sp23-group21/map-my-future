@@ -181,7 +181,9 @@ function readCards() {
   const fortune2 = receivedFortunes[1];
   const fortune3 = receivedFortunes[2];
 
-  const ReadingArea = document.getElementById('center-div');;
+  const pickContainer1 = document.getElementById('pickContainer1');
+  const pickContainer2 = document.getElementById('pickContainer2');
+  const pickContainer3 = document.getElementById('pickContainer3');
 
   setTimeout(() => {
     console.log("should of begun hiding cards");
@@ -197,7 +199,7 @@ function readCards() {
     indCardImage.setAttribute("src", "https://i.pinimg.com/originals/a4/7b/a5/a47ba59b4a353e0928ef0551ca44f980.jpg"); 
     indCardImage.classList.add('content');
 
-    let node = document.createTextNode('Display fortunes in this new div');
+    let node = document.createTextNode('read fortune in here man');
 
     console.log(receivedFortunes);
 
@@ -205,22 +207,20 @@ function readCards() {
     indCard.appendChild(content);
 
     indCardImageContainer.appendChild(indCardImage);
-    indCard.appendChild(indCardImageContainer);
+    pickContainer1.appendChild(indCardImageContainer);
     
     document.body.appendChild(indCard);
 
     /*
      <div class = card>
           <div class = image>
-            <img href = "#" src =               https://i.pinimg.com/originals/a4/7b/a5/a47ba59b4a353e0928ef0551ca44f980.jpg>
+            <img href = "#" src='imgsrc'>
           </div>
           <div class = content>
             <h3>This is content</h3>
-            <p>DIn publishing and graphic design,           Lorem ipsum is a placeholder text               commonly used to demonstrate the visual         form of a document or a typeface without         relying on meaningful content.</p>
+            <p>information</p>
           </div>
         </div> 
-    */
-    /*
     */
 
 
@@ -230,8 +230,8 @@ function readCards() {
     // actually may better loop later
     let i = 0;
     while(i < 1) { // loop through first 3
-      const pickContainer = document.getElementById(`pickContainer{i}`);
-      displayFortune(pickContainer, receivedFortunes[i]);
+      let picking = document.getElementById(`pickContainer{i}`);
+      displayFortune(picking, receivedFortunes[i]);
       i++;
     }
 
