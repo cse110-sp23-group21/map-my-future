@@ -1,5 +1,3 @@
-/* customize for mini app! styling for buttons and onwards should remain untouched. */
-
 /* styling for page */
 @font-face {
     font-family: "Chinese Shanghai Demo";
@@ -36,7 +34,7 @@ body {
 }
 
 .hide {
-    transition: opacity 1s
+    transition: opacity 1s;
     opacity: 0;
     pointer-events: none;
 }
