@@ -1,1 +1,0 @@
-/* Yin Yang Coin code goes here */
