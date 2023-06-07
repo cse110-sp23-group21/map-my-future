@@ -1,7 +1,7 @@
 // Main page map JavaScript file
 
 // Background music
-const bgm = new Audio('../assets/map-my-future-bgm.ogg'); //  eslint-disable-line
+const bgm = new Audio('../assets/Waltz-of-the-fortune-teller.mp3'); //  eslint-disable-line
 bgm.play();
 bgm.loop = true;
 
