@@ -182,7 +182,7 @@ body {
   position: fixed;
   top: 10px;
   left: 10px;
-  width: 120px;
+  width: 100px;
   height: 60px;
   display: none;
   align-items: center;
@@ -195,7 +195,7 @@ body {
   color: #422800;
   cursor: pointer;
   font-weight: 600;
-  font-size: 25px;
+  font-size: 20px;
   padding: 0 18px;
   line-height: 50px;
   text-align: center;
@@ -207,7 +207,8 @@ body {
 
 #read-fortune-anchor img {
   max-width: 100%;
-  filter: brightness(0) invert(1);
+  filter: brightness(0);
+  position: center;
 }
 
 .hide {
