@@ -1,0 +1,583 @@
+{
+    "name": "Yin Yang Coin",
+    "screens": {
+        "titleScreen": {
+            "title": "Yin Yang Coin",
+            "exposition": "This from of fortune telling originates from China.",
+            "button": "Start"
+        },
+        "ruleScreen": {
+            "title": "Rules",
+            "rules": "Toss 3 coins 6 times to determine your hexagram.",
+            "button": "Concentrate on your question... then continue!"
+        },
+        "fortuneTellingScreen": {
+            "title": "Yin Yang Coin"
+        }
+    },
+    "hexagrams": [
+        {
+            "id": 1,
+            "name": "Force",
+            "character": "乾",
+            "upper": "Heaven",
+            "lower": "Heaven",
+            "image": "imgPath",
+            "meaning": "Fortune smiles upon you as you tap into your inner creative power. Embrace new beginnings and take bold action. Your strength and determination will lead you to success and inspire those around you."
+        },
+        {
+            "id": 43,
+            "name": "Displacement",
+            "character": "夬",
+            "upper": "Lake",
+            "lower": "Heaven",
+            "meaning": "Break free from stagnation and embrace bold action. Embrace change and take calculated risks. By stepping outside your comfort zone, you will unlock new possibilities and achieve breakthroughs."
+        },
+        {
+            "id": 14,
+            "name": "Great Possessing",
+            "character": "大有",
+            "upper": "Flame",
+            "lower": "Heaven",
+            "meaning": "Abundance is within your reach. Cultivate gratitude and manage your resources wisely. By embracing generosity and responsible stewardship, you will create a solid foundation for long-lasting prosperity."
+        },
+        {
+            "id": 34,
+            "name": "Great Invigorating",
+            "character": "大壮",
+            "upper": "Thunder",
+            "lower": "Heaven",
+            "meaning": "Tap into your inner strength and embrace your innate power. Exercise authority with wisdom and compassion. By recognizing your potential and using it responsibly, you will achieve significant accomplishments."
+        },
+        {
+            "id": 9,
+            "name": "Small Harvest",
+            "character": "小畜",
+            "upper": "Wind",
+            "lower": "Heaven",
+            "meaning": "Focus on the details and humble beginnings. Great achievements are built upon small, consistent efforts. Pay attention to the finer aspects of your work, and through perseverance, you will achieve significant progress."
+        },
+        {
+            "id": 5,
+            "name": "Attending",
+            "character": "需",
+            "upper": "Water",
+            "lower": "Heaven",
+            "meaning": "Patience is key when faced with a period of waiting. Use this time wisely to reflect, plan, and prepare. By nurturing your inner strength and being attuned to the right moment, success will come in due course."
+        },
+        {
+            "id": 26,
+            "name": "Great Accumulating",
+            "character": "大畜",
+            "upper": "Mountain",
+            "lower": "Heaven",
+            "meaning": "Harness your inner strength and authority. Take charge with wisdom and benevolence. By exercising responsible leadership and inspiring others, you will achieve great influence and create positive change."
+        },
+        {
+            "id": 11,
+            "name": "Pervading",
+            "character": "泰",
+            "upper": "Earth",
+            "lower": "Heaven",
+            "meaning": "Cultivate inner tranquility and seek harmony in your relationships. Embrace balance and fairness in your interactions. By fostering a peaceful environment and promoting understanding, you will find serenity and fulfillment."
+        },
+        {
+            "id": 10,
+            "name": "Treading",
+            "character": "履",
+            "upper": "Heaven",
+            "lower": "Lake",
+            "meaning": "Exercise caution and prudence in your actions. Take measured steps and carefully consider the consequences of your choices. By proceeding with awareness and thoughtfulness, you can navigate potential pitfalls."
+        },
+        {
+            "id": 58,
+            "character": "兑",
+            "name": "Open",
+            "upper": "Lake",
+            "lower": "Lake",
+            "meaning": "Embrace the energy of joy and celebration. Cultivate happiness and spread positivity. By embracing laughter and finding delight in the present moment, you will enhance your well-being and uplift those around you."
+        },
+        {
+            "id": 38,
+            "name": "Polarising",
+            "character": "睽",
+            "upper": "Flame",
+            "lower": "Lake",
+            "meaning": "Embrace the power of reconciliation and finding common ground. Seek unity and understanding amidst conflicting interests. By transcending differences and embracing cooperation, you can overcome opposition and build bridges."
+        },
+        {
+            "id": 54,
+            "name": "Converting The Maiden",
+            "character": "归妹",
+            "upper": "Thunder",
+            "lower": "Lake",
+            "meaning": "Embrace union and partnership in your personal and professional life. Cultivate harmonious relationships and seek mutual support. By embracing collaboration and honoring commitments, you will experience joy and fulfillment."
+        },
+        {
+            "id": 61,
+            "name": "Inner Truth",
+            "character": "中孚",
+            "upper": "Wind",
+            "lower": "Lake",
+            "meaning": "Seek the truth within yourself and embrace authenticity. Align your actions with your core values. By staying true to yourself and living in alignment, you will find inner peace and fulfillment."
+        },
+        {
+            "id": 60,
+            "name": "Articulating",
+            "character": "节",
+            "upper": "Water",
+            "lower": "Lake",
+            "meaning": "Recognize the value of limitations and constraints. Embrace discipline and focus on essentials. By working within boundaries and embracing resourcefulness, you will find creative solutions and accomplish your goals."
+        },
+        {
+            "id": 41,
+            "name": "Diminishing",
+            "character": "损",
+            "upper": "Mountain",
+            "lower": "Lake",
+            "meaning": "Embrace the power of moderation and simplicity. Let go of excess and focus on what truly matters. By practicing restraint and embracing minimalism, you will find balance and experience a sense of inner harmony."
+        },
+        {
+            "id": 19,
+            "name": "Nearing",
+            "character": "临",
+            "upper": "Earth",
+            "lower": "Lake",
+            "meaning": "Approach situations and relationships with an open heart and mind. Foster receptivity and adaptability. By embracing curiosity and engaging with others in a spirit of exploration, you will expand your horizons and invite positive change."
+        },
+        {
+            "id": 13,
+            "name": "Concording People",
+            "character": "同人",
+            "upper": "Heaven",
+            "lower": "Flame",
+            "meaning": "Forge genuine connections and build strong bonds with others. Embrace mutual support and collaboration. Through cooperation and the sharing of resources, you will achieve greater success and fulfillment."
+        },
+        {
+            "id": 49,
+            "name": "Skinning",
+            "character": "革",
+            "upper": "Lake",
+            "lower": "Flame",
+            "meaning": "Embrace the winds of change and embrace transformation. Embrace innovation and bold action. By embracing change and adapting to new circumstances, you will initiate powerful revolutions and create positive impact."
+        },
+        {
+            "id": 30,
+            "name": "Radiance",
+            "character": "离",
+            "upper": "Flame",
+            "lower": "Flame",
+            "meaning": "Cultivate passion and enthusiasm in your pursuits. Embrace your inner fire and let it fuel your actions. By embracing your authentic desires and channeling your energy wisely, you will ignite positive transformations."
+        },
+        {
+            "id": 55,
+            "name": "Abounding",
+            "character": "丰",
+            "upper": "Thunder",
+            "lower": "Flame",
+            "meaning": "Embrace the flow of abundance in your life. Embrace gratitude and appreciate the blessings that come your way. By aligning with the energy of abundance and sharing your wealth, you will attract even greater prosperity."
+        },
+        {
+            "id": 37,
+            "name": "Dwelling People",
+            "character": "家人",
+            "upper": "Wind",
+            "lower": "Flame",
+            "meaning": "Cultivate strong bonds within your family and community. Embrace harmonious relationships and mutual support. By nurturing connections and fostering a sense of belonging, you will find comfort and fulfillment."
+        },
+        {
+            "id": 63,
+            "name": "Already Fording",
+            "character": "既济",
+            "upper": "Water",
+            "lower": "Flame",
+            "meaning": "Embrace the cycle of completion and new beginnings. Reflect on your accomplishments and learn from your experiences. By honoring the past and embracing fresh starts, you will set the stage for future success."
+        },
+        {
+            "id": 22,
+            "name": "Adorning",
+            "character": "奔",
+            "upper": "Mountain",
+            "lower": "Flame",
+            "meaning": "Cultivate grace and elegance in your thoughts, words, and actions. Embrace diplomacy and tact in your interactions. By radiating kindness and harmony, you will create a positive atmosphere and attract favorable outcomes."
+        },
+        {
+            "id": 36,
+            "name": "Intelligence Hidden",
+            "character": "明夷",
+            "upper": "Earth",
+            "lower": "Flame",
+            "meaning": "In times of uncertainty, trust in the natural cycles of life. Embrace the temporary darkness as a prelude to a new dawn. By maintaining faith and staying centered, you will navigate transitions and find illumination."
+        },
+        {
+            "id": 25,
+            "name": "Innocence",
+            "character": "无妄",
+            "upper": "Heaven",
+            "lower": "Thunder",
+            "meaning": "Embrace a childlike sense of wonder and curiosity. Approach situations with a fresh perspective and an open mind. By maintaining innocence and embracing simplicity, you will unlock new insights and possibilities."
+        },
+        {
+            "id": 17,
+            "name": "Following",
+            "character": "隨",
+            "upper": "Lake",
+            "lower": "Thunder",
+            "meaning": "In times of uncertainty, seek guidance from trusted mentors or role models. Embrace humility and learn from those who have gone before you. By observing and following their wisdom, you will find your path forward."
+        },
+        {
+            "id": 21,
+            "name": "Gnawing Bite",
+            "character": "噬嗑",
+            "upper": "Flame",
+            "lower": "Thunder",
+            "meaning": "In challenging times, summon your inner strength and determination. Embrace courage and confront obstacles head-on. By persevering and taking decisive action, you will overcome adversity and achieve breakthroughs."
+        },
+        {
+            "id": 51,
+            "name": "Shake",
+            "character": "震",
+            "upper": "Thunder",
+            "lower": "Thunder",
+            "meaning": "Embrace the energy of awakening and take bold action. Ignite your passion and pursue your goals with fervor. By harnessing your inner fire and embracing initiative, you will spark change and achieve remarkable results."
+        },
+        {
+            "id": 42,
+            "name": "Augmenting",
+            "character": "益",
+            "upper": "Wind",
+            "lower": "Thunder",
+            "meaning": "Embrace growth and expansion in all aspects of life. Cultivate abundance and seize opportunities for advancement. By nurturing your potential and embracing abundance, you will experience prosperity and fulfillment."
+        },
+        {
+            "id": 3,
+            "name": "Sprouting",
+            "character": "屯",
+            "upper": "Water",
+            "lower": "Thunder",
+            "meaning": "Obstacles may arise as you embark on a new venture, but perseverance will see you through. Stay focused and patient, as challenges are opportunities in disguise. By facing them head-on, you'll gain valuable wisdom and strength."
+        },
+        {
+            "id": 27,
+            "name": "Swallowing",
+            "character": "颐",
+            "upper": "Mountain",
+            "lower": "Thunder",
+            "meaning": "Nurture yourself and others with care and compassion. Embrace nourishing practices that support your well-being. By fostering a nurturing environment and providing sustenance to those around you, you will thrive together."
+        },
+        {
+            "id": 24,
+            "name": "Returning",
+            "character": "复",
+            "upper": "Earth",
+            "lower": "Thunder",
+            "meaning": "In moments of setback, regroup and reassess your path. Embrace the opportunity to learn from past mistakes. By adapting your strategies and making necessary adjustments, you will find your way back to success."
+        },
+        {
+            "id": 44,
+            "name": "Coupling",
+            "character": "遇",
+            "upper": "Heaven",
+            "lower": "Wind",
+            "meaning": "Embrace connection and engagement with others. Foster open communication and harmonious interactions. By being receptive and engaging with sincerity, you will build meaningful relationships and forge alliances."
+        },
+        {
+            "id": 28,
+            "name": "Great Exceeding",
+            "character": "大过",
+            "upper": "Lake",
+            "lower": "Wind",
+            "meaning": "Recognize the power and influence you possess. Exercise your strength responsibly and with integrity. By acting with humility and considering the greater good, you will wield your influence for positive impact."
+        },
+        {
+            "id": 50,
+            "name": "Holding",
+            "character": "鼎",
+            "upper": "Flame",
+            "lower": "Wind",
+            "meaning": "Embrace the transformative power of inner alchemy. Nurture your inner self and embark on a journey of self-discovery. By tending to your inner fire and embracing personal growth, you will undergo profound transformation."
+        },
+        {
+            "id": 32,
+            "name": "Persevering",
+            "character": "恒",
+            "upper": "Thunder",
+            "lower": "Wind",
+            "meaning": "Maintain perseverance and resilience in the face of challenges. Embrace the long journey ahead with patience and determination. By staying steadfast and committed, you will achieve enduring success and fulfillment."
+        },
+        {
+            "id": 57,
+            "name": "Ground",
+            "character": "巽",
+            "upper": "Wind",
+            "lower": "Wind",
+            "meaning": "Embrace the power of gentleness and humility. Cultivate compassion and understanding in your interactions. By adopting a gentle approach, you will foster harmony and create a positive impact on others."
+        },
+        {
+            "id": 48,
+            "name": "Welling",
+            "character": "井",
+            "upper": "Water",
+            "lower": "Wind",
+            "meaning": "Tap into the depths of wisdom within you. Embrace introspection and seek inner guidance. By connecting with your inner wellspring of wisdom, you will find clarity, nourishment, and a source of inspiration."
+        },
+        {
+            "id": 18,
+            "name": "Correcting",
+            "character": "蛊",
+            "upper": "Mountain",
+            "lower": "Wind",
+            "meaning": "Take time to mend and restore what has been neglected. Address the areas in your life or work that require attention. By nurturing growth and revitalizing what has decayed, you will experience renewal and progress."
+        },
+        {
+            "id": 46,
+            "name": "Ascending",
+            "character": "升",
+            "upper": "Earth",
+            "lower": "Wind",
+            "meaning": "Embrace the upward momentum and push towards your goals. Overcome obstacles with determination and resilience. By staying focused and persistent, you will rise above challenges and achieve significant progress."
+        },
+        {
+            "id": 6,
+            "name": "Arguing",
+            "character": "讼",
+            "upper": "Heaven",
+            "lower": "Water",
+            "meaning": "Conflict arises as opposing forces clash. Seek resolution through open communication, compromise, and understanding. By embracing diplomacy and finding common ground, harmony can be restored."
+        },
+        {
+            "id": 47,
+            "name": "Confining",
+            "character": "困",
+            "upper": "Lake",
+            "lower": "Water",
+            "meaning": "In moments of oppression, stay true to your values and inner strength. Embrace resilience and persevere through difficult times. By maintaining integrity and holding onto hope, you will overcome oppression and find liberation."
+        },
+        {
+            "id": 64,
+            "name": "Before Completion",
+            "character": "未济",
+            "upper": "Flame",
+            "lower": "Water",
+            "meaning": "Embrace the anticipation of completion. Stay focused and committed to your goals. By persevering through the final stages, you will overcome obstacles and achieve the desired outcome."
+        },
+        {
+            "id": 40,
+            "name": "Deliverance",
+            "character": "解",
+            "upper": "Thunder",
+            "lower": "Water",
+            "meaning": "Find liberation and release from constraints. Embrace transformative experiences and let go of what no longer serves you. By embracing change and embracing new opportunities, you will find freedom and renewal."
+        },
+        {
+            "id": 59,
+            "name": "Dispersing",
+            "character": "涣",
+            "upper": "Wind",
+            "lower": "Water",
+            "meaning": "Embrace the process of dispersal and letting go. Release what no longer serves you and make space for new possibilities. By embracing change and relinquishing attachments, you will create room for growth and renewal."
+        },
+        {
+            "id": 29,
+            "name": "Gorge",
+            "character": "坎",
+            "upper": "Water",
+            "lower": "Water",
+            "meaning": "In times of darkness and uncertainty, remain calm and centered. Embrace the opportunity for introspection and inner growth. By facing your fears and navigating the depths, you will emerge stronger and wiser."
+        },
+        {
+            "id": 4,
+            "name": "Enveloping",
+            "character": "蒙",
+            "upper": "Mountain",
+            "lower": "Water",
+            "meaning": "Beware of impulsive actions driven by youthful enthusiasm. Exercise caution and seek guidance from experienced individuals. Learn from your mistakes, for they are stepping stones towards maturity and growth."
+        },
+        {
+            "id": 7,
+            "name": "Leading",
+            "character": "师",
+            "upper": "Earth",
+            "lower": "Water",
+            "meaning": "Forge alliances and foster teamwork to overcome challenges. Strength lies in unity. Gather your resources, rally your support, and work together towards a common goal. Success comes through coordinated efforts."
+        },
+        {
+            "id": 33,
+            "name": "Retiring",
+            "character": "遁",
+            "upper": "Heaven",
+            "lower": "Mountain",
+            "meaning": "Recognize when it is necessary to withdraw and reassess. Embrace retreat as an opportunity for reflection and regrouping. By taking a step back, you can gain clarity and emerge stronger for future endeavors."
+        },
+        {
+            "id": 31,
+            "name": "Conjoining",
+            "character": "咸",
+            "upper": "Lake",
+            "lower": "Mountain",
+            "meaning": "Harness your personal influence and charisma. Embrace leadership with integrity and inspire others through your actions. By using your influence for the greater good, you will create positive change and leave a lasting impact."
+        },
+        {
+            "id": 56,
+            "name": "Sojourning",
+            "character": "旅",
+            "upper": "Flame",
+            "lower": "Mountain",
+            "meaning": "Embrace the spirit of exploration and adventure. Embrace the unknown and embark on new journeys. By embracing curiosity and being open to new experiences, you will expand your horizons and find new insights."
+        },
+        {
+            "id": 62,
+            "name": "Small Exceeding",
+            "character": "小过",
+            "upper": "Thunder",
+            "lower": "Mountain",
+            "meaning": "Recognize the power of small, incremental steps. Embrace patience and focus on the details. By taking consistent, small actions, you will build momentum and achieve significant progress."
+        },
+        {
+            "id": 53,
+            "name": "Infiltrating",
+            "character": "渐",
+            "upper": "Wind",
+            "lower": "Mountain",
+            "meaning": "Embrace growth and progress in your endeavors. Nurture your talents and cultivate your potential. By staying committed and continuously improving, you will experience personal development and achieve success."
+        },
+        {
+            "id": 39,
+            "name": "Limping",
+            "character": "蹇",
+            "upper": "Water",
+            "lower": "Mountain",
+            "meaning": "Obstacles may hinder your progress, but persevere with determination. Embrace patience and find alternative routes. By staying focused and adaptable, you will overcome obstacles and reach your destination."
+        },
+        {
+            "id": 52,
+            "name": "Bound",
+            "character": "艮",
+            "upper": "Mountain",
+            "lower": "Mountain",
+            "meaning": "Find strength and wisdom in stillness and contemplation. Embrace patience and allow situations to unfold naturally. By practicing mindfulness and inner reflection, you will gain clarity and insight."
+        },
+        {
+            "id": 15,
+            "name": "Humbling",
+            "character": "谦",
+            "upper": "Earth",
+            "lower": "Mountain",
+            "meaning": "Practice humility and avoid excessive pride. Stay grounded and open to learning from others. By acknowledging the contributions of those around you and recognizing your limitations, you will gain wisdom and attract genuine respect."
+        },
+        {
+            "id": 12,
+            "name": "Obstruction",
+            "character": "否",
+            "upper": "Heaven",
+            "lower": "Earth",
+            "meaning": "In a period of standstill, avoid pushing for immediate progress. Instead, reflect on your situation and reassess your strategies. Use this time to gather strength and prepare for the upcoming changes that will reignite progress."
+        },
+        {
+            "id": 45,
+            "name": "Clustering",
+            "character": "萃",
+            "upper": "Lake",
+            "lower": "Earth",
+            "meaning": "Come together with like-minded individuals and work towards a shared vision. Embrace collaboration and synergy. By combining your strengths and resources, you will achieve collective success and create a positive impact."
+        },
+        {
+            "id": 35,
+            "name": "Prospering",
+            "character": "晋",
+            "upper": "Flame",
+            "lower": "Earth",
+            "meaning": "Embrace progress and forward momentum. Take decisive action and embrace change with enthusiasm. By embracing innovation and adaptability, you will move closer to your goals and experience personal growth."
+        },
+        {
+            "id": 16,
+            "name": "Providing-For",
+            "character": "豫",
+            "upper": "Thunder",
+            "lower": "Earth",
+            "meaning": "Embrace passion and enthusiasm in your pursuits. Let your energy and zest ignite your actions. By channeling your excitement into focused efforts, you will inspire others and achieve remarkable progress."
+        },
+        {
+            "id": 20,
+            "name": "Viewing",
+            "character": "观",
+            "upper": "Wind",
+            "lower": "Earth",
+            "meaning": "Take time for introspection and deep reflection. Retreat from external distractions to gain clarity and insight. By nurturing inner wisdom and seeking stillness, you will find answers and guidance from within."
+        },
+        {
+            "id": 8,
+            "name": "Grouping",
+            "character": "比",
+            "upper": "Water",
+            "lower": "Earth",
+            "meaning": "Maintain integrity and cohesion within your relationships and endeavors. Nurture trust and foster a sense of unity. By staying grounded and loyal, you will create a solid foundation for long-term success."
+        },
+        {
+            "id": 23,
+            "name": "Stripping",
+            "character": "剥",
+            "upper": "Mountain",
+            "lower": "Earth",
+            "meaning": "Recognize when it is time to let go and move on. Embrace the transformative power of endings. By releasing attachments and embracing change, you will create space for new beginnings and personal growth."
+        },
+        {
+            "id": 2,
+            "name": "Field",
+            "character": "坤",
+            "upper": "Earth",
+            "lower": "Earth",
+            "meaning": "In times of change, find solace in your receptive nature. Embrace flexibility and harmony to navigate the challenges ahead. By cultivating a nurturing environment and staying open to guidance, you will attract abundance and support."      
+        }
+    ],
+    "option-result pair": [
+        {
+            "value": 0,
+            "coins": "TTT",
+            "type": "Yin",
+            "fullType": "Older Yin"
+        },
+        {
+            "value": 1,
+            "coins": "TTH",
+            "type": "Yang",
+            "fullType": "Lesser Yang"
+        },
+        {
+            "value": 1,
+            "coins": "THT",
+            "type": "Yang",
+            "fullType": "Lesser Yang"
+        },
+        {
+            "value": 0,
+            "coins": "THH",
+            "type": "Yin",
+            "fullType": "Lesser Yin"
+        },
+        {
+            "value": 1,
+            "coins": "HTT",
+            "type": "Yang",
+            "fullType": "Lesser Yang"
+        },
+        {
+            "value": 0,
+            "coins": "HTH",
+            "type": "Yin",
+            "fullType": "Lesser Yin"
+        },
+        {
+            "value": 0,
+            "coins": "HHT",
+            "type": "Yin",
+            "fullType": "Lesser Yin"
+        },
+        {
+            "value": 1,
+            "coins": "HHH",
+            "type": "Yang",
+            "fullType": "Older Yang"
+        }
+    ]
+}
