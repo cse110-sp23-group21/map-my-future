@@ -2,7 +2,7 @@
 
 body {
     display: grid;
-    grid-template-rows: 1fr 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1.5fr 1.5fr 1fr;
     justify-content: space-around;
     align-items: center;
     height: 100vh;
@@ -16,6 +16,7 @@ body {
 
 h1 {
     font-size: 10vh;
+    text-shadow: #FC0 0 -10px 12px;
     font-weight: 700;
     text-align: center;
     margin: 0;
@@ -87,17 +88,27 @@ h1 {
     width: 100%;
     display: inline-block;
     font-family: "Raleway", sans-serif;
-    font-size: 80pt;
+    /*font-size: 80pt;*/
+    font-size: 15vh;
     text-align: center;
     user-select: none;
 }
 
+#interpretation-container
+{
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+}
+
 .interpretation {
+    grid-column: 2;
     text-align: center;
     font-size: 4vh;
     font-weight: 200;
     margin: auto;
     animation: fadeIn 3s ease-in;
+    color: rgba(255, 255, 255, 0.719);
+    text-shadow: rgb(255, 89, 0) 0 0px 12px;
 }
 
 @keyframes fadeIn {

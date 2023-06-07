@@ -6,12 +6,6 @@
  * @author Gil Keidar
  */
 
-/* function meltTin() {
-    var img = document.getElementById('tinImage');
-    img.style.transition = "all 2s";
-    img.style.transform = "scaleY(0.1)";
-} */
-
 import FortuneEngine from '../../engine.js';
 
 let elts = {};
@@ -110,17 +104,22 @@ document.addEventListener('DOMContentLoaded', async () => {
   let musicEnabled = true;
   let showInfo = false;
 
+  const meltSoundEffect = new Audio('fire-2-10-sec.mp3');
+  meltSoundEffect.volume = 0.7;
+
   meltButton.addEventListener('click', () => {
     switch (meltButtonState) {
       case 'melt':
         meltButtonState = 'result';
 
+        meltSoundEffect.play();
+
         const result = engine.get_random_subset(1)[0];   //  eslint-disable-line
 
         setTimeout(() => {
-          resultText.innerHTML = `Shape: ${result.name}</br> Meaning: ${result.meaning}.`;
+          resultText.innerHTML = `Shape: ${result.name}</br>${result.longMeaning}`;
           resultText.classList.remove('interpretation');
-          void resultText.offsetWidth;
+          void resultText.offsetWidth;  //  eslint-disable-line
           resultText.classList.add('interpretation');
         }, morphTime * 1000);
 
@@ -152,10 +151,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   // Background music
-    const bgm = new Audio('../../../assets/moly/moly-bgm.mp3');
-    bgm.loop = true;
-    bgm.volume = 0.4;
-    bgm.play();
+  const bgm = new Audio('../../../assets/moly/moly-bgm.mp3');
+  bgm.loop = true;
+  bgm.volume = 0.4;
+  bgm.play();
 
   // Music Button
   musicButton.addEventListener('click', (event) => {
