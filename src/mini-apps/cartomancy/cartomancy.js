@@ -217,7 +217,6 @@ function readCards(center_div) {
   const pickContainer3 = document.getElementById('pickContainer3');
 
 
-  setTimeout(() => {
 
     // actually may better loop later
     let i = 1;
@@ -227,9 +226,7 @@ function readCards(center_div) {
       console.log(picking);
       organizeCards(picking, receivedFortunes[i-1]);
       i++;
-    }
-
-  }, 1000);
+    } 
 
 }
 
