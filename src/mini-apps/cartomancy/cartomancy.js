@@ -48,14 +48,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     setTimeout(() => {
 
     console.log(wholeDeck);
-      wholeDeck.forEach( (cards) => {
-        //cards.style.display = 'none'; // removes the 'perspective tag'
-        cards.remove();
-        console.log("turned display attr off");
-      });
-      
-      // start reading cards
-      readCards();
+    wholeDeck.forEach( (cards) => {
+      //cards.style.display = 'none'; // removes the 'perspective tag'
+      cards.remove();
+      console.log("turned display attr off");
+    });
+    
+    // start reading cards
+    readCards();
 
     }, 1000);
   }); 
@@ -66,7 +66,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (musicEnabled) {
       musicImg.src = '/assets/audio_off.png';
       bgm.pause();
-    } else {
+    }
+    else {
       musicImg.src = '/assets/audio_on.png';
       bgm.play();
     }
@@ -125,37 +126,44 @@ pickContainer3.addEventListener('drop', dropped);
 pickContainer3.addEventListener('dragenter', cancelDefault); 
 pickContainer3.addEventListener('dragover', cancelDefault); 
 
+// TODO: Documentation for function
 function cancelDefault (e) {
     e.preventDefault(); 
     e.stopPropagation(); 
     return false; 
 }
+
+// TODO: Documentation for function
 function dragStart (e) {
     e.dataTransfer.setData('text/plain', e.target.id); 
     sourceContainerID = this.parentElement.id; 
     droppedID = this.id; 
 }
+
+// TODO: Documentation for function
 function dropped (e) {
-    if (this.id !== sourceContainerID) {
-        cancelDefault(e); 
-        let id = e.dataTransfer.getData('text/plain'); 
-        if (droppedID == 'card1') {
-            const droppedElement = card1sArray[i];
-            e.target.appendChild(card1sArray[i]);
-            droppedElement.draggable = false; 
-            i++;  
-        }else if (droppedID == 'card2') {
-            const droppedElement = card2sArray[i];
-            e.target.appendChild(card2sArray[i]);
-            droppedElement.draggable = false; 
-            i++; 
-        }else if(droppedID == 'card3') {
-            const droppedElement = card3sArray[i];
-            e.target.appendChild(card3sArray[i]);
-            droppedElement.draggable = false; 
-            i++; 
-        }
+  if (this.id !== sourceContainerID) {
+    cancelDefault(e); 
+    let id = e.dataTransfer.getData('text/plain'); 
+    if (droppedID == 'card1') {
+      const droppedElement = card1sArray[i];
+      e.target.appendChild(card1sArray[i]);
+      droppedElement.draggable = false; 
+      i++;  
+    } 
+    else if (droppedID == 'card2') {
+      const droppedElement = card2sArray[i];
+      e.target.appendChild(card2sArray[i]);
+      droppedElement.draggable = false; 
+      i++; 
+    } 
+    else if(droppedID == 'card3') {
+      const droppedElement = card3sArray[i];
+      e.target.appendChild(card3sArray[i]);
+      droppedElement.draggable = false; 
+      i++; 
     }
+  }
   cardsPicked++;
 
   if(cardsPicked == 3) {
