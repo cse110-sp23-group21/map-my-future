@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('intro').style.display = "none"; 
         document.getElementById('card-display').style.display = "initial";
         document.getElementById('start-button').style.display = "none";
+        document.body.style.backgroundImage = "url('/assets/cartomancy/cartomancy-background.jpeg')";
   });
 
   //  Add event listeners to the card elements

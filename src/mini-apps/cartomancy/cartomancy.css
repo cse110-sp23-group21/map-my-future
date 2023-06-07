@@ -1,30 +1,60 @@
 /* customize for mini app! styling for buttons and onwards should remain untouched. */
 
 /* styling for page */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500&display=swap');
+
 @font-face {
-    font-family: "Chinese Shanghai Demo";
-    src: url('../../../assets/ChineseShangaiDemoVersionRegular.ttf');
+  font-family: "Xingkai";
+  src: url('chinese.stxingka.ttf') format('truetype');
 }
+
+/* container for all elements on card page */ 
 #card-display{
   display: none;
 }
 
+/* styling for introduction/instruction */ 
 #intro {
 display: intial; 
 margin: auto;
-width: 200px;
-height: 200px;
-padding: 10px;
-border: 5px solid crimson;
+width: 800px;
+height: 800px;
+position: center; 
+background-image: url('/assets/cartomancy/instruction-image.png') ;
+background-size: cover;
+background-position: center center; 
+overflow : hidden; 
 }
 
+/* animation for introduction and deck of card*/ 
+.drop-in, .start-button, .deck{
+  animation: drop-in 1s ease 200ms backwards;
+}
+ 
+ .drop-in-2, .start-button{
+  animation: drop-in 1200ms ease 500ms backwards;
+}
+ 
+@keyframes drop-in {
+  from {
+   opacity: 0;
+   transform: translateY(-100px);
+  }
+  to {
+   opacity: 1;
+   transform: translate(0px);
+  }
+}
+ 
 body {
     display: auto;
     justify-content: fit;
     /* background-color: rgb(178 29 29); */
-    background-image: url('/assets/cartomancy-background.jpeg');
+    background-image: url('/assets/cartomancy/cartomancy-background.jpeg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    background-position: center center; 
     font-family: 'Luxurious Script', cursive;
     overflow: hidden;
     /*font-family: "Chinese Shanghai Demo";*/
@@ -146,7 +176,6 @@ body {
     font-family: 'Times New Roman', sans-serif;
 }
   
-
 #read-fortune-anchor img {
     max-width: 100%;
     filter: brightness(0) invert(1);
@@ -157,7 +186,8 @@ body {
     opacity: 0;
     pointer-events: none;
 }
-/* hide's cards but moing them out */
+
+/* hide's cards but moving them out */
 .hide-cards { 
   animation: animateDown 1.5s;
 }
@@ -353,7 +383,7 @@ body {
     border-radius: 10%;
     background-color: #846e43;
     text-align: center;
-    justify-content: center;    
+    justify-content: center;  
 }
 
 .choose-card { 
@@ -374,6 +404,7 @@ body {
 .info-text {
     color: white;
     width: 90%;
+    font-family: 'Noto Serif', serif;
 }
 
 /*
@@ -449,7 +480,7 @@ body {
   margin : 0;
   padding: 0;
   box-sizing : border-box;
-  font-familly : "Poppins", sans-serif;
+  font-family : "Poppins", sans-serif;
 }
 body {
   display : flex;
