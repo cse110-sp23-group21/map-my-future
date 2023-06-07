@@ -82,10 +82,11 @@ body {
   opacity: 1;
   gap: 5px;
   transition: opacity 1s ease;
+  animation: fadeIn 2s ease-in;
 }
 
 .pickContainer.p1 {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   align-self: center;
@@ -102,10 +103,11 @@ body {
   cursor: move;
   transition: opacity 1s ease;
   transition: 300ms ease-in-out;
+  animation: fadeIn 2s ease-in; 
 }
 
 .pickContainer.p2 {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   background-image: url('/assets/cartomancy/card-holder.png');
@@ -121,10 +123,11 @@ body {
   margin: 20px;
   cursor: move;
   transition: opacity 1s ease;
+  animation: fadeIn 2s ease-in; 
 
 }
 .pickContainer.p3 {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   background-image: url('/assets/cartomancy/card-holder.png');
@@ -140,6 +143,7 @@ body {
   cursor: move;
   transition: opacity 1s ease;
   transition: 300ms ease-in-out;
+  animation: fadeIn 2s ease-in; 
 }
 
 .read-fortune-space {
@@ -208,6 +212,25 @@ body {
   max-width: 100%;
   filter: brightness(0) invert(1);
 }
+
+@keyframes fadeIn {  
+  from {  
+      opacity:0;  
+  }  
+
+  to {  
+      opacity:1;  
+  }  
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 
 .hide {
   transition: opacity 1s;
@@ -444,6 +467,7 @@ body {
   box-shadow : 0 5px 20px rgba(0,0,0,0.5);
   transition : 0.3s ease-in-out;
   border-radius : 15px;
+  animation: drop-in 1s ease 200ms backwards;
 }
 .container .cardShow:hover {
   height : 650px;    

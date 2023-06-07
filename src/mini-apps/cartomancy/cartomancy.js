@@ -37,6 +37,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('intro').style.display = "none"; 
     origDeck.style.display = "initial";
     document.getElementById('start-button').style.display = "none";
+    document.getElementById('pickContainer1').style.display = "flex";
+    document.getElementById('pickContainer2').style.display = "flex";
+    document.getElementById('pickContainer3').style.display = "flex";
   });
 
   // button display:'flex' after 3 cards
