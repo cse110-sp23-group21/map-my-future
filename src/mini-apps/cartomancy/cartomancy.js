@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Buttons
   let musicEnabled = true;
   let showInfo = false;
-  
+
   // buttons
   const musicButton = document.getElementById('music-button');
   const infoButton = document.getElementById('info-button');
@@ -33,11 +33,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
   startButton.addEventListener('click', (e) => {    
-        console.log("start");
-        document.getElementById('intro').style.display = "none"; 
-        origDeck.style.display = "initial";
-        document.getElementById('start-button').style.display = "none";
-        document.body.style.backgroundImage = "url('/assets/cartomancy/cartomancy-background.jpeg')";
+    console.log("start");
+    document.getElementById('intro').style.display = "none"; 
+    origDeck.style.display = "initial";
+    document.getElementById('start-button').style.display = "none";
+    document.body.style.backgroundImage = "url('/assets/cartomancy/cartomancy-background.jpeg')";
   });
 
 
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   readFortuneButton.addEventListener("click", (e) => {
 
     //console.log("Yeah you loaded thsi many cards:");
-    
+
     // put away cards
     console.log(origDeck);
     origDeck.classList.add("hide-cards");
@@ -55,7 +55,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     setTimeout(() => {
 
-      //cards.style.display = 'none'; // removes the 'perspective tag'
       origDeck.remove();
       console.log("turned display attr off");
 
@@ -110,13 +109,13 @@ const card2sArray = Array.from(card2s);
 const card3sArray = Array.from(card3s);
 
 card1s.forEach(card => {
-    card.addEventListener('dragstart', dragStart); 
+  card.addEventListener('dragstart', dragStart); 
 })
 card2s.forEach(card => {
-    card.addEventListener('dragstart', dragStart); 
+  card.addEventListener('dragstart', dragStart); 
 }); 
 card3s.forEach(card => {
-    card.addEventListener('dragstart', dragStart); 
+  card.addEventListener('dragstart', dragStart); 
 })
 
 pickContainer1.addEventListener('drop', dropped); 
@@ -133,16 +132,16 @@ pickContainer3.addEventListener('dragover', cancelDefault);
 
 // TODO: Documentation for function
 function cancelDefault (e) {
-    e.preventDefault(); 
-    e.stopPropagation(); 
-    return false; 
+  e.preventDefault(); 
+  e.stopPropagation(); 
+  return false; 
 }
 
 // TODO: Documentation for function
 function dragStart (e) {
-    e.dataTransfer.setData('text/plain', e.target.id); 
-    sourceContainerID = this.parentElement.id; 
-    droppedID = this.id; 
+  e.dataTransfer.setData('text/plain', e.target.id); 
+  sourceContainerID = this.parentElement.id; 
+  droppedID = this.id; 
 }
 
 // TODO: Documentation for function
@@ -182,7 +181,7 @@ function dropped (e) {
     //console.log("reached 3 cards loaded");
     document.querySelectorAll('.read-fortune-space')[0].style.display = 'flex';
   }
-    
+
 }
 
 /*
@@ -191,7 +190,9 @@ function dropped (e) {
 function readCards(center_div) {
   // animations, grouping etc here
   center_div.classList.add('container');
-  
+
+  // remove the reading fortune button
+  document.getElementById('read-fortune-button').style.display = 'none';
 
   // begins the stage of reading cards, 1-3 choices
 
@@ -209,9 +210,6 @@ function readCards(center_div) {
 
 
   setTimeout(() => {
-
-    // output the results
-   // console.log(fortune1['result'], document.query);
 
     // actually may better loop later
     let i = 1;
@@ -232,52 +230,59 @@ function readCards(center_div) {
  * Creates the elements surrounding the dsiplaying of the three fortunes
  */
 function organizeCards(pick, fortune) {
-    /***** creates the following html elements with js
-     *
-     *  <div class = card>
-     *    <div class = image>
-     *      <img href = "#" src='imgsrc'>
-     *    </div>
-     *    <div class = content>
-     *      <h3>name</h3>
-     *      <p>information</p>
-     *    </div>
-     *  </div> 
-     *
-     *
-     */
-    /***** After writing, should look into finding a way to load better  ****/ 
-
-    console.log("should of begun hiding cards");
-    //console.log(pick);
-    //console.log(fortune);
-
-    let indCard = document.createElement('div');
-    let indCardImageContainer = document.createElement('div');
-    let indCardImage = document.createElement('img');
-    let content = document.createElement('div');
-    let fDescr = document.createElement('p');
-    let node = document.createTextNode('read fortune in here man');
-
-    // add attributes
-    fDescr.classList.add('read-fortune');
-    indCard.classList.add('cardShow');
-    indCardImageContainer.classList.add('image');
-    indCardImage.setAttribute("href", "#"); 
-    indCardImage.setAttribute("src", `/assets/${APP_NAME}/${fortune['image']}.png`); 
-    content.classList.add('content');
+  /***** creates the following html elements with js
+   *
+   *  <div class = card>
+   *    <div class = image>
+   *      <img href = "#" src='imgsrc'>
+   *    </div>
+   *    <div class = content>
+   *      <h3>name</h3>
+   *      <p>information</p>
+   *    </div>
+   *  </div> 
+   *
+   *
+   */
+  /***** After writing, should look into finding a way to load better  ****/ 
+  console.log(pick.firstChild);
+  pick.removeChild(pick.firstChild);
 
 
-    // nest them by adding as children
-    fDescr.appendChild(node);
+  // erase background of pickContainers
+  pick.style.backgroundImage = 'none';
+  pick.style.backgroundColor = 'transparent';
 
-    indCard.appendChild(indCardImageContainer);
-    indCardImageContainer.appendChild(indCardImage);
+  console.log("should of begun hiding cards");
+  //console.log(pick);
+  //console.log(fortune);
 
-    content.appendChild(node);
-    indCard.appendChild(content);
+  let indCard = document.createElement('div');
+  let indCardImageContainer = document.createElement('div');
+  let indCardImage = document.createElement('img');
+  let content = document.createElement('div');
+  let fDescr = document.createElement('p');
+  let node = document.createTextNode(fortune['result']); // add fortune text
 
-    // remove the image of the back of the card
-    // assumes the two children, img and container are here
-    pick.appendChild(indCard);
+  // add attributes
+  fDescr.classList.add('read-fortune');
+  indCard.classList.add('cardShow');
+  indCardImageContainer.classList.add('image');
+  indCardImage.setAttribute("href", "#"); 
+  indCardImage.setAttribute("src", `/assets/${APP_NAME}/${fortune['image']}.png`); 
+  content.classList.add('content');
+
+
+  // nest them by adding as children
+  fDescr.appendChild(node);
+
+  indCard.appendChild(indCardImageContainer);
+  indCardImageContainer.appendChild(indCardImage);
+
+  content.appendChild(node);
+  indCard.appendChild(content);
+
+  // remove the image of the back of the card
+  // assumes the two children, img and container are here
+  pick.appendChild(indCard);
 }

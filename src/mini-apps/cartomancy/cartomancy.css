@@ -399,7 +399,7 @@ body {
  * css for reading.cardShows
  */
 
-.container {
+#center-div .container{
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Creates three equal-width columns */
   grid-gap: 10px; /* Optional gap between items */
