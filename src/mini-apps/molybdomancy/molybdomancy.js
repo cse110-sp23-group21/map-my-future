@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const infoButton = document.getElementById('info-button');
   const musicButton = document.getElementById('music-button');
   const meltButton = document.querySelector('#meltButton');
-  const resultText = document.querySelector('#interpretation');
+  const resultText = document.querySelector('.interpretation');
 
   let meltButtonState = 'melt';
   let musicEnabled = true;
@@ -119,7 +119,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         const result = engine.get_random_subset(1)[0];   //  eslint-disable-line
         setTimeout(() => {
           resultText.innerHTML = `Shape: ${result.name}</br> Meaning: ${result.meaning}.`;
+          resultText.classList.remove('interpretation');
+          void resultText.offsetWidth;
+          resultText.classList.add('interpretation');
         }, morphTime * 1000);
+
         texts[1] = result.emoji;
         time = new Date();
         animate();

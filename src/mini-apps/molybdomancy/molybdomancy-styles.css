@@ -62,18 +62,68 @@ h1 {
     user-select: none;
 }
 
-#interpretation {
+.interpretation {
     text-align: center;
     font-size: 4vh;
     margin: auto;
-    animation: fade-in 3s ease-in;
+    -webkit-animation: blurFadeIn 3s ease-in backwards;
+	-moz-animation: blurFadeIn 3s ease-in backwards;
+	-ms-animation: blurFadeIn 3s ease-in backwards;
+	animation: blurFadeIn 3s ease-in backwards;
 }
 
-@keyframes fade-in {
-    100% {
-        opacity: 1;
-        filter: blur(0);
-    }
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+@-webkit-keyframes blurFadeIn {
+	0% {
+		opacity: 0;
+		text-shadow: 0px 0px 40px #fff;
+		-webkit-transform: scale(5);
+	}
+	50% {
+		opacity: 0.5;
+		text-shadow: 0px 0px 10px #fff;
+		-webkit-transform: scale(2);
+	}
+	100% {
+		opacity: 1;
+		text-shadow: 0px 0px 1px #fff;
+		-webkit-transform: scale(1);
+	}
+}
+
+@-moz-keyframes blurFadeIn {
+	0% {
+		opacity: 0;
+		text-shadow: 0px 0px 40px #fff;
+		-moz-transform: scale(5);
+	}
+	100% {
+		opacity: 1;
+		text-shadow: 0px 0px 1px #fff;
+		-moz-transform: scale(1);
+	}
+}
+
+@keyframes blurFadeIn {
+	0% {
+		opacity: 0;
+		text-shadow: 0px 0px 40px #fff;
+		transform: scale(5);
+	}
+	50% {
+		opacity: 0.5;
+		text-shadow: 0px 0px 10px #fff;
+		transform: scale(2);
+	}
+	100% {
+		opacity: 1;
+		text-shadow: 0px 0px 1px #fff;
+		transform: scale(1);
+	}
 }
 
 /* Button Style */
