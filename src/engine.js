@@ -95,7 +95,7 @@ class FortuneEngine {
 //  Example implementation
 
 //  Create outcome array (list of integers from 1 to 52)
-/*const app_name = 'cartomancy';
+const app_name = 'cartomancy';
 const db_name = 'cartomancy.json';
 
 //  Create a FortuneEngine object with this array
@@ -104,6 +104,6 @@ engine.db_reader(db_name).then(() => {
   for (let i = 0; i <= 8; i++) {
     console.log(`${i}-permutation:`, engine.get_random_subset(i));
   }
-});*/
+});
 
 export default FortuneEngine;
