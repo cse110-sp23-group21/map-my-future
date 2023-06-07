@@ -15,7 +15,7 @@
 
 /* styling for introduction/instruction */ 
 #intro {
-  display: intial; 
+  display: initial; 
   margin: auto;
   width: 800px;
   height: 800px;
@@ -181,7 +181,7 @@ body {
   position: fixed;
   top: 10px;
   left: 10px;
-  width: 100px;
+  width: 120px;
   height: 60px;
   display: none;
   align-items: center;
@@ -194,7 +194,7 @@ body {
   color: #422800;
   cursor: pointer;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 25px;
   padding: 0 18px;
   line-height: 50px;
   text-align: center;
@@ -206,8 +206,7 @@ body {
 
 #read-fortune-anchor img {
   max-width: 100%;
-  filter: brightness(0);
-  position: center;
+  filter: brightness(0) invert(1);
 }
 
 .hide {
