@@ -47,17 +47,21 @@ overflow : hidden;
 }
  
 body {
-    display: auto;
-    justify-content: fit;
-    /* background-color: rgb(178 29 29); */
-    background-image: url('/assets/cartomancy/cartomancy-background.jpeg');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    font-family: 'Luxurious Script', cursive;
-    overflow: hidden;
-    /*font-family: "Chinese Shanghai Demo";*/
+  risplay : flex;
+  align-items : center;
+  justify-content : center;  
+  background-color: #43345d;
+  justify-content: fit;
+  /* background-color: rgb(178 29 29); */
+  background-image: url('/assets/cartomancy/cartomancy-background.jpeg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Luxurious Script', cursive;
+  overflow: hidden;
+  min-height : 800px;
+  /*font-family: "Chinese Shanghai Demo";*/
 }
 
 #center-div {
@@ -246,12 +250,6 @@ body {
     opacity: 1;
 }
 
-.container {
-  display: grid; 
-  grid-template-columns: repeat(5, 1fr); 
-  gap: 10px; 
-}
-
 .box {
   border: 3px solid #666; 
   background-color: #ddd; 
@@ -290,16 +288,6 @@ body {
   max-width: 8em;  
 }
 
-/*
-.reset-button-container {
-    opacity: 0;
-    transition: opacity 1s ease;
-}
-
-.reset-button-container.show {
-    opacity: 1;
-}
-*/
 
 /* styling for buttons */
 .button-container-bottom-right {
@@ -412,19 +400,19 @@ body {
  */
 
 .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates three equal-width columns */
+  grid-gap: 10px; /* Optional gap between items */
   position : relative;
-  width : 1100px;
-  display : flex;
-  align-items : center;
-  justify-content : center;
+  width: 95%;
   flex-wrap : wrap;
   padding : 30px;  
 }
 
 .container .cardShow {
   position: relative;
-  max-width : 300px;
-  height : 215px;  
+  max-width : 380px;
+  height : 415px;  
   background-color : #fff;
   margin : 30px 10px;
   padding : 20px 15px;
@@ -436,14 +424,14 @@ body {
   border-radius : 15px;
 }
 .container .cardShow:hover {
-  height : 320px;    
+  height : 650px;    
 }
 
 
 .container .cardShow .image {
   position : relative;
-  width : 260px;
-  height : 260px;
+  width : 360px;
+  height : 360px;
   
   top : -40%;
   left: 8px;
@@ -458,7 +446,7 @@ body {
 
 .container .cardShow .content {
   position : relative;
-  top : -140px;
+  top : -40px;
   padding : 10px 15px;
   color : #111;
   text-align : center;
@@ -475,19 +463,6 @@ body {
    opacity : 1;
    transition-delay: 0.2s;
   
-}
-* { 
-  margin : 0;
-  padding: 0;
-  box-sizing : border-box;
-  font-family : "Poppins", sans-serif;
-}
-body {
-  display : flex;
-  align-items : center;
-  justify-content : center;  
-  background-color: #43345d;
-  min-height : 800px;
 }
 
 /* 
