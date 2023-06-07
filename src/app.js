@@ -1,5 +1,10 @@
 // Main page map JavaScript file
 
+// Background music
+const bgm = new Audio('../assets/map-my-future-bgm.ogg'); //  eslint-disable-line
+bgm.play();
+bgm.loop = true;
+
 // Wait for all DOM to be ready
 document.addEventListener('DOMContentLoaded', () => {
   const locations = document.querySelectorAll('.location');
@@ -71,17 +76,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Background music
-  const bgm = new Audio('../assets/map-my-future-bgm.ogg'); //  eslint-disable-line
-  bgm.play();
-  bgm.loop = true;
-
   // Region clicked/selected
   locations.forEach(location => {
     location.addEventListener('click', () => {
       const locationName = location.getAttribute('data-location');
       // Add navigation to mini-app during Sprint 2 here.
       console.log(`${locationName} is selected.`);
+      if (locationName === 'Cartomancy') {
+        window.location.href = './mini-apps/cartomancy/cartomancy.html';
+      }
+      else if (locationName == 'Molybdomancy') {
+        window.location.href = './mini-apps/molybdomancy/molybdomancy.html';
+      }
+      else if (locationName == 'Fortune Stick') {
+        window.location.href = './mini-apps/fortune_stick/fortune_stick.html';
+      }
+      else if (locationName == 'Yin Yang Coin') {
+        window.location.href = './mini-apps/yin_yang_coin/yin_yang_coin.html';
+      }
     });
   });
 
