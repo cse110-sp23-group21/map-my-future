@@ -199,6 +199,8 @@ function readCards() {
   const pickContainer2 = document.getElementById('pickContainer2');
   const pickContainer3 = document.getElementById('pickContainer3');
 
+  pickContainer1.classList.add('container');
+
   setTimeout(() => {
 
     /***** creates html elements in js   ****/ 
