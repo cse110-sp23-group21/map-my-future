@@ -1,20 +1,406 @@
 {
-  {
-      "name": "Algae",
-      "description": "A circle with most of the metal on the ends rather than the center",
-      "img": "algae.jpg",
-      "meaning": "Longing for the Sea"
-  },
-  {
-      "name": "Algae2",
-      "description": "A circle with most of the metal on the ends rather than the center",
-      "img": "algae.jpg",
-      "meaning": "Longing for the Sea"
-  },
-  {
-      "name": "Algae3",
-      "description": "A circle with most of the metal on the ends rather than the center",
-      "img": "algae.jpg",
-      "meaning": "Longing for the Sea"
-  }
+    "option-result pair": [
+        {
+            "name": "Algae",
+            "emoji": "🌱",
+            "meaning": "longing for the sea",
+            "longMeaning": "The shape of algae suggests a longing for the sea, symbolizing a deep yearning for freedom, exploration, and new experiences. It may indicate a desire to break free from routine and embark on exciting adventures that expand your horizons."
+        },
+        {
+            "name": "Alien",
+            "emoji": "👽",
+            "meaning": "broaden your horizons",
+            "longMeaning": "The appearance of an alien shape signifies the need to broaden your horizon. It suggests that you should embrace the unknown, step out of your comfort zone, and explore unfamiliar territories. This could refer to exploring different cultures, ideas, or perspectives, leading to personal growth and a deeper understanding of the world around you."
+        },
+        {
+            "name": "Anchor",
+            "emoji": "⚓",
+            "meaning": "settling down",
+            "longMeaning": "The shape of an anchor represents a call to settle down and establish stability in your life. It signifies finding a sense of grounding and security, perhaps in a specific area such as relationships, career, or home. It encourages you to create a solid foundation and cultivate a sense of rootedness."
+        },
+        {
+            "name:": "Angel",
+            "emoji": "👼",
+            "meaning": "faith and peace",
+            "longMeaning": "The presence of an angel shape symbolizes faith and peace. It suggests a need for spiritual connection and guidance. This shape often signifies a time of tranquility, harmony, and inner reflection. It encourages you to embrace faith, trust in higher powers, and seek peace within yourself and your surroundings."
+        },
+        {
+            "name": "Antenna",
+            "emoji": "📡",
+            "meaning": "being receptive",
+            "longMeaning": "The shape of an antenna represents the importance of being receptive. It suggests the need to open yourself up to new ideas, information, and opportunities. Just like an antenna picks up signals, this shape advises you to be attentive, curious, and aware of the messages and possibilities that surround you."
+        },
+        {
+            "name": "Axe",
+            "emoji": "🪓",
+            "meaning": "deep cuts",
+            "longMeaning": "The appearance of an axe shape implies the possibility of deep cuts in your life. It may indicate a need for significant changes or a reminder to sever ties with negative influences or situations that no longer serve you. The axe urges you to be bold, make decisive choices, and take action to create a more fulfilling future."
+        },
+        {
+            "name": "Baby",
+            "emoji": "👶",
+            "meaning": "unexpected pregnancy",
+            "longMeaning": "The shape of a baby represents an unexpected pregnancy or the potential for new beginnings and fresh starts. It signifies the birth of something new in your life, whether it's a literal baby, a creative project, or a transformative phase. Embrace the opportunities and nurture the growth that comes with this new chapter."
+        },
+        {
+            "name": "Baguette",
+            "emoji": "🥖",
+            "meaning": "less is more",
+            "longMeaning": "The baguette shape suggests that \"less is more.\" It encourages you to simplify and declutter aspects of your life, whether it's material possessions, commitments, or even your thought processes. By embracing simplicity, you create space for clarity, focus, and a more balanced lifestyle."
+        },
+        {
+            "name": "Bell",
+            "emoji": "🔔",
+            "meaning": "count to 10 and mind your thoughts",
+            "longMeaning": "The appearance of a bell shape signifies the importance of mindfulness and self-awareness. It advises you to take a moment to pause, count to 10, and mind your thoughts. By being mindful of your actions and words, you can cultivate a sense of inner peace, maintain harmonious relationships, and navigate challenges with grace."
+        },
+        {
+            "name": "Bird",
+            "emoji": "🐦",
+            "meaning": "being free",
+            "longMeaning": "The shape of a bird represents the freedom and liberation of the spirit. It encourages you to spread your wings and embrace a sense of freedom, both in your thoughts and actions. This shape symbolizes the desire to explore new horizons, express yourself authentically, and experience life with a light-hearted and adventurous spirit."
+        },
+        {
+            "name": "Can",
+            "emoji": "🥫",
+            "meaning": "take a cooking class",
+            "longMeaning": "The appearance of a can shape suggests the idea of taking a cooking class. It symbolizes the need to expand your culinary skills and try new things in the kitchen. This shape encourages you to embrace creativity, explore different flavors, and indulge in the joy of preparing delicious meals."
+        },
+        {
+            "name": "Cape",
+            "emoji": "🦸",
+            "meaning": "don't hide",
+            "longMeaning": "The cape shape advises you not to hide but to step into your own power and authenticity. It symbolizes the importance of embracing your uniqueness and expressing yourself confidently. This shape encourages you to let go of any self-doubt or fear of judgment and embrace your true self with pride."
+        },
+        {
+            "name": "Cup",
+            "emoji": "🥤",
+            "meaning": "install a home office",
+            "longMeaning": "The appearance of a cup shape suggests the installation of a home office. It symbolizes the need for a dedicated space where you can work or pursue your passions comfortably. This shape encourages you to create a nurturing and productive environment within your home to support your professional or creative endeavors."
+        },
+        {
+            "name": "Cocktail glass",
+            "emoji": "🍸",
+            "meaning": "plan a vacation",
+            "longMeaning": "The shape of a cocktail glass signifies the need to plan a vacation or take a break from your routine. It symbolizes leisure, relaxation, and the enjoyment of life's pleasures. This shape encourages you to prioritize self-care, have fun, and create memorable experiences that rejuvenate your mind, body, and spirit."
+        },
+        {
+            "name": "Christmas tree",
+            "emoji": "🎄",
+            "meaning": "miracles happen",
+            "longMeaning": "The appearance of a Christmas tree shape suggests that miracles happen. It symbolizes hope, joy, and the potential for unexpected blessings in your life. This shape encourages you to maintain a positive outlook, embrace the spirit of the holiday season, and believe in the magic of miracles."
+        },
+        {
+            "name": "Clown",
+            "emoji": "🤡",
+            "meaning": "spend less time in front of the mirror",
+            "longMeaning": "The clown shape signifies the need to spend less time in front of the mirror, both metaphorically and literally. It symbolizes the importance of embracing your authentic self and finding joy in your natural state. This shape encourages you to let go of self-consciousness, enjoy life's playful moments, and cultivate genuine connections with others."
+        },
+        {
+            "name": "Chinese symbol",
+            "emoji": "🈯",
+            "meaning": "travel to asia",
+            "longMeaning": "The appearance of a Chinese symbol shape suggests a call to travel to Asia. It symbolizes cultural exploration, curiosity, and the desire to broaden your understanding of different traditions and perspectives. This shape encourages you to embark on a journey of discovery and immerse yourself in new experiences."
+        },
+        {
+            "name": "Cream topping",
+            "emoji": "🍨",
+            "meaning": "be happy without remorse",
+            "longMeaning": "The cream topping shape advises you to be happy without remorse. It symbolizes indulgence, pleasure, and the importance of treating yourself without guilt. This shape encourages you to embrace life's sweet moments, savor the joys it offers, and find balance between self-care and self-discipline."
+        },
+        {
+            "name": "Dachshund",
+            "emoji": "🐕",
+            "meaning": "develop hunting instinct",
+            "longMeaning": "The appearance of a dachshund shape suggests the need to develop your hunting instinct. It symbolizes perseverance, determination, and the drive to pursue your goals. This shape encourages you to be tenacious, focused, and resourceful in your pursuits, just like the dachshund hunting its target."
+        },
+        {
+            "name": "Dancing woman",
+            "emoji": "💃",
+            "meaning": "learn a new dance",
+            "longMeaning": "The dancing woman shape signifies the need to learn a new dance, both metaphorically and literally. It symbolizes the importance of embracing creativity, expression, and the joy of movement. This shape encourages you to explore new forms of artistic or physical expression, step out of your comfort zone, and embrace the rhythm of life."
+        },
+        {
+            "name": "Dart",
+            "emoji": "🎯",
+            "meaning": "don't lose your way",
+            "longMeaning": "The appearance of a dart shape advises you not to lose your way. It symbolizes focus, precision, and the importance of setting clear goals. This shape encourages you to direct your energy and attention towards your targets, stay determined in the face of challenges, and strive for success with calculated aim."
+        },
+        {
+            "name": "Donkey",
+            "emoji": "🐴",
+            "meaning": "don't forget where you come from",
+            "longMeaning": "The donkey shape reminds you not to forget where you come from. It symbolizes humility, hard work, and the appreciation of your roots. This shape encourages you to stay grounded, honor your past, and maintain a sense of gratitude for the experiences and lessons that have shaped you."
+        },
+        {
+            "name": "Dumbbell",
+            "emoji": "🏋️",
+            "meaning": "collect strength",
+            "longMeaning": "The appearance of a dumbbell shape suggests the need to collect strength. It symbolizes physical and mental resilience, emphasizing the importance of strength-building in all aspects of your life. This shape encourages you to prioritize self-care, exercise, and personal development to enhance your overall well-being."
+        },
+        {
+            "name": "Ear",
+            "emoji": "👂",
+            "meaning": "listen better",
+            "longMeaning": "The ear shape symbolizes the importance of listening better. It signifies the need for attentive and active listening in your interactions with others. This shape encourages you to cultivate empathy, understanding, and effective communication by truly hearing what others have to say."
+        },
+        {
+            "name": "Feather",
+            "emoji": "🪶",
+            "meaning": "look forward to ease",
+            "longMeaning": "The appearance of a feather shape suggests looking forward to ease. It symbolizes lightness, grace, and the idea that your burdens will soon be lifted. This shape encourages you to let go of worries, trust in the flow of life, and have faith that smoother and gentler times are on the horizon."
+        },
+        {
+            "name": "Finger",
+            "emoji": "👆",
+            "meaning": "beware of pick-pockets",
+            "longMeaning": "The finger shape advises you to beware of pickpockets. It symbolizes the need for caution and vigilance in your personal and professional dealings. This shape encourages you to be mindful of potential deceit or manipulation, trust your instincts, and protect yourself from harm."
+        },
+        {
+            "name": "Flag",
+            "emoji": "🚩",
+            "meaning": "go back home",
+            "longMeaning": "The appearance of a flag shape signifies the call to go back home. It symbolizes a nostalgic longing for your roots, family, or a familiar place. This shape encourages you to reconnect with your origins, find solace in your sense of belonging, and celebrate the culture and traditions that shaped you."
+        },
+        {
+            "name": "Flower",
+            "emoji": "🌸",
+            "meaning": "making new friends",
+            "longMeaning": "The flower shape represents the opportunity to make new friends. It symbolizes blossoming connections, beauty, and the potential for growth in your social circles. This shape encourages you to open yourself up to new relationships, nurture existing friendships, and cultivate a supportive network that enriches your life."
+        },
+        {
+            "name": "Fruit",
+            "emoji": "🍎",
+            "meaning": "pretty things can hurt you",
+            "longMeaning": "The appearance of a fruit shape suggests that pretty things can hurt you. It symbolizes the importance of discernment and recognizing that not everything that appears attractive or appealing is beneficial for you. This shape encourages you to exercise caution, evaluate situations or individuals with a critical eye, and make choices that align with your long-term well-being."
+        },
+        {
+            "name": "Fox",
+            "emoji": "🦊",
+            "meaning": "make use of your dexerity",
+            "longMeaning": "The fox shape urges you to make use of your dexterity. It symbolizes adaptability, cunningness, and the ability to navigate tricky situations. This shape encourages you to embrace your resourcefulness, think outside the box, and find clever solutions to challenges that come your way."
+        },
+        {
+            "name": "Ghost",
+            "emoji": "👻",
+            "meaning": "surprises are waiting for you",
+            "longMeaning": "The appearance of a ghost shape suggests that surprises are waiting for you. It symbolizes the presence of the unknown and the potential for unexpected events or encounters. This shape encourages you to be open to new experiences, embrace the mysterious aspects of life, and be receptive to the magic that awaits you."
+        },
+        {
+            "name": "Ginger",
+            "emoji": "🏵️", 
+            "meaning": "take care of your health",
+            "longMeaning": "The ginger shape advises you to take care of your health. It symbolizes vitality, rejuvenation, and the nourishment of your body and mind. This shape encourages you to prioritize self-care, make healthy choices, and cultivate habits that promote your overall well-being."
+        },
+        {
+            "name": "Gondola",
+            "emoji": "🚡",
+            "meaning": "some ways are easier than others",
+            "longMeaning": "The appearance of a gondola shape suggests that some ways are easier than others. It symbolizes the idea of finding smoother paths or solutions to challenges in your life. This shape encourages you to explore alternative approaches, seek guidance, and consider different perspectives to achieve your goals with greater ease."
+        },
+        {
+            "name": "Hand",
+            "emoji": "🤚",
+            "meaning": "get to know new people",
+            "longMeaning": "The hand shape signifies the need to get to know new people. It symbolizes connection, friendship, and the potential for collaboration or support from others. This shape encourages you to be open, extend a helping hand, and foster meaningful relationships that contribute to your personal and professional growth."
+        },
+        {
+            "name": "Heart",
+            "emoji": "❤️",
+            "meaning": "falling in love",
+            "longMeaning": "The appearance of a heart shape signifies falling in love. It symbolizes the blossoming of romantic feelings, emotional connections, and the potential for deep and meaningful relationships. This shape encourages you to open your heart, be receptive to love, and embrace the vulnerability and joy that come with it."
+        },
+        {
+            "name": "Hedgehog",
+            "emoji": "🦔",
+            "meaning": "watch out!",
+            "longMeaning": "The hedgehog shape serves as a warning to watch out. It symbolizes the need to be cautious, protect yourself, and navigate potential dangers or difficult situations with care. This shape encourages you to trust your instincts, establish healthy boundaries, and be prepared for potential challenges that may arise."
+        },
+        {
+            "name": "Island",
+            "emoji": "🏝️",
+            "meaning": "go travel",
+            "longMeaning": "The appearance of an island shape suggests the call to go travel. It symbolizes the desire for exploration, adventure, and the need for a change of scenery. This shape encourages you to embark on a journey, whether physically or metaphorically, to discover new horizons, broaden your perspective, and gain a fresh outlook on life."
+        },
+        {
+            "name": "Jellyfish",
+            "emoji": "🎐",          
+            "meaning": "still waters run deep",
+            "longMeaning": "The jellyfish shape suggests that still waters run deep. It symbolizes the idea that beneath calm and serene appearances, there may be hidden complexities or deeper emotions. This shape encourages you to look beyond the surface, trust your intuition, and explore the depths of your own emotions or the motivations of others."
+        },
+        {
+            "name": "Jewel",
+            "emoji": "💎",
+            "meaning": "sudden wealth",
+            "longMeaning": "The appearance of a jewel shape signifies the potential for sudden wealth. It symbolizes abundance, prosperity, and the possibility of unexpected financial gains. This shape encourages you to be open to opportunities, take calculated risks, and embrace the potential for financial growth and stability."
+        },
+        {
+            "name": "Lizard",
+            "emoji": "🦎",
+            "meaning": "hot summer",
+            "longMeaning": "The lizard shape represents a hot summer. It symbolizes vitality, adaptability, and the ability to thrive in challenging environments. This shape encourages you to harness your inner strength, embrace change, and navigate through the heat of life's obstacles with resilience and grace."
+        },
+        {
+            "name": "Mistletoe",
+            "emoji": "🌿",
+            "meaning": "great love",
+            "longMeaning": "The appearance of mistletoe shape suggests the potential for great love. It symbolizes romance, affection, and the opportunity for deep emotional connections. This shape encourages you to be open to love, create opportunities for meaningful connections, and embrace the magic of affectionate relationships."
+        },
+        {
+            "name": "Mouse",
+            "emoji": "🐁",
+            "meaning": "build a house and start small",
+            "longMeaning": "The mouse shape signifies the need to build a house and start small. It symbolizes the importance of laying a solid foundation, both literally and figuratively. This shape encourages you to take small steps, focus on the details, and patiently build a strong and secure base for your future endeavors."
+        },
+        {
+            "name": "Mushroom",
+            "emoji": "🍄",
+            "meaning": "be careful",
+            "longMeaning": "The appearance of a mushroom shape advises you to be careful. It symbolizes the need to exercise caution, particularly in situations where things may not be as they seem. This shape encourages you to trust your instincts, be mindful of potential dangers or deceptive circumstances, and make informed decisions."
+        },
+        {
+            "name": "Needle",
+            "emoji": "🪡",
+            "meaning": "pay attention to detail",
+            "longMeaning": "The needle shape signifies the importance of paying attention to detail. It symbolizes precision, accuracy, and the need to focus on the smaller elements of a larger picture. This shape encourages you to be meticulous, thorough, and diligent in your work, relationships, or any task that requires careful attention."
+        },
+        {
+            "name": "Pants",
+            "emoji": "👖",
+            "meaning": "being down-to-earth",
+            "longMeaning": "The pants shape represents the idea of being down-to-earth. It symbolizes practicality, groundedness, and the importance of staying rooted in reality. This shape encourages you to embrace simplicity, practical solutions, and a sensible approach to life's challenges."
+        },
+        {
+            "name": "Pigeon",
+            "emoji": "🕊️",
+            "meaning": "learn to fly",
+            "longMeaning": "The appearance of a pigeon shape suggests the need to learn to fly. It symbolizes freedom, liberation, and the desire to break free from limitations or constraints. This shape encourages you to embrace your wings, step out of your comfort zone, and soar to new heights in pursuit of your dreams."
+        },
+        {
+            "name": "Pillow",
+            "emoji": "💊👇",
+            "meaning": "good sleep",
+            "longMeaning": "The pillow shape signifies the importance of good sleep. It symbolizes rest, relaxation, and the need for rejuvenation. This shape encourages you to prioritize self-care, establish healthy sleep habits, and create a peaceful and nurturing environment that supports your overall well-being."
+        },
+        {
+            "name": "Pipe",
+            "emoji": "🚰",
+            "meaning": "New invention",
+            "longMeaning": "The appearance of a pipe shape suggests the potential for a new invention. It symbolizes creativity, innovation, and the opportunity to bring new ideas or concepts into reality. This shape encourages you to explore your creative potential, think outside the box, and embrace your ability to make unique contributions to the world."
+        },
+        {
+            "name": "Piston",
+            "emoji": "🔧",
+            "meaning": "contain yourself",
+            "longMeaning": "The piston shape advises you to contain yourself. It symbolizes self-control, restraint, and the need to manage your emotions or impulses. This shape encourages you to pause, reflect, and exercise discipline in your actions, ensuring that you direct your energy in a purposeful and balanced way."
+        },
+        {
+            "name": "Rat",
+            "emoji": "🐀",
+            "meaning": "more illusion than reality",
+            "longMeaning": "The rat shape suggests that there may be more illusion than reality in your current situation. It symbolizes the need for discernment, skepticism, and the importance of seeing through false appearances. This shape encourages you to trust your instincts, question what may seem too good to be true, and remain vigilant in your decision-making." 
+        },
+        {
+            "name": "Ring",
+            "emoji": "💍",
+            "meaning": "getting married soon", 
+            "longMeaning": "The appearance of a ring shape signifies that you may be getting married soon. It symbolizes love, commitment, and the potential for a deepening or formalization of a romantic relationship. This shape encourages you to embrace the possibility of a significant union and the joy that comes with partnership and lifelong commitment."
+        },
+        {
+            "name": "Rope",
+            "emoji": "🪢",
+            "meaning": "good catch",
+            "longMeaning": "The rope shape symbolizes a good catch. It signifies opportunity, success, and the potential for achieving your goals. This shape encourages you to seize the moment, harness your determination, and make the most of the favorable circumstances that come your way."
+        },
+        {
+            "name": "Scepter",
+            "emoji": "👑",
+            "meaning": "you will own a plot of land soon",
+            "longMeaning": "The appearance of a scepter shape suggests that you will own a plot of land soon. It symbolizes stability, authority, and the potential for gaining ownership or control over a significant aspect of your life. This shape encourages you to embrace your power, take responsibility, and build a solid foundation for your future endeavors."
+        },
+        {
+            "name": "Sickle",
+            "emoji": "🤒📞",
+            "meaning": "great sowing results in great harvest",
+            "longMeaning": "The sickle shape signifies that great sowing results in a great harvest. It symbolizes the importance of hard work, diligence, and the idea that your efforts will be rewarded. This shape encourages you to plant the seeds of your aspirations, be patient, and trust that your dedicated actions will lead to fruitful outcomes."
+        },
+        {
+            "name": "Steering wheel",
+            "emoji": " ",              
+            "meaning": "you are on the right track",
+            "longMeaning": "The appearance of a steering wheel shape suggests that you are on the right track. It symbolizes control, direction, and the ability to navigate your life with purpose and clarity. This shape encourages you to trust your instincts, take the lead in shaping your destiny, and stay focused on your goals."
+        },
+        {
+            "name": "Submarine",
+            "emoji": "🚤",
+            "meaning": "new discoveries",
+            "longMeaning": "The submarine shape signifies the potential for new discoveries. It symbolizes exploration, curiosity, and the idea of diving deep into unknown territories. This shape encourages you to embrace adventure, be open to new experiences, and explore uncharted waters in your personal or professional life."
+        },
+        {
+            "name": "Sun",
+            "emoji": "🌞",
+            "meaning": "feeling warmth",
+            "longMeaning": "The appearance of a sun shape represents the call to bask in the light. It symbolizes vitality, positivity, and the energy to illuminate your life and the lives of others. This shape encourages you to embrace optimism, radiate warmth and joy, and find solace in the light that shines within you."
+        },
+        {
+            "name": "Square",
+            "emoji": "🔲",
+            "meaning": "being very accurate",
+            "longMeaning": "The square shape signifies the need to be very accurate. It symbolizes precision, exactness, and the need to pay attention to detail. This shape encourages you to be more mindful of your actions and to pay attention to the little things in life. It reminds you that every action has a consequence, so make sure you are making wise choices and taking responsibility for your actions. This shape also represents the importance of being organized and having a plan so that you can achieve your goals and dreams."
+        },
+        {
+            "name": "Squirrel",
+            "emoji": "🐿️",
+            "meaning": "build a tree house",
+            "longMeaning": "The appearance of a squirrel shape suggests the call to build a tree house. It symbolizes the need to create a safe space for yourself and your loved ones. This shape encourages you to take care of your home, nurture your family, and protect those who depend on you. It reminds you that you are not alone in this world and that there are people who rely on you for support and guidance. This shape also represents the importance of being dependable and reliable so that others can count on you when they need help or advice."
+        },
+        {
+            "name": "Tongue",
+            "emoji": "👅",
+            "meaning": "watch your language",
+            "longMeaning": "The tongue shape signifies the need to watch your language. It symbolizes the importance of being mindful of what you say and how you say it. This shape encourages you to think before you speak, choose your words carefully, and be aware of the impact your words have on others. It reminds you that words can hurt or heal, so choose wisely when communicating with others. This shape also represents the need to be more aware of how you communicate with yourself and others. It reminds you that your words have power and can either lift people up or tear them down, so choose wisely when speaking to yourself and others."
+        },
+        {
+            "name": "Truck",
+            "emoji": "🚚",
+            "meaning": "carrying a burden on the shoulders",
+            "longMeaning": "The truck shape signifies the need to carry a burden on your shoulders. It symbolizes responsibility, hard work, and the need to take care of others. This shape encourages you to be more responsible in your life and to take care of those who depend on you. It reminds you that you are not alone in this world and that there are people who rely on you for support and guidance. This shape also represents the importance of being dependable and reliable so that others can count on you when they need help or advice."
+        },
+        {
+            "name": "Underwear",
+            "emoji": "🩲",
+            "meaning": "cheerfulness",
+            "longMeaning": "The underwear shape signifies cheerfulness. It symbolizes the need to be happy and positive in your life. This shape encourages you to look on the bright side of things, find joy in the little things, and appreciate what you have. It reminds you that happiness is a choice and that you can choose to be happy no matter what is going on in your life. This shape also represents the importance of self-care and taking care of yourself so that you can feel good about yourself and your life."
+        },
+        {
+            "name": "Vase",
+            "emoji": "🏺",
+            "meaning": "hidden talents",
+            "longMeaning": "The vase shape signifies the potential for artistic expression. It symbolizes creativity, beauty, and the opportunity to bring artistry into your life. This shape encourages you to explore your artistic side, appreciate aesthetics, and surround yourself with beauty that nourishes your soul."
+        },
+        {
+            "name": "Volcano",
+            "emoji": "🌋",
+            "meaning": "great passion and lust",
+            "longMeaning": "The volcano shape signifies great passion and lust. It symbolizes the need to express your emotions and desires. This shape encourages you to be more open and honest about your feelings and to embrace your sexuality. It reminds you that it is okay to be vulnerable and to let your guard down. This shape also represents the need to release pent-up emotions and to let go of any negative feelings that are holding you back from experiencing true happiness and fulfillment in your life." 
+        },
+        {
+            "name": "Waterfall",
+            "emoji": "💧🍂",                
+            "meaning": "infinite loop of positive happenings",
+            "longMeaning": "The appearance of a waterfall shape signifies an infinite loop of positive happenings. It symbolizes the continuous flow of abundance, blessings, and favorable events in your life. This shape encourages you to trust in the natural rhythm of life and embrace the notion that positivity begets more positivity. Just like a waterfall cascades with a never-ending stream of water, this shape reminds you that your life is filled with endless opportunities for growth, joy, and prosperity. It encourages you to maintain an optimistic outlook, stay open to receiving blessings, and celebrate the ongoing cycle of positive experiences that await you."
+        },
+        {
+            "name": "Yeti",
+            "emoji": "🦧",
+            "meaning": "make discoveries",
+            "longMeaning": "The appearance of a Yeti shape suggests the call to make discoveries. It symbolizes the spirit of adventure, curiosity, and the need to explore uncharted territories in your life. This shape encourages you to step outside of your comfort zone, embrace the unknown, and embark on a journey of self-discovery and new experiences. It reminds you that there is always something exciting and transformative waiting to be discovered if you are open to the possibilities."
+        },
+        {
+            "name": "Yoga position",
+            "emoji": "🧘",
+            "meaning": "relaxation and inner peace",
+            "longMeaning": "The yoga position shape signifies the importance of relaxation and inner peace. It symbolizes harmony, balance, and the need to find stillness amidst the busyness of life. This shape encourages you to prioritize self-care, practice mindfulness, and cultivate a sense of tranquility and well-being. It reminds you to take time for yourself, connect with your breath, and nurture your body, mind, and spirit through the practice of yoga or other forms of self-care that promote relaxation and inner peace."
+        }
+    ]
 }
