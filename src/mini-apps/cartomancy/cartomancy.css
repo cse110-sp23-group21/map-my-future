@@ -51,7 +51,6 @@ body {
   display : flex;
   align-items : center;
   justify-content : center;  
-  background-color: #43345d;
   justify-content: fit;
   /* background-color: rgb(178 29 29); */
   background-image: url('/assets/cartomancy/cartomancy-background.jpeg');
@@ -172,7 +171,7 @@ body {
 
 #read-fortune-anchor {
   max-width: 85%;
-  color: white;
+  color: black;
   transition: opacity 1s ease;
   transition: 300ms ease-in-out;
   border-radius: 120%;
