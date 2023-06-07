@@ -1,7 +1,7 @@
 // Main page map JavaScript file
 
 // Background music
-const bgm = new Audio('../assets/map-my-future-bgm.ogg'); //  eslint-disable-line
+const bgm = new Audio('../assets/Waltz-of-the-fortune-teller.mp3'); //  eslint-disable-line
 bgm.play();
 bgm.loop = true;
 
@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const locations = document.querySelectorAll('.location');
   const map = document.getElementsByClassName('map')[0];
 
+  // Map Generation
   map.onload = function (evt) {
     let selectedElement = null;
     let offset = { x: 0, y: 0 };
@@ -84,20 +85,17 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(`${locationName} is selected.`);
       if (locationName === 'Cartomancy') {
         window.location.href = './mini-apps/cartomancy/cartomancy.html';
-      }
-      else if (locationName == 'Molybdomancy') {
+      } else if (locationName === 'Molybdomancy') {
         window.location.href = './mini-apps/molybdomancy/molybdomancy.html';
-      }
-      else if (locationName == 'Fortune Stick') {
+      } else if (locationName === 'Fortune Stick') {
         window.location.href = './mini-apps/fortune_stick/fortune_stick.html';
-      }
-      else if (locationName == 'Yin Yang Coin') {
+      } else if (locationName === 'Yin Yang Coin') {
         window.location.href = './mini-apps/yin_yang_coin/yin_yang_coin.html';
       }
     });
   });
 
-  // Buttons
+  // Music/Info Buttons
   let musicEnabled = true;
   let showInfo = false;
   const musicButton = document.getElementById('music-button');

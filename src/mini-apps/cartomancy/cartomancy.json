@@ -1,36 +1,110 @@
 {
     "option-result pair":[
         {
-            "option":"Heart Ace",
-            "result":"Ace of Hearts represents the House of true heart. It means happiness and prosperity of people living in this house. This card often stands for a breakthrough in feelings, declaration of love or a wedding. For a married person, Ace of hearts is an omen of abundance in the house and happy family life."
+            "option":"The Fool",
+            "result":"The first card of the Major Arcana, The Fool is generally a positive card indicating new beginnings. If it appears in your readings it could mean that you are on the verge of an exciting, unexpected new adventure. Your new adventure will bring you along a path which may require you to make a leap of faith but you will grow as a result of this new experience. This new adventure could be a literal new adventure, like travelling to a place you’ve never been before. The change this card can bring will usually be a welcome one. While the Fool is generally a positive card, its appearance in a reading can also indicate that you need to take the time to look before you leap.",
+            "image": "0-TheFool"
         },
         {
-            "option":"Heart 2",
-            "result":"Two of hearts symbolizes love and passion between two hearts. If you have found your love already – you are lucky. If you are still looking for it, the Two of hearts is here to dispel your doubts. Indeed, there is someone special for you in this world. Keep looking and your will find your soulmate."
+            "option":"The Magician", 
+            "result": "The Magician card is telling you to push yourself to your limits because, with that kind of determination, you're bound to succeed. Disregard distractions for a higher purpose, focusing on the task at hand. The reverse of this is recognizing deception when it rears its ugly head. Proceed with caution, weighing your options, and then make the right decisions.",
+            "image": "1-TheMagician"
         },
         {
-            "option":"Heart 3",
-            "result":"Ace of Hearts represents the House of true heart. It means happiness and prosperity of people living in this house. This card often stands for a breakthrough in feelings, declaration of love or a wedding. For a married person, Ace of hearts is an omen of abundance in the house and happy family life."
+            "option":"The High Preistess",
+            "result":"The High Priestess possesses intuition, mystery and sensuality combined with common sense. When the High Priestess appears in a tarot reading she indicates that now is the time to trust your instincts and go with your gut feeling. Pay attention to your dreams and the signs and symbols the universe is sending you when this Major Arcana trump card appears in your tarot reading.",
+            "image": "2-TheHighPriestess"
         },
         {
-            "option":"Heart 4",
-            "result":"Two of hearts symbolizes love and passion between two hearts. If you have found your love already – you are lucky. If you are still looking for it, the Two of hearts is here to dispel your doubts. Indeed, there is someone special for you in this world. Keep looking and your will find your soulmate."
+            "option":"The Empress",
+            "result":"The Empress Tarot is the Major Arcana card of femininity and motherhood. It is also one of the strongest pregnancy cards in the Tarot deck. If you are a mother, you will really come into your own and find fulfilment. If you are a father, The Empress encourages you to build on your communication with your children and show them your nurturing side. Even if you are not a parent, when The Empress appears the message is the same, you should embrace your softer side, allow yourself to explore the emotions you are feeling and listen to your intuition. People will be drawn to you, especially those in need of the empathy, compassion and nurturing you are able to provide.",
+            "image": "3-TheEmpress"
         },
         {
-            "option":"Heart 5",
-            "result":"Ace of Hearts represents the House of true heart. It means happiness and prosperity of people living in this house. This card often stands for a breakthrough in feelings, declaration of love or a wedding. For a married person, Ace of hearts is an omen of abundance in the house and happy family life."
+            "option":"The Emperor",
+            "result":"As a person, The Emperor represents an older man who is good in business and usually wealthy. The Emperor is a solid, stable man. He is a powerful, grounded protector but he also can be rigid and stubborn. This can be a father or father-figure type or an older man you are romantically involved with. The Emperor is a hard task master and has little time for fun and frivolity. Children of The Emperor can struggle with father issues as falling short of his high expectations can affect their self-esteem. If The Emperor Tarot card appears in a past position, this Major Arcana card can indicate that the father figure in your life was authoritarian and that, while he had your best interests at heart, he may have struggled to show affection. If it appears in the present or future it’s a much better omen as it indicates a wise older man who will give you solid advice which, if you follow it, will lead you in the right direction. Generally, if not representing a person in your life, The Emperor signifies the dominance of logic over emotion and of the mind over the heart. It signifies that concentration, structure, stability and focus is required if you want to make your ideas and dreams a reality. The Emperor upright can represent fatherhood.",
+            "image": "4-TheEmperor"
         },
         {
-            "option":"Heart 6",
-            "result":"Two of hearts symbolizes love and passion between two hearts. If you have found your love already – you are lucky. If you are still looking for it, the Two of hearts is here to dispel your doubts. Indeed, there is someone special for you in this world. Keep looking and your will find your soulmate."
+            "option":"The Hierophant",
+            "result":"The Hierophant is the card of traditional values and institutions. The Hierophant can represent a counsellor or mentor who will provide you with wisdom and guidance or a spiritual or religious advisor such as a priest, vicar, preacher, imam, rabbi or a monk. Alternatively, you may be dealing with someone who is very set in their ways. The institutions The Hierophant Tarot card can represent include economic, religious, political, social, family, educational, social welfare and medical. Its appearance can signify that now is a time to conform to convention or tradition. It’s not a time to rock the boat. It can also be an indicator that you will take part in some sort of traditional ceremony or that you may start creating some new traditions or rituals of your own.",
+            "image": "5-TheHierophant"
         },
         {
-            "option":"Heart 7",
-            "result":"Ace of Hearts represents the House of true heart. It means happiness and prosperity of people living in this house. This card often stands for a breakthrough in feelings, declaration of love or a wedding. For a married person, Ace of hearts is an omen of abundance in the house and happy family life."
+            "option":"The Lovers",
+            "result":"The Lovers signifies perfect union, harmony, love and attraction. The Lovers can represent finding the balance within oneself. You are learning to understand yourself, your own personal moral code and what you value in life. This will bring harmony and balance to your life.  In general when The Lovers Tarot card appears it is an indication that you have major choices to make or are faced with a dilemma. You may be feeling uncertain about situations, people in your life or what direction you should take. These are important decisions you are faced with. Don’t automatically go for the easy road, make sure you have all the information and make the right decision. Even if it seems like a difficult path, it will lead you on to greater things.",
+            "image": "6-TheLovers"
         },
         {
-            "option":"Heart 8",
-            "result":"Two of hearts symbolizes love and passion between two hearts. If you have found your love already – you are lucky. If you are still looking for it, the Two of hearts is here to dispel your doubts. Indeed, there is someone special for you in this world. Keep looking and your will find your soulmate."
+            "option":"The Chariot",
+            "result":"The Chariot Tarot represents overcoming obstacles through determination, focus and willpower. With this Major Arcana trump card in your tarot spread you will be feeling motivated, ambitious and in control. Now is a time to go for what you really want. The Chariot is not without its challenges, there may be many obstacles in your path but if you stay focused, keep your composure and are confident in your abilities, you will be successful! It can also represent travel (usually involving driving) as The Chariot is after all a mode of transport.  The Chariot can also indicate that you may be acting defensively or aggressively to hide that you are feeling emotionally vulnerable. You may feel like you are in a battle at the moment. Don’t worry, if you maintain your focus, you will be successful! The Chariot is also an indicator of success in sports or competitions. The Chariot represents finding the balance between the heart and mind. Put any worries aside and maintain your focus.",
+            "image": "7-TheChariot"
+        },
+        {
+            "option":"The Strength",
+            "result":"The Strength Tarot card is the Major Arcana card of inner strength. It represents mastering raw emotions in order to bring calm to yourself or a situation. It is similar to the Chariot in that it represents overcoming challenges. However, the Strength card usually refers to inner challenges. Overcoming the obstacles we face in relation to our own doubts, fears and anxieties. In a general context this card indicates that you are learning to master your fears and anxieties, to be courageous and daring. You have all the skills you need to be successful, the focus now is to conquer your inner worries and believe in yourself. Take the time you need to master your emotions, be patient and compassionate with yourself and you will find a new confidence in yourself and your abilities. Strength, as well as being representative of taming your emotions, can also represent taming someone else’s wild ways. This is not done by trying to dominate the other person but by gentle coaxing, positive reinforcement, encouragement and compassion.",
+            "image": "8-Strength"
+        },
+        {
+            "option":"The Hermit",
+            "result":"The Hermit Tarot card in an upright position generally indicates that you are entering a period of soul searching, self-reflection and spiritual enlightenment. You may find that you need time alone to gain a deeper understanding of yourself, to remove yourself from the daily grind in order to discover your true spiritual self, contemplate your existence, your direction in life or your values. The Hermit can also indicate isolating yourself or withdrawing into oneself in order to recover from a difficult situation. This Major Arcana trump card can suggest that you may be going through an anti-social phase where you just don’t want to interact with people as much as you normally would. The Hermit is wise, mature and knowledgeable and may be an indication of someone seeking the services of a counsellor or psychiatrist.  This is a time to focus on yourself and meeting your own needs.",
+            "image": "9-TheHermit"
+        },
+        {
+            "option": "The Wheel of Fortune Tarot Card", 
+            "result": "The Wheel of Fortune represents the life cycles we go through in every area of life. It represents transition and the need for serious consideration of major foundational aspects of our lives. This card needs to be explored more deeply than most, and an expert reader should be consulted.",
+            "image": "10-WheelOfFortune"
+        },
+        {
+            "option": "The Justice", 
+            "result": "Justice is about weighing life as it is currently and seeing if it’s going in the right direction. Often, your inner soul has had enough, but your subconscious is too afraid to make a change. While you crave deeper meaning through a more satisfying job, loving relationship, or life situation, the changes that need to be made are difficult and frightening. The karmic balance of the scales of Justice is the universe's way of telling you to take a long, hard look at your present situation, and reassess with honesty.",
+            "image": "11-Justice"
+        },
+        {
+            "option": "The Hanged Man", 
+            "result": "The Hanged Man has an interesting message for us: surrender. Often in life, we fight tooth and nail only to find out that we are exactly where we are supposed to be. This card shows us that it’s alright to let go of the fight, let go of old habits that are restricting you. Meditation and acceptance can lead to deliverance and renewed fervor for life.",
+            "image": "12-TheHangedMan"
+        },
+        {
+            "option":"The Death", 
+            "result": "Ironically, Death is one of the most empowering cards in the Major Arcana. Death, in fact, symbolizes an end and retrospectively, a new start. The astute reader will notice the sun rising in the backdrop of the card, a symbol that light, hope, and new beginnings are coming soon. Death usually symbolizes the end of a bad habit (hence the skeleton in armor). This could be smoking, loveless relationships, or a dead-end job. The 5-petaled flower in the card represents newness and spirit. Commit to this new spirit, and you can expect great things to follow.",
+            "image": "13-Death"
+        },
+        {
+            "option": "The Temperance",
+            "result": "The Temperance tarot card is all about bringing your inner 4 elements back into their proper balance. Earth (your body - meeting your needs), water (your heart - do you love yourself?), fire (your passions - what motivates you?), and air (your mind - are you embracing your thoughts?) need to be in harmony to achieve serenity. Delve deep to see if you are confident in each of these areas.",
+            "image": "14-Temperance"
+        },
+        {
+            "option": "The Devil", 
+            "result": "The Devil tarot card represents the side of ourselves that we've hidden away from even our own conscious mind. At some point in life, we need to make a choice and define ourselves, and that automatically requires dismissing other choices of who we could be (and are). The Devil challenges us to unlock those inner selves and be true to them. The chains hang loosely around the partners’ necks to symbolize that we aren’t completely tied to our current selves, and we have room to become the whole us—if we have the courage.",
+            "image": "15-Devil"
+        },
+        {
+            "option": "The Tower",
+            "result": "The Tower is a foreboding card for many readers, though it doesn’t have to contain ominous messaging. In its basic form, the Tower represents change. It symbolizes the consequences of our actions, whether positive or negative. The underlying message is that while change can be unpleasant or difficult to deal with in the moment, often this very consequence will lead to our salvation. So, while change may not be easy, it can have important ramifications and positive outpourings in the future. The Tower tells you to proceed cautiously when making decisions after a change and not to be too drastic in your choices." ,
+            "image": "16-Tower"
+        },
+        {
+            "option": "The Star", 
+            "result": "The Star is a beautiful, reassuring, and welcomed symbol. It tells the reader that they have arrived at peace. Whatever hardships have been plaguing their lives until now have come to a close, and they can expect calmer waters from here on in. This could symbolize finding the right life partner, a satisfying job, or health.",
+            "image": "17-TheStar"
+        },
+        {
+            "option": "The Moon", 
+            "result": "The Moon tarot card has a clear message for us all. Soften. Be lighter. Be gentler. Don't be afraid to add a little femininity into your life, whether you are a man or a woman because that is what your inner self is craving right now. Listen to your dreams, return to your roots, and give yourself permission to feel what you are feeling.",
+            "image": "18-TheMoon"
+        },
+        {
+            "option": "The Sun",
+            "result": "As one might expect, the Sun card represents optimism, the dawn that follows even the darkest nights. The child in the card shows us innocence, purity. This card symbolizes success and abundance. Take action now because all will be well.",
+            "image": "19-TheSun"
+            
+        },
+        {
+            "option": "The Judgement", 
+            "result": "There is no escaping Judgement, and this card tells us so. All the imagery points to this fate, and when a reader draws this card, it tells him to reflect and evaluate his choices and actions in life. Possibly in response to a recent awakening or epiphany, Judgement tells us to be true to ourselves and to examine the choices carefully but to move on them.",
+            "image": "20-Judgement"
         }
     ]
 }
