@@ -24,6 +24,7 @@
   background-size: cover;
   background-position: center center; 
   overflow : hidden; 
+  z-index: 1;
 }
 
 /* animation for introduction and deck of card*/ 
