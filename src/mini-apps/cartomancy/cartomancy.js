@@ -220,7 +220,7 @@ function readCards() {
     indCard.classList.add('cardShow');
     indCardImageContainer.classList.add('image');
     indCardImage.setAttribute("href", "#"); 
-    indCardImage.setAttribute("src", "https://i.pinimg.com/originals/a4/7b/a5/a47ba59b4a353e0928ef0551ca44f980.jpg"); 
+    indCardImage.setAttribute("src", `/assets/${APP_NAME}/${fortune1['image']}.png`); 
     content.classList.add('content');
 
 
@@ -268,7 +268,8 @@ function readCards() {
 
 }
 
-async function displayFortune(pick, fortune) {
+
+function makeContainer(pick, fortune) {
   console.log("supposed to be reading fortune now");
   console.log(pick);
   console.log(fortune);

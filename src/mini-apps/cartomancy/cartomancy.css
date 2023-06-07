@@ -41,7 +41,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('/src/mini-apps/cartomancy/assets/card-holder.png');
+    background-image: url('/assets/cartomancy/card-holder.png');
     background-position: center;
     background-size: cover; 
     position: absolute;
@@ -60,7 +60,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('/src/mini-apps/cartomancy/assets/card-holder.png');
+  background-image: url('/assets/cartomancy/card-holder.png');
   background-position: center;
   background-size: cover; 
   position: absolute;
@@ -79,7 +79,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('/src/mini-apps/cartomancy/assets/card-holder.png');
+  background-image: url('/assets/cartomancy/card-holder.png');
   background-position: center;
   background-size: cover; 
   position: absolute;
@@ -157,7 +157,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('/src/mini-apps/cartomancy/assets/cartomancy-card-back.png');
+  background-image: url('/assets/cartomancy/cartomancy-card-back.png');
   background-position: center;
   background-size: cover; 
   width: 180px;
