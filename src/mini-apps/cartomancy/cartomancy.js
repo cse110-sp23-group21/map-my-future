@@ -166,6 +166,12 @@ function dropped (e) {
   }
   cardsPicked++;
 
+  // Enable reset button after card is picked
+  if(cardsPicked == 1) {
+    document.querySelector('#reset-button').style.display = 'flex';
+  }
+
+  // Once user selects 3 cards, their fortune can be read
   if(cardsPicked == 3) {
     // assumes document is loaded
     //console.log("reached 3 cards loaded");
