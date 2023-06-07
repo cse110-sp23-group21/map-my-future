@@ -1,13 +1,20 @@
 /* styling for page */
 @font-face {
     font-family: "Chinese Shanghai Demo";
-    src: url('../../../assets/ChineseShangaiDemoVersionRegular.ttf');
+    src: url('../../../assets/stick/ChineseShangaiDemoVersionRegular.ttf');
+}
+
+html {
+    background: url('../../../assets/stick/background.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 body {
     display: flex;
     justify-content: center;
-    background-image: url('../../../assets/background_fortunestick.png');
     font-family: 'Luxurious Script', cursive;
 }
 
@@ -43,7 +50,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../../../assets/fortune_sticks_card.jpeg');
+    background-image: url('../../../assets/stick/card-cover.jpeg');
     background-position: center;
     background-size: 200px 400px;
     width: 200px;
@@ -92,8 +99,8 @@ body {
 }
 
 #fortune-message {
-  margin: auto;
-  max-width: 8em;  
+    margin: auto;
+    max-width: 8em;
 }
 
 .reset-button-container {
@@ -117,7 +124,7 @@ body {
     bottom: 20px;
     left: 20px;
 }
-  
+
 .menu-button {
     display: flex;
     justify-content: center;
@@ -152,20 +159,20 @@ body {
     border-radius: 10%;
     background-color: #846e43;
     text-align: center;
-    justify-content: center;    
+    justify-content: center;
 }
 
-.choose-card { 
-  left: 5000;
-  top: 500;
-  animation-name: moveAndTurn;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
+.choose-card {
+    left: 5000;
+    top: 500;
+    animation-name: moveAndTurn;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 
 .remove-card {
-  transition: transform 0.8s;
-  visibility: transparent;
+    transition: transform 0.8s;
+    visibility: transparent;
 }
 
 .info-text {
@@ -174,12 +181,13 @@ body {
 }
 
 @keyframes moveAndTurn {
-  0% {
-  }
-  50% {
-    /*transform: translateX(-50%);*/
-  } 
-  100% {
-    transform: translate(0, 0) rotateY(90deg);
-  }
+    0% {}
+
+    50% {
+        /*transform: translateX(-50%);*/
+    }
+
+    100% {
+        transform: translate(0, 0) rotateY(90deg);
+    }
 }
