@@ -4,6 +4,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   const locations = document.querySelectorAll('.location');
   const map = document.getElementsByClassName('map')[0];
+  const instructionTxt = document.getElementById('instruction-text');
+  let panelState = 'inactive';
+  let locationName = '';
 
   map.onload = function (evt) {
     let selectedElement = null;
@@ -79,9 +82,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // Region clicked/selected
   locations.forEach(location => {
     location.addEventListener('click', () => {
-      const locationName = location.getAttribute('data-location');
-      // Add navigation to mini-app during Sprint 2 here.
-      console.log(`${locationName} is selected.`);
+      locationName = location.getAttribute('data-location');
+
+      // Side panel click constraint
+      if(panelState == 'inactive'){
+        panelState = 'active';
+        location.setAttribute('toggle-by', 'true');
+        document.querySelector(".canvas").classList.toggle("side-panel-open");
+
+        // Update panel content based on selected location
+        instructionTxt.innerHTML = `${locationName}`;
+        
+      } else{
+        if(location.getAttribute('toggle-by') == 'true'){
+          panelState = 'inactive';
+          location.setAttribute('toggle-by', 'false');
+          document.querySelector(".canvas").classList.toggle("side-panel-open");
+        }
+      }
     });
   });
 
@@ -90,6 +108,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let showInfo = false;
   const musicButton = document.getElementById('music-button');
   const infoButton = document.getElementById('info-button');
+  const enterButton = document.querySelector('.enter-button');
+
+  enterButton.addEventListener('click', (e) => {
+    // Add navigation to mini-app during Sprint 2 here.
+    console.log(`${locationName} is selected.`);
+  });
 
   musicButton.addEventListener('click', (e) => {
     const musicImg = document.querySelectorAll('img')[0];
