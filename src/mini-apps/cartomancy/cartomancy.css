@@ -5,6 +5,18 @@
     font-family: "Chinese Shanghai Demo";
     src: url('../../../assets/ChineseShangaiDemoVersionRegular.ttf');
 }
+#card-display{
+  display: none;
+}
+
+#intro {
+display: intial; 
+margin: auto;
+width: 200px;
+height: 200px;
+padding: 10px;
+border: 5px solid crimson;
+}
 
 body {
     display: auto;
@@ -125,7 +137,6 @@ body {
     background-image: linear-gradient(to bottom, #1B1D15, #8257E5);
 }
   
-
 #read-fortune-anchor img {
     max-width: 100%;
     filter: brightness(0) invert(1);
@@ -176,7 +187,7 @@ body {
 }
 
 .card2 + .card2{
-  margin-left: -13.5%; 
+  margin-left: -14.8%; 
 }
 
 .overlay {
@@ -262,7 +273,42 @@ body {
     bottom: 20px;
     left: 20px;
 }
-  
+
+.start-button {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.start-button:hover {
+  background-color: #fff;
+}
+
+.start-button:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-74 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
 .menu-button {
     display: flex;
     justify-content: center;
@@ -330,7 +376,7 @@ body {
   display : flex;
   align-items : center;
   justify-content : center;
-  flex-warp : warp;
+  flex-wrap : wrap;
   padding : 30px;  
 }
 

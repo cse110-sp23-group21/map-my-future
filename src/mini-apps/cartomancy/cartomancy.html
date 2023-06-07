@@ -8,9 +8,12 @@
     <!-- make sure to change for your own mini app's html/css/js and page title -->
     <link rel="stylesheet" href="cartomancy.css">
     <title>cartomancy</title>
+  
   </head>
   <body>
+  
     <script type="module" src="cartomancy.js"></script>
+    <!-- HTML !-->
 
     <!-- Page Content (customize for each mini app!) -->
     <div id="center-div">
@@ -18,11 +21,12 @@
       <div class="heading">
         <h1></h1>
       </div>
-
+      <div class="intro" id="intro"></div>
       <!-- add page content here -->
 
       <!-- Card Deck -->
 
+      <div class="card-display" id="card-display"> 
 
       <div class="deck">
         <div draggable = "true" class="card1" id="card1"></div>
@@ -35,8 +39,7 @@
         <div draggable = "true" class="card1" id="card1"></div>
         <div draggable = "true" class="card1" id="card1"></div>
       </div>
-      <div id="pickContainer1" class="pickContainer">
-      </div>
+      <div id="pickContainer1" class="pickContainer"></div>
       <div class="deck">
         <div draggable = "true" class="card2" id="card2"></div>
         <div draggable = "true" class="card2" id="card2"></div>
@@ -49,8 +52,10 @@
         <div draggable = "true" class="card2" id="card2"></div>
         <div draggable = "true" class="card2" id="card2"></div>
       </div>
-      <div id="pickContainer2" class = "pickContainer">
-      </div>
+    
+      <div id="pickContainer2" class = "pickContainer"></div>
+    
+
       <div class="deck">
         <div draggable = "true" class="card3" id="card3"></div>
         <div draggable = "true" class="card3" id="card3"></div>
@@ -62,13 +67,11 @@
         <div draggable = "true" class="card3" id="card3"></div>
         <div draggable = "true" class="card3" id="card3" ></div>
       </div>
-      <div id="pickContainer3" class = "pickContainer">
-      </div>
-
-
-
+ 
+      <div id="pickContainer3" class = "pickContainer"></div>
+  
     </div>
-
+    <div class="start-button" id="start-button">START</div>
     <!-- App Buttons -->
     <div class="button-container-bottom-left">
       <a href="#" id="music-button" class="menu-button">

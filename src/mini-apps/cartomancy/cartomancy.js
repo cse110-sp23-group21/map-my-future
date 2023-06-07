@@ -28,6 +28,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   const wholeDeck = document.querySelectorAll(".deck");
 
 
+  const startButton = document.getElementById('start-button'); 
+  startButton.addEventListener('click', (e) => {    
+        console.log("start");
+        document.getElementById('intro').style.display = "none"; 
+        document.getElementById('card-display').style.display = "initial";
+        document.getElementById('start-button').style.display = "none";
+  });
+
   //  Add event listeners to the card elements
   console.log("cardElements:", cardElements);
 
