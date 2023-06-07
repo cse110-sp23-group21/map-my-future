@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: "Xingkai";
-    src: url('chinese.stxingka.ttf') format('truetype');
+    src: url('../../../assets/coin/chinese.stxingka.ttf') format('truetype');
 }
 
 body {
@@ -86,7 +86,7 @@ span:nth-child(3) {
     width: 100%;
     height: 100%;
     text-align: center;
-    background-image: url('background.png');
+    background-image: url('../../../assets/coin/background.png');
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -95,7 +95,6 @@ span:nth-child(3) {
 
 .top-grid,
 .bottom-grid {
-    /*display: flex;*/
     display: grid;
     align-items: center;
     justify-content: center;
@@ -157,8 +156,6 @@ span:nth-child(3) {
     animation: blurFadeIn 3s ease-in forwards;
 }
 
-
-
 /* Result Style & Animation */
 .inactive {
     display: none;
@@ -172,7 +169,6 @@ span:nth-child(3) {
     justify-content: center;
     color: Black;
     font-family: 'Xingkai';
-    /*font-size: 200px;*/
     font-size: 30vh;
     text-align: center;
     -webkit-animation: blurFadeIn 3s ease-in backwards;
@@ -284,7 +280,6 @@ span:nth-child(3) {
 
 /* Button Style */
 .action-button {
-    /*padding: 20px 50px;*/
     padding: 2vh 3vw;
     border: none;
     background-color: rgba(128, 128, 128, 50%);

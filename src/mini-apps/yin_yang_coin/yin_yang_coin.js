@@ -81,11 +81,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   let showInfo = false;
 
   // Background music
-  const bgm = new Audio('background_music1.mp3');
-  const flipSound = new Audio('coin_flipv3.ogg');
+  const bgm = new Audio('../../../assets/coin/bgm-background.mp3');
+  const flipSound = new Audio('../../../assets/coin/bgm-coin-flip.ogg');
   bgm.loop = true;
-  bgm.volume = 0.3;
-  flipSound.volume = 0.4;
+  bgm.volume = 0.4;
+  flipSound.volume = 0.5;
   bgm.play();
 
   // Music Button
@@ -162,11 +162,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log(gridList[tossCounter]);
         if (coinResult.type == 'Yin') {
           setTimeout(function () {
-            gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="broken_line.PNG" alt="instruction image display failed."/>';
+            gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../../assets/coin/line-broken.PNG" alt="instruction image display failed."/>';
           }, 4500);
         } else {
           setTimeout(function () {
-            gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="solid_line.PNG" alt="instruction image display failed."/>';
+            gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../../assets/coin/line-solid.PNG" alt="instruction image display failed."/>';
           }, 4500);
         }
 
