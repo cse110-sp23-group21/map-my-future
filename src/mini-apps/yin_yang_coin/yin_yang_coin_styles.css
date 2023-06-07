@@ -8,9 +8,12 @@
 body {
     margin: 0;
     padding: 0;
-    min-width: 800px; /* Minimum Shrinking */
-    overflow: hidden; /* Disable scrolling */
     font-family: Arial, sans-serif;
+    background: url('../../../assets/coin/background.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 h1 {
@@ -86,11 +89,6 @@ span:nth-child(3) {
     width: 100%;
     height: 100%;
     text-align: center;
-    background-image: url('../../../assets/coin/background.png');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 }
 
 .top-grid,
