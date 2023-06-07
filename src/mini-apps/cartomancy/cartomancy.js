@@ -194,30 +194,43 @@ function readCards() {
   const pickContainer3 = document.getElementById('pickContainer3');
 
   setTimeout(() => {
+
+    /***** creates html elements in js   ****/ 
+    /***** After writing, should look into finding a way to load better  ****/ 
+
+
     console.log("should of begun hiding cards");
 
     let indCard = document.createElement('div');
     let indCardImageContainer = document.createElement('div');
     let indCardImage = document.createElement('img');
     let content = document.createElement('div');
-    indCard.classList.add('cardShow');
-    indCardImageContainer.classList.add('image');
-    indCardImage.classList.add('image');
-    indCardImage.setAttribute("href", "#"); 
-    indCardImage.setAttribute("src", "https://i.pinimg.com/originals/a4/7b/a5/a47ba59b4a353e0928ef0551ca44f980.jpg"); 
-    indCardImage.classList.add('content');
-
+    let fDescr = document.createElement('p');
     let node = document.createTextNode('read fortune in here man');
 
+    fDescr.classList.add('read-fortune');
+    indCard.classList.add('cardShow');
+    indCardImageContainer.classList.add('image');
+    indCardImage.setAttribute("href", "#"); 
+    indCardImage.setAttribute("src", "https://i.pinimg.com/originals/a4/7b/a5/a47ba59b4a353e0928ef0551ca44f980.jpg"); 
+    content.classList.add('content');
+
+
     console.log(receivedFortunes);
+
+    fDescr.appendChild(node);
+
+    indCard.appendChild(indCardImageContainer);
+    indCardImageContainer.appendChild(indCardImage);
 
     content.appendChild(node);
     indCard.appendChild(content);
 
-    indCardImageContainer.appendChild(indCardImage);
-    pickContainer1.appendChild(indCardImageContainer);
+    // remove the image of the back of the card
+    // assumes the two children, img and container are here
+    pickContainer1.removeChild(pickContainer1.firstElementChild);
     
-    document.body.appendChild(indCard);
+    pickContainer1.appendChild(indCard);
 
     /*
      <div class = card>
@@ -248,6 +261,7 @@ function readCards() {
 }
 
 async function displayFortune(pick, fortune) {
+  console.log("supposed to be reading fortune now");
   console.log(pick);
   console.log(fortune);
   /*
