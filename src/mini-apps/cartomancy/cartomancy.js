@@ -174,6 +174,12 @@ function dropped (e) {
   }
   cardsPicked++;
 
+  // Enable reset button after card is picked
+  if(cardsPicked == 1) {
+    document.querySelector('#reset-button').style.display = 'flex';
+  }
+
+  // Once user selects 3 cards, their fortune can be read
   if(cardsPicked == 3) {
     // assumes document is loaded
     //console.log("reached 3 cards loaded");
@@ -197,46 +203,61 @@ function readCards() {
   const fortune2 = receivedFortunes[1];
   const fortune3 = receivedFortunes[2];
 
-  const ReadingArea = document.getElementById('center-div');;
+  const pickContainer1 = document.getElementById('pickContainer1');
+  const pickContainer2 = document.getElementById('pickContainer2');
+  const pickContainer3 = document.getElementById('pickContainer3');
+
+  pickContainer1.classList.add('container');
 
   setTimeout(() => {
+
+    /***** creates html elements in js   ****/ 
+    /***** After writing, should look into finding a way to load better  ****/ 
+
+
     console.log("should of begun hiding cards");
 
     let indCard = document.createElement('div');
     let indCardImageContainer = document.createElement('div');
     let indCardImage = document.createElement('img');
     let content = document.createElement('div');
+    let fDescr = document.createElement('p');
+    let node = document.createTextNode('read fortune in here man');
+
+    fDescr.classList.add('read-fortune');
     indCard.classList.add('cardShow');
     indCardImageContainer.classList.add('image');
-    indCardImage.classList.add('image');
     indCardImage.setAttribute("href", "#"); 
-    indCardImage.setAttribute("src", "https://i.pinimg.com/originals/a4/7b/a5/a47ba59b4a353e0928ef0551ca44f980.jpg"); 
-    indCardImage.classList.add('content');
+    indCardImage.setAttribute("src", `/assets/${APP_NAME}/${fortune1['image']}.png`); 
+    content.classList.add('content');
 
-    let node = document.createTextNode('Display fortunes in this new div');
 
     console.log(receivedFortunes);
+
+    fDescr.appendChild(node);
+
+    indCard.appendChild(indCardImageContainer);
+    indCardImageContainer.appendChild(indCardImage);
 
     content.appendChild(node);
     indCard.appendChild(content);
 
-    indCardImageContainer.appendChild(indCardImage);
-    indCard.appendChild(indCardImageContainer);
+    // remove the image of the back of the card
+    // assumes the two children, img and container are here
+    pickContainer1.removeChild(pickContainer1.firstElementChild);
     
-    document.body.appendChild(indCard);
+    pickContainer1.appendChild(indCard);
 
     /*
      <div class = card>
           <div class = image>
-            <img href = "#" src =               https://i.pinimg.com/originals/a4/7b/a5/a47ba59b4a353e0928ef0551ca44f980.jpg>
+            <img href = "#" src='imgsrc'>
           </div>
           <div class = content>
             <h3>This is content</h3>
-            <p>DIn publishing and graphic design,           Lorem ipsum is a placeholder text               commonly used to demonstrate the visual         form of a document or a typeface without         relying on meaningful content.</p>
+            <p>information</p>
           </div>
         </div> 
-    */
-    /*
     */
 
 
@@ -246,8 +267,8 @@ function readCards() {
     // actually may better loop later
     let i = 0;
     while(i < 1) { // loop through first 3
-      const pickContainer = document.getElementById(`pickContainer{i}`);
-      displayFortune(pickContainer, receivedFortunes[i]);
+      let picking = document.getElementById(`pickContainer{i}`);
+      displayFortune(picking, receivedFortunes[i]);
       i++;
     }
 
@@ -255,7 +276,9 @@ function readCards() {
 
 }
 
-async function displayFortune(pick, fortune) {
+
+function makeContainer(pick, fortune) {
+  console.log("supposed to be reading fortune now");
   console.log(pick);
   console.log(fortune);
   /*
