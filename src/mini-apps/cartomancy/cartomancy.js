@@ -27,42 +27,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   const cardElements = document.querySelectorAll(".card");
   const wholeDeck = document.querySelectorAll(".deck");
 
-  /*
-  //  Add event listeners to the card elements
-  console.log("cardElements:", cardElements);
-
-  cardElements.forEach(cardElement => {
-    //console.log("element's id:", cardElement.id);
-
-    cardElement.addEventListener("click", (e) => {
-
-      //console.log("element's id:", cardElement.id);
-
-      // TODO: add card to pickContainer
-      addCard();
-
-
-      // TODO: only read after three have been chosen
-      readCards();
-    });
-  });
-  */
-
 
   //  Add event listeners to the card elements
   console.log("cardElements:", cardElements);
 
 
-  // add a listener for when cardsPicked = 3
-  // make the button visible
-
+  // button display:'flex' after 3 cards
   readFortuneButton.addEventListener("click", (e) => {
 
     //console.log("Yeah you loaded thsi many cards:");
     
-    //console.log(cardsPicked);
-
-    // put away cards, leaves 1
+    // put away cards
     console.log(wholeDeck);
     wholeDeck.forEach( (cards) => {
       cards.classList.add("hide-cards");
@@ -79,7 +54,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log("turned display attr off");
       });
       
+      // start reading cards
       readCards();
+
     }, 1000);
   }); 
 
@@ -189,14 +166,6 @@ function dropped (e) {
     
 }
 
-/* Add this current card to the div container
- * @Param perhaps the card itelf
- */
-function addCard() {
-
-
-}
-
 /*
  * Begin the fortune telling process by reading the chosen cards
  */
@@ -212,173 +181,68 @@ function readCards() {
   const fortune2 = receivedFortunes[1];
   const fortune3 = receivedFortunes[2];
 
-  const pickedCardsArea = document.getElementById('pickContainer');
+  const ReadingArea = document.getElementById('center-div');;
 
-  // delete the previous stuff place for cards
-  //const unchosenCards = document.getElementsByClassName('center-div')[0];
-  //const unchosenCards = document.getElementById('cards-set-down');
-  //unchosenCards.classList.add('hide-cards');
   setTimeout(() => {
-    // FIXME: this should be unchosenCrds.style.display = 'none', but this resizes the screen
-    //unchosenCards.style.opacity = '0'; 
     console.log("should of begun hiding cards");
 
-    // now bring the fortune to the center
+    let indCard = document.createElement('div');
+    let indCardImageContainer = document.createElement('div');
+    let indCardImage = document.createElement('img');
+    let content = document.createElement('div');
+    indCard.classList.add('cardShow');
+    indCardImageContainer.classList.add('image');
+    indCardImage.classList.add('image');
+    indCardImage.setAttribute("href", "#"); 
+    indCardImage.setAttribute("src", "https://i.pinimg.com/originals/a4/7b/a5/a47ba59b4a353e0928ef0551ca44f980.jpg"); 
+    indCardImage.classList.add('content');
 
-    //pickedCardsArea.style.transition = '2s';
-    
-    //pickedCardsArea.style.top = '45%';
-    //pickedCardsArea.style.left = '40%';
-
-
-    // now continue displaying the fortune
-
-    //const displayFortuneContainer = document.createElement('div');
-    //displayFortuneContainer.classList.add('displayFortuneContainer');
+    let node = document.createTextNode('Display fortunes in this new div');
 
     console.log(receivedFortunes);
 
+    content.appendChild(node);
+    indCard.appendChild(content);
+
+    indCardImageContainer.appendChild(indCardImage);
+    indCard.appendChild(indCardImageContainer);
+    
+    document.body.appendChild(indCard);
+
     /*
-
-    const TEMPDISPLAY = document.createElement('p');
-    const node = document.createTextNode('Display fortunes in this new div');
-    TEMPDISPLAY.classList.add('read-fortune');
-
-    TEMPDISPLAY.appendChild(node);
-    displayFortuneContainer.appendChild(TEMPDISPLAY);
-
-    //const element = document.getElementById('body');
-    document.body.appendChild(displayFortuneContainer);
+     <div class = card>
+          <div class = image>
+            <img href = "#" src =               https://i.pinimg.com/originals/a4/7b/a5/a47ba59b4a353e0928ef0551ca44f980.jpg>
+          </div>
+          <div class = content>
+            <h3>This is content</h3>
+            <p>DIn publishing and graphic design,           Lorem ipsum is a placeholder text               commonly used to demonstrate the visual         form of a document or a typeface without         relying on meaningful content.</p>
+          </div>
+        </div> 
+    */
+    /*
     */
 
 
     // output the results
-    console.log(fortune1['result']);
+    console.log(fortune1['result'], document.query);
+
+    // actually may better loop later
+    let i = 0;
+    while(i < 1) { // loop through first 3
+      const pickContainer = document.getElementById(`pickContainer{i}`);
+      displayFortune(pickContainer, receivedFortunes[i]);
+      i++;
+    }
 
   }, 1000);
 
 }
 
-/*
-// all driver code should be within this event listener, ie adding other event listeners and calling on imported engine
-
-import FortuneEngine from "../../engine.js";
-
-const engine = new FortuneEngine();
-
-const TYPING_SPEED = 35;
-const APP_NAME = "cartomancy";
-
-document.addEventListener('DOMContentLoaded', async () => {
-  // Read JSON File
-  await engine.db_reader(`./${APP_NAME}.json`);
-
-  // Background music
-  const bgm = new Audio('../../../assets/reflected-light-cartomancy-bg.mp3'); //  eslint-disable-line
-  bgm.play();
-  bgm.loop = true;
-
-  // Buttons
-  let musicEnabled = true;
-  let showInfo = false;
-  const musicButton = document.getElementById('music-button');
-  const infoButton = document.getElementById('info-button');
-  const cardElements = document.querySelectorAll(".card");
-
-  musicButton.addEventListener('click', (e) => {
-    console.log('music');
-    const musicImg = document.getElementById('music');
-    if (musicEnabled) {
-      musicImg.src = '../../../assets/audio_off.png';
-      bgm.pause();
-    } else {
-      musicImg.src = '../../../assets/audio_on.png';
-      bgm.play();
-    }
-    musicEnabled = !musicEnabled;
-  });
-
-
-  let cardsLie = document.querySelectorAll('.card-container')[0];
-  let perspective = document.querySelectorAll('.perspective')[0];
-
-  cardsLie.addEventListener("click", (e) => {
-    if(cardsLie.classList.contains("spread")) {
-      // put away cards, leaves 1
-      cardsLie.classList.add("hide-cards");
-      console.log("should of begun hiding cards");
-
-      setTimeout(() => {
-        //cardsLie.style.display = 'none'; //reoves only the space for cards
-        perspective.style.display = 'none'; // removes the 'perspective tag'
-        console.log("turned display attr off");
-
-
-        readCardFortunes();
-
-      }, 2000);
-
-
-    }
-    else {
-      cardsLie.classList.add("spread");
-      console.log("add spread class to spread cards");
-      //console.log(document.querySelectorAll('.card-container')[0]);
-
-      // dissappear text
-      let message = document.querySelectorAll('.message')[0];
-      message.classList.add("fade-out");
-      setTimeout(() => {
-        message.style.display = 'none';
-      }, 1000);
-    }
-
-  });
-
-  infoButton.addEventListener('click', (e) => {
-    const infoPopup = document.getElementById('info-popup');
-    infoPopup.style.display = !showInfo ? 'flex' : 'none';
-    showInfo = !showInfo;
-  });
-
-})
-
-// begins the stage of reading cards, 1-3 choices
-function readCardFortunes() {
-
-
-
-  const receivedFortunes = engine.get_random_subset(3);
-
-  const fortune1 = receivedFortunes[0];
-  const fortune2 = receivedFortunes[1];
-  const fortune3 = receivedFortunes[2];
-
-  const displayFortuneContainer = document.createElement('div');
-  displayFortuneContainer.classList.add('displayFortuneContainer');
-
-  console.log(receivedFortunes);
-
-
-  const TEMPDISPLAY = document.createElement('p');
-  const node = document.createTextNode('Display fortunes in this new div');
-  TEMPDISPLAY.classList.add('read-fortune');
-  
-  TEMPDISPLAY.appendChild(node);
-  displayFortuneContainer.appendChild(TEMPDISPLAY);
-
-  //const element = document.getElementById('body');
-  document.body.appendChild(displayFortuneContainer);
-
-
-  // output the results
-  console.log(fortune1['result']);
-
-}
-
-/*
+async function displayFortune(pick, fortune) {
+  console.log(pick);
+  console.log(fortune);
   /*
-function displayFortune() {
   const container = document.getElementsByClassName('display-fortune')[0];
   const resetButton = document.getElementsByClassName('reset-button-container')[0];
 
@@ -392,16 +256,16 @@ function displayFortune() {
   container.classList.add('show');
   resetButton.classList.add('show');
 
-  // clear any existing text
+// clear any existing text
   fortune.textContent = '';
 
   let index = 0;
 
-  // create a new audio object
+// create a new audio object
   const typingSound = new Audio("fortune_stick_reveal.ogg")
   typingSound.currentTime = 0;
   typingSound.play();
-  // set up the typing effect
+// set up the typing effect
   const typingInterval = setInterval(() => {
     // add the next character to the textContent
     fortune.textContent += receivedFortune[index];
@@ -416,5 +280,5 @@ function displayFortune() {
       clearInterval(typingInterval);
     }
   }, TYPING_SPEED); // this value controls the typing speed, adjust as desired
-
   */
+}
