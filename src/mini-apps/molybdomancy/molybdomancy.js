@@ -113,10 +113,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   meltButton.addEventListener('click', () => {
     switch (meltButtonState) {
       case 'melt':
-        // meltButton.innerText = 'New Round';
         meltButtonState = 'result';
 
         const result = engine.get_random_subset(1)[0];   //  eslint-disable-line
+
         setTimeout(() => {
           resultText.innerHTML = `Shape: ${result.name}</br> Meaning: ${result.meaning}.`;
           resultText.classList.remove('interpretation');
@@ -126,13 +126,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         texts[1] = result.emoji;
         time = new Date();
-        animate();
         meltButton.style.pointerEvents = 'none';
         meltButton.innerText = 'Melting tin...';
+        animate();
+
+        // Set Button Delay
         setTimeout(() => {
           meltButton.style.pointerEvents = 'all';
           meltButton.innerText = 'Try Again?';
-        }, morphTime * 1000);
+        }, morphTime * 1000 + 3000);
 
         break;
 
@@ -150,10 +152,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   // Background music
-  //   const bgm = new Audio('background_music1.mp3');
-  //   bgm.loop = true;
-  //   bgm.volume = 0.3;
-  //   bgm.play();
+    const bgm = new Audio('../../../assets/moly/moly-bgm.mp3');
+    bgm.loop = true;
+    bgm.volume = 0.4;
+    bgm.play();
 
   // Music Button
   musicButton.addEventListener('click', (event) => {
@@ -161,10 +163,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const musicImg = document.getElementById('music');
     if (musicEnabled) {
       musicImg.src = '../../../assets/audio_off.png';
-      // bgm.pause();
+      bgm.pause();
     } else {
       musicImg.src = '../../../assets/audio_on.png';
-      // bgm.play();
+      bgm.play();
     }
     musicEnabled = !musicEnabled;
   });

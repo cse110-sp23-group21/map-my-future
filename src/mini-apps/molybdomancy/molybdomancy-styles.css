@@ -1,13 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:900&display=swap");
 
 body {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr 1fr;
     justify-content: space-around;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f4f4f4;
+    background-image: url('../../../assets/moly/moly-background.png');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 h1 {
@@ -30,122 +34,83 @@ h1 {
     grid-auto-rows: 1fr;
     max-height: 50%;
     object-fit: contain;
-
-    /* position: absolute; */
     margin: auto;
     width: 100vw;
     height: 80pt;
     top: 0;
     bottom: 0;
-
     filter: url(#threshold) blur(0.6px);
 }
 
-#bottom button {
+#filters {
+    display: none;
+}
+
+#meltButton {
     padding: 2vh 5vh;
-    font-size: 3vh;
+    font-size: 2.5vh;
+    background-color: transparent;
+    color: silver;
     cursor: pointer;
-    border-radius: 5vh;
+    border-radius: 2vh;
+    border: 1px solid;
+    overflow: hidden;
+    position: relative;
+
+    &:after {
+        background-color: #fff;
+        content: "";
+        height: 155px;
+        left: -75px;
+        opacity: .2;
+        position: absolute;
+        top: -50px;
+        transform: rotate(35deg);
+        transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+        width: 50px;
+        z-index: -10;
+    }
+}
+
+#meltButton:hover {
+
+    &:after {
+        left: 120%;
+        transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
 }
 
 #text1,
 #text2 {
+    color: silver;
     position: absolute;
     width: 100%;
     display: inline-block;
-
     font-family: "Raleway", sans-serif;
     font-size: 80pt;
-
     text-align: center;
-
     user-select: none;
 }
 
 .interpretation {
     text-align: center;
     font-size: 4vh;
+    font-weight: 200;
     margin: auto;
-    -webkit-animation: blurFadeIn 3s ease-in backwards;
-	-moz-animation: blurFadeIn 3s ease-in backwards;
-	-ms-animation: blurFadeIn 3s ease-in backwards;
-	animation: blurFadeIn 3s ease-in backwards;
+    animation: fadeIn 3s ease-in;
 }
 
 @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
+    0% {
+        opacity: 0;
+    }
 
-@-webkit-keyframes blurFadeIn {
-	0% {
-		opacity: 0;
-		text-shadow: 0px 0px 40px #fff;
-		-webkit-transform: scale(5);
-	}
-	50% {
-		opacity: 0.5;
-		text-shadow: 0px 0px 10px #fff;
-		-webkit-transform: scale(2);
-	}
-	100% {
-		opacity: 1;
-		text-shadow: 0px 0px 1px #fff;
-		-webkit-transform: scale(1);
-	}
-}
-
-@-moz-keyframes blurFadeIn {
-	0% {
-		opacity: 0;
-		text-shadow: 0px 0px 40px #fff;
-		-moz-transform: scale(5);
-	}
-	100% {
-		opacity: 1;
-		text-shadow: 0px 0px 1px #fff;
-		-moz-transform: scale(1);
-	}
-}
-
-@keyframes blurFadeIn {
-	0% {
-		opacity: 0;
-		text-shadow: 0px 0px 40px #fff;
-		transform: scale(5);
-	}
-	50% {
-		opacity: 0.5;
-		text-shadow: 0px 0px 10px #fff;
-		transform: scale(2);
-	}
-	100% {
-		opacity: 1;
-		text-shadow: 0px 0px 1px #fff;
-		transform: scale(1);
-	}
+    100% {
+        opacity: 1;
+    }
 }
 
 /* Button Style */
-.action-button {
-    /*padding: 20px 50px;*/
-    padding: 2vh 3vw;
-    border: none;
-    background-color: rgba(128, 128, 128, 50%);
-    color: #000;
-    cursor: pointer;
-    border-radius: 20px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.action-button:hover{
-    background-color: rgba(66, 45, 35, 70%);
-    color: white;
-}
-
 .button-container-bottom-right {
     position: fixed;
     bottom: 20px;
@@ -164,7 +129,7 @@ h1 {
     align-items: center;
     width: 50px;
     height: 50px;
-    background-color: rgba(66, 45, 35, 70%);
+    background-color: rgba(192, 192, 192, 70%);
     border-radius: 50%;
     margin-bottom: 10px;
     text-decoration: none;
@@ -178,7 +143,7 @@ h1 {
 }
 
 .menu-button:hover {
-    background-color: rgba(66, 45, 35, 50%);
+    background-color: rgba(192, 192, 192, 50%);
 }
 
 /* Info Screen Style */
@@ -190,13 +155,14 @@ h1 {
     width: 400px;
     height: 300px;
     border-radius: 10%;
-    background-color: rgba(66, 45, 35, 70%);
+    background-color: rgba(192, 192, 192, 70%);
     text-align: center;
     justify-content: center;
 }
 
-.info-text p, .info-text h1 {
-    color: white;
+.info-text p,
+.info-text h1 {
+    color: black;
     width: 90%;
     font-size: 15px;
 }
