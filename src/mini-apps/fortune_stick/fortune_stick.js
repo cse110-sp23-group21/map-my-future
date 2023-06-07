@@ -74,7 +74,6 @@ function selectCategory (category) {
   for (let i = 0; i < notChosen.length; i++) {
     notChosen[i].classList.toggle('hide');
     notChosen[i].style.opacity = '0';
-    // console.log(notChosen[i]);
   }
 
   const notChosenCards = document.getElementsByClassName('card hide')[0];
@@ -138,18 +137,3 @@ function displayFortune () {
     }
   }, TYPING_SPEED); // this value controls the typing speed, adjust as desired
 }
-
-// function displayFortune() {
-//   const container = document.getElementsByClassName('display-fortune')[0];
-//   const resetButton = document.getElementsByClassName('reset-button-container')[0];
-
-//   const message = document.getElementById('fortune-message');
-//   const fortune = document.getElementById('fortune-received');
-
-//   message.textContent = `Your fortune for ${selectedCategory} is:`;
-//   //fortune.textContent = receivedFortune;
-//   fortune.textContent = engine.get_random_subset(1)[0][selectedCategory];
-
-//   container.classList.add('show');
-//   resetButton.classList.add('show');
-// }

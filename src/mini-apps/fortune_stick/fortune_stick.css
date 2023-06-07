@@ -9,10 +9,8 @@
 body {
     display: flex;
     justify-content: center;
-    /* background-color: rgb(178 29 29); */
     background-image: url('../../../assets/background_fortunestick.png');
     font-family: 'Luxurious Script', cursive;
-    /*font-family: "Chinese Shanghai Demo";*/
 }
 
 .center-div {
@@ -160,8 +158,6 @@ body {
 }
 
 .choose-card { 
-  /*transition: transform 0.8s ease;*/
-  /*transform-style: preserve-3d; */ /*no 3d included*/
   left: 5000;
   top: 500;
   animation-name: moveAndTurn;
@@ -186,8 +182,6 @@ body {
     /*transform: translateX(-50%);*/
   } 
   100% {
-    /* TODO: find a way to move selected card to center
-    /*transform: translate(-50%, -50%) rotate(360deg);*/
     transform: translate(0, 0) rotateY(90deg);
   }
 }
