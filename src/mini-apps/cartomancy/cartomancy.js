@@ -87,9 +87,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Card selector counter
 let i = 0;
-/*const pickCounter1 = 0;
-const pickCounter2 = 0;
-const pickCounter3 = 0;*/
 
 // Allows cards to be selectable and dragged to satisfied palce
 let sourceContainerID = '';
@@ -154,7 +151,7 @@ function dropped (e) {
         cardsPicked++;
         i++;
       }
-    } else if (droppedID == 'card2') {
+    } else if (droppedID === 'card2') {
       if ((e.target.id === 'pickcontainer1' || e.target.id === 'pickcontainer2' || e.target.id === 'pickcontainer3') || (e.target.id !== 'card1' && e.target.id !== 'card2' && e.target.id !== 'card3')) {
         const droppedElement = card2sArray[i];
         e.target.appendChild(card2sArray[i]);
@@ -162,7 +159,7 @@ function dropped (e) {
         cardsPicked++;
         i++;
       }
-    } else if (droppedID == 'card3') {
+    } else if (droppedID === 'card3') {
       if ((e.target.id === 'pickcontainer1' || e.target.id === 'pickcontainer2' || e.target.id === 'pickcontainer3') || (e.target.id !== 'card1' && e.target.id !== 'card2' && e.target.id !== 'card3')) {
         const droppedElement = card3sArray[i];
         e.target.appendChild(card3sArray[i]);
@@ -174,12 +171,12 @@ function dropped (e) {
   }
 
   // Enable reset button after card is picked
-  if (cardsPicked == 1) {
+  if (cardsPicked === 1) {
     document.querySelector('#reset-button').style.display = 'flex';
   }
 
   // Once user selects 3 cards, their fortune can be read
-  if (cardsPicked == 3) {
+  if (cardsPicked === 3) {
     // assumes document is loaded
     // console.log("reached 3 cards loaded");
     document.querySelectorAll('.read-fortune-space')[0].style.display = 'flex';
@@ -201,14 +198,6 @@ function readCards (centerDiv) {
   const receivedFortunes = engine.get_random_subset(3);
 
   // add container class
-
-  /*const fortune1 = receivedFortunes[0];
-  const fortune2 = receivedFortunes[1];
-  const fortune3 = receivedFortunes[2];
-
-  const pickContainer1 = document.getElementById('pickContainer1');
-  const pickContainer2 = document.getElementById('pickContainer2');
-  const pickContainer3 = document.getElementById('pickContainer3');*/
 
   // actually may better loop later
   let i = 1;
