@@ -1,0 +1,12 @@
+{ 
+    "extends": ["stylelint-config-standard"],
+    "rules": {
+        "declaration-property-unit-allowed-list": {
+            "/border/": ["px"],
+            "letter-spacing": ["px"],
+            "text-shadow": ["px"]
+        },
+        "unit-allowed-list": ["%", "vh", "vw", "s"],
+        "property-no-vendor-prefix": null
+    }
+}

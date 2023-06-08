@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500&display=swap');
 
 @font-face {
-    font-family: "Xingkai";
+    font-family: Xingkai;
     src: url('../../../assets/coin/chinese.stxingka.ttf') format('truetype');
 }
 
-/*@font-face {
-    font-family:"stxingkai-regular";
-    src:url("https://www.dafontfree.net/data/1/s/291/chinese.stxingka.ttf") 
-    format("woff"),url("https://www.dafontfree.net/data/1/s/291/chinese.stxingka.ttf") 
-    format("opentype"),url("https://www.dafontfree.net/data/1/s/291/chinese.stxingka.ttf") 
-    format("truetype");
-}*/
+/*  @font-face {
+        font-family:"stxingkai-regular";
+        src:url("https://www.dafontfree.net/data/1/s/291/chinese.stxingka.ttf") 
+        format("woff"),url("https://www.dafontfree.net/data/1/s/291/chinese.stxingka.ttf") 
+        format("opentype"),url("https://www.dafontfree.net/data/1/s/291/chinese.stxingka.ttf") 
+        format("truetype");
+}   */
 
 body {
     margin: 0;
@@ -41,6 +41,7 @@ h1 {
 
 /* Text Style & Animation */
 p {
+    border: 1px red;
     padding-top: 2%;
     padding-left: 2%;
     padding-right: 2%;
