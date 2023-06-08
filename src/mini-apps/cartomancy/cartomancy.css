@@ -210,7 +210,7 @@ body {
 
 #read-fortune-anchor img {
   max-width: 100%;
-  filter: brightness(0) invert(1);
+  filter: brightness(0);
 }
 
 @keyframes fadeIn {  
