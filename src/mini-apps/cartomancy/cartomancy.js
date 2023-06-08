@@ -7,88 +7,10 @@ const APP_NAME = 'cartomancy';
 
 let cardsPicked = 0; // counter when 3 cards are picked
 
-document.addEventListener('DOMContentLoaded', async () => {
-  // Read JSON File
-  // Taken of: https://www.thetarotguide.com/
-  await engine.db_reader(`./${APP_NAME}.json`);
-
-  // Background music
-  const bgm = new Audio('/assets/cartomancy-background-music.mp3'); //  eslint-disable-line
-  bgm.play();
-  bgm.loop = true;
-
-  // Buttons
-  let musicEnabled = true;
-  let showInfo = false;
-
-  // Buttons
-  const musicButton = document.getElementById('music-button');
-  const infoButton = document.getElementById('info-button');
-  const readFortuneButton = document.getElementById('read-fortune-button');
-  const startButton = document.getElementById('start-button');
-
-  const origDeck = document.getElementById('card-display');
-  const centerDiv = document.getElementById('center-div');
-
-  startButton.addEventListener('click', (e) => {
-    console.log('start');
-    document.getElementById('intro').style.display = 'none';
-    origDeck.style.display = 'initial';
-    document.getElementById('start-button').style.display = 'none';
-    document.getElementById('pickContainer1').style.display = 'flex';
-    document.getElementById('pickContainer2').style.display = 'flex';
-    document.getElementById('pickContainer3').style.display = 'flex';
-  });
-
-  // button display:'flex' after 3 cards
-  readFortuneButton.addEventListener('click', (e) => {
-    // console.log("Yeah you loaded thsi many cards:");
-
-    // put away cards
-    console.log(origDeck);
-    origDeck.classList.add('hide-cards');
-
-    console.log('should of begun hiding cards');
-
-    setTimeout(() => {
-      origDeck.remove();
-      console.log('turned display attr off');
-
-      // start reading cards
-      readCards(centerDiv);
-    }, 1000);
-  });
-
-  musicButton.addEventListener('click', (e) => {
-    console.log('music');
-    const musicImg = document.getElementById('music');
-    if (musicEnabled) {
-      musicImg.src = '/assets/audio_off.png';
-      bgm.pause();
-    } else {
-      musicImg.src = '/assets/audio_on.png';
-      bgm.play();
-    }
-    musicEnabled = !musicEnabled;
-  });
-
-  infoButton.addEventListener('click', (e) => {
-    const infoPopup = document.getElementById('info-popup');
-    infoPopup.style.display = !showInfo ? 'flex' : 'none';
-    showInfo = !showInfo;
-  });
-
-  // Reset Button
-  const resetButton = document.getElementById('reset-button');
-  resetButton.addEventListener('click', (e) => {
-    window.location.reload();
-  });
-});
-
 // Card selector counter
 let i = 0;
 
-// Allows cards to be selectable and dragged to satisfied palce
+// Allows cards to be selectable and dragged to satisfied place
 let sourceContainerID = '';
 let droppedID = '';
 const card1s = document.querySelectorAll('.card1');
@@ -128,16 +50,18 @@ pickContainer3.addEventListener('dragover', cancelDefault);
 
 /**
  * Allows the card to be hovered and eventually dropped into the respective container
- * @param {dragover} e - Contains the div we are dragging as well as information on the position that we are dragging over
+ * @param {dragover} e - Object that contains information about the container that is being dragged over, including position coordinates.
  */
 function cancelDefault (e) {
   e.preventDefault();
   e.stopPropagation();
+  return false;
 }
 
 /**
- * Allows trans
- * @param {obj} author - The author of the book.
+ * Keeps track of information when a card is begun to be dragged. Called when starting to hold a card. Final place where the card is dropped compares information set here.
+ *
+ * @param {dragstart} e - Object that has information of where a card has begun to be dragged from.
  */
 function dragStart (e) {
   e.dataTransfer.setData('text/plain', e.target.id);
@@ -145,7 +69,11 @@ function dragStart (e) {
   droppedID = this.id;
 }
 
-// TODO: Documentation for function
+/**
+ * Keeps track of information when a card is begun to be dragged. Called when starting to hold a card. Final place where the card is dropped compares information set here.
+ *
+ * @param {dragstart} e - Object that has information of where a card has begun to be dragged from.
+ */
 function dropped (e) {
   if (this.id !== sourceContainerID) {
     cancelDefault(e);
@@ -183,70 +111,56 @@ function dropped (e) {
 
   // Once user selects 3 cards, their fortune can be read
   if (cardsPicked === 3) {
-    // assumes document is loaded
-    // console.log("reached 3 cards loaded");
     document.querySelectorAll('.read-fortune-space')[0].style.display = 'flex';
   }
 }
 
-/*
- * Begin the fortune telling process by reading the chosen cards
+/**
+ * Begins reading the three tarot cards selected by teh reader.
+ *
+ * Overrides styling to display cards in a row by adding class and removes read fortune button. Then loops through each of the three fortunes and adds them through calling organizeCards() for each fortune.
+ *
+ * @param {div} centerDiv - the main <div> of the page. Argument here allows to make changes to whatever may be appropriate in order to read the cards.
+ *
  */
 function readCards (centerDiv) {
   // animations, grouping etc here
   centerDiv.classList.add('container');
-
-  // remove the reading fortune button
   document.getElementById('read-fortune-button').style.display = 'none';
 
   // begins the stage of reading cards, 1-3 choices
-
   const receivedFortunes = engine.get_random_subset(3);
 
-  // add container class
-
-  // actually may better loop later
-  let i = 1;
-  while (i < 4) { // loop through first 3
-    const picking = document.getElementById(`pickContainer${i}`);
-    console.log('trying to send another container');
-    console.log(picking);
-    organizeCards(picking, receivedFortunes[i - 1]);
-    i++;
+  for (let j = 1; j < 4; j++) { // loop through first 3
+    const picking = document.getElementById(`pickContainer${j}`);
+    organizeCards(picking, receivedFortunes[j - 1]);
   }
 }
 
 
 /**
- * Cleans up the container where the cards are picked and creates and adds the elements in the 
- * structure shown below. It also makes the bg image transparent.
+ * Sets up the fortune and the place for the fortune.
+ * Cleans up the element <div> (assuming it has 1 child) where the cards are picked and creates and adds the elements in the 
+ * structure shown below. It also makes the bg image transparent. 
  *
- *  <div class = card>
- *    <div class = image>
- *      <img href = "#" src='imgsrc'>
+ *  <div class ='cardShow'>
+ *    <div class ='image'>
+ *      <img href = "#" src='<imgsrc>'>
  *    </div>
- *    <div class = content>
- *      <p>information</p>
+ *    <div class='content'>
+ *      <p class ='read-fortune'>information</p>
  *    </div>
  *  </div> 
  *
  *
- * @param {pick} pick - The author of the book.
- * @param {fortune} fortune - The author of the book.
- *
+ * @param {div} pick - div that holds a card. 
+ * @param {Object} fortune - A fortune from .json file, containing fortune fields (like the name, result, etc)
  */
 function organizeCards(pick, fortune) {
-  console.log(pick);
-  console.log(fortune);
-  console.log(pick.firstChild);
   pick.removeChild(pick.firstChild);
 
   pick.classList.remove('pickContainer');
   pick.classList.add('read-container');
-
-  console.log('should of begun hiding cards');
-  // console.log(pick);
-  // console.log(fortune);
 
   const indCard = document.createElement('div');
   const indCardImageContainer = document.createElement('div');
@@ -276,3 +190,76 @@ function organizeCards(pick, fortune) {
   // assumes the two children, img and container are here
   pick.appendChild(indCard);
 }
+
+document.addEventListener('DOMContentLoaded', async () => {
+  // Read JSON File
+  // Taken of: https://www.thetarotguide.com/
+  await engine.db_reader(`./${APP_NAME}.json`);
+
+  // Background music
+  const bgm = new Audio('/assets/cartomancy-background-music.mp3'); //  eslint-disable-line
+  bgm.play();
+  bgm.loop = true;
+
+  // Buttons
+  let musicEnabled = true;
+  let showInfo = false;
+
+  // Buttons
+  const musicButton = document.getElementById('music-button');
+  const infoButton = document.getElementById('info-button');
+  const readFortuneButton = document.getElementById('read-fortune-button');
+  const startButton = document.getElementById('start-button');
+
+  const origDeck = document.getElementById('card-display');
+  const centerDiv = document.getElementById('center-div');
+
+  startButton.addEventListener('click', (e) => {
+    document.getElementById('intro').style.display = 'none';
+    origDeck.style.display = 'initial';
+    document.getElementById('start-button').style.display = 'none';
+    document.getElementById('pickContainer1').style.display = 'flex';
+    document.getElementById('pickContainer2').style.display = 'flex';
+    document.getElementById('pickContainer3').style.display = 'flex';
+  });
+
+  // button display:'flex' after 3 cards
+  readFortuneButton.addEventListener('click', (e) => {
+
+    // put away animation
+    origDeck.classList.add('hide-cards');
+
+    setTimeout(() => {
+      origDeck.remove();
+
+      // start reading cards
+      readCards(centerDiv);
+    }, 1000);
+  });
+
+  musicButton.addEventListener('click', (e) => {
+    console.log('music');
+    const musicImg = document.getElementById('music');
+    if (musicEnabled) {
+      musicImg.src = '/assets/audio_off.png';
+      bgm.pause();
+    } else {
+      musicImg.src = '/assets/audio_on.png';
+      bgm.play();
+    }
+    musicEnabled = !musicEnabled;
+  });
+
+  // toggle info popup
+  infoButton.addEventListener('click', (e) => {
+    const infoPopup = document.getElementById('info-popup');
+    infoPopup.style.display = !showInfo ? 'flex' : 'none';
+    showInfo = !showInfo;
+  });
+
+  // Reset Button
+  const resetButton = document.getElementById('reset-button');
+  resetButton.addEventListener('click', (e) => {
+    window.location.reload();
+  });
+});
