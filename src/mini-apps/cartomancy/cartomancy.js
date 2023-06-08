@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   let musicEnabled = true;
   let showInfo = false;
 
-  // buttons
+  // Buttons
   const musicButton = document.getElementById('music-button');
   const infoButton = document.getElementById('info-button');
   const readFortuneButton = document.getElementById('read-fortune-button');
@@ -102,6 +102,7 @@ const card1sArray = Array.from(card1s);
 const card2sArray = Array.from(card2s);
 const card3sArray = Array.from(card3s);
 
+// make the cards of each row draggable
 card1s.forEach(card => {
   card.addEventListener('dragstart', dragStart);
 });
@@ -112,9 +113,10 @@ card3s.forEach(card => {
   card.addEventListener('dragstart', dragStart);
 });
 
-pickContainer1.addEventListener('drop', dropped);
-pickContainer1.addEventListener('dragenter', cancelDefault);
-pickContainer1.addEventListener('dragover', cancelDefault);
+// setting listeners for the containers to leave the cards
+pickContainer1.addEventListener('drop', dropped); 
+pickContainer1.addEventListener('dragenter', cancelDefault); 
+pickContainer1.addEventListener('dragover', cancelDefault); 
 
 pickContainer2.addEventListener('drop', dropped);
 pickContainer2.addEventListener('dragenter', cancelDefault);
@@ -124,14 +126,19 @@ pickContainer3.addEventListener('drop', dropped);
 pickContainer3.addEventListener('dragenter', cancelDefault);
 pickContainer3.addEventListener('dragover', cancelDefault);
 
-// TODO: Documentation for function
+/**
+ * Allows the card to be hovered and eventually dropped into the respective container
+ * @param {dragover} e - Contains the div we are dragging as well as information on the position that we are dragging over
+ */
 function cancelDefault (e) {
   e.preventDefault();
   e.stopPropagation();
-  return false;
 }
 
-// TODO: Documentation for function
+/**
+ * Allows trans
+ * @param {obj} author - The author of the book.
+ */
 function dragStart (e) {
   e.dataTransfer.setData('text/plain', e.target.id);
   sourceContainerID = this.parentElement.id;
@@ -209,25 +216,28 @@ function readCards (centerDiv) {
   }
 }
 
-/*
- * Creates the elements surrounding the dsiplaying of the three fortunes
+
+/**
+ * Cleans up the container where the cards are picked and creates and adds the elements in the 
+ * structure shown below. It also makes the bg image transparent.
+ *
+ *  <div class = card>
+ *    <div class = image>
+ *      <img href = "#" src='imgsrc'>
+ *    </div>
+ *    <div class = content>
+ *      <p>information</p>
+ *    </div>
+ *  </div> 
+ *
+ *
+ * @param {pick} pick - The author of the book.
+ * @param {fortune} fortune - The author of the book.
+ *
  */
-function organizeCards (pick, fortune) {
-  /** *** creates the following html elements with js
-   *
-   *  <div class = card>
-   *    <div class = image>
-   *      <img href = "#" src='imgsrc'>
-   *    </div>
-   *    <div class = content>
-   *      <h3>name</h3>
-   *      <p>information</p>
-   *    </div>
-   *  </div>
-   *
-   *
-   */
-  /** *** After writing, should look into finding a way to load better  ****/
+function organizeCards(pick, fortune) {
+  console.log(pick);
+  console.log(fortune);
   console.log(pick.firstChild);
   pick.removeChild(pick.firstChild);
 
