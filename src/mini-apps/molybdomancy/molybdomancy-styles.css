@@ -108,8 +108,8 @@ h1 {
     font-weight: 200;
     margin: auto;
     animation: fadein 1.25s ease-in;
-    color: rgba(255, 255, 255, 0.719);
-    text-shadow: rgb(255, 89, 0) 0 0px 12px;
+    color: rgba(255, 255, 255, 71.9%);
+    text-shadow: rgb(255, 89, 0) 0 0 12px;
 }
 
 @keyframes fadein {
@@ -167,7 +167,7 @@ h1 {
     width: 400px;
     height: 300px;
     border-radius: 10%;
-    background-color: rgba(211, 221, 119, 0.61);
+    background-color: rgba(211, 221, 119, 61%);
     text-align: center;
     justify-content: center;
 }
