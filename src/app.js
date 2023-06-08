@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
           sidePanel.style.backgroundImage = 'url(../assets/side-moly.png)';
           panelLayout.style.marginTop = '40%';
         } else if (locationName === 'Fortune Stick') {
-          instructionTxt.innerHTML = 'Fortune sticks, also known as Chinese fortune sticks or divination sticks, are a traditional method of seeking guidance and insight from Chinese culture. </br></br> In this method of fortune-telling, you will click to shake the container and retrieve a single fortune stick.';
+          instructionTxt.innerHTML = 'Fortune sticks, also known as Chinese fortune sticks or divination sticks, are a traditional method of seeking guidance and insight from Chinese culture. </br></br> In this method of fortune-telling, you will click to shake the container and retrieve a single fortune stick. </br></br> An interpretation will be generated at the end of each round.';
           sidePanel.style.backgroundImage = 'url(../assets/side-stick.png)';
           panelLayout.style.marginTop = '60%';
         } else if (locationName === 'Cartomancy') {
