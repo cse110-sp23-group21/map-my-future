@@ -6,10 +6,12 @@
 
 html {
     background: url('../../../assets/stick/background.png') no-repeat center center fixed;
+    background-size: cover;
+
     /* -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover; */
-    background-size: cover;
+
 }
 
 body {
@@ -28,6 +30,7 @@ body {
 .heading h1 {
     color: white;
     font-size: 42px;
+    font-family: "Chinese Shanghai Demo", sans-serif;
 }
 
 /* styling for category selection */
@@ -68,6 +71,7 @@ body {
 
 .card h2 {
     margin: 0;
+    font-family: "Chinese Shanghai Demo", sans-serif;
 }
 
 /* styling for fortune display */
@@ -179,12 +183,6 @@ body {
 }
 
 @keyframes move-and-turn {
-    0% {}
-
-    50% {
-        /* transform: translateX(-50%); */
-    }
-
     100% {
         transform: translate(0, 0) rotateY(90deg);
     }
