@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const infoButton = document.getElementById('info-button');
   const musicButton = document.getElementById('music-button');
-  const meltButton = document.querySelector('#meltButton');
+  const meltButton = document.querySelector('#melt-button');
   const resultText = document.querySelector('.interpretation');
 
   let meltButtonState = 'melt';
