@@ -2,11 +2,13 @@
     "extends": ["stylelint-config-standard"],
     "rules": {
         "declaration-property-unit-allowed-list": {
-            "/border/": ["px"],
+            "/border/": ["px", "%"],
             "letter-spacing": ["px"],
             "text-shadow": ["px"]
         },
-        "unit-allowed-list": ["%", "vh", "vw", "s"],
-        "property-no-vendor-prefix": null
+        "property-no-vendor-prefix": null,
+        "color-function-notation": "legacy",
+        "font-family-no-missing-generic-family-keyword": null,
+        "at-rule-no-vendor-prefix": null
     }
 }

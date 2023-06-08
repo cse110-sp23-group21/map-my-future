@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           }
         }, 3500);
 
-        instructionTxt.style.animation = 'blurFadeIn 3s ease-in forwards';
+        instructionTxt.style.animation = 'blurfadein 3s ease-in forwards';
         instructionTxt.style.fontSize = '3rem';
         instructionTxt.style.display = 'block';
         coinDisplay.style.display = 'none';
