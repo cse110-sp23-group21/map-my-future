@@ -9,8 +9,8 @@ let cardsPicked = 0; // counter when 3 cards are picked
 
 // Card selector counter
 let i = 0;
-// name of container card is dragged to 
-let targetName; 
+// name of container card is dragged to
+let targetName;
 
 // Allows cards to be selectable and dragged to satisfied place
 let sourceContainerID = '';
@@ -38,9 +38,9 @@ card3s.forEach(card => {
 });
 
 // setting listeners for the containers to leave the cards
-pickContainer1.addEventListener('drop', dropped); 
-pickContainer1.addEventListener('dragenter', cancelDefault); 
-pickContainer1.addEventListener('dragover', cancelDefault); 
+pickContainer1.addEventListener('drop', dropped);
+pickContainer1.addEventListener('dragenter', cancelDefault);
+pickContainer1.addEventListener('dragover', cancelDefault);
 
 pickContainer2.addEventListener('drop', dropped);
 pickContainer2.addEventListener('dragenter', cancelDefault);
@@ -68,7 +68,7 @@ function cancelDefault (e) {
 function dragStart (e) {
   e.dataTransfer.setData('text/plain', e.target.id);
   sourceContainerID = this.parentElement.className;
-  droppedID = this.className; 
+  droppedID = this.className;
 }
 
 /**
@@ -77,41 +77,40 @@ function dragStart (e) {
  * @param {dragstart} e - Object that has information of where a card has begun to be dragged from.
  */
 function dropped (e) {
-  targetName = e.target.id;  
-  
-  
+  targetName = e.target.id;
+
   if (this.id !== sourceContainerID) {
     cancelDefault(e);
     if (droppedID === 'card1') {
-        const droppedElement = card1sArray[i];
-        e.target.appendChild(card1sArray[i]);
-        droppedElement.draggable = false;
-        cardsPicked++;
-        i++;
+      const droppedElement = card1sArray[i];
+      e.target.appendChild(card1sArray[i]);
+      droppedElement.draggable = false;
+      cardsPicked++;
+      i++;
     } else if (droppedID === 'card2') {
-        const droppedElement = card2sArray[i];
-        e.target.appendChild(card2sArray[i]);
-        droppedElement.draggable = false;
-        cardsPicked++;
-        i++;     
+      const droppedElement = card2sArray[i];
+      e.target.appendChild(card2sArray[i]);
+      droppedElement.draggable = false;
+      cardsPicked++;
+      i++;
     } else if (droppedID === 'card3') {
-        const droppedElement = card3sArray[i];
-        e.target.appendChild(card3sArray[i]);
-        droppedElement.draggable = false;
-        cardsPicked++;
-        i++;      
+      const droppedElement = card3sArray[i];
+      e.target.appendChild(card3sArray[i]);
+      droppedElement.draggable = false;
+      cardsPicked++;
+      i++;
     }
     if (document.getElementById('pickContainer1').children.length > 0) {
-      document.getElementById('pickContainer1').style.userSelect = 'none'; 
-      document.getElementById('pickContainer1').style.pointerEvents = 'none'; 
+      document.getElementById('pickContainer1').style.userSelect = 'none';
+      document.getElementById('pickContainer1').style.pointerEvents = 'none';
     }
     if (document.getElementById('pickContainer2').children.length > 0) {
-      document.getElementById('pickContainer2').style.userSelect = 'none'; 
-      document.getElementById('pickContainer2').style.pointerEvents = 'none'; 
+      document.getElementById('pickContainer2').style.userSelect = 'none';
+      document.getElementById('pickContainer2').style.pointerEvents = 'none';
     }
     if (document.getElementById('pickContainer3').children.length > 0) {
-      document.getElementById('pickContainer3').style.userSelect = 'none'; 
-      document.getElementById('pickContainer3').style.pointerEvents = 'none'; 
+      document.getElementById('pickContainer3').style.userSelect = 'none';
+      document.getElementById('pickContainer3').style.pointerEvents = 'none';
     }
   }
 
@@ -148,11 +147,10 @@ function readCards (centerDiv) {
   }
 }
 
-
 /**
  * Sets up the fortune and the place for the fortune.
- * Cleans up the element <div> (assuming it has 1 child) where the cards are picked and creates and adds the elements in the 
- * structure shown below. It also makes the bg image transparent. 
+ * Cleans up the element <div> (assuming it has 1 child) where the cards are picked and creates and adds the elements in the
+ * structure shown below. It also makes the bg image transparent.
  *
  *  <div class ='cardShow'>
  *    <div class ='image'>
@@ -161,13 +159,13 @@ function readCards (centerDiv) {
  *    <div class='content'>
  *      <p class ='read-fortune'>information</p>
  *    </div>
- *  </div> 
+ *  </div>
  *
  *
- * @param {div} pick - div that holds a card. 
+ * @param {div} pick - div that holds a card.
  * @param {Object} fortune - A fortune from .json file, containing fortune fields (like the name, result, etc)
  */
-function organizeCards(pick, fortune) {
+function organizeCards (pick, fortune) {
   pick.removeChild(pick.firstChild);
 
   pick.classList.remove('pickContainer');
@@ -236,12 +234,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // button display:'flex' after 3 cards
   readFortuneButton.addEventListener('click', (e) => {
-    document.getElementById('pickContainer1').style.userSelect = 'auto'; 
-    document.getElementById('pickContainer1').style.pointerEvents = 'auto'; 
-    document.getElementById('pickContainer2').style.userSelect = 'auto'; 
-    document.getElementById('pickContainer2').style.pointerEvents = 'auto'; 
-    document.getElementById('pickContainer3').style.userSelect = 'auto'; 
-    document.getElementById('pickContainer3').style.pointerEvents = 'auto'; 
+    document.getElementById('pickContainer1').style.userSelect = 'auto';
+    document.getElementById('pickContainer1').style.pointerEvents = 'auto';
+    document.getElementById('pickContainer2').style.userSelect = 'auto';
+    document.getElementById('pickContainer2').style.pointerEvents = 'auto';
+    document.getElementById('pickContainer3').style.userSelect = 'auto';
+    document.getElementById('pickContainer3').style.pointerEvents = 'auto';
     // put away animation
     origDeck.classList.add('hide-cards');
 
