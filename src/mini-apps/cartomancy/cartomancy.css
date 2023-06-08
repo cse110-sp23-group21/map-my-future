@@ -17,10 +17,10 @@
 #intro {
   display: initial; 
   margin: auto;
-  width: 800px;
-  height: 800px;
+  width: 80vh;
+  height: 80vh;
   position: center; 
-  background-image: url('/assets/cartomancy/instruction-image.png') ;
+  background: url('/assets/cartomancy/instruction-image.png') ;
   background-size: cover;
   background-position: center center; 
   overflow : hidden; 
@@ -39,12 +39,12 @@
 @keyframes drop-in {
   from {
     opacity: 0;
-    transform: translateY(-100px);
+    transform: translateY(-10vh);
   }
   
   to {
     opacity: 1;
-    transform: translate(0px);
+    transform: translate(0vh);
   }
 }
 
@@ -53,30 +53,33 @@ body {
   align-items : center;
   justify-content : center;  
   justify-content: fit;
-  background-image: url('/assets/cartomancy/cartomancy-background.jpeg');
+  background: url('/assets/cartomancy/cartomancy-background.jpeg') no-repeat fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   font-family: 'Luxurious Script', cursive;
   overflow: hidden;
-  min-height : 800px;
+  min-height : 80vh;
 }
 
 #center-div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 85%;
-  height: 85%;
+  width: 85vh;
+  height: 85vh;
   transition: ease;
 }
 
 /* styling for card deck */
 .deck {
   display: flex;
-  position:relative; left:-125px; top: -46px;
+  position:relative; left:-12vh; top: -2vh;
   justify-content: center;
   flex-direction: row;
   opacity: 1;
-  gap: 5px;
+  gap: .5vh;
   transition: opacity 1s ease;
   animation: fadeIn 2s ease-in;
 }
@@ -90,12 +93,12 @@ body {
   background-position: center;
   background-size: cover; 
   position: absolute;
-  top: -2%;
+  top: -2vh;
   right: 0;
-  width: 350px;
-  height: 320px;
+  width: 20vw;
+  height: 30vh;
   color: white;
-  margin: 20px;
+  margin: 2vh;
   cursor: move;
   transition: opacity 1s ease;
   transition: 300ms ease-in-out;
@@ -110,13 +113,13 @@ body {
   background-position: center;
   background-size: cover; 
   position: absolute;
-  top: 48%;
+  top: 48vh;
   right: 0;
   transform: translate(0, -50%);
-  width: 350px;
-  height: 320px;
+  width: 20vw;
+  height: 30vh;
   color: white;
-  margin: 20px;
+  margin: 2vh;
   cursor: move;
   transition: opacity 1s ease;
   animation: fadeIn 2s ease-in; 
@@ -131,12 +134,12 @@ body {
   background-position: center;
   background-size: cover; 
   position: absolute;
-  bottom: -2%;
+  bottom: -2vh;
   right: 0;
-  width: 350px;
-  height: 320px;
+  width: 20vw;
+  height: 30vh;
   color: white;
-  margin: 20px;
+  margin: 2vh;
   cursor: move;
   transition: opacity 1s ease;
   transition: 300ms ease-in-out;
@@ -145,13 +148,13 @@ body {
 
 .read-fortune-space {
   position: fixed;
-  right: 375px;
+  right: 22vw;
   display: none; /* toggled when 3 cards are selected */
   justify-content: center;
   align-items: center;
-  top: 44%;
-  width: 80px;
-  height: 80px;
+  top: 44vh;
+  width: 4.5vw;
+  height: 7.7vh;
   text-decoration: none;
   overflow: hidden;
   background-color: #fbeee0;
@@ -163,7 +166,7 @@ body {
   font-weight: 600;
   font-size: 18px;
   padding: 0 18px;
-  line-height: 50px;
+  line-height: 5vh;
   user-select: none;
   touch-action: manipulation;
   transition: opacity 500ms ease-in-out;
@@ -179,10 +182,10 @@ body {
 
 #reset-button {
   position: fixed;
-  top: 10px;
-  left: 10px;
-  width: 120px;
-  height: 60px;
+  top: 1vh;
+  left: .6vw;
+  width: 6vw;
+  height: 5vh;
   display: none;
   align-items: center;
   justify-content: center;
@@ -205,7 +208,7 @@ body {
 }
 
 #read-fortune-anchor img {
-  max-width: 100%;
+  max-width: 120%;
   filter: brightness(0);
 }
 
@@ -246,8 +249,8 @@ body {
   background-image: url('/assets/cartomancy/cartomancy-card-back.png');
   background-position: center;
   background-size: cover; 
-  width: 180px;
-  height: 315px;
+  width: 10vw;
+  height: 30vh;
   color: white;
   margin: 20px;
   cursor: move;
@@ -318,8 +321,8 @@ body {
 }
 
 .fortune-img img {
-  width: 250px;
-  height: 250px;
+  width: 14vw;
+  height: 25vh;
 }
 
 .fortune-text {
@@ -408,10 +411,10 @@ body {
 .info-popup {
   display: none;
   position: fixed;
-  bottom: 20px;
-  right: 85px;
-  width: 400px;
-  height: 300px;
+  bottom: 2vh;
+  right: 4.7vw;
+  width: 22.2vw;
+  height: 30vh;
   border-radius: 10%;
   background-color: #846e43;
   text-align: center;
@@ -452,8 +455,8 @@ body {
 
 .container .cardShow {
   position: relative;
-  max-width : 380px;
-  height : 415px;  
+  max-width : 21vw;
+  height : 41.5vh;  
   background-color : #fff;
   margin : 30px 10px;
   padding : 20px 15px;
@@ -466,24 +469,22 @@ body {
   animation: drop-in 1s ease 200ms backwards;
 }
 .container .cardShow:hover {
-  height : 650px;    
+  height : 65vh;    
 }
 
 
 .container .cardShow .image {
   position : relative;
-  width : 360px;
-  height : 360px;
+  width : 20vw;
+  height : 36vh;
 
   top : -40%;
   left: 8px;
-  box-shadow : 0 5px 20px rgba(0,0,0,0.2);
   z-index : 1;
 }
 
 .container .cardShow .image img {
   max-width : 100%;
-  border-radius : 15px;
 }
 
 .container .cardShow .content {
