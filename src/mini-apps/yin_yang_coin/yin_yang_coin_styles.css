@@ -1,5 +1,7 @@
+/*  Import heading font-face    */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500&display=swap');
 
+/*  Specify Hexagram Chinese name font-face (calligraphy)   */
 @font-face {
     font-family: Xingkai;
     src: url('../../../assets/coin/chinese.stxingka.ttf') format('truetype');
@@ -12,6 +14,8 @@
         format("opentype"),url("https://www.dafontfree.net/data/1/s/291/chinese.stxingka.ttf") 
         format("truetype");
 }   */
+
+/*  General selectors   */
 
 body {
     margin: 0;
