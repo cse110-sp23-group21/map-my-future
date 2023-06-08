@@ -37,9 +37,6 @@ body {
   justify-content : center;  
   justify-content: fit;
   background: url('/assets/cartomancy/cartomancy-background.jpeg') no-repeat fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   font-family: 'Luxurious Script', cursive;
   overflow: hidden;
@@ -192,8 +189,18 @@ body {
   text-align: center;
   text-decoration: none;
   user-select: none;
-  -webkit-user-select: none;
   touch-action: manipulation;
+}
+
+.menu-button img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1);
+}
+
+.fortune-img img {
+  width: 14vw;
+  height: 25vh;
 }
 
 #read-fortune-anchor img {
@@ -201,6 +208,25 @@ body {
   filter: brightness(0);
 }
 
+@keyframes fade-in {  
+  from {
+      opacity:0;  
+  }  
+  
+  to {
+      opacity:1;  
+  }  
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  
+  100% {
+    opacity: 0;
+  }
+}
 
 .hide {
   transition: opacity 1s;
@@ -210,7 +236,7 @@ body {
 
 /* hide's cards but moving them out */
 .hide-cards { 
-  animation: animateDown 1.5s;
+  animation: animate-down 1.5s;
 }
 
 .card1, .card2, .card3 {
@@ -241,13 +267,14 @@ body {
   box-shadow: 0px 0px 20px #FFD700;
   transition: 0.3s;
 }
-.card1:hover ~ .card1, .card2:hover ~ .card2, .card3:hover ~ .card3{
-  z-index: 1;
-  translate: 30px; 
-}
 
 .card2 + .card2{
   margin-left: -14%; 
+}
+
+.card1:hover ~ .card1, .card2:hover ~ .card2, .card3:hover ~ .card3{
+  z-index: 1;
+  translate: 30px; 
 }
 
 .overlay {
@@ -256,11 +283,12 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0 0 0 70%);
   transition: opacity 500ms;
   visibility: hidden;
   opacity: 0;
 }
+
 .overlay:target {
   visibility: visible;
   opacity: 1;
@@ -288,11 +316,6 @@ body {
   text-align: center;
   color: white;
   opacity: 1;
-}
-
-.fortune-img img {
-  width: 14vw;
-  height: 25vh;
 }
 
 .fortune-text {
@@ -334,7 +357,6 @@ body {
   text-align: center;
   text-decoration: none;
   user-select: none;
-  -webkit-user-select: none;
   touch-action: manipulation;
 }
 
@@ -347,7 +369,7 @@ body {
   transform: translate(2px, 2px);
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .button-74 {
     min-width: 120px;
     padding: 0 25px;
@@ -365,12 +387,6 @@ body {
   margin-bottom: 10px;
   text-decoration: none;
   overflow: hidden;
-}
-
-.menu-button img {
-  width: 30px;
-  height: 30px;
-  filter: brightness(0) invert(1);
 }
 
 .menu-button:hover {
@@ -392,11 +408,9 @@ body {
 }
 
 .choose-card { 
-  /*transition: transform 0.8s ease;*/
-  /*transform-style: preserve-3d; */ /*no 3d included*/
   left: 5000;
   top: 500;
-  animation-name: moveAndTurn;
+  animation-name: move-and-turn;
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
@@ -412,14 +426,13 @@ body {
   font-family: 'Noto Serif', serif;
 }
 
-/*
+/* 
  * css for reading.cardShows
  */
 
 #center-div.container{
   flex-direction: row;
   align-items: center; /* Center vertically */
-  /*top: 50%;*/
   padding : 50px;  
 }
 
@@ -430,24 +443,22 @@ body {
   background-color : #fff;
   margin : 30px 10px;
   padding : 20px 15px;
-
   display : flex;
   flex-direction : column;
-  box-shadow : 0 5px 20px rgba(0,0,0,0.5);
+  box-shadow : 0 5px 20px rgba(0 0 0 50%);
   transition : 0.3s ease-in-out;
   border-radius : 15px;
   animation: drop-in 1s ease 200ms backwards;
 }
+
 .container .cardShow:hover {
   height : 65vh;    
 }
-
 
 .container .cardShow .image {
   position : relative;
   width : 20vw;
   height : 36vh;
-
   top : -40%;
   left: 8px;
   z-index : 1;
@@ -463,7 +474,6 @@ body {
   padding : 10px 15px;
   color : #111;
   text-align : center;
-
   visibility : hidden;
   opacity : 0;
   transition : 0.3s ease-in-out;
@@ -492,21 +502,16 @@ body {
  * animations
  */
 
-@keyframes moveAndTurn {
-  0% {
-  }
+@keyframes move-and-turn {
   50% {
     /*transform: translateX(-50%);*/
   } 
   100% {
-    /*transform: translate(-50%, -50%) rotate(360deg);*/
     transform: translate(0, 0) rotateY(90deg);
   }
 }
 
-@keyframes animateDown {
-  0% {
-  }
+@keyframes animate-down {
   100% {    
     transform: translateY(100%);
     opacity: 0;
