@@ -53,16 +53,11 @@ body {
   align-items : center;
   justify-content : center;  
   justify-content: fit;
-  /* background-color: rgb(178 29 29); */
   background-image: url('/assets/cartomancy/cartomancy-background.jpeg');
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   font-family: 'Luxurious Script', cursive;
   overflow: hidden;
   min-height : 800px;
-  /*font-family: "Chinese Shanghai Demo";*/
 }
 
 #center-div {
@@ -127,6 +122,7 @@ body {
   animation: fadeIn 2s ease-in; 
 
 }
+
 .pickContainer.p3 {
   display: none;
   justify-content: center;
@@ -169,7 +165,6 @@ body {
   padding: 0 18px;
   line-height: 50px;
   user-select: none;
-  -webkit-user-select: none;
   touch-action: manipulation;
   transition: opacity 500ms ease-in-out;
 }
