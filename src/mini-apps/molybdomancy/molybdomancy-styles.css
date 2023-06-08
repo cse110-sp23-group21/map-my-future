@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Burned&display=swap');
+
 body {
     display: grid;
     grid-template-rows: 1fr 1.5fr 1.5fr 1fr;
@@ -41,7 +42,7 @@ h1 {
     height: 80pt;
     top: 0;
     bottom: 0;
-    filter: url(#threshold) blur(0.6px);
+    filter: url("#threshold") blur(0.6px);
 }
 
 #filters {
@@ -88,8 +89,7 @@ h1 {
     position: absolute;
     width: 100%;
     display: inline-block;
-    font-family: "Raleway", sans-serif;
-    /*font-size: 80pt;*/
+    font-family: Raleway, sans-serif;
     font-size: 15vh;
     text-align: center;
     user-select: none;
@@ -107,12 +107,12 @@ h1 {
     font-size: 4vh;
     font-weight: 200;
     margin: auto;
-    animation: fadeIn 1.25s ease-in;
+    animation: fadein 1.25s ease-in;
     color: rgba(255, 255, 255, 0.719);
     text-shadow: rgb(255, 89, 0) 0 0px 12px;
 }
 
-@keyframes fadeIn {
+@keyframes fadein {
     0% {
         opacity: 0;
     }

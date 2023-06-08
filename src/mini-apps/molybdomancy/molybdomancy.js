@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         setTimeout(() => {
           meltButton.style.pointerEvents = 'all';
           meltButton.innerText = 'Try Again?';
-        }, morphTime * 1000 + 3000);
+        }, morphTime * 1000 + 1250);
 
         break;
 
