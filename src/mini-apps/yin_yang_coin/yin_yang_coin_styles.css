@@ -1,9 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500&display=swap');
 
 @font-face {
-    font-family: "Xingkai";
+    font-family: Xingkai;
     src: url('../../../assets/coin/chinese.stxingka.ttf') format('truetype');
 }
+
+/*  @font-face {
+        font-family:"stxingkai-regular";
+        src:url("https://www.dafontfree.net/data/1/s/291/chinese.stxingka.ttf") 
+        format("woff"),url("https://www.dafontfree.net/data/1/s/291/chinese.stxingka.ttf") 
+        format("opentype"),url("https://www.dafontfree.net/data/1/s/291/chinese.stxingka.ttf") 
+        format("truetype");
+}   */
 
 body {
     margin: 0;
@@ -26,7 +34,7 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #000;
-    text-shadow: 1px 0px 10px rgb(255, 255, 255);
+    text-shadow: 1px 0 10px rgb(255, 255, 255);
     transform: scale(0.94);
     animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
 }
@@ -107,14 +115,10 @@ span:nth-child(3) {
     grid-template-columns: 33% 67%;
 }
 
-/*.content-grid {
-    grid-auto-rows: 1fr;
-}*/
-
 .side-grid {
     display: grid;
     gap: 15%;
-    /*grid-template-rows: repeat(1fr, 6);*/
+
     /*  StackOverflow reference: https://stackoverflow.com/questions/44488357/equal-height-rows-in-css-grid-layout  */
     grid-auto-rows: 1fr;
 }
@@ -137,7 +141,7 @@ span:nth-child(3) {
 }
 
 .animated-line-image {
-    animation: fadeIn 3s ease;
+    animation: fadein 3s ease;
     width: 63%;
     height: auto;
 }
@@ -149,10 +153,9 @@ span:nth-child(3) {
 
 #interpretation-text {
     display: none;
-    /*font-size: 1.5rem;*/
     font-size: 2vh;
     margin-bottom: 0%;
-    animation: blurFadeIn 3s ease-in forwards;
+    animation: blurfadein 3s ease-in forwards;
 }
 
 /* Result Style & Animation */
@@ -166,66 +169,71 @@ span:nth-child(3) {
     margin-bottom: 10%;
     align-items: center;
     justify-content: center;
-    color: Black;
-    font-family: 'Xingkai';
+    color: black;
+    font-family: Xingkai;
     font-size: 30vh;
     text-align: center;
-    -webkit-animation: blurFadeIn 3s ease-in backwards;
-	-moz-animation: blurFadeIn 3s ease-in backwards;
-	-ms-animation: blurFadeIn 3s ease-in backwards;
-	animation: blurFadeIn 3s ease-in backwards;
+    -webkit-animation: blurfadein 3s ease-in backwards;
+	-moz-animation: blurfadein 3s ease-in backwards;
+	-ms-animation: blurfadein 3s ease-in backwards;
+	animation: blurfadein 3s ease-in backwards;
 }
 
-@keyframes fadeIn {
+@keyframes fadein {
     0% { opacity: 0; }
     100% { opacity: 1; }
   }
 
-@-webkit-keyframes blurFadeIn {
+@-webkit-keyframes blurfadein {
 	0% {
 		opacity: 0;
-		text-shadow: 0px 0px 40px #fff;
+		text-shadow: 0 0 40px #fff;
 		-webkit-transform: scale(5);
 	}
+    
 	50% {
 		opacity: 0.5;
-		text-shadow: 0px 0px 10px #fff;
+		text-shadow: 0 0 10px #fff;
 		-webkit-transform: scale(2);
 	}
+
 	100% {
 		opacity: 1;
-		text-shadow: 0px 0px 1px #fff;
+		text-shadow: 0 0 1px #fff;
 		-webkit-transform: scale(1);
 	}
 }
 
-@-moz-keyframes blurFadeIn {
+@-moz-keyframes blurfadein {
 	0% {
 		opacity: 0;
-		text-shadow: 0px 0px 40px #fff;
+		text-shadow: 0 0 40px #fff;
 		-moz-transform: scale(5);
 	}
+
 	100% {
 		opacity: 1;
-		text-shadow: 0px 0px 1px #fff;
+		text-shadow: 0 0 1px #fff;
 		-moz-transform: scale(1);
 	}
 }
 
-@keyframes blurFadeIn {
+@keyframes blurfadein {
 	0% {
 		opacity: 0;
-		text-shadow: 0px 0px 40px #fff;
+		text-shadow: 0 0 40px #fff;
 		transform: scale(5);
 	}
+
 	50% {
 		opacity: 0.5;
-		text-shadow: 0px 0px 10px #fff;
+		text-shadow: 0 0 10px #fff;
 		transform: scale(2);
 	}
+
 	100% {
 		opacity: 1;
-		text-shadow: 0px 0px 1px #fff;
+		text-shadow: 0 0 1px #fff;
 		transform: scale(1);
 	}
 }

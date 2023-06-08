@@ -43,6 +43,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_HTML: true
           VALIDATE_CSS: true
+          # Specify that CSS linter config file is at the root repository of the directory
+          LINTER_RULES_PATH: /
+          CSS_FILE_NAME: .stylelintrc.json
           # Don't lint docs folder
           # See https://github.com/marketplace/actions/super-linter#how-to-use
           #FILTER_REGEX_EXCLUDE: .*docs/.*
