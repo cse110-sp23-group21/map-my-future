@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Lines Animation
         console.log(gridList[tossCounter]);
-        if (coinResult.type == 'Yin') {
+        if (coinResult.type === 'Yin') {
           setTimeout(function () {
             gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../../assets/coin/line-broken.PNG" alt="instruction image display failed."/>';
           }, 4500);
@@ -171,10 +171,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         // Coin Rotation
+
+        /*  eslint-disable  */
         const coinStates = coinResult.coins.toLowerCase();
         const coinState1 = coinStates.slice(0, 1);
         const coinState2 = coinStates.slice(1, 2);
         const coinState3 = coinStates.slice(2, 3);
+        /*  eslint-enable  */
 
         coins[0].style.animation = `${coinState1}-rotate-${tossCounter % 2} 4.3s ease forwards`;
         coins[1].style.animation = `${coinState2}-rotate-${tossCounter % 2} 4.3s ease forwards`;
