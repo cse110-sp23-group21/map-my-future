@@ -9,6 +9,8 @@ let cardsPicked = 0; // counter when 3 cards are picked
 
 // Card selector counter
 let i = 0;
+// name of container card is dragged to 
+let targetName; 
 
 // Allows cards to be selectable and dragged to satisfied place
 let sourceContainerID = '';
@@ -65,8 +67,8 @@ function cancelDefault (e) {
  */
 function dragStart (e) {
   e.dataTransfer.setData('text/plain', e.target.id);
-  sourceContainerID = this.parentElement.id;
-  droppedID = this.id;
+  sourceContainerID = this.parentElement.className;
+  droppedID = this.className; 
 }
 
 /**
@@ -75,32 +77,41 @@ function dragStart (e) {
  * @param {dragstart} e - Object that has information of where a card has begun to be dragged from.
  */
 function dropped (e) {
+  targetName = e.target.id;  
+  
+  
   if (this.id !== sourceContainerID) {
     cancelDefault(e);
     if (droppedID === 'card1') {
-      if ((e.target.id === 'pickcontainer1' || e.target.id === 'pickcontainer2' || e.target.id === 'pickcontainer3') || (e.target.id !== 'card1' && e.target.id !== 'card2' && e.target.id !== 'card3')) {
         const droppedElement = card1sArray[i];
         e.target.appendChild(card1sArray[i]);
         droppedElement.draggable = false;
         cardsPicked++;
         i++;
-      }
     } else if (droppedID === 'card2') {
-      if ((e.target.id === 'pickcontainer1' || e.target.id === 'pickcontainer2' || e.target.id === 'pickcontainer3') || (e.target.id !== 'card1' && e.target.id !== 'card2' && e.target.id !== 'card3')) {
         const droppedElement = card2sArray[i];
         e.target.appendChild(card2sArray[i]);
         droppedElement.draggable = false;
         cardsPicked++;
-        i++;
-      }
+        i++;     
     } else if (droppedID === 'card3') {
-      if ((e.target.id === 'pickcontainer1' || e.target.id === 'pickcontainer2' || e.target.id === 'pickcontainer3') || (e.target.id !== 'card1' && e.target.id !== 'card2' && e.target.id !== 'card3')) {
         const droppedElement = card3sArray[i];
         e.target.appendChild(card3sArray[i]);
         droppedElement.draggable = false;
         cardsPicked++;
-        i++;
-      }
+        i++;      
+    }
+    if (document.getElementById('pickContainer1').children.length > 0) {
+      document.getElementById('pickContainer1').style.userSelect = 'none'; 
+      document.getElementById('pickContainer1').style.pointerEvents = 'none'; 
+    }
+    if (document.getElementById('pickContainer2').children.length > 0) {
+      document.getElementById('pickContainer2').style.userSelect = 'none'; 
+      document.getElementById('pickContainer2').style.pointerEvents = 'none'; 
+    }
+    if (document.getElementById('pickContainer3').children.length > 0) {
+      document.getElementById('pickContainer3').style.userSelect = 'none'; 
+      document.getElementById('pickContainer3').style.pointerEvents = 'none'; 
     }
   }
 
@@ -116,7 +127,7 @@ function dropped (e) {
 }
 
 /**
- * Begins reading the three tarot cards selected by teh reader.
+ * Begins reading the three tarot cards selected by the reader.
  *
  * Overrides styling to display cards in a row by adding class and removes read fortune button. Then loops through each of the three fortunes and adds them through calling organizeCards() for each fortune.
  *

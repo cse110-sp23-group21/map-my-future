@@ -119,7 +119,6 @@ body {
   cursor: move;
   transition: opacity 1s ease;
   animation: fadeIn 2s ease-in; 
-
 }
 
 .pickContainer.p3 {
