@@ -2,36 +2,78 @@
 
 // Wait for all DOM to be ready
 document.addEventListener('DOMContentLoaded', () => {
-  const locations = document.querySelectorAll('.location');
-  const instructionTxt = document.getElementById('instruction-text');
+  /**
+   * Stores the current state side panel. Default to 'inactive'. Turn to 'active' when side panel open.
+   */
   let panelState = 'inactive';
+
+  /**
+   * Stores the selected location name.
+   */
   let locationName = '';
 
-  // Background music
+  /**
+   * List of 4 DOM access to map locations.
+   */
+  const locations = document.querySelectorAll('.location');
+
+  /**
+   * DOM access to side panel.
+   */
+  const sidePanel = document.getElementById('panel');
+  
+  /**
+   * DOM access to side panel layout grid.
+   */
+  const panelLayout = document.querySelector('.layout');
+
+  /**
+   * DOM access to instruction text shown on side panel.
+   */
+  const instructionTxt = document.getElementById('instruction-text');
+
+  /**
+   * Background music audio.
+   */
   const bgm = new Audio('../assets/map-my-future-bgm.ogg'); //  eslint-disable-line
   bgm.play();
   bgm.loop = true;
 
-  // Clickable map
+  // Location clicked
   locations.forEach(location => {
     location.addEventListener('click', () => {
       locationName = location.getAttribute('data-location');
 
-      // Side panel click constraint
+      // Side panel click constraint - click on the same location to close the side panel.
       if(panelState == 'inactive'){
         panelState = 'active';
         location.setAttribute('toggle-by', 'true');
         document.querySelector(".main").classList.toggle("side-panel-open");
 
-        // Update panel content based on selected location
-        instructionTxt.innerHTML = `${locationName} + "Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nobis eaque cupiditate ea vitae fuga
-        sed temporibus aperiam nisi eius omnis, hic similique culpa sequi architecto reiciendis a, soluta
-        inventore."`;
+        // Update panel content & background to the selected location
+        if(locationName == 'Molybdomancy'){
+          instructionTxt.innerHTML = 'Molybdomancy is a traditional divination practice that involves the interpretation of shapes and symbols formed by molten metal, usually lead or tin, when poured into cold water. </br></br> In this method of fortune-telling, you will click to melt the solid tin and observe the transformed shape. </br></br> An interpretation will be provided at the end of each round. </br> </br>';
+          sidePanel.style.backgroundImage = 'url(../assets/side-moly.png)';
+          panelLayout.style.marginTop = '40%';
+        } else if (locationName == 'Fortune Stick') {
+          instructionTxt.innerHTML = 'Fortune sticks, also known as Chinese fortune sticks or divination sticks, are a traditional method of seeking guidance and insight from Chinese culture. </br></br> In this method of fortune-telling, you will click to shake the container and retrieve a single fortune stick.';
+          sidePanel.style.backgroundImage = 'url(../assets/side-stick.png)';
+          panelLayout.style.marginTop = '60%';
+        } else if (locationName == 'Cartomancy') {
+          instructionTxt.innerHTML = 'Cartomancy is a divination practice that uses a deck of playing cards to gain insights into the past, present, and future. </br></br> In this method of fortune-telling, you will draw 3 cards, 1 from each deck, via drag and drop at specific locations. </br></br> An interpretation will be shown at the end of each round.';
+          sidePanel.style.backgroundImage = 'url(../assets/side-cart.png)';
+          panelLayout.style.marginTop = '50%';
+        } else {
+          instructionTxt.innerHTML = 'The Yin Yang Coin is a traditional tool used for divination and decision-making. </br></br> In this method of fortune-telling, you will toss 3 coins 6 times to generate your Hexagram. </br> </br> Every toss will result in either a broken or a solid line, indicating Yin or Yang. Detail examples will be shown on the start page once enter. </br> </br> There are 64 hexagrams in total, each corresponds to a specific fortune. An interpretation will be provided at the end of each round. </br> </br>';
+          sidePanel.style.backgroundImage = 'url(../assets/side-coin.png)';
+          panelLayout.style.marginTop = '40%';
+        }
         
       } else{
         if(location.getAttribute('toggle-by') == 'true'){
           panelState = 'inactive';
           location.setAttribute('toggle-by', 'false');
+          sidePanel.style.backgroundImage = 'none';
           document.querySelector(".main").classList.toggle("side-panel-open");
         }
       }
@@ -46,12 +88,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const enterButton = document.querySelector('.enter-button');
 
   enterButton.addEventListener('click', (e) => {
-    // Add navigation to mini-app during Sprint 2 here.
-    console.log(`${locationName} is selected.`);
+    // Navigation to mini-app pages.
+    if (locationName === 'Cartomancy') {
+      window.location.href = './mini-apps/cartomancy/cartomancy.html';
+    } else if (locationName === 'Molybdomancy') {
+      window.location.href = './mini-apps/molybdomancy/molybdomancy.html';
+    } else if (locationName === 'Fortune Stick') {
+      window.location.href = './mini-apps/fortune_stick/fortune_stick.html';
+    } else if (locationName === 'Yin Yang Coin') {
+      window.location.href = './mini-apps/yin_yang_coin/yin_yang_coin.html';
+    }
   });
 
   musicButton.addEventListener('click', (e) => {
-    const musicImg = document.querySelectorAll('img')[0];
+    const musicImg = document.getElementById('music');
     if (musicEnabled) {
       musicImg.src = '../assets/audio_off.png';
       bgm.pause();

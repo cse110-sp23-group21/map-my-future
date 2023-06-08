@@ -10,7 +10,7 @@ body {
 
 .main {
     display: grid;
-    grid-template-columns: 80% 20%;
+    grid-template-columns: 77% 23%;
     height: 100vh;
     overflow: hidden;
 }
@@ -21,7 +21,11 @@ body {
 }
 
 .title {
-    font-size: 4vh;
+    font-family: cursive;
+    font-size: 10vh;
+    font-weight: 700;
+    color: gold;
+    text-shadow: 1px 0px 10px rgb(0, 0, 0);
     padding-left: 5vh;
 }
 
@@ -44,12 +48,14 @@ body {
 /* styling for side panel */
 .side-panel {
     display: none;
-    width: 22vw;
+    width: 25vw;
     height: 100vh;
     flex-shrink: 0;
     padding: 20px;
     color: #ffffff;
-    background: #009578;
+    background: rgb(244, 244, 242);
+    background-size: cover;
+    background-repeat: no-repeat;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
 }
 
@@ -58,9 +64,17 @@ body {
 }
 
 .layout {
+    width: 20vw;
+    margin-top: 60%;
+    padding: 1vh;
+    border-radius: 2vh;
+    background-color: rgba(0, 0, 0, 0.6);
     display: grid;
-    margin-right: 25%;
-    padding-left: 5%;
+    gap: 10%;
+}
+
+#instruction-text {
+    font-size: 2vh;
 }
 
 /* styling for buttons */
@@ -78,8 +92,8 @@ body {
     font-size: 3vh;
     border-radius: 3vh;
     border: 1px solid;
-    background-color: transparent;
-    color: silver;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
     cursor: pointer;
     overflow: hidden;
 }
