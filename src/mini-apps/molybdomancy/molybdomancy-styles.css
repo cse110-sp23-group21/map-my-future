@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:900&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Burned&display=swap');
 body {
     display: grid;
     grid-template-rows: 1fr 1.5fr 1.5fr 1fr;
@@ -16,6 +16,7 @@ body {
 
 h1 {
     font-size: 10vh;
+    font-family: 'Rubik Burned', cursive;
     text-shadow: #FC0 0 -10px 12px;
     font-weight: 700;
     text-align: center;
@@ -48,8 +49,8 @@ h1 {
 }
 
 #meltButton {
-    padding: 2vh 5vh;
-    font-size: 2.5vh;
+    padding: 2vh 5vw;
+    font-size: 4vh;
     background-color: transparent;
     color: silver;
     cursor: pointer;
@@ -106,7 +107,7 @@ h1 {
     font-size: 4vh;
     font-weight: 200;
     margin: auto;
-    animation: fadeIn 3s ease-in;
+    animation: fadeIn 1.25s ease-in;
     color: rgba(255, 255, 255, 0.719);
     text-shadow: rgb(255, 89, 0) 0 0px 12px;
 }
@@ -166,14 +167,20 @@ h1 {
     width: 400px;
     height: 300px;
     border-radius: 10%;
-    background-color: rgba(192, 192, 192, 70%);
+    background-color: rgba(211, 221, 119, 0.61);
     text-align: center;
     justify-content: center;
 }
 
-.info-text p,
-.info-text h1 {
+#info-header {
     color: black;
     width: 100%;
-    font-size: 1.2vh;
+    font-size: 2rem;
+}
+
+#info-text {
+    color: rgb(170, 32, 32);
+    width: 90%;
+    font-size: 0.95em;
+    margin: auto;
 }
