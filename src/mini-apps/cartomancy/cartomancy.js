@@ -142,7 +142,6 @@ function dragStart (e) {
 function dropped (e) {
   if (this.id !== sourceContainerID) {
     cancelDefault(e);
-    //const id = e.dataTransfer.getData('text/plain');
     if (droppedID === 'card1') {
       if ((e.target.id === 'pickcontainer1' || e.target.id === 'pickcontainer2' || e.target.id === 'pickcontainer3') || (e.target.id !== 'card1' && e.target.id !== 'card2' && e.target.id !== 'card3')) {
         const droppedElement = card1sArray[i];
