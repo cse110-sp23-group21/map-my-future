@@ -1,10 +1,7 @@
 /* style sheet for main page */
 body {
     margin: 0;
-    background: url(../assets/background.jpeg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background: url("../assets/background.jpeg") no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -25,7 +22,7 @@ body {
     font-size: 10vh;
     font-weight: 700;
     color: gold;
-    text-shadow: 1px 0px 10px rgb(0, 0, 0);
+    text-shadow: 1px 0 10px rgb(0 0 0);
     padding-left: 5vh;
 }
 
@@ -42,7 +39,7 @@ body {
 }
 
 .location:hover {
-    fill: rgb(98, 173, 173);
+    fill: rgb(98 173 173);
 }
 
 /* styling for side panel */
@@ -52,11 +49,11 @@ body {
     height: 100vh;
     flex-shrink: 0;
     padding: 20px;
-    color: #ffffff;
-    background: rgb(244, 244, 242);
+    color: #fff;
+    background: rgb(244 244 242);
     background-size: cover;
     background-repeat: no-repeat;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 10px rgb(0 0 0 / 35%);
 }
 
 .side-panel-open .side-panel {
@@ -68,7 +65,7 @@ body {
     margin-top: 60%;
     padding: 1vh;
     border-radius: 2vh;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgb(0 0 0 / 60%);
     display: grid;
     gap: 10%;
 }
@@ -92,7 +89,7 @@ body {
     font-size: 3vh;
     border-radius: 3vh;
     border: 1px solid;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgb(0 0 0 / 60%);
     color: white;
     cursor: pointer;
     overflow: hidden;

@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * DOM access to side panel.
    */
   const sidePanel = document.getElementById('panel');
-  
+
   /**
    * DOM access to side panel layout grid.
    */
@@ -45,21 +45,21 @@ document.addEventListener('DOMContentLoaded', () => {
       locationName = location.getAttribute('data-location');
 
       // Side panel click constraint - click on the same location to close the side panel.
-      if(panelState == 'inactive'){
+      if (panelState === 'inactive') {
         panelState = 'active';
         location.setAttribute('toggle-by', 'true');
-        document.querySelector(".main").classList.toggle("side-panel-open");
+        document.querySelector('.main').classList.toggle('side-panel-open');
 
         // Update panel content & background to the selected location
-        if(locationName == 'Molybdomancy'){
+        if (locationName === 'Molybdomancy') {
           instructionTxt.innerHTML = 'Molybdomancy is a traditional divination practice that involves the interpretation of shapes and symbols formed by molten metal, usually lead or tin, when poured into cold water. </br></br> In this method of fortune-telling, you will click to melt the solid tin and observe the transformed shape. </br></br> An interpretation will be provided at the end of each round. </br> </br>';
           sidePanel.style.backgroundImage = 'url(../assets/side-moly.png)';
           panelLayout.style.marginTop = '40%';
-        } else if (locationName == 'Fortune Stick') {
+        } else if (locationName === 'Fortune Stick') {
           instructionTxt.innerHTML = 'Fortune sticks, also known as Chinese fortune sticks or divination sticks, are a traditional method of seeking guidance and insight from Chinese culture. </br></br> In this method of fortune-telling, you will click to shake the container and retrieve a single fortune stick.';
           sidePanel.style.backgroundImage = 'url(../assets/side-stick.png)';
           panelLayout.style.marginTop = '60%';
-        } else if (locationName == 'Cartomancy') {
+        } else if (locationName === 'Cartomancy') {
           instructionTxt.innerHTML = 'Cartomancy is a divination practice that uses a deck of playing cards to gain insights into the past, present, and future. </br></br> In this method of fortune-telling, you will draw 3 cards, 1 from each deck, via drag and drop at specific locations. </br></br> An interpretation will be shown at the end of each round.';
           sidePanel.style.backgroundImage = 'url(../assets/side-cart.png)';
           panelLayout.style.marginTop = '50%';
@@ -68,13 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
           sidePanel.style.backgroundImage = 'url(../assets/side-coin.png)';
           panelLayout.style.marginTop = '40%';
         }
-        
-      } else{
-        if(location.getAttribute('toggle-by') == 'true'){
+      } else {
+        if (location.getAttribute('toggle-by') === 'true') {
           panelState = 'inactive';
           location.setAttribute('toggle-by', 'false');
           sidePanel.style.backgroundImage = 'none';
-          document.querySelector(".main").classList.toggle("side-panel-open");
+          document.querySelector('.main').classList.toggle('side-panel-open');
         }
       }
     });
