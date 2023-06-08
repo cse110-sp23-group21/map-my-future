@@ -236,7 +236,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // button display:'flex' after 3 cards
   readFortuneButton.addEventListener('click', (e) => {
-
+    document.getElementById('pickContainer1').style.userSelect = 'auto'; 
+    document.getElementById('pickContainer1').style.pointerEvents = 'auto'; 
+    document.getElementById('pickContainer2').style.userSelect = 'auto'; 
+    document.getElementById('pickContainer2').style.pointerEvents = 'auto'; 
+    document.getElementById('pickContainer3').style.userSelect = 'auto'; 
+    document.getElementById('pickContainer3').style.pointerEvents = 'auto'; 
     // put away animation
     origDeck.classList.add('hide-cards');
 
