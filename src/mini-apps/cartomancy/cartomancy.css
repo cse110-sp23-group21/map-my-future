@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500&display=swap');
 
 @font-face {
-  font-family: "Xingkai";
+  font-family: Xingkai;
   src: url('chinese.stxingka.ttf') format('truetype');
 }
 
@@ -27,7 +27,7 @@
   z-index: 1;
 }
 
-/* animation for introduction and deck of card*/ 
+/* animation for introduction and deck of card */ 
 .drop-in, .start-button, .deck{
   animation: drop-in 1s ease 200ms backwards;
 }
@@ -41,6 +41,7 @@
     opacity: 0;
     transform: translateY(-100px);
   }
+  
   to {
     opacity: 1;
     transform: translate(0px);
