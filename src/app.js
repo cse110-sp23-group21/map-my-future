@@ -88,16 +88,18 @@ document.addEventListener('DOMContentLoaded', () => {
       if(panelState == 'inactive'){
         panelState = 'active';
         location.setAttribute('toggle-by', 'true');
-        document.querySelector(".canvas").classList.toggle("side-panel-open");
+        document.querySelector(".main").classList.toggle("side-panel-open");
 
         // Update panel content based on selected location
-        instructionTxt.innerHTML = `${locationName}`;
+        instructionTxt.innerHTML = `${locationName} + "Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nobis eaque cupiditate ea vitae fuga
+        sed temporibus aperiam nisi eius omnis, hic similique culpa sequi architecto reiciendis a, soluta
+        inventore."`;
         
       } else{
         if(location.getAttribute('toggle-by') == 'true'){
           panelState = 'inactive';
           location.setAttribute('toggle-by', 'false');
-          document.querySelector(".canvas").classList.toggle("side-panel-open");
+          document.querySelector(".main").classList.toggle("side-panel-open");
         }
       }
     });

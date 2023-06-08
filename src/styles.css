@@ -1,34 +1,51 @@
 /* style sheet for main page */
 body {
     margin: 0;
-    background-color: #164EBC;
+    background: url(../assets/background.jpeg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .canvas {
-    display: flex;
-    height: 100vh;
+    display: grid;
+    grid-template-rows: 5% 95%;
+}
+
+.title {
+    font-size: 4vh;
+    padding-left: 5vh;
 }
 
 /* styling for map */
 .map-container {
-    flex-grow: 1;
-    padding: 20px;
-    overflow: hidden;
+    width: min-content;
 }
 
 .map {
+    width: 100vw;
+    height: 100vh;
     transform-origin: center center;
     transition: transform 0.3s;
 }
 
 .location:hover {
-    fill: white;
+    fill: rgb(98, 173, 173);
 }
 
 /* styling for side panel */
 .side-panel {
     display: none;
-    width: 26vw;
+    width: 22vw;
+    height: 100vh;
     flex-shrink: 0;
     padding: 20px;
     color: #ffffff;
@@ -42,6 +59,8 @@ body {
 
 .layout {
     display: grid;
+    margin-right: 25%;
+    padding-left: 5%;
 }
 
 /* styling for buttons */
@@ -52,11 +71,11 @@ body {
 }
 
 .enter-button {
-    width: fit-content;
     position: relative;
-    margin: 3vh 15vh;
-    padding: 2vh 5vh;
-    font-size: 2vh;
+    display: inline-block;
+    width: 15vh;
+    height: 6vh;
+    font-size: 3vh;
     border-radius: 3vh;
     border: 1px solid;
     background-color: transparent;
