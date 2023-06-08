@@ -22,6 +22,14 @@
 
 import FortuneEngine from '../../engine.js';
 
+/**
+ * Sets the state (on / off) of the background music
+ * @param {Audio} bgm Background music Audio object
+ * @param {boolean} newState Whether the background music
+ *  should be turned on or off
+ * @returns {boolean} the new state of the background music (set musicEnabled
+ * to this)
+ */
 function setMusicState (bgm, newState) {
   const musicImg = document.getElementById('music');
   if (!newState) {
@@ -176,11 +184,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   bgm.play().then(() => {
     //  Autoplay started!
   }).catch(() => {
+    //  Autoplay failed - set music to off
     musicEnabled = false;
     setMusicState(bgm, musicEnabled);
   });
 
-  // Music Button
+  /**
+   * Listen to click event for the music UI button.
+   * Toggles musicEnabled and calls the setMusicState() method.
+   *
+   * @listens musicButton#click
+   */
   musicButton.addEventListener('click', (event) => {
     console.log('music');
     /* const musicImg = document.getElementById('music');
@@ -196,6 +210,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   // Info Button
+  /**
+   * Listen to click event for the info UI button.
+   * Toggles showInfo and toggles display of the info panel.
+   *
+   * @listens infoButton#click
+   */
   infoButton.addEventListener('click', (event) => {
     const infoPopup = document.getElementById('info-popup');
     infoPopup.style.display = !showInfo ? 'flex' : 'none';
@@ -203,7 +223,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   /**
-   *  Create the action for the button when it's clicked
+   * Listen to click event for the action button.
+   * When clicked, transitions into the next state, or if in the toss
+   * state, remains in that state 6 times (once for each coin toss).
+   *
+   * @listens buttonElement#click
    */
   buttonElement.addEventListener('click', (event) => {
     const buttonElement = event.target;
@@ -229,8 +253,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         break;
 
       case 'toss':
-        // Backend Generation
-        //  Generate a random result for tossing 3 coins
+        /**
+         * Randomly generated 3-coin toss result
+         */
         const coinResult = engine.get_random_subset(1)[0];  //  eslint-disable-line
         console.log('coinResult:', coinResult.value);
         console.log('Power of two:', powerOfTwo);
@@ -245,11 +270,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log('Tossing coins! tossCounter =', tossCounter);
 
         // UI Generation
-
-        /* if (tossCounter === 6) {
-          buttonElement.value = 'result';
-          buttonElement.innerText = 'Get Result';
-        } */
 
         // Lines Animation
         console.log(gridList[tossCounter]);
@@ -275,9 +295,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         coins[0].style.animation = `${coinState1}-rotate-${tossCounter % 2} 4.3s ease forwards`;
         coins[1].style.animation = `${coinState2}-rotate-${tossCounter % 2} 4.3s ease forwards`;
         coins[2].style.animation = `${coinState3}-rotate-${tossCounter % 2} 4.3s ease forwards`;
+
+        //  Play coin toss sound effect
         flipSound.play();
 
-        // Set button delay
+        // Set button delay until it is re-enabled
         buttonElement.style.pointerEvents = 'none';
         buttonElement.innerText = 'Tossing Coins...';
         setTimeout(() => {
@@ -293,7 +315,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         break;
 
       case 'result':
-        // Map hexigram to intepretation
+        // Map hexagram to intepretation
+
+        /**
+         * Resulting hexagram object
+         */
         const hexagram = hexagrams[hexagramIndex];  //  eslint-disable-line
         console.log('Hexagram Result:', hexagram);
 
@@ -336,6 +362,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         break;
 
       case 'reset':
+        //  Reset variables relevant to hexagram generation
         hexagramIndex = 0;
         tossCounter = 0;
         powerOfTwo = 1;
