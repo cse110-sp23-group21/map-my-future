@@ -3,11 +3,6 @@
 /* styling for page */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500&display=swap');
 
-@font-face {
-  font-family: Xingkai;
-  src: url('chinese.stxingka.ttf') format('truetype');
-}
-
 /* container for all elements on card page */ 
 #card-display{
   display: none;
@@ -34,18 +29,6 @@
 
 .drop-in-2, .start-button{
   animation: drop-in 1200ms ease 500ms backwards;
-}
-
-@keyframes drop-in {
-  from {
-    opacity: 0;
-    transform: translateY(-10vh);
-  }
-  
-  to {
-    opacity: 1;
-    transform: translate(0vh);
-  }
 }
 
 body {
@@ -83,6 +66,9 @@ body {
   transition: opacity 1s ease;
   animation: fadeIn 2s ease-in;
 }
+
+
+/* Picking containers styles */
 
 .pickContainer.p1 {
   display: none;
@@ -145,6 +131,9 @@ body {
   transition: 300ms ease-in-out;
   animation: fadeIn 2s ease-in; 
 }
+
+
+/*****/
 
 .read-fortune-space {
   position: fixed;
@@ -210,24 +199,6 @@ body {
 #read-fortune-anchor img {
   max-width: 120%;
   filter: brightness(0);
-}
-
-@keyframes fadeIn {  
-  from {  
-      opacity:0;  
-  }  
-
-  to {  
-      opacity:1;  
-  }  
-}
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 
 
@@ -539,5 +510,35 @@ body {
   100% {    
     transform: translateY(100%);
     opacity: 0;
+  }
+}
+
+@keyframes fadeIn {  
+  from {  
+      opacity:0;  
+  }  
+
+  to {  
+      opacity:1;  
+  }  
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10vh);
+  }
+  
+  to {
+    opacity: 1;
+    transform: translate(0vh);
   }
 }
