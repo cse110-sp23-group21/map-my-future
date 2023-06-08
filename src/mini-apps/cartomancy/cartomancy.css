@@ -247,8 +247,7 @@ body {
   justify-content: center;
   align-items: center;
   background-image: url('/assets/cartomancy/cartomancy-card-back.png');
-  background-position: center;
-  background-size: cover; 
+  background-size: cover ;
   width: 10vw;
   height: 30vh;
   color: white;
