@@ -44,7 +44,6 @@
   
   to {
     opacity: 1;
-    transform: translate(0vh);
   }
 }
 
@@ -54,9 +53,6 @@ body {
   justify-content : center;  
   justify-content: fit;
   background: url('/assets/cartomancy/cartomancy-background.jpeg') no-repeat fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   font-family: 'Luxurious Script', cursive;
   overflow: hidden;
@@ -203,7 +199,6 @@ body {
   text-align: center;
   text-decoration: none;
   user-select: none;
-  -webkit-user-select: none;
   touch-action: manipulation;
 }
 
@@ -212,15 +207,15 @@ body {
   filter: brightness(0);
 }
 
-@keyframes fadeIn {  
+@keyframes fade-in {  
   from {  
       opacity:0;  
   }  
-
   to {  
       opacity:1;  
   }  
 }
+
 @keyframes fade-out {
   0% {
     opacity: 1;
@@ -229,7 +224,6 @@ body {
     opacity: 0;
   }
 }
-
 
 .hide {
   transition: opacity 1s;
