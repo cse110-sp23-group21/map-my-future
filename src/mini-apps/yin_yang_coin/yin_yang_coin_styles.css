@@ -5,6 +5,14 @@
     src: url('../../../assets/coin/chinese.stxingka.ttf') format('truetype');
 }
 
+/*@font-face {
+    font-family:"stxingkai-regular";
+    src:url("https://www.dafontfree.net/data/1/s/291/chinese.stxingka.ttf") 
+    format("woff"),url("https://www.dafontfree.net/data/1/s/291/chinese.stxingka.ttf") 
+    format("opentype"),url("https://www.dafontfree.net/data/1/s/291/chinese.stxingka.ttf") 
+    format("truetype");
+}*/
+
 body {
     margin: 0;
     padding: 0;

@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const lineImg = document.querySelector('.line-image');
   const lineTxt = document.getElementById('line-text');
-  const gridList = document.querySelectorAll('#grid');
+  const gridList = document.querySelectorAll('.side-grid-element');
   const contentGrid = document.querySelector('.content-grid');
 
   const instructionImg = document.getElementById('instruction-image');
