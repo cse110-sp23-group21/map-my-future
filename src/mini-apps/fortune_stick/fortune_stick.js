@@ -87,6 +87,7 @@ function selectCategory (category) {
 function chooseCardAnimation (category) {
   const cardElement = document.getElementById(`${category}`);
 
+  cardElement.style.pointerEvents = 'none';
   cardElement.classList.toggle('choose-card');
   // get the center of the parent for a later animationk
   // let relCenterCoord = document.getElementsByClassName('categories').offsetWidth / 2;
