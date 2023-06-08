@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const startButton = document.getElementById('start-button');
 
   const origDeck = document.getElementById('card-display');
-  const center_div = document.getElementById('center-div');
+  const centerDiv = document.getElementById('center-div');
 
   startButton.addEventListener('click', (e) => {
     console.log('start');
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       console.log('turned display attr off');
 
       // start reading cards
-      readCards(center_div);
+      readCards(centerDiv);
     }, 1000);
   });
 
@@ -87,9 +87,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Card selector counter
 let i = 0;
-const pickCounter1 = 0;
+/*const pickCounter1 = 0;
 const pickCounter2 = 0;
-const pickCounter3 = 0;
+const pickCounter3 = 0;*/
 
 // Allows cards to be selectable and dragged to satisfied palce
 let sourceContainerID = '';
@@ -145,9 +145,9 @@ function dragStart (e) {
 function dropped (e) {
   if (this.id !== sourceContainerID) {
     cancelDefault(e);
-    const id = e.dataTransfer.getData('text/plain');
-    if (droppedID == 'card1') {
-      if ((e.target.id == 'pickcontainer1' || e.target.id == 'pickcontainer2' || e.target.id == 'pickcontainer3') || (e.target.id !== 'card1' && e.target.id !== 'card2' && e.target.id !== 'card3')) {
+    //const id = e.dataTransfer.getData('text/plain');
+    if (droppedID === 'card1') {
+      if ((e.target.id === 'pickcontainer1' || e.target.id === 'pickcontainer2' || e.target.id === 'pickcontainer3') || (e.target.id !== 'card1' && e.target.id !== 'card2' && e.target.id !== 'card3')) {
         const droppedElement = card1sArray[i];
         e.target.appendChild(card1sArray[i]);
         droppedElement.draggable = false;
@@ -155,7 +155,7 @@ function dropped (e) {
         i++;
       }
     } else if (droppedID == 'card2') {
-      if ((e.target.id == 'pickcontainer1' || e.target.id == 'pickcontainer2' || e.target.id == 'pickcontainer3') || (e.target.id !== 'card1' && e.target.id !== 'card2' && e.target.id !== 'card3')) {
+      if ((e.target.id === 'pickcontainer1' || e.target.id === 'pickcontainer2' || e.target.id === 'pickcontainer3') || (e.target.id !== 'card1' && e.target.id !== 'card2' && e.target.id !== 'card3')) {
         const droppedElement = card2sArray[i];
         e.target.appendChild(card2sArray[i]);
         droppedElement.draggable = false;
@@ -163,7 +163,7 @@ function dropped (e) {
         i++;
       }
     } else if (droppedID == 'card3') {
-      if ((e.target.id == 'pickcontainer1' || e.target.id == 'pickcontainer2' || e.target.id == 'pickcontainer3') || (e.target.id !== 'card1' && e.target.id !== 'card2' && e.target.id !== 'card3')) {
+      if ((e.target.id === 'pickcontainer1' || e.target.id === 'pickcontainer2' || e.target.id === 'pickcontainer3') || (e.target.id !== 'card1' && e.target.id !== 'card2' && e.target.id !== 'card3')) {
         const droppedElement = card3sArray[i];
         e.target.appendChild(card3sArray[i]);
         droppedElement.draggable = false;
@@ -189,9 +189,9 @@ function dropped (e) {
 /*
  * Begin the fortune telling process by reading the chosen cards
  */
-function readCards (center_div) {
+function readCards (centerDiv) {
   // animations, grouping etc here
-  center_div.classList.add('container');
+  centerDiv.classList.add('container');
 
   // remove the reading fortune button
   document.getElementById('read-fortune-button').style.display = 'none';
@@ -202,13 +202,13 @@ function readCards (center_div) {
 
   // add container class
 
-  const fortune1 = receivedFortunes[0];
+  /*const fortune1 = receivedFortunes[0];
   const fortune2 = receivedFortunes[1];
   const fortune3 = receivedFortunes[2];
 
   const pickContainer1 = document.getElementById('pickContainer1');
   const pickContainer2 = document.getElementById('pickContainer2');
-  const pickContainer3 = document.getElementById('pickContainer3');
+  const pickContainer3 = document.getElementById('pickContainer3');*/
 
   // actually may better loop later
   let i = 1;
