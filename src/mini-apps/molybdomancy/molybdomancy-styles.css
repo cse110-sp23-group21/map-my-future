@@ -110,8 +110,15 @@ h1 {
     font-weight: 200;
     margin: auto;
     animation: fadeIn 1.25s ease-in;
-    color: #008cff;
-    text-shadow: 1px 1px rgb(186, 153, 3) 1em, 0 0 1em rgb(122, 14, 14), 0 0 0.2em red;
+    /* color: #008cff; */
+    color: white;
+
+    /* text-shadow: 1px 1px rgb(186, 153, 3), 0 0 1em rgb(122, 14, 14), 0 0 0.2em red; */
+
+    /* text-shadow: 1px 1px 2px rgb(186, 153, 3); */
+    /* text-shadow: rgb(255, 140, 0) 1px 0 10px; */
+
+    text-shadow: rgb(0, 0, 0) 1px 0 10px;
 }
 
 .interpretation2 {
@@ -123,8 +130,11 @@ h1 {
     margin: auto;
     animation: fadeIn 1.25s ease-in;
     color: #c8eee7;
+
+    text-shadow: rgb(0, 0, 0) 1px 0 10px;
+
     /* text-shadow: rgb(0, 0, 0) 0 0 -1rem; */
-    text-shadow: 1px 1px 2px blue, 0 0 1em rgb(122, 14, 14), 0 0 0.2em red;
+    /* text-shadow: 1px 1px 2px blue, 0 0 1em rgb(122, 14, 14), 0 0 0.2em red; */
 }
 
 @keyframes fadeIn {
