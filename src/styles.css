@@ -1,4 +1,4 @@
-/* style sheet for main page */
+/* General Page Layout & Style */
 body {
     margin: 0;
     background: url("../assets/background.jpeg") no-repeat center center fixed;
@@ -26,7 +26,7 @@ body {
     padding-left: 5vh;
 }
 
-/* styling for map */
+/* Map Style */
 .map-container {
     width: min-content;
 }
@@ -42,7 +42,7 @@ body {
     fill: rgb(98, 173, 173);
 }
 
-/* styling for side panel */
+/* Side Panel Layout & Style */
 .side-panel {
     display: none;
     width: 25vw;
@@ -74,7 +74,7 @@ body {
     font-size: 2vh;
 }
 
-/* styling for buttons */
+/* Buttons Layout */
 .button-container-bottom-right {
     position: fixed;
     bottom: 20px;
@@ -87,13 +87,14 @@ body {
     left: 20px;
 }
 
+/* Buttons Style */
 .enter-button {
     position: relative;
     display: inline-block;
     width: 15vh;
     height: 6vh;
     font-size: 3vh;
-    border-radius: 3%;
+    border-radius: 2vh;
     border: 1px solid;
     background-color: rgb(0, 0, 0, 60%);
     color: white;
@@ -124,7 +125,7 @@ body {
     background-color: #857557;
 }
 
-/* styling for info pop up screen */
+/* Info Screen Style */
 .info-popup {
     display: none;
     position: fixed;

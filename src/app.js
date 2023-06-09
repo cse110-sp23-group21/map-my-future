@@ -1,4 +1,4 @@
-// Main page map JavaScript file
+// Main page code goes here
 
 // Wait for all DOM to be ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,14 +34,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /**
    * Background music audio.
+   * @type {Audio}
    */
   const bgm = new Audio('../assets/Waltz-of-the-fortune-teller.mp3'); //  eslint-disable-line
   bgm.play();
   bgm.loop = true;
 
-  // Location clicked
+  /**
+   * Listen to click event for the each location section on the map.
+   * Display the corresponding side instruction screen.
+   *
+   * @listens location#click
+   */
   locations.forEach(location => {
     location.addEventListener('click', () => {
+      // Retrieve selected location name.
       locationName = location.getAttribute('data-location');
 
       // Side panel click constraint - click on the same location to close the side panel.
@@ -50,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         location.setAttribute('toggle-by', 'true');
         document.querySelector('.main').classList.toggle('side-panel-open');
 
-        // Update panel content & background to the selected location
+        // Update instruction content & background to the selected location
         if (locationName === 'Molybdomancy') {
           instructionTxt.innerHTML = 'Molybdomancy is a traditional divination practice that involves the interpretation of shapes and symbols formed by molten metal, usually lead or tin, when poured into cold water. </br></br> In this method of fortune-telling, you will click to melt the solid tin and observe the transformed shape. </br></br> An interpretation will be provided at the end of each round. </br> </br>';
           sidePanel.style.backgroundImage = 'url(../assets/side-moly.png)';
@@ -79,13 +86,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Music/Info Buttons
+  // Music & Info Buttons
   let musicEnabled = true;
   let showInfo = false;
   const musicButton = document.getElementById('music-button');
   const infoButton = document.getElementById('info-button');
   const enterButton = document.querySelector('.enter-button');
 
+  /**
+   * Listen to click event for the enter button on side panel.
+   * Navigate to the selected mini-app page.
+   *
+   * @listens enterButton#click
+   */
   enterButton.addEventListener('click', (e) => {
     // Navigation to mini-app pages.
     if (locationName === 'Cartomancy') {
@@ -99,6 +112,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  /**
+   * Listen to click event for the music UI button.
+   * Toggles musicEnabled and calls the setMusicState() method.
+   *
+   * @listens musicButton#click
+   */
   musicButton.addEventListener('click', (e) => {
     const musicImg = document.getElementById('music');
     if (musicEnabled) {
@@ -111,6 +130,12 @@ document.addEventListener('DOMContentLoaded', () => {
     musicEnabled = !musicEnabled;
   });
 
+  /**
+   * Listen to click event for the info UI button.
+   * Toggles showInfo and toggles display of the info panel.
+   *
+   * @listens infoButton#click
+   */
   infoButton.addEventListener('click', (e) => {
     const infoPopup = document.getElementById('info-popup');
     infoPopup.style.display = !showInfo ? 'flex' : 'none';
