@@ -1,20 +1,4 @@
 {
-    "name": "Yin Yang Coin",
-    "screens": {
-        "titleScreen": {
-            "title": "Yin Yang Coin",
-            "exposition": "This from of fortune telling originates from China.",
-            "button": "Start"
-        },
-        "ruleScreen": {
-            "title": "Rules",
-            "rules": "Toss 3 coins 6 times to determine your hexagram.",
-            "button": "Concentrate on your question... then continue!"
-        },
-        "fortuneTellingScreen": {
-            "title": "Yin Yang Coin"
-        }
-    },
     "hexagrams": [
         {
             "id": 1,
