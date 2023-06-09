@@ -199,7 +199,7 @@ body {
   padding : 20px 15px;
   display : flex;
   flex-direction : column;
-  box-shadow : 0 5px 20px rgba(0 0 0 / 50%);
+  box-shadow : 0 5px 20px rgba(0, 0, 0, 50%);
   transition : 0.3s ease-in-out;
   border-radius : 15px;
   animation: drop-in 1s ease 200ms backwards;
@@ -344,7 +344,7 @@ body {
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0 0 0 70%);
+  background: rgba(0, 0, 0, 70%);
   transition: opacity 500ms;
   visibility: hidden;
   opacity: 0;
@@ -358,7 +358,7 @@ body {
 .box {
   border: 3px solid #666; 
   background-color: #ddd; 
-  border-radius: .5em; 
+  border-radius: 0.5em; 
   padding: 10px; 
   cursor: move; 
 }
