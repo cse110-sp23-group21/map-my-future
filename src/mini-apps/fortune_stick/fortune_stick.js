@@ -6,7 +6,6 @@ const engine = new FortuneEngine();
 const APP_NAME = 'fortune_stick';
 
 let selectedCategory = '';
-const receivedFortune = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad est, laboriosam optio molestias iste, quam perferendis vitae voluptatum minus ullam libero eum nisi. Necessitatibus ipsum alias, molestias adipisci doloremque totam!';
 const TYPING_SPEED = 35;
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -76,8 +75,6 @@ function selectCategory (category) {
     notChosen[i].style.opacity = '0';
   }
 
-  const notChosenCards = document.getElementsByClassName('card hide')[0];
-
   setTimeout(() => {
     allCards.style.display = 'none';
 
@@ -90,6 +87,7 @@ function selectCategory (category) {
 function chooseCardAnimation (category) {
   const cardElement = document.getElementById(`${category}`);
 
+  cardElement.style.pointerEvents = 'none';
   cardElement.classList.toggle('choose-card');
   // get the center of the parent for a later animationk
   // let relCenterCoord = document.getElementsByClassName('categories').offsetWidth / 2;

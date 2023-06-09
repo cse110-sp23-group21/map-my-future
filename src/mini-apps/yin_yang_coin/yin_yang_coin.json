@@ -1,20 +1,4 @@
 {
-    "name": "Yin Yang Coin",
-    "screens": {
-        "titleScreen": {
-            "title": "Yin Yang Coin",
-            "exposition": "This from of fortune telling originates from China.",
-            "button": "Start"
-        },
-        "ruleScreen": {
-            "title": "Rules",
-            "rules": "Toss 3 coins 6 times to determine your hexagram.",
-            "button": "Concentrate on your question... then continue!"
-        },
-        "fortuneTellingScreen": {
-            "title": "Yin Yang Coin"
-        }
-    },
     "hexagrams": [
         {
             "id": 1,
@@ -28,7 +12,7 @@
         {
             "id": 43,
             "name": "Displacement",
-            "character": "夬",
+            "character": "决",
             "upper": "Lake",
             "lower": "Heaven",
             "meaning": "Break free from stagnation and embrace bold action. Embrace change and take calculated risks. By stepping outside your comfort zone, you will unlock new possibilities and achieve breakthroughs."
