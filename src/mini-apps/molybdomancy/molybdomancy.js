@@ -98,7 +98,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   const infoButton = document.getElementById('info-button');
   const musicButton = document.getElementById('music-button');
   const meltButton = document.querySelector('#meltButton');
-  const resultText = document.querySelector('.interpretation');
+  const resultTextShape = document.querySelector('.interpretation1');
+  const resultTextMeaning = document.querySelector('.interpretation2');
 
   let meltButtonState = 'melt';
   let musicEnabled = true;
@@ -117,10 +118,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         const result = engine.get_random_subset(1)[0];   //  eslint-disable-line
 
         setTimeout(() => {
-          resultText.innerHTML = `Shape: ${result.name}</br>${result.longMeaning}`;
-          resultText.classList.remove('interpretation');
-          void resultText.offsetWidth;  //  eslint-disable-line
-          resultText.classList.add('interpretation');
+          resultTextShape.innerHTML = `Shape: ${result.name}</br>`;
+          resultTextShape.classList.remove('interpretation1');
+          void resultTextShape.offsetWidth;  //  eslint-disable-line
+          resultTextShape.classList.add('interpretation1');
+
+          resultTextMeaning.innerHTML = `${result.longMeaning}`;
+          resultTextMeaning.classList.remove('interpretation2');
+          void resultTextMeaning.offsetWidth;  //  eslint-disable-line
+          resultTextMeaning.classList.add('interpretation2');
         }, morphTime * 1000);
 
         texts[1] = result.emoji;
@@ -145,7 +151,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         elts.text1.textContent = texts[0];
         elts.text2.textContent = texts[0];
         cooldown = cooldownTime;
-        resultText.innerHTML = '';
+        resultTextShape.innerHTML = '';
+        resultTextMeaning.innerHTML = '';
         break;
     }
   });
