@@ -1,7 +1,7 @@
 /* General Page Layout & Style */
 body {
     margin: 0;
-    background: url("../assets/background.jpeg") no-repeat center center fixed;
+    background: url("assets/home/background.jpeg") no-repeat center center fixed;
     background-size: cover;
 }
 

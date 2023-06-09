@@ -3,11 +3,6 @@
 /* styling for page */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500&display=swap');
 
-@font-face {
-  font-family: "Xingkai";
-  src: url('chinese.stxingka.ttf') format('truetype');
-}
-
 /* container for all elements on card page */ 
 #card-display{
   display: none;
@@ -20,7 +15,7 @@
   width: 800px;
   height: 800px;
   position: center; 
-  background-image: url('/assets/cartomancy/instruction-image.png') ;
+  background-image: url('../../assets/cart/instruction-image.png') ;
   background-size: cover;
   background-position: center center; 
   overflow : hidden; 
@@ -53,7 +48,7 @@ body {
   justify-content : center;  
   justify-content: fit;
   /* background-color: rgb(178 29 29); */
-  background-image: url('/assets/cartomancy/cartomancy-background.jpeg');
+  background-image: url('../../assets/cart/background.jpeg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -90,7 +85,7 @@ body {
   justify-content: center;
   align-items: center;
   align-self: center;
-  background-image: url('/assets/cartomancy/card-holder.png');
+  background-image: url('../../assets/cart/card-holder.png');
   background-position: center;
   background-size: cover; 
   position: absolute;
@@ -110,7 +105,7 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
-  background-image: url('/assets/cartomancy/card-holder.png');
+  background-image: url('../../assets/cart/card-holder.png');
   background-position: center;
   background-size: cover; 
   position: absolute;
@@ -130,7 +125,7 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
-  background-image: url('/assets/cartomancy/card-holder.png');
+  background-image: url('../../assets/cart/card-holder.png');
   background-position: center;
   background-size: cover; 
   position: absolute;
@@ -247,7 +242,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('/assets/cartomancy/cartomancy-card-back.png');
+  background-image: url('../../assets/cart/card-back.png');
   background-position: center;
   background-size: cover; 
   width: 180px;
