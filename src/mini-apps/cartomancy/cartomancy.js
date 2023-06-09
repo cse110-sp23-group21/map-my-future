@@ -18,9 +18,9 @@ let droppedID = '';
 const card1s = document.querySelectorAll('.card1');
 const card2s = document.querySelectorAll('.card2');
 const card3s = document.querySelectorAll('.card3');
-const pickContainer1 = document.getElementById('pickContainer1');
-const pickContainer2 = document.getElementById('pickContainer2');
-const pickContainer3 = document.getElementById('pickContainer3');
+const pickContainer1 = document.getElementById('pick-container1');
+const pickContainer2 = document.getElementById('pick-container2');
+const pickContainer3 = document.getElementById('pick-container3');
 
 const card1sArray = Array.from(card1s);
 const card2sArray = Array.from(card2s);
@@ -100,17 +100,17 @@ function dropped (e) {
       cardsPicked++;
       i++;
     }
-    if (document.getElementById('pickContainer1').children.length > 0) {
-      document.getElementById('pickContainer1').style.userSelect = 'none';
-      document.getElementById('pickContainer1').style.pointerEvents = 'none';
+    if (document.getElementById('pick-container1').children.length > 0) {
+      document.getElementById('pick-container1').style.userSelect = 'none';
+      document.getElementById('pick-container1').style.pointerEvents = 'none';
     }
-    if (document.getElementById('pickContainer2').children.length > 0) {
-      document.getElementById('pickContainer2').style.userSelect = 'none';
-      document.getElementById('pickContainer2').style.pointerEvents = 'none';
+    if (document.getElementById('pick-container2').children.length > 0) {
+      document.getElementById('pick-container2').style.userSelect = 'none';
+      document.getElementById('pick-container2').style.pointerEvents = 'none';
     }
-    if (document.getElementById('pickContainer3').children.length > 0) {
-      document.getElementById('pickContainer3').style.userSelect = 'none';
-      document.getElementById('pickContainer3').style.pointerEvents = 'none';
+    if (document.getElementById('pick-container3').children.length > 0) {
+      document.getElementById('pick-container3').style.userSelect = 'none';
+      document.getElementById('pick-container3').style.pointerEvents = 'none';
     }
   }
 
@@ -142,7 +142,7 @@ function readCards (centerDiv) {
   const receivedFortunes = engine.get_random_subset(3);
 
   for (let j = 1; j < 4; j++) { // loop through first 3
-    const picking = document.getElementById(`pickContainer${j}`);
+    const picking = document.getElementById(`pick-container${j}`);
     organizeCards(picking, receivedFortunes[j - 1]);
   }
 }
@@ -168,7 +168,7 @@ function readCards (centerDiv) {
 function organizeCards (pick, fortune) {
   pick.removeChild(pick.firstChild);
 
-  pick.classList.remove('pickContainer');
+  pick.classList.remove('pick-container');
   pick.classList.add('read-container');
 
   const indCard = document.createElement('div');
@@ -227,19 +227,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('intro').style.display = 'none';
     origDeck.style.display = 'initial';
     document.getElementById('start-button').style.display = 'none';
-    document.getElementById('pickContainer1').style.display = 'flex';
-    document.getElementById('pickContainer2').style.display = 'flex';
-    document.getElementById('pickContainer3').style.display = 'flex';
+    document.getElementById('pick-container1').style.display = 'flex';
+    document.getElementById('pick-container2').style.display = 'flex';
+    document.getElementById('pick-container3').style.display = 'flex';
   });
 
   // button display:'flex' after 3 cards
   readFortuneButton.addEventListener('click', (e) => {
-    document.getElementById('pickContainer1').style.userSelect = 'auto';
-    document.getElementById('pickContainer1').style.pointerEvents = 'auto';
-    document.getElementById('pickContainer2').style.userSelect = 'auto';
-    document.getElementById('pickContainer2').style.pointerEvents = 'auto';
-    document.getElementById('pickContainer3').style.userSelect = 'auto';
-    document.getElementById('pickContainer3').style.pointerEvents = 'auto';
+    document.getElementById('pick-container1').style.userSelect = 'auto';
+    document.getElementById('pick-container1').style.pointerEvents = 'auto';
+    document.getElementById('pick-container2').style.userSelect = 'auto';
+    document.getElementById('pick-container2').style.pointerEvents = 'auto';
+    document.getElementById('pick-container3').style.userSelect = 'auto';
+    document.getElementById('pick-container3').style.pointerEvents = 'auto';
     // put away animation
     origDeck.classList.add('hide-cards');
 

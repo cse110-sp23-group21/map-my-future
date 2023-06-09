@@ -60,13 +60,13 @@ body {
   opacity: 1;
   gap: .5vh;
   transition: opacity 1s ease;
-  animation: fadeIn 1s ease-in;
+  animation: fade-in 1s ease-in;
 }
 
 
 /* Picking containers styles */
 
-.pickContainer.p1 {
+.pick-container.p1 {
   display: none;
   justify-content: center;
   align-items: center;
@@ -84,10 +84,10 @@ body {
   cursor: move;
   transition: opacity 1s ease;
   transition: 300ms ease-in-out;
-  animation: fadeIn 1s ease-in; 
+  animation: fade-in 1s ease-in; 
 }
 
-.pickContainer.p2 {
+.pick-container.p2 {
   display: none;
   justify-content: center;
   align-items: center;
@@ -104,10 +104,10 @@ body {
   margin: 2vh;
   cursor: move;
   transition: opacity 1s ease;
-  animation: fadeIn 1s ease-in; 
+  animation: fade-in 1s ease-in; 
 }
 
-.pickContainer.p3 {
+.pick-container.p3 {
   display: none;
   justify-content: center;
   align-items: center;
@@ -124,7 +124,7 @@ body {
   cursor: move;
   transition: opacity 1s ease;
   transition: 300ms ease-in-out;
-  animation: fadeIn 1s ease-in; 
+  animation: fade-in 1s ease-in; 
 }
 
 
@@ -206,25 +206,6 @@ body {
   filter: brightness(0);
 }
 
-@keyframes fadeIn {  
-  from {
-      opacity:0;  
-  }  
-  
-  to {
-      opacity:1;  
-  }  
-}
-
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-  
-  100% {
-    opacity: 0;
-  }
-}
 
 .hide {
   transition: opacity 1s;
@@ -516,15 +497,6 @@ body {
   }
 }
 
-@keyframes fadeIn {  
-  from {  
-      opacity:0;  
-  }  
-
-  to {  
-      opacity:1;  
-  }  
-}
 @keyframes fade-out {
   0% {
     opacity: 1;
