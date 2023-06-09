@@ -9,8 +9,6 @@ let cardsPicked = 0; // counter when 3 cards are picked
 
 // Card selector counter
 let i = 0;
-// name of container card is dragged to
-let targetName;
 
 // Allows cards to be selectable and dragged to satisfied place
 let sourceContainerID = '';
@@ -152,7 +150,7 @@ function readCards (centerDiv) {
  * Cleans up the element <div> (assuming it has 1 child) where the cards are picked and creates and adds the elements in the
  * structure shown below. It also makes the bg image transparent.
  *
- *  <div class ='cardShow'>
+ *  <div class ='card-show'>
  *    <div class ='image'>
  *      <img href = "#" src='<imgsrc>'>
  *    </div>
@@ -180,7 +178,7 @@ function organizeCards (pick, fortune) {
 
   // add attributes
   fDescr.classList.add('read-fortune');
-  indCard.classList.add('cardShow');
+  indCard.classList.add('card-show');
   indCardImageContainer.classList.add('image');
   indCardImage.setAttribute('href', '#');
   indCardImage.setAttribute('src', `/assets/${APP_NAME}/${fortune.image}.png`);

@@ -406,7 +406,7 @@ body {
 }
 
 /* 
- * css for reading.cardShows
+ * css for reading.card-shows
  */
 
 #center-div.container{
@@ -415,7 +415,7 @@ body {
   padding : 50px;  
 }
 
-.container .cardShow {
+.container .card-show {
   position: relative;
   max-width : 21vw;
   height : 41.5vh;  
@@ -430,11 +430,11 @@ body {
   animation: drop-in 1s ease 200ms backwards;
 }
 
-.container .cardShow:hover {
+.container .card-show:hover {
   height : 65vh;    
 }
 
-.container .cardShow .image {
+.container .card-show .image {
   position : relative;
   width : 20vw;
   height : 36vh;
@@ -443,11 +443,11 @@ body {
   z-index : 1;
 }
 
-.container .cardShow .image img {
+.container .card-show .image img {
   max-width : 100%;
 }
 
-.container .cardShow .content {
+.container .card-show .content {
   position : relative;
   top : -40px;
   padding : 10px 15px;
@@ -459,7 +459,7 @@ body {
 
 }
 
-.container .cardShow:hover .content {
+.container .card-show:hover .content {
   margin-top : 30px;
   visibility : visible;
   opacity : 1;
