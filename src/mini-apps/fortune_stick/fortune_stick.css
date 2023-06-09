@@ -6,10 +6,12 @@
 
 html {
     background: url('../../../assets/stick/background.png') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
+
+    /* -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover; */
+
 }
 
 body {
@@ -28,7 +30,7 @@ body {
 .heading h1 {
     color: white;
     font-size: 42px;
-    font-family: "Chinese Shanghai Demo";
+    font-family: "Chinese Shanghai Demo", sans-serif;
 }
 
 /* styling for category selection */
@@ -68,8 +70,8 @@ body {
 }
 
 .card h2 {
-    margin: 0px;
-    font-family: "Chinese Shanghai Demo";
+    margin: 0;
+    font-family: "Chinese Shanghai Demo", sans-serif;
 }
 
 /* styling for fortune display */
@@ -165,7 +167,7 @@ body {
 .choose-card {
     left: 5000;
     top: 500;
-    animation-name: moveAndTurn;
+    animation-name: move-and-turn;
     animation-duration: 1s;
     animation-fill-mode: forwards;
 }
@@ -180,13 +182,7 @@ body {
     width: 90%;
 }
 
-@keyframes moveAndTurn {
-    0% {}
-
-    50% {
-        /*transform: translateX(-50%);*/
-    }
-
+@keyframes move-and-turn {
     100% {
         transform: translate(0, 0) rotateY(90deg);
     }
