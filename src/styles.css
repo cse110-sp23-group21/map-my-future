@@ -38,7 +38,12 @@ body {
     transition: transform 0.3s;
 }
 
-.location:hover {
+/* Location Hover & Select Effect */
+.location[hoverable="true"]:hover {
+    fill: rgb(98, 173, 173);
+}
+
+.location[toggle-by="true"] {
     fill: rgb(98, 173, 173);
 }
 

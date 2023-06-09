@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Retrieve selected location name.
       locationName = location.getAttribute('data-location');
 
-      // Side panel click constraint - click on the same location to close the side panel.
+      // When side panel is close, click from any locations can open it.
       if (panelState === 'inactive') {
         panelState = 'active';
         location.setAttribute('toggle-by', 'true');
@@ -75,12 +75,24 @@ document.addEventListener('DOMContentLoaded', () => {
           sidePanel.style.backgroundImage = 'url(../assets/side-coin.png)';
           panelLayout.style.marginTop = '40%';
         }
+        
+        // Disable mouse hover for all locations when one gets selected.
+        for (const loc of locations) {
+          loc.setAttribute('hoverable', 'false');
+        }
+
+      // When side panel is open, only click from the selected location can close it.
       } else {
         if (location.getAttribute('toggle-by') === 'true') {
           panelState = 'inactive';
           location.setAttribute('toggle-by', 'false');
           sidePanel.style.backgroundImage = 'none';
           document.querySelector('.main').classList.toggle('side-panel-open');
+
+          // Enable mouse hover for all locations when one gets de-selected.
+          for (const loc of locations) {
+            loc.setAttribute('hoverable', 'true');
+          }
         }
       }
     });
