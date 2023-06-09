@@ -40,7 +40,7 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: rgba(black);
-    text-shadow: 1px 0 10px rgb(43, 0, 255);
+    text-shadow: 1px 0 10px rgb(55, 40, 130);
     transform: scale(0.94);
     animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
 }

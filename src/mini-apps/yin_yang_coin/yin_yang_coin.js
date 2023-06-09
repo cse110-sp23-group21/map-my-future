@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         buttonElement.innerText = 'Toss Coins';
 
         // Update Content Screen
-        lineTxt.innerText = 'Record';
+        lineTxt.innerText = 'Record 0/6';
         lineTxt.style.fontSize = '3rem';
 
         instructionImg.style.display = 'none';
@@ -269,6 +269,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         tossCounter++;
         console.log('Tossing coins! tossCounter =', tossCounter);
 
+
         // UI Generation
 
         // Lines Animation
@@ -282,6 +283,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../../assets/coin/line-solid.PNG" alt="instruction image display failed."/>';
           }, 4500);
         }
+
+        // Update Record Counter
+        setTimeout(function () {
+          lineTxt.innerText = 'Record' + ' ' + tossCounter + '/6';
+        }, 5500)
 
         // Coin Rotation
 
