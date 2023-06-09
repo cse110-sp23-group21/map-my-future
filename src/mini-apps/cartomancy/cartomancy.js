@@ -10,6 +10,9 @@ let cardsPicked = 0; // counter when 3 cards are picked
 // Card selector counter
 let i = 0;
 
+// name of container card is dragged to
+let targetName;
+
 // Allows cards to be selectable and dragged to satisfied place
 let sourceContainerID = '';
 let droppedID = '';
