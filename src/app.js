@@ -1,5 +1,10 @@
 // Main page map JavaScript file
 
+// Background music
+const bgm = new Audio('../assets/Waltz-of-the-fortune-teller.mp3'); //  eslint-disable-line
+bgm.play();
+bgm.loop = true;
+
 // Wait for all DOM to be ready
 document.addEventListener('DOMContentLoaded', () => {
   /**
@@ -79,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Buttons
+  // Music/Info Buttons
   let musicEnabled = true;
   let showInfo = false;
   const musicButton = document.getElementById('music-button');

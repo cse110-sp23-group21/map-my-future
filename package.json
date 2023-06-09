@@ -1,15 +1,18 @@
 {
   "devDependencies": {
-    "jest": "^29.5.0"
+    "@babel/preset-env": "^7.22.4",
+    "jest": "^29.5.0",
+    "stylelint": "^15.7.0",
+    "stylelint-config-standard": "^33.0.0"
   },
   "scripts": {
     "test": "jest"
   },
   "semistandard": {
     "ignore": [
-        "dist/",
-        "docs/",
-        "dev-docs"
+      "dist/",
+      "docs/",
+      "dev-docs"
     ]
   }
 }
