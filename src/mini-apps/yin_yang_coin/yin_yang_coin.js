@@ -342,7 +342,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }, 3500);
 
         instructionTxt.style.animation = 'blurfadein 3s ease-in forwards';
-        instructionTxt.style.fontSize = '10vh';
+        instructionTxt.style.fontSize = '8vh';
         instructionTxt.style.margin = '0';
         instructionTxt.style.padding = '0';
         instructionTxt.style.display = 'block';
