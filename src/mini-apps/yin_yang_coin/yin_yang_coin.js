@@ -342,7 +342,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         }, 3500);
 
         instructionTxt.style.animation = 'blurfadein 3s ease-in forwards';
-        instructionTxt.style.fontSize = '3rem';
+        instructionTxt.style.fontSize = '10vh';
+        instructionTxt.style.margin = '0';
+        instructionTxt.style.padding = '0';
         instructionTxt.style.display = 'block';
         coinDisplay.style.display = 'none';
 
@@ -378,11 +380,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         character.innerHTML = '';
         intepretationTxt.innerHTML = '';
-        instructionTxt.innerHTML = 'Instruction';
+        instructionTxt.innerHTML = 'Possible Combinations';
         lineTxt.innerHTML = 'Side Info';
 
         character.className = 'inactive';
         instructionTxt.style.fontSize = '2rem';
+        instructionTxt.style.margin = '';
+        instructionTxt.style.padding = '';
         instructionTxt.style.animation = 'none';
         instructionImg.style.display = 'inline-block';
         intepretationTxt.style.display = 'none';

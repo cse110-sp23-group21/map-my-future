@@ -139,11 +139,15 @@ span:nth-child(3) {
     grid-template-columns: 1fr 2fr;
 }
 
+.content-grid {
+    grid-template-rows: min-content min-content min-content;
+}
+
 /* Design the side grid with the 15% gap between each line (i.e straight line and broken line */
 .side-grid {
     display: grid;
     gap: 15%;
-
+    
     /*  StackOverflow reference: https://stackoverflow.com/questions/44488357/equal-height-rows-in-css-grid-layout  */
     grid-auto-rows: 1fr;
 }
@@ -159,6 +163,11 @@ span:nth-child(3) {
 #instructions {
     background-color: rgba(128, 128, 128, 50%);
     border-radius: 10px;
+}
+
+/* Design the instruction text */
+#instruction-text {
+    font-size: 2rem;
 }
 
 /* Content Display */
@@ -180,10 +189,10 @@ span:nth-child(3) {
     height: auto;
 }
 
-/* Make an animation for the  */
+/* Make an animation for the interpretation text */
 #interpretation-text {
     display: none;
-    font-size: 2vh;
+    font-size: 3vh;
     margin-bottom: 0%;
     animation: blurfadein 3s ease-in forwards;
 }
@@ -196,8 +205,8 @@ span:nth-child(3) {
 /* Chinese character with animation and new font style */
 .active {
     display: flex;
-    margin-top: -2%;
-    margin-bottom: 10%;
+    margin-top: auto;
+    margin-bottom: auto;
     align-items: center;
     justify-content: center;
     color: black;
