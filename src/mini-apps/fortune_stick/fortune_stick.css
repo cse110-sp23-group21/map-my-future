@@ -1,4 +1,6 @@
-/* styling for page */
+
+/* Styling for full page */
+
 @font-face {
     font-family: "Chinese Shanghai Demo";
     src: url('../../../assets/stick/ChineseShangaiDemoVersionRegular.ttf');
@@ -20,6 +22,8 @@ body {
     font-family: 'Luxurious Script', cursive;
 }
 
+/* Styling for center display */
+
 .center-div {
     display: flex;
     flex-direction: column;
@@ -33,7 +37,7 @@ body {
     font-family: "Chinese Shanghai Demo", sans-serif;
 }
 
-/* styling for category selection */
+/* Styling for category cards */
 
 .categories {
     display: flex;
@@ -74,7 +78,7 @@ body {
     font-family: "Chinese Shanghai Demo", sans-serif;
 }
 
-/* styling for fortune display */
+/* Styling for displaying received fortune */
 
 .display-fortune {
     opacity: 0;
@@ -114,7 +118,8 @@ body {
     opacity: 1;
 }
 
-/* styling for buttons */
+/* Styling for buttons */
+
 .button-container-bottom-right {
     position: fixed;
     bottom: 20px;
@@ -150,7 +155,8 @@ body {
     background-color: #857557;
 }
 
-/* styling for info pop up screen */
+/* Styling for info pop up screen */
+
 .info-popup {
     display: none;
     position: fixed;
@@ -164,6 +170,13 @@ body {
     justify-content: center;
 }
 
+.info-text {
+    color: white;
+    width: 90%;
+}
+
+/* Styling for card selection animation */
+
 .choose-card {
     left: 5000;
     top: 500;
@@ -175,11 +188,6 @@ body {
 .remove-card {
     transition: transform 0.8s;
     visibility: transparent;
-}
-
-.info-text {
-    color: white;
-    width: 90%;
 }
 
 @keyframes move-and-turn {

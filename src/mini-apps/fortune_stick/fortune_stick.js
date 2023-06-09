@@ -1,39 +1,61 @@
-// all driver code should be within this event listener, ie adding other event listeners and calling on imported engine
+
+/*  Steps:
+
+1. After selecting the Fortune Sticks continent, the user is greeted with the Fortune Sticks 
+   application with the title, and 4 fortune categories to select from. There are also menu buttons
+   on the corners of the screen to toggle music, return home, and receive more info.
+2. Once the user clicks on one of the 4 categories (career, wealth, health, relationship), the card
+   has an animation, and the cards fade out and disappear.
+3. The fortune received for the user's category is then displayed in a text writing animation, and a
+   reset button appears if the user would like to receive another fortune.
+4. Clicking on the reset button then resets the page to the initial start state of the page.
+
+*/
+
+/* Imports */
 
 import FortuneEngine from '../../engine.js';
 
-const engine = new FortuneEngine();
+/* Global variables */
 const APP_NAME = 'fortune_stick';
-
-let selectedCategory = '';
 const TYPING_SPEED = 35;
 
+const engine = new FortuneEngine();
+const bgm = new Audio('../../../assets/stick/bgm-background.mp3'); //  eslint-disable-line
+const categories = ['career', 'wealth', 'health', 'relationship'];
+
+let selectedCategory = '';
+let musicEnabled = true;
+let showInfo = false;
+
+/* Waiting for DOM to have loaded */
 document.addEventListener('DOMContentLoaded', async () => {
-  // Read JSON File
+
+  /* Read JSON File */
+
   await engine.db_reader(`./${APP_NAME}.json`);
 
-  // Background music
-  const bgm = new Audio('../../../assets/stick/bgm-background.mp3'); //  eslint-disable-line
-  bgm.play();
-  bgm.loop = true;
+  /* Play background music */
 
-  // Buttons
-  let musicEnabled = true;
-  let showInfo = false;
+  let playMusic = bgm.play();
+  if (playMusic !== undefined) {
+    playMusic.then( () => {
+      bgm.loop = true;
+    }).catch( (err) => {
+      console.log(err);
+      musicEnabled = false;
+      const musicImg = document.querySelectorAll('img')[0];
+      musicImg.src = '../assets/audio_off.png';
+    });
+  }
+
+  /* Add event listeners to menu corner buttons */
+
   const musicButton = document.getElementById('music-button');
   const infoButton = document.getElementById('info-button');
-  const cardElements = document.querySelectorAll('.card');
+  const resetButton = document.getElementById('reset-button');
 
-  //  Add event listeners to the card elements
-  console.log('cardElements:', cardElements);
-
-  cardElements.forEach(cardElement => {
-    console.log("element's id:", cardElement.id);
-
-    cardElement.addEventListener('click', (e) => {
-      selectCategory(cardElement.id);
-    });
-  });
+  /* Music button */
 
   musicButton.addEventListener('click', (e) => {
     console.log('music');
@@ -48,21 +70,46 @@ document.addEventListener('DOMContentLoaded', async () => {
     musicEnabled = !musicEnabled;
   });
 
+  /* Info button */
+
   infoButton.addEventListener('click', (e) => {
     const infoPopup = document.getElementById('info-popup');
     infoPopup.style.display = !showInfo ? 'flex' : 'none';
     showInfo = !showInfo;
   });
 
-  // Reset Button
-  const resetButton = document.getElementById('reset-button');
+  /* Reset button */
+
   resetButton.addEventListener('click', (e) => {
     window.location.reload();
   });
+
+  /* Add event listeners to the card elements */
+
+  const cardElements = document.querySelectorAll('.card');
+
+  cardElements.forEach(cardElement => {
+    console.log("element's id:", cardElement.id);
+
+    cardElement.addEventListener('click', (e) => {
+      selectCategory(cardElement.id);
+    });
+  });
 });
 
-// Select category card
+/**
+ * Transitions from category selection to displaying received fortune. Uses the 
+ * chooseCardAnimation function to animate transition, and displayFortune function 
+ * to animate displaying the received fortune.
+ * @param {String} category string representing fortune category chosen
+ * @returns {boolean} whether or not the transition was successful
+ */ 
 function selectCategory (category) {
+  if (!categories.includes(category)) {
+    console.error('invalid category');
+    return false;
+  }
+
   chooseCardAnimation(category);
 
   selectedCategory = category;
@@ -80,6 +127,8 @@ function selectCategory (category) {
 
     displayFortune();
   }, 1000);
+
+  return true;
 }
 
 // Animates the card that is chosen and adds the choose-card class
