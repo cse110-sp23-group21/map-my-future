@@ -11,7 +11,7 @@ let cardsPicked = 0; // counter when 3 cards are picked
 let i = 0;
 
 // name of container card is dragged to
-let targetName;
+let targetName; // eslint-disable-line
 
 // Allows cards to be selectable and dragged to satisfied place
 let sourceContainerID = '';
