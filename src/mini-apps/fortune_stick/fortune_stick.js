@@ -133,19 +133,36 @@ function selectCategory (category) {
 
 // Animates the card that is chosen and adds the choose-card class
 // Currently only just spins it, hopefully also centers it later
+
+/**
+ * Animates category card selection, enabling choose-card class on selected
+ * card element for CSS keyframe animation
+ * @param {String} category string representing fortune category chosen
+ * @returns {boolean} whether or not the animation was succesful
+ */
 function chooseCardAnimation (category) {
+  if (!categories.includes(category)) {
+    console.error('invalid category');
+    return false;
+  }
+
   const cardElement = document.getElementById(`${category}`);
 
   cardElement.style.pointerEvents = 'none';
   cardElement.classList.toggle('choose-card');
-  // get the center of the parent for a later animationk
-  // let relCenterCoord = document.getElementsByClassName('categories').offsetWidth / 2;
-
-  // can get position with the following
-  // console.log(document.getElementById(`${category}`).offsetLeft);
+  
+  return true;
 }
 
+/**
+ * Displays the fortune received by FortuneEngine. Plays the audio for receiving fortune,
+ * and animates the text shown with a typing animation
+ * @returns {boolean} whether or not the display was successful;
+ */
 function displayFortune () {
+
+  /* Obtaining elements and displaying fortune */
+
   const container = document.getElementsByClassName('display-fortune')[0];
   const resetButton = document.getElementsByClassName('reset-button-container')[0];
 
@@ -159,28 +176,24 @@ function displayFortune () {
   container.classList.add('show');
   resetButton.classList.add('show');
 
-  // clear any existing text
-  fortune.textContent = '';
+  /* Play fortune received audio effect */
 
-  let index = 0;
-
-  // create a new audio object
   const typingSound = new Audio('fortune_stick_reveal.ogg');
   typingSound.currentTime = 0;
   typingSound.play();
-  // set up the typing effect
+
+  /* Typing animation */
+
+  fortune.textContent = '';
+  let index = 0;
+
   const typingInterval = setInterval(() => {
-    // add the next character to the textContent
     fortune.textContent += receivedFortune[index];
-
-    // play the typing sound
-    // typingSound.currentTime = 0; // reset sound to start
-    // typingSound.play();
-
     index++;
-    // if we've displayed the whole message, clear the interval
     if (index >= receivedFortune.length) {
       clearInterval(typingInterval);
     }
-  }, TYPING_SPEED); // this value controls the typing speed, adjust as desired
+  }, TYPING_SPEED);
+
+  return true;
 }
