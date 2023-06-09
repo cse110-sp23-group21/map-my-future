@@ -39,8 +39,8 @@ h1 {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #000;
-    text-shadow: 1px 0 10px rgb(255, 255, 255);
+    color: rgba(black);
+    text-shadow: 1px 0 10px rgb(43, 0, 255);
     transform: scale(0.94);
     animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
 }
@@ -154,14 +154,14 @@ span:nth-child(3) {
 
 /* Design the side grid with 5% gap with the instruction grid */
 #side {
-    background-color: rgba(128, 128, 128, 50%);
+    background-color: rgba(92, 83, 103, 0.6);
     margin-right: 5%;
     border-radius: 10px;
 }
 
 /* Design the instruction grid */
 #instructions {
-    background-color: rgba(128, 128, 128, 50%);
+    background-color:  rgba(92, 83, 103, 0.6);
     border-radius: 10px;
 }
 
@@ -329,8 +329,8 @@ span:nth-child(3) {
 .action-button {
     padding: 2vh 3vw;
     border: none;
-    background-color: rgba(128, 128, 128, 50%);
-    color: #000;
+    background-color: rgba(92, 83, 103, 0.9);
+    color: #ffffff;
     cursor: pointer;
     border-radius: 20px;
     font-size: 1.2rem;
@@ -341,7 +341,7 @@ span:nth-child(3) {
 
 /* Make a button background color become darker to let the user know they hover to the button */
 .action-button:hover{
-    background-color: rgba(66, 45, 35, 70%);
+    background-color: rgba(66, 45, 35, 80%);
     color: white;
 }
 

@@ -391,7 +391,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         instructionImg.style.display = 'inline-block';
         intepretationTxt.style.display = 'none';
 
-        contentGrid.style.display = 'inline';
+        contentGrid.style.display = '';
 
         // Update Side Screen
         lineTxt.style.fontSize = '2rem';
