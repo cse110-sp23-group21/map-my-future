@@ -1,13 +1,19 @@
+/*  Specify Hexagram Chinese name font-face (calligraphy)   */
+@font-face {
+    font-family: Badhead;
+    src: url('../../../assets/badhead.ttf') format('truetype');
+}
+
 /* General Page Layout & Style */
 body {
     margin: 0;
-    background: url("assets/home/background.jpeg") no-repeat center center fixed;
+    background: url("../assets/background.jpg") no-repeat center center fixed;
     background-size: cover;
 }
 
 .main {
     display: grid;
-    grid-template-columns: 77% 23%;
+    grid-template-columns: 70% 30%;
     height: 100vh;
     overflow: hidden;
 }
@@ -18,11 +24,11 @@ body {
 }
 
 .title {
-    font-family: cursive;
-    font-size: 10vh;
+    font-family: Badhead;
+    font-size: 15vh;
     font-weight: 700;
     color: gold;
-    text-shadow: 1px 0 10px rgb(0, 0, 0);
+    text-shadow: 1vh 0.5vh 1vh rgb(0, 0, 0);
     padding-left: 5vh;
 }
 
@@ -39,21 +45,22 @@ body {
 }
 
 /* Location Hover & Select Effect */
-.location[hoverable="true"]:hover {
-    fill: rgb(98, 173, 173);
+.location[toggle-by="true"] {
+    fill: rgb(44, 211, 211);
 }
 
-.location[toggle-by="true"] {
-    fill: rgb(98, 173, 173);
+.location:hover {
+    fill: rgb(44, 211, 211);
+    cursor: pointer;
 }
 
 /* Side Panel Layout & Style */
 .side-panel {
     display: none;
-    width: 25vw;
+    width: 30vw;
     height: 100vh;
     flex-shrink: 0;
-    padding: 20px;
+    padding: 2vh;
     color: #fff;
     background: rgb(244, 244, 242);
     background-size: cover;
@@ -66,13 +73,13 @@ body {
 }
 
 .layout {
-    width: 20vw;
+    width: 26vw;
     margin-top: 60%;
     padding: 1vh;
-    border-radius: 2%;
+    border-radius: 2vh;
     background-color: rgba(0, 0, 0, 60%);
     display: grid;
-    gap: 10%;
+    gap: 13%;
 }
 
 #instruction-text {

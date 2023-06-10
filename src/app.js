@@ -3,14 +3,44 @@
 // Wait for all DOM to be ready
 document.addEventListener('DOMContentLoaded', () => {
   /**
-   * Stores the current state side panel. Default to 'inactive'. Turn to 'active' when side panel open.
+   * Stores the current state of info screen.
    */
-  let panelState = 'inactive';
+  let showInfo = false;
+
+  /**
+   * Stores the current state of main page music.
+   */
+  let musicEnabled = true;
 
   /**
    * Stores the selected location name.
    */
   let locationName = '';
+
+  /**
+   * Stores the previous selected location name.
+   */
+  let previousLocationName = '';
+
+  /**
+   * Stores the current state of side panel. Default to 'inactive'. Turn to 'active' when side panel open.
+   */
+  let panelState = 'inactive';
+
+  /**
+   * DOM access to music enable button.
+   */
+  const musicButton = document.getElementById('music-button');
+
+  /**
+   * DOM access to info display button.
+   */
+  const infoButton = document.getElementById('info-button');
+
+  /**
+   * DOM access to mini-app navigation button on the side panel.
+   */
+  const enterButton = document.querySelector('.enter-button');
 
   /**
    * List of 4 DOM access to map locations.
@@ -33,6 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const instructionTxt = document.getElementById('instruction-text');
 
   /**
+   * Side panel open/switch/close sound effect.
+   * @type {Audio}
+   */
+  const sideAudio = new Audio('../assets/bgm-side.wav'); 
+
+  /**
    * Background music audio.
    * @type {Audio}
    */
@@ -43,67 +79,83 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * Listen to click event for the each location section on the map.
    * Display the corresponding side instruction screen.
+   * Play side panel sound effect.
    *
    * @listens location#click
    */
   locations.forEach(location => {
     location.addEventListener('click', () => {
+      // Play side panel sound effect for every click
+      sideAudio.play();
+
       // Retrieve selected location name.
       locationName = location.getAttribute('data-location');
 
-      // When side panel is close, click from any locations can open it.
+      // When no continent is selected, this click would open the side panel.
       if (panelState === 'inactive') {
+        // Update corresponding variable state
         panelState = 'active';
+        previousLocationName = locationName;
         location.setAttribute('toggle-by', 'true');
         document.querySelector('.main').classList.toggle('side-panel-open');
 
-        // Update instruction content & background to the selected location
+        // Update instruction content & background to the selected location.
         if (locationName === 'Molybdomancy') {
-          instructionTxt.innerHTML = 'Molybdomancy is a traditional divination practice that involves the interpretation of shapes and symbols formed by molten metal, usually lead or tin, when poured into cold water. </br></br> In this method of fortune-telling, you will click to melt the solid tin and observe the transformed shape. </br></br> An interpretation will be provided at the end of each round. </br> </br>';
-          sidePanel.style.backgroundImage = 'url(assets/home/side-moly.png)';
+          instructionTxt.innerHTML = 'Molybdomancy is a traditional divination practice that involves the interpretation of shapes and symbols formed by molten metal, usually lead or tin, when poured into cold water. </br></br> In this method of fortune-telling, you will click to melt the solid tin and observe the transformed shape.';
+          sidePanel.style.backgroundImage = 'url(../assets/side-moly.png)';
           panelLayout.style.marginTop = '40%';
-        } else if (locationName === 'Fortune Stick') {
-          instructionTxt.innerHTML = 'Fortune sticks, also known as Chinese fortune sticks or divination sticks, are a traditional method of seeking guidance and insight from Chinese culture. </br></br> In this method of fortune-telling, you will click to shake the container and retrieve a single fortune stick. </br></br> An interpretation will be generated at the end of each round.';
-          sidePanel.style.backgroundImage = 'url(assets/home/side-stick.png)';
+        } else if (locationName === 'Fortune-Stick') {
+          instructionTxt.innerHTML = 'Fortune sticks, also known as Chinese fortune sticks or divination sticks, are a traditional method of seeking guidance and insight from Chinese culture. </br></br> In this method of fortune-telling, you will click to shake the container and retrieve a single fortune stick. </br></br> An intepretation would be generated at the end of each round.';
+          sidePanel.style.backgroundImage = 'url(../assets/side-stick.png)';
           panelLayout.style.marginTop = '60%';
         } else if (locationName === 'Cartomancy') {
-          instructionTxt.innerHTML = 'Cartomancy is a divination practice that uses a deck of playing cards to gain insights into the past, present, and future. </br></br> In this method of fortune-telling, you will draw 3 cards, 1 from each deck, via drag and drop at specific locations. </br></br> An interpretation will be shown at the end of each round.';
-          sidePanel.style.backgroundImage = 'url(assets/home/side-cart.png)';
-          panelLayout.style.marginTop = '50%';
+          instructionTxt.innerHTML = 'Cartomancy is a divination practice that uses a deck of playing cards to gain insights into the past, present, and future. </br></br> In this method of fortune-telling, you will randomly draw 3 cards, 1 from each deck, drag-and-drop them into card holder, then proceed to reveal the forune.';
+          sidePanel.style.backgroundImage = 'url(../assets/side-cart.png)';
+          panelLayout.style.marginTop = '40%';
         } else {
-          instructionTxt.innerHTML = 'The Yin Yang Coin is a traditional tool used for divination and decision-making. </br></br> In this method of fortune-telling, you will toss 3 coins 6 times to generate your Hexagram. </br> </br> Every toss will result in either a broken or a solid line, indicating Yin or Yang. Detail examples will be shown on the start page once enter. </br> </br> There are 64 hexagrams in total, each corresponds to a specific fortune. An interpretation will be provided at the end of each round. </br> </br>';
-          sidePanel.style.backgroundImage = 'url(assets/home/side-coin.png)';
+          instructionTxt.innerHTML = 'The Yin Yang Coin is a traditional tool used for divination and decision-making. </br></br> In this method of fortune-telling, you will toss 3 coins 6 times to generate your Hexagram. </br> </br> Every toss will result in either a broken or a solid line, indicating Yin or Yang. </br> </br> There are 64 hexagrams in total, each corresponds to a specific fortune.';
+          sidePanel.style.backgroundImage = 'url(../assets/side-coin.png)';
           panelLayout.style.marginTop = '40%';
         }
         
-        // Disable mouse hover for all locations when one gets selected.
-        for (const loc of locations) {
-          loc.setAttribute('hoverable', 'false');
-        }
-
-      // When side panel is open, only click from the selected location can close it.
+      // When a continent is currently selected
       } else {
-        if (location.getAttribute('toggle-by') === 'true') {
+        // Close the side panel if the click comes from the same location.
+        if(locationName === previousLocationName){
+          // Reset corresponding variable state
           panelState = 'inactive';
           location.setAttribute('toggle-by', 'false');
           sidePanel.style.backgroundImage = 'none';
           document.querySelector('.main').classList.toggle('side-panel-open');
+        } else {
+          // Switch panel content if the click comes from different location.
+          let previousLocation = document.querySelector(`[data-location=${previousLocationName}]`);
+          previousLocation.setAttribute('toggle-by', 'false');
+          location.setAttribute('toggle-by', 'true');
+          previousLocationName = locationName;
 
-          // Enable mouse hover for all locations when one gets de-selected.
-          for (const loc of locations) {
-            loc.setAttribute('hoverable', 'true');
+          // Update instruction content & background to the selected location.
+          if (locationName === 'Molybdomancy') {
+            instructionTxt.innerHTML = 'Molybdomancy is a traditional divination practice that involves the interpretation of shapes and symbols formed by molten metal, usually lead or tin, when poured into cold water. </br></br> In this method of fortune-telling, you will click to melt the solid tin and observe the transformed shape.';
+            sidePanel.style.backgroundImage = 'url(../assets/side-moly.png)';
+            panelLayout.style.marginTop = '40%';
+          } else if (locationName === 'Fortune-Stick') {
+            instructionTxt.innerHTML = 'Fortune sticks, also known as Chinese fortune sticks or divination sticks, are a traditional method of seeking guidance and insight from Chinese culture. </br></br> In this method of fortune-telling, you will click to shake the container and retrieve a single fortune stick. </br></br> An intepretation would be generated at the end of each round.';
+            sidePanel.style.backgroundImage = 'url(../assets/side-stick.png)';
+            panelLayout.style.marginTop = '60%';
+          } else if (locationName === 'Cartomancy') {
+            instructionTxt.innerHTML = 'Cartomancy is a divination practice that uses a deck of playing cards to gain insights into the past, present, and future. </br></br> In this method of fortune-telling, you will randomly draw 3 cards, 1 from each deck, drag-and-drop them into card holder, then proceed to reveal the forune.';
+            sidePanel.style.backgroundImage = 'url(../assets/side-cart.png)';
+            panelLayout.style.marginTop = '40%';
+          } else {
+            instructionTxt.innerHTML = 'The Yin Yang Coin is a traditional tool used for divination and decision-making. </br></br> In this method of fortune-telling, you will toss 3 coins 6 times to generate your Hexagram. </br> </br> Every toss will result in either a broken or a solid line, indicating Yin or Yang. </br> </br> There are 64 hexagrams in total, each corresponds to a specific fortune.';
+            sidePanel.style.backgroundImage = 'url(../assets/side-coin.png)';
+            panelLayout.style.marginTop = '40%';
           }
         }
       }
     });
   });
-
-  // Music & Info Buttons
-  let musicEnabled = true;
-  let showInfo = false;
-  const musicButton = document.getElementById('music-button');
-  const infoButton = document.getElementById('info-button');
-  const enterButton = document.querySelector('.enter-button');
 
   /**
    * Listen to click event for the enter button on side panel.
@@ -117,9 +169,9 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = './mini-apps/cartomancy/cartomancy.html';
     } else if (locationName === 'Molybdomancy') {
       window.location.href = './mini-apps/molybdomancy/molybdomancy.html';
-    } else if (locationName === 'Fortune Stick') {
+    } else if (locationName === 'Fortune-Stick') {
       window.location.href = './mini-apps/fortune_stick/fortune_stick.html';
-    } else if (locationName === 'Yin Yang Coin') {
+    } else if (locationName === 'Yin-Yang-Coin') {
       window.location.href = './mini-apps/yin_yang_coin/yin_yang_coin.html';
     }
   });
