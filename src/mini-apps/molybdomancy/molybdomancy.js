@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   let musicEnabled = true;
   let showInfo = false;
 
-  const meltSoundEffect = new Audio('fire-2-10-sec.mp3');
+  const meltSoundEffect = new Audio('../../assets/moly/bgm-melting.mp3');
   meltSoundEffect.volume = 0.7;
 
   meltButton.addEventListener('click', () => {
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   // Background music
-  const bgm = new Audio('../../../assets/moly/moly-bgm.mp3');
+  const bgm = new Audio('../../assets/moly/bgm-background.mp3');
   bgm.loop = true;
   bgm.volume = 0.4;
   bgm.play();
@@ -168,10 +168,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('music');
     const musicImg = document.getElementById('music');
     if (musicEnabled) {
-      musicImg.src = '../../../assets/audio_off.png';
+      musicImg.src = '../../assets/audio_off.png';
       bgm.pause();
     } else {
-      musicImg.src = '../../../assets/audio_on.png';
+      musicImg.src = '../../assets/audio_on.png';
       bgm.play();
     }
     musicEnabled = !musicEnabled;

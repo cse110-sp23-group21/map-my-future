@@ -33,10 +33,10 @@ import FortuneEngine from '../../engine.js';
 function setMusicState (bgm, newState) {
   const musicImg = document.getElementById('music');
   if (!newState) {
-    musicImg.src = '../../../assets/audio_off.png';
+    musicImg.src = '../../assets//audio_off.png';
     bgm.pause();
   } else {
-    musicImg.src = '../../../assets/audio_on.png';
+    musicImg.src = '../../assets/audio_on.png';
     bgm.play();
   }
   return newState;
@@ -167,13 +167,13 @@ document.addEventListener('DOMContentLoaded', async () => {
    * Background music object
    * @type {Audio}
    */
-  const bgm = new Audio('../../../assets/coin/bgm-background.mp3');
+  const bgm = new Audio('../../assets/coin/bgm-background.mp3');
 
   /**
    * Coin flip sound effect object
    * @type {Audio}
    */
-  const flipSound = new Audio('../../../assets/coin/bgm-coin-flip.ogg');
+  const flipSound = new Audio('../../assets/coin/bgm-coin-flip.ogg');
 
   //  Music and sound effect settings
   bgm.loop = true;
@@ -276,11 +276,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log(gridList[tossCounter]);
         if (coinResult.type === 'Yin') {
           setTimeout(function () {
-            gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../../assets/coin/line-broken.PNG" alt="instruction image display failed."/>';
+            gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../assets/coin/line-broken.PNG" alt="instruction image display failed."/>';
           }, 4500);
         } else {
           setTimeout(function () {
-            gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../../assets/coin/line-solid.PNG" alt="instruction image display failed."/>';
+            gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../assets/coin/line-solid.PNG" alt="instruction image display failed."/>';
           }, 4500);
         }
 
