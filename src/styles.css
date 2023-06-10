@@ -11,6 +11,10 @@ body {
     background-size: cover;
 }
 
+mask {
+    mask-type:luminance;
+}
+
 .main {
     display: grid;
     grid-template-columns: 70% 30%;
