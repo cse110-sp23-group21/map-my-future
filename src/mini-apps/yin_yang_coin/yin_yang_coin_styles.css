@@ -39,8 +39,8 @@ h1 {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #000;
-    text-shadow: 1px 0 10px rgb(255, 255, 255);
+    color: rgba(black);
+    text-shadow: 1px 0 10px rgb(55, 40, 130);
     transform: scale(0.94);
     animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
 }
@@ -139,26 +139,35 @@ span:nth-child(3) {
     grid-template-columns: 1fr 2fr;
 }
 
+.content-grid {
+    grid-template-rows: min-content min-content min-content;
+}
+
 /* Design the side grid with the 15% gap between each line (i.e straight line and broken line */
 .side-grid {
     display: grid;
     gap: 15%;
-
+    
     /*  StackOverflow reference: https://stackoverflow.com/questions/44488357/equal-height-rows-in-css-grid-layout  */
     grid-auto-rows: 1fr;
 }
 
 /* Design the side grid with 5% gap with the instruction grid */
 #side {
-    background-color: rgba(128, 128, 128, 50%);
+    background-color: rgba(92, 83, 103, 0.6);
     margin-right: 5%;
     border-radius: 10px;
 }
 
 /* Design the instruction grid */
 #instructions {
-    background-color: rgba(128, 128, 128, 50%);
+    background-color:  rgba(92, 83, 103, 0.6);
     border-radius: 10px;
+}
+
+/* Design the instruction text */
+#instruction-text {
+    font-size: 2rem;
 }
 
 /* Content Display */
@@ -180,10 +189,10 @@ span:nth-child(3) {
     height: auto;
 }
 
-/* Make an animation for the  */
+/* Make an animation for the interpretation text */
 #interpretation-text {
     display: none;
-    font-size: 2vh;
+    font-size: 3vh;
     margin-bottom: 0%;
     animation: blurfadein 3s ease-in forwards;
 }
@@ -196,8 +205,8 @@ span:nth-child(3) {
 /* Chinese character with animation and new font style */
 .active {
     display: flex;
-    margin-top: -2%;
-    margin-bottom: 10%;
+    margin-top: auto;
+    margin-bottom: auto;
     align-items: center;
     justify-content: center;
     color: black;
@@ -320,8 +329,8 @@ span:nth-child(3) {
 .action-button {
     padding: 2vh 3vw;
     border: none;
-    background-color: rgba(128, 128, 128, 50%);
-    color: #000;
+    background-color: rgba(92, 83, 103, 0.9);
+    color: #ffffff;
     cursor: pointer;
     border-radius: 20px;
     font-size: 1.2rem;
@@ -332,7 +341,7 @@ span:nth-child(3) {
 
 /* Make a button background color become darker to let the user know they hover to the button */
 .action-button:hover{
-    background-color: rgba(66, 45, 35, 70%);
+    background-color: rgba(66, 45, 35, 80%);
     color: white;
 }
 
