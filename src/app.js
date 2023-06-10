@@ -66,14 +66,14 @@ document.addEventListener('DOMContentLoaded', () => {
    * Side panel open/switch/close sound effect.
    * @type {Audio}
    */
-  const sideAudio = new Audio('../assets/bgm-side.wav'); 
+  const sideAudio = new Audio('../assets/bgm-side.wav'); //  eslint-disable-line
 
   /**
    * Background music audio.
    * @type {Audio}
    */
   const bgm = new Audio('../assets/Waltz-of-the-fortune-teller.mp3'); //  eslint-disable-line
-  
+
   // Initialize all sound property.
   sideAudio.volume = 0.4;
   bgm.play();
@@ -120,11 +120,11 @@ document.addEventListener('DOMContentLoaded', () => {
           sidePanel.style.backgroundImage = 'url(../assets/side-coin.png)';
           panelLayout.style.marginTop = '40%';
         }
-        
+
       // When a continent is currently selected
       } else {
         // Close the side panel if the click comes from the same location.
-        if(locationName === previousLocationName){
+        if (locationName === previousLocationName) {
           // Reset corresponding variable state
           panelState = 'inactive';
           location.setAttribute('toggle-by', 'false');
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
           document.querySelector('.main').classList.toggle('side-panel-open');
         } else {
           // Switch panel content if the click comes from different location.
-          let previousLocation = document.querySelector(`[data-location=${previousLocationName}]`);
+          const previousLocation = document.querySelector(`[data-location=${previousLocationName}]`);
           previousLocation.setAttribute('toggle-by', 'false');
           location.setAttribute('toggle-by', 'true');
           previousLocationName = locationName;
