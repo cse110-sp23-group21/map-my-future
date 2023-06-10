@@ -39,11 +39,11 @@ body {
 }
 
 /* Location Hover & Select Effect */
-.location[hoverable="true"]:hover {
+.location[toggle-by="true"] {
     fill: rgb(98, 173, 173);
 }
 
-.location[toggle-by="true"] {
+.location:hover {
     fill: rgb(98, 173, 173);
 }
 
