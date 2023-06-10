@@ -68,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   const sideAudio = new Audio('assets/home/bgm-side.wav'); 
 
-
   /**
    * Background music audio.
    * @type {Audio}
