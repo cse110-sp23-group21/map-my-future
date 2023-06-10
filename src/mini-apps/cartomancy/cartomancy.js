@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await engine.db_reader(`./${APP_NAME}.json`);
 
   // Background music
-  const bgm = new Audio('/assets/cartomancy-background-music.mp3'); //  eslint-disable-line
+  const bgm = new Audio('../../assets/cart/bgm-background.mp3'); //  eslint-disable-line
   bgm.play();
   bgm.loop = true;
 
@@ -68,11 +68,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('music');
     const musicImg = document.getElementById('music');
     if (musicEnabled) {
-      musicImg.src = '/assets/audio_off.png';
+      musicImg.src = '../../assets/audio_off.png';
       bgm.pause();
     }
     else {
-      musicImg.src = '/assets/audio_on.png';
+      musicImg.src = '../../assets/audio_on.png';
       bgm.play();
     }
     musicEnabled = !musicEnabled;
@@ -274,7 +274,7 @@ function organizeCards(pick, fortune) {
   indCard.classList.add('cardShow');
   indCardImageContainer.classList.add('image');
   indCardImage.setAttribute("href", "#"); 
-  indCardImage.setAttribute("src", `/assets/${APP_NAME}/${fortune['image']}.png`); 
+  indCardImage.setAttribute("src", `../../assets/cart/${fortune['image']}.png`); 
   content.classList.add('content');
 
 
