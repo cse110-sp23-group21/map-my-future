@@ -105,10 +105,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   let musicEnabled = true;
   let showInfo = false;
 
+  const actionButtonPressSoundEffect = new Audio('../../assets/moly/action-button-press1.wav');
+  const actionButtonHoverSoundEffect = new Audio('../../assets/moly/action-button-hover2.mp3');
+
   const meltSoundEffect = new Audio('../../assets/moly/bgm-melting.mp3');
   meltSoundEffect.volume = 0.7;
 
+  meltButton.addEventListener('mouseover', () => {
+    console.log('hover');
+    actionButtonHoverSoundEffect.play();
+  })
+
   meltButton.addEventListener('click', () => {
+    actionButtonPressSoundEffect.play();
+
     switch (meltButtonState) {
       case 'melt':
         meltButtonState = 'result';
