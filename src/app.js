@@ -73,6 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
    * @type {Audio}
    */
   const bgm = new Audio('../assets/Waltz-of-the-fortune-teller.mp3'); //  eslint-disable-line
+  
+  // Initialize all sound property.
+  sideAudio.volume = 0.4;
   bgm.play();
   bgm.loop = true;
 
