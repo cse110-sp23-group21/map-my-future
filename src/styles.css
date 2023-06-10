@@ -1,13 +1,13 @@
 /*  Specify Hexagram Chinese name font-face (calligraphy)   */
 @font-face {
     font-family: Badhead;
-    src: url('../../../assets/badhead.ttf') format('truetype');
+    src: url('assets/home/badhead.ttf') format('truetype');
 }
 
 /* General Page Layout & Style */
 body {
     margin: 0;
-    background: url("../assets/background.jpg") no-repeat center center fixed;
+    background: url("assets/home/background.jpg") no-repeat center center fixed;
     background-size: cover;
 }
 

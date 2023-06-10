@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * Side panel open/switch/close sound effect.
    * @type {Audio}
    */
-  const sideAudio = new Audio('../assets/bgm-side.wav'); 
+  const sideAudio = new Audio('assets/home/bgm-side.wav'); 
 
   /**
    * Background music audio.
@@ -102,19 +102,19 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update instruction content & background to the selected location.
         if (locationName === 'Molybdomancy') {
           instructionTxt.innerHTML = 'Molybdomancy is a traditional divination practice that involves the interpretation of shapes and symbols formed by molten metal, usually lead or tin, when poured into cold water. </br></br> In this method of fortune-telling, you will click to melt the solid tin and observe the transformed shape.';
-          sidePanel.style.backgroundImage = 'url(../assets/side-moly.png)';
+          sidePanel.style.backgroundImage = 'url(assets/home/side-moly.png)';
           panelLayout.style.marginTop = '40%';
         } else if (locationName === 'Fortune-Stick') {
           instructionTxt.innerHTML = 'Fortune sticks, also known as Chinese fortune sticks or divination sticks, are a traditional method of seeking guidance and insight from Chinese culture. </br></br> In this method of fortune-telling, you will click to shake the container and retrieve a single fortune stick. </br></br> An intepretation would be generated at the end of each round.';
-          sidePanel.style.backgroundImage = 'url(../assets/side-stick.png)';
+          sidePanel.style.backgroundImage = 'url(assets/home/side-stick.png)';
           panelLayout.style.marginTop = '60%';
         } else if (locationName === 'Cartomancy') {
           instructionTxt.innerHTML = 'Cartomancy is a divination practice that uses a deck of playing cards to gain insights into the past, present, and future. </br></br> In this method of fortune-telling, you will randomly draw 3 cards, 1 from each deck, drag-and-drop them into card holder, then proceed to reveal the forune.';
-          sidePanel.style.backgroundImage = 'url(../assets/side-cart.png)';
+          sidePanel.style.backgroundImage = 'url(assets/home/side-cart.png)';
           panelLayout.style.marginTop = '40%';
         } else {
           instructionTxt.innerHTML = 'The Yin Yang Coin is a traditional tool used for divination and decision-making. </br></br> In this method of fortune-telling, you will toss 3 coins 6 times to generate your Hexagram. </br> </br> Every toss will result in either a broken or a solid line, indicating Yin or Yang. </br> </br> There are 64 hexagrams in total, each corresponds to a specific fortune.';
-          sidePanel.style.backgroundImage = 'url(../assets/side-coin.png)';
+          sidePanel.style.backgroundImage = 'url(assets/home/side-coin.png)';
           panelLayout.style.marginTop = '40%';
         }
         
@@ -137,19 +137,19 @@ document.addEventListener('DOMContentLoaded', () => {
           // Update instruction content & background to the selected location.
           if (locationName === 'Molybdomancy') {
             instructionTxt.innerHTML = 'Molybdomancy is a traditional divination practice that involves the interpretation of shapes and symbols formed by molten metal, usually lead or tin, when poured into cold water. </br></br> In this method of fortune-telling, you will click to melt the solid tin and observe the transformed shape.';
-            sidePanel.style.backgroundImage = 'url(../assets/side-moly.png)';
+            sidePanel.style.backgroundImage = 'url(assets/home/side-moly.png)';
             panelLayout.style.marginTop = '40%';
           } else if (locationName === 'Fortune-Stick') {
             instructionTxt.innerHTML = 'Fortune sticks, also known as Chinese fortune sticks or divination sticks, are a traditional method of seeking guidance and insight from Chinese culture. </br></br> In this method of fortune-telling, you will click to shake the container and retrieve a single fortune stick. </br></br> An intepretation would be generated at the end of each round.';
-            sidePanel.style.backgroundImage = 'url(../assets/side-stick.png)';
+            sidePanel.style.backgroundImage = 'url(assets/home/side-stick.png)';
             panelLayout.style.marginTop = '60%';
           } else if (locationName === 'Cartomancy') {
             instructionTxt.innerHTML = 'Cartomancy is a divination practice that uses a deck of playing cards to gain insights into the past, present, and future. </br></br> In this method of fortune-telling, you will randomly draw 3 cards, 1 from each deck, drag-and-drop them into card holder, then proceed to reveal the forune.';
-            sidePanel.style.backgroundImage = 'url(../assets/side-cart.png)';
+            sidePanel.style.backgroundImage = 'url(assets/home/side-cart.png)';
             panelLayout.style.marginTop = '40%';
           } else {
             instructionTxt.innerHTML = 'The Yin Yang Coin is a traditional tool used for divination and decision-making. </br></br> In this method of fortune-telling, you will toss 3 coins 6 times to generate your Hexagram. </br> </br> Every toss will result in either a broken or a solid line, indicating Yin or Yang. </br> </br> There are 64 hexagrams in total, each corresponds to a specific fortune.';
-            sidePanel.style.backgroundImage = 'url(../assets/side-coin.png)';
+            sidePanel.style.backgroundImage = 'url(assets/home/side-coin.png)';
             panelLayout.style.marginTop = '40%';
           }
         }
