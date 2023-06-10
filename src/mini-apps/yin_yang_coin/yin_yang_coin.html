@@ -2,16 +2,19 @@
 <html>
 
 <head>
+    <!-- Title of the page -->
     <title>Yin Yang Mysterious World</title>
+    <!-- Link to the design of the HTML page -->
     <link rel="stylesheet" type="text/css" href="yin_yang_coin_styles.css">
-    <!-- <a href="https://www.flaticon.com/free-icons/yin-yang" title="yin yang icons">Yin yang icons created by Freepik - Flaticon</a> -->
-    <link rel="icon" type="image/png" href="yin-yang32x32.png">
-    <!-- <link rel="stylesheet" type="text/css" href="https://www.dafontfree.net/embed/c3R4aW5na2FpLXJlZ3VsYXImZGF0YS8xL3MvMjkxL2NoaW5lc2Uuc3R4aW5na2EudHRm"> -->
+    <!-- Create a favicon for the page -->
+    <link rel="icon" type="image/png" href="../../assets/coin/icon.png">
 </head>
 
 <body>
+    <!-- Create a container which holds the main grid -->
     <div class="container">
         <div class="grid">
+            <!-- Create a top grid which holds the title of the page -->
             <div class="top-grid">
                 <h1>
                     <span>Welcome to</span>
@@ -19,13 +22,13 @@
                     <span>Mysterious World</span>
                 </h1>
             </div>
-
+            
+            <!-- Create a middle grid which holds the side screen and content screen -->
             <div class="middle-grid">
                 <!-- Side Screen -->
                 <section id="side">
-                    <!-- <p id="line-text">Line Rep.</p> -->
                     <p id="line-text">Line Representation</p>
-                    <img class="line-image" src="../../../assets/coin/instruction-line.png" alt="instruction image display failed.">
+                    <img class="line-image" src="../../assets/coin/instruction-line.png" alt="instruction image display failed.">
                     <div class="side-grid">
                         <div class="side-grid-element"></div>
                         <div class="side-grid-element"></div>
@@ -40,11 +43,12 @@
                 <section id="instructions">
                     <div class="content-grid">
                         <p id="instruction-text">Possible Combinations</p>
-                        <img id="instruction-image" src="../../../assets/coin/instruction-coin.png" alt="instcution image display failed.">
+                        <img id="instruction-image" src="../../assets/coin/instruction-coin.png" alt="instcution image display failed.">
                         <p id="character" class="inactive"></p>
                         <p id="interpretation-text"></p>
                     </div>
-                    <!-- Coin SVG -->
+                    
+                    <!-- Create 3 Yin Yang Coins -->
                     <div class="coin-display">
                         <svg class="coins" width="200" height="200" viewBox="0 0 200 200" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -269,25 +273,31 @@
                 </section>
             </div>
 
+            <!-- Bottom Grid which holds the "Start" button-->
             <div class="bottom-grid">
                 <button class="action-button" value="start">Start</button>
             </div>
         </div>
     </div>
 
-    <!-- Buttons -->
+    <!-- Other buttons on the left side -->
     <div class="button-container-bottom-left">
+        <!-- Music button for the miniapp -->
         <a href="#" id="music-button" class="menu-button">
-            <img src="../../../assets/audio_on.png" id="music" alt="Music">
+            <img src="../../assets/audio_on.png" id="music" alt="Music">
         </a>
+
+        <!-- Home button to go back to the main page-->
         <a href="../../index.html" id="home-button" class="menu-button">
-            <img src="../../../assets/home.png" id="home" alt="Home">
+            <img src="../../assets/home.png" id="home" alt="Home">
         </a>
     </div>
 
+    <!-- Other buttons on the right side -->
     <div class="button-container-bottom-right">
+        <!-- Info button to show more information -->
         <a href="#" id="info-button" class="menu-button">
-            <img src="../../../assets/info.png" id="info" alt="Info">
+            <img src="../../assets/info.png" id="info" alt="Info">
         </a>
     </div>
 
@@ -303,7 +313,8 @@
             </p>        
         </div>
     </div>
+
+    <!-- Link to the JS file -->
     <script type="module" src="yin_yang_coin.js"></script>
 </body>
-
 </html>

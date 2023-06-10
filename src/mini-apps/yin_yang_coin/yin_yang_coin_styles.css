@@ -1,8 +1,10 @@
+/*  Import heading font-face    */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500&display=swap');
 
+/*  Specify Hexagram Chinese name font-face (calligraphy)   */
 @font-face {
     font-family: Xingkai;
-    src: url('../../../assets/coin/chinese.stxingka.ttf') format('truetype');
+    src: url('../../assets/coin/chinese.stxingka.ttf') format('truetype');
 }
 
 /*  @font-face {
@@ -13,11 +15,14 @@
         format("truetype");
 }   */
 
+/*  General selectors   */
+
+/* Body part design */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: url('../../../assets/coin/background.png') no-repeat center center fixed;
+    background: url('../../assets/coin/background.png') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -25,6 +30,7 @@ body {
     overflow: hidden;   /*  No scrollbars   */
 }
 
+/*  Heading Style & Animation */
 h1 {
     padding-bottom: 1%;
     font-size: 4vh;
@@ -33,8 +39,8 @@ h1 {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #000;
-    text-shadow: 1px 0 10px rgb(255, 255, 255);
+    color: rgba(black);
+    text-shadow: 1px 0 10px rgb(55, 40, 130);
     transform: scale(0.94);
     animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
 }
@@ -52,12 +58,14 @@ p {
     transition: color 1s ease 1s;
 }
 
+/* Create a scale for animation */
 @keyframes scale {
     100% {
         transform: scale(1);
     }
 }
 
+/* Create a fade-in animation */
 @keyframes fade-in {
     100% {
         opacity: 1;
@@ -65,20 +73,27 @@ p {
     }
 }
 
+/** 
+ * Create a span to hold the title of the page
+ * and animate the title.
+ */
 span {
     display: inline-block;
     opacity: 0;
     filter: blur(10px);
 }
 
+/* First span with 2 words "Welcome to", displays first */
 span:nth-child(1) {
     animation: fade-in 1s 0.2s forwards cubic-bezier(0.11, 0, 0.5, 0);
 }
 
+/* The second span holds 2 words "Yin Yang", displays after the first 2 words */
 span:nth-child(2) {
     animation: fade-in 1s 0.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
 }
 
+/* The last span holds last 2 words "Mysterious World", displays last */
 span:nth-child(3) {
     animation: fade-in 1s 0.8s forwards cubic-bezier(0.11, 0, 0.5, 0);
 }
@@ -92,6 +107,10 @@ span:nth-child(3) {
     height: 100vh;
 }
 
+/**
+ * Break the page into 8 parts of grid, which the top and bottom
+ * parts are 1/8 of the page, the middle part is 6/8 of the page.
+ */
 .grid {
     display: grid;
     grid-template-rows: 1fr 6fr 1fr;
@@ -100,6 +119,7 @@ span:nth-child(3) {
     text-align: center;
 }
 
+/* Align the top and bottom grid into the center */
 .top-grid,
 .bottom-grid {
     display: grid;
@@ -107,31 +127,47 @@ span:nth-child(3) {
     justify-content: center;
 }
 
+/** 
+ * Align the middle grid into the center and create another 
+ * grid inside the middle grid to hold the side and instruction
+ */
 .middle-grid {
+    display: grid;
     text-align: center;
     padding-left: 8%;
     padding-right: 8%;
-    display: grid;
-    grid-template-columns: 33% 67%;
+    grid-template-columns: 1fr 2fr;
 }
 
+.content-grid {
+    grid-template-rows: min-content min-content min-content;
+}
+
+/* Design the side grid with the 15% gap between each line (i.e straight line and broken line */
 .side-grid {
     display: grid;
     gap: 15%;
-
+    
     /*  StackOverflow reference: https://stackoverflow.com/questions/44488357/equal-height-rows-in-css-grid-layout  */
     grid-auto-rows: 1fr;
 }
 
+/* Design the side grid with 5% gap with the instruction grid */
 #side {
-    background-color: rgba(128, 128, 128, 50%);
+    background-color: rgba(92, 83, 103, 0.6);
     margin-right: 5%;
     border-radius: 10px;
 }
 
+/* Design the instruction grid */
 #instructions {
-    background-color: rgba(128, 128, 128, 50%);
+    background-color:  rgba(92, 83, 103, 0.6);
     border-radius: 10px;
+}
+
+/* Design the instruction text */
+#instruction-text {
+    font-size: 2rem;
 }
 
 /* Content Display */
@@ -140,20 +176,23 @@ span:nth-child(3) {
     height: auto;
 }
 
+/* Add animation for the line image */
 .animated-line-image {
     animation: fadein 3s ease;
     width: 63%;
     height: auto;
 }
 
+/* Side grid during the tossing moment. Each line will display one by one. */
 .line-image {
     width: 63%;
     height: auto;
 }
 
+/* Make an animation for the interpretation text */
 #interpretation-text {
     display: none;
-    font-size: 2vh;
+    font-size: 3vh;
     margin-bottom: 0%;
     animation: blurfadein 3s ease-in forwards;
 }
@@ -163,10 +202,11 @@ span:nth-child(3) {
     display: none;
 }
 
+/* Chinese character with animation and new font style */
 .active {
     display: flex;
-    margin-top: -2%;
-    margin-bottom: 10%;
+    margin-top: auto;
+    margin-bottom: auto;
     align-items: center;
     justify-content: center;
     color: black;
@@ -289,8 +329,8 @@ span:nth-child(3) {
 .action-button {
     padding: 2vh 3vw;
     border: none;
-    background-color: rgba(128, 128, 128, 50%);
-    color: #000;
+    background-color: rgba(92, 83, 103, 0.9);
+    color: #ffffff;
     cursor: pointer;
     border-radius: 20px;
     font-size: 1.2rem;
@@ -299,23 +339,27 @@ span:nth-child(3) {
     letter-spacing: 1px;
 }
 
+/* Make a button background color become darker to let the user know they hover to the button */
 .action-button:hover{
-    background-color: rgba(66, 45, 35, 70%);
+    background-color: rgba(66, 45, 35, 80%);
     color: white;
 }
 
+/* Info button position */
 .button-container-bottom-right {
     position: fixed;
     bottom: 20px;
     right: 20px;
 }
 
+/* Home and Music button position */
 .button-container-bottom-left {
     position: fixed;
     bottom: 20px;
     left: 20px;
 }
 
+/* Design the menu button */
 .menu-button {
     display: flex;
     justify-content: center;
@@ -329,12 +373,14 @@ span:nth-child(3) {
     overflow: hidden;
 }
 
+/* Make icons stay inside the circle of the button */
 .menu-button img {
     width: 30px;
     height: 30px;
     filter: brightness(0) invert(1);
 }
 
+/* Create an animation when we hover the mouse to the button */
 .menu-button:hover {
     background-color: rgba(66, 45, 35, 50%);
 }
@@ -353,7 +399,9 @@ span:nth-child(3) {
     justify-content: center;
 }
 
-.info-text p, .info-text h1 {
+/* Font size with color for the info text */
+.info-text p,
+.info-text h1 {
     color: white;
     width: 90%;
     font-size: 15px;

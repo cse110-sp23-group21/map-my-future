@@ -145,6 +145,7 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git pull
+          cp -r src/assets dist
           git add dist
           git commit -a -m "Minimized files" --allow-empty
       - name: Push changes
@@ -157,8 +158,20 @@ jobs:
     needs: run-minimizer
     runs-on: ubuntu-latest
 
+    permissions:
+      # Lets this job push the to the repository
+      contents: write
+
     steps:
         # Add Deploy code here
       - name: Deploy
         run: echo "Deploying..." 
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+            fetch-depth: 0
+      - name: Publish dist directory to GitHub Pages
+        uses: rayluo/github-pages-overwriter@v1.3
+        with:
+          source-directory: dist
       
