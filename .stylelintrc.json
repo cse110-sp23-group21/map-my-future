@@ -2,9 +2,9 @@
     "extends": ["stylelint-config-standard"],
     "rules": {
         "declaration-property-unit-allowed-list": {
-            "/border/": ["px", "%"],
+            "/border/": ["px", "%", "vh"],
             "letter-spacing": ["px"],
-            "text-shadow": ["px"]
+            "text-shadow": ["px", "vh"]
         },
         "property-no-vendor-prefix": null,
         "color-function-notation": "legacy",
