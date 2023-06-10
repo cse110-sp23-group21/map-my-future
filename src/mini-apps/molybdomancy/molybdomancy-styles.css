@@ -59,20 +59,6 @@ h1 {
     border: 1px solid;
     overflow: hidden;
     position: relative;
-
-    /* &:after {
-        background-color: #fff;
-        content: "";
-        height: 155px;
-        left: -75px;
-        opacity: .2;
-        position: absolute;
-        top: -50px;
-        transform: rotate(35deg);
-        transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
-        width: 50px;
-        z-index: -10;
-    } */
 }
 
 #melt-button::after {
@@ -88,14 +74,6 @@ h1 {
     width: 50px;
     z-index: -10;
 }
-
-/* #melt-button:hover {
-
-    &:after {
-        left: 120%;
-        transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
-    }
-} */
 
 #melt-button:hover::after {
     left: 120%;
@@ -118,7 +96,9 @@ h1 {
 {
     display: grid;
     grid-template-columns: auto auto auto;
-    margin: auto 5em auto 5em;
+    
+    /* margin: auto 5em auto 5em; Replaced with equivalent shorthand below */
+    margin: auto 5em;
 }
 
 .interpretation1 {
@@ -129,15 +109,8 @@ h1 {
     font-size: 4vw;
     font-weight: 200;
     margin: auto;
-    animation: fadeIn 1.25s ease-in;
-    /* color: #008cff; */
+    animation: fadein 1.25s ease-in;
     color: white;
-
-    /* text-shadow: 1px 1px rgb(186, 153, 3), 0 0 1em rgb(122, 14, 14), 0 0 0.2em red; */
-
-    /* text-shadow: 1px 1px 2px rgb(186, 153, 3); */
-    /* text-shadow: rgb(255, 140, 0) 1px 0 10px; */
-
     text-shadow: rgb(0, 0, 0) 1px 0 10px;
 }
 
@@ -148,13 +121,9 @@ h1 {
     font-size: 4vh;
     font-weight: 400;
     margin: auto;
-    animation: fadeIn 1.25s ease-in;
+    animation: fadein 1.25s ease-in;
     color: #c8eee7;
-
     text-shadow: rgb(0, 0, 0) 1px 0 10px;
-
-    /* text-shadow: rgb(0, 0, 0) 0 0 -1rem; */
-    /* text-shadow: 1px 1px 2px blue, 0 0 1em rgb(122, 14, 14), 0 0 0.2em red; */
 }
 
 @keyframes fadein {
@@ -212,7 +181,7 @@ h1 {
     width: 400px;
     height: 400px;
     border-radius: 10%;
-    background-color: rgba(211, 221, 119, 0.87);
+    background-color: rgba(211, 221, 119, 87%);
     text-align: center;
     justify-content: center;
 }
