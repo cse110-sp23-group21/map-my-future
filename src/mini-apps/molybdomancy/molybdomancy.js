@@ -7,6 +7,7 @@
  */
 
 import FortuneEngine from '../../engine.js';
+import setMusicState from '../../autoplay.js';
 
 let elts = {};
 const texts = [
@@ -97,6 +98,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const infoButton = document.getElementById('info-button');
   const musicButton = document.getElementById('music-button');
+
+  /**
+   * Music on/off image element (part of general UI)
+   */
+  const musicImage = document.getElementById('music');
   const meltButton = document.querySelector('#melt-button');
   const resultTextShape = document.querySelector('.interpretation1');
   const resultTextMeaning = document.querySelector('.interpretation2');
@@ -171,20 +177,19 @@ document.addEventListener('DOMContentLoaded', async () => {
   const bgm = new Audio('../../assets/moly/bgm-background.mp3');
   bgm.loop = true;
   bgm.volume = 0.4;
-  bgm.play();
+  
+  //  Attempt to autoplay background music
+  bgm.play().then(() => {
+    //  Autoplay started!
+  }).catch(() => {
+    //  Autoplay failed - set music to off
+    musicEnabled = false;
+    setMusicState(bgm, musicImage, musicEnabled);
+  });
 
   // Music Button
   musicButton.addEventListener('click', (event) => {
-    console.log('music');
-    const musicImg = document.getElementById('music');
-    if (musicEnabled) {
-      musicImg.src = '../../assets/audio_off.png';
-      bgm.pause();
-    } else {
-      musicImg.src = '../../assets/audio_on.png';
-      bgm.play();
-    }
-    musicEnabled = !musicEnabled;
+    musicEnabled = setMusicState(bgm, musicImage, !musicEnabled);
   });
 
   // Info Button
