@@ -1,7 +1,10 @@
 /* customize for mini app! styling for buttons and onwards should remain untouched. */
 
 /* styling for page */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500&display=swap');
+@font-face {
+  font-family: "Chinese Shanghai Demo";
+  src: url('/src/assets/cart/ChineseShangaiDemoVersionRegular.ttf');
+}
 
 /* container for all elements on card page */ 
 #card-display{
@@ -145,7 +148,7 @@ body {
   cursor: move;
   transition: opacity 1s ease;
   transition: 300ms ease-in-out;
-  animation: drop-in 1s ease 200ms backwards;; 
+  animation: drop-in 1s ease 200ms backwards;
 }
 
 
@@ -206,6 +209,8 @@ body {
   transition : 0.3s ease-in-out;
   border-radius : 15px;
   animation: drop-in 1s ease 200ms backwards;
+  text-align: center;
+  font-size: 1vw;
 }
 
 .container .card-show:hover {
@@ -336,6 +341,7 @@ body {
   transition: 300ms ease-in-out;
   backface-visibility: visible !important;
   animation: none; 
+  border-radius: 5px;
 }
 
 .card1 + .card1, .card3 + .card3{
@@ -418,7 +424,8 @@ body {
   cursor: pointer;
   display: inline-block;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 3vh;
+  font-size: 1.8vw; 
   font-family: 'Noto Serif', serif;
   padding: 0 18px;
   line-height: 50px;
@@ -426,6 +433,8 @@ body {
   text-decoration: none;
   user-select: none;
   touch-action: manipulation;
+  width: 6vw; 
+  height: 5vh; 
 }
 
 .start-button:hover {
@@ -473,6 +482,9 @@ body {
   background-color: #846e43;
   text-align: center;
   justify-content: center;  
+  size-adjust: auto;
+  font-size: .85vw; 
+  font-size: 1.5vh; 
 }
 
 .choose-card { 

@@ -32,7 +32,7 @@ const card3s = document.querySelectorAll('.card3');
 const pickContainer1 = document.getElementById('pick-container1');
 const pickContainer2 = document.getElementById('pick-container2');
 const pickContainer3 = document.getElementById('pick-container3');
-const actionButtonPressSound = new Audio('/src/assets/cart/bgm-side.wav');
+const cardPlaced = new Audio('/src/assets/cart/bgm-side.wav');
 const clickedButton = new Audio('/src/assets/cart/cartomancy-click-sound.mp3');
 const card1sArray = Array.from(card1s);
 const card2sArray = Array.from(card2s);
@@ -120,7 +120,7 @@ function dropped (e) {
       const droppedElement = card1sArray[i];
       droppedElement.style.animation = 'flip 2s ease';
       e.target.appendChild(card1sArray[i]);
-      actionButtonPressSound.play();
+      cardPlaced.play();
       droppedElement.draggable = false;
       console.log(droppedElement);
       cardsPicked++;
@@ -129,7 +129,7 @@ function dropped (e) {
       const droppedElement = card2sArray[i];
       droppedElement.style.animation = 'flip 2s ease';
       e.target.appendChild(card2sArray[i]);
-      actionButtonPressSound.play();
+      cardPlaced.play();
       droppedElement.draggable = false;
       cardsPicked++;
       i++;
@@ -137,7 +137,7 @@ function dropped (e) {
       const droppedElement = card3sArray[i];
       droppedElement.style.animation = 'flip 2s ease';
       e.target.appendChild(card3sArray[i]);
-      actionButtonPressSound.play();
+      cardPlaced.play();
       droppedElement.draggable = false;
       cardsPicked++;
       i++;
@@ -288,6 +288,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // button display:'flex' after 3 cards
   readFortuneButton.addEventListener('click', (e) => {
+    clickedButton.playbackRate = 2.5;
     clickedButton.play();
     pickContainer1.style.userSelect = 'auto';
     pickContainer1.style.pointerEvents = 'auto';
@@ -339,6 +340,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Reset Button
   const resetButton = document.getElementById('reset-button');
   resetButton.addEventListener('click', (e) => {
+    clickedButton.play(); 
     window.location.reload();
   });
 });
