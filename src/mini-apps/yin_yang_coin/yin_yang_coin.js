@@ -161,6 +161,24 @@ document.addEventListener('DOMContentLoaded', async () => {
    */
   const flipSound = new Audio('../../assets/coin/bgm-coin-flip.ogg');
 
+  /**
+   * Fortune reveal sound effect object
+   * @type {Audio}
+   */
+  const fortuneRevealSound = new Audio('../../assets/coin/hex-reveal.mp3');
+
+  /**
+   * Line reveal sound effect object
+   * @type {Audio}
+   */
+  const lineRevealSound = new Audio('../../assets/coin/line-reveal2.mp3');
+
+  /**
+   * Action button press sound effect object
+   * @type {Audio}
+   */
+  const actionButtonPressSound = new Audio('../../assets/coin/action-button-press4.wav');
+
   //  Music and sound effect settings
   bgm.loop = true;
   bgm.volume = 0.4;
@@ -207,6 +225,8 @@ document.addEventListener('DOMContentLoaded', async () => {
    * @listens buttonElement#click
    */
   buttonElement.addEventListener('click', (event) => {
+    actionButtonPressSound.play();
+
     const buttonElement = event.target;
     const buttonValue = buttonElement.value;
     console.log(buttonValue);
@@ -254,10 +274,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (coinResult.type === 'Yin') {
           setTimeout(function () {
             gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../assets/coin/line-broken.PNG" alt="instruction image display failed."/>';
+            lineRevealSound.play();
           }, 4500);
         } else {
           setTimeout(function () {
             gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../assets/coin/line-solid.PNG" alt="instruction image display failed."/>';
+            lineRevealSound.play();
           }, 4500);
         }
 
@@ -299,6 +321,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       case 'result':
         // Map hexagram to intepretation
+
+        fortuneRevealSound.play();
 
         /**
          * Resulting hexagram object

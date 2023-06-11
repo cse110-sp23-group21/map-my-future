@@ -103,8 +103,7 @@ document.addEventListener('DOMContentLoaded', async () => {
    * Music on/off image element (part of general UI)
    */
   const musicImage = document.getElementById('music');
-
-  const meltButton = document.querySelector('#meltButton');
+  const meltButton = document.querySelector('#melt-button');
   const resultTextShape = document.querySelector('.interpretation1');
   const resultTextMeaning = document.querySelector('.interpretation2');
 
@@ -112,10 +111,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   let musicEnabled = true;
   let showInfo = false;
 
+  const actionButtonPressSoundEffect = new Audio('../../assets/moly/action-button-press1.wav');
+  const actionButtonHoverSoundEffect = new Audio('../../assets/moly/action-button-hover2.mp3');
+
   const meltSoundEffect = new Audio('../../assets/moly/bgm-melting.mp3');
   meltSoundEffect.volume = 0.7;
 
+  meltButton.addEventListener('mouseover', () => {
+    console.log('hover');
+    actionButtonHoverSoundEffect.play();
+  });
+
   meltButton.addEventListener('click', () => {
+    actionButtonPressSoundEffect.play();
+
     switch (meltButtonState) {
       case 'melt':
         meltButtonState = 'result';
