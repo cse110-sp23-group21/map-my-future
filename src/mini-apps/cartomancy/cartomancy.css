@@ -12,8 +12,8 @@
 #intro {
   display: initial; 
   margin: auto;
-  width: 800px;
-  height: 800px;
+  width: 80vh;
+  height: 80vh;
   position: center; 
   background-image: url('../../assets/cart/instruction-image.png') ;
   background-size: cover;
@@ -22,7 +22,7 @@
   z-index: 1;
 }
 
-/* animation for introduction and deck of card*/ 
+/* animation for introduction and deck of card */ 
 .drop-in, .start-button, .deck{
   animation: drop-in 1s ease 200ms backwards;
 }
@@ -31,274 +31,17 @@
   animation: drop-in 1200ms ease 500ms backwards;
 }
 
-@keyframes drop-in {
-  from {
-    opacity: 0;
-    transform: translateY(-100px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(0px);
-  }
-}
-
 body {
   display : flex;
   align-items : center;
   justify-content : center;  
-  justify-content: fit;
-  /* background-color: rgb(178 29 29); */
-  background-image: url('../../assets/cart/background.jpeg');
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background: url('/assets/cartomancy/cartomancy-background.jpeg') no-repeat fixed;
   background-size: cover;
   font-family: 'Luxurious Script', cursive;
   overflow: hidden;
-  min-height : 800px;
-  /*font-family: "Chinese Shanghai Demo";*/
+  min-height : 80vh;
 }
 
-#center-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 85%;
-  height: 85%;
-  transition: ease;
-}
-
-/* styling for card deck */
-.deck {
-  display: flex;
-  position:relative; left:-125px; top: -46px;
-  justify-content: center;
-  flex-direction: row;
-  opacity: 1;
-  gap: 5px;
-  transition: opacity 1s ease;
-  animation: fadeIn 2s ease-in;
-}
-
-.pickContainer.p1 {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
-  background-image: url('../../assets/cart/card-holder.png');
-  background-position: center;
-  background-size: cover; 
-  position: absolute;
-  top: -2%;
-  right: 0;
-  width: 350px;
-  height: 320px;
-  color: white;
-  margin: 20px;
-  cursor: move;
-  transition: opacity 1s ease;
-  transition: 300ms ease-in-out;
-  animation: fadeIn 2s ease-in; 
-}
-
-.pickContainer.p2 {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  background-image: url('../../assets/cart/card-holder.png');
-  background-position: center;
-  background-size: cover; 
-  position: absolute;
-  top: 48%;
-  right: 0;
-  transform: translate(0, -50%);
-  width: 350px;
-  height: 320px;
-  color: white;
-  margin: 20px;
-  cursor: move;
-  transition: opacity 1s ease;
-  animation: fadeIn 2s ease-in; 
-
-}
-.pickContainer.p3 {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  background-image: url('../../assets/cart/card-holder.png');
-  background-position: center;
-  background-size: cover; 
-  position: absolute;
-  bottom: -2%;
-  right: 0;
-  width: 350px;
-  height: 320px;
-  color: white;
-  margin: 20px;
-  cursor: move;
-  transition: opacity 1s ease;
-  transition: 300ms ease-in-out;
-  animation: fadeIn 2s ease-in; 
-}
-
-.read-fortune-space {
-  position: fixed;
-  right: 375px;
-  display: none; /* toggled when 3 cards are selected */
-  justify-content: center;
-  align-items: center;
-  top: 44%;
-  width: 80px;
-  height: 80px;
-  text-decoration: none;
-  overflow: hidden;
-  background-color: #fbeee0;
-  border: 2px solid #422800;
-  border-radius: 30px;
-  box-shadow: #422800 4px 4px 0 0;
-  color: #422800;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 0 18px;
-  line-height: 50px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  transition: opacity 500ms ease-in-out;
-}
-
-#read-fortune-anchor {
-  max-width: 85%;
-  color: black;
-  transition: opacity 1s ease;
-  transition: 300ms ease-in-out;
-  border-radius: 120%;
-}
-
-#reset-button {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  width: 120px;
-  height: 60px;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Noto Serif', serif;
-  background-color: #fbeee0;
-  border: 2px solid #422800;
-  border-radius: 30px;
-  box-shadow: #422800 4px 4px 0 0;
-  color: #422800;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 25px;
-  padding: 0 18px;
-  line-height: 50px;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-#read-fortune-anchor img {
-  max-width: 100%;
-  filter: brightness(0) invert(1);
-}
-
-@keyframes fadeIn {  
-  from {  
-      opacity:0;  
-  }  
-
-  to {  
-      opacity:1;  
-  }  
-}
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-
-.hide {
-  transition: opacity 1s;
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* hide's cards but moving them out */
-.hide-cards { 
-  animation: animateDown 1.5s;
-}
-
-.card1, .card2, .card3 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url('../../assets/cart/card-back.png');
-  background-position: center;
-  background-size: cover; 
-  width: 180px;
-  height: 315px;
-  color: white;
-  margin: 20px;
-  cursor: move;
-  border: 1px solid black;
-  border-radius: 10px;
-  transition: opacity 1s ease;
-  transition: 300ms ease-in-out;
-}
-
-
-.card1 + .card1, .card3 + .card3{
-  margin-left: -14.5%; 
-}
-
-.card1:hover, .card2:hover, .card3:hover {
-  filter: brightness(0.8);
-  transform: rotate(-4deg); 
-  box-shadow: 0px 0px 20px #FFD700;
-  transition: 0.3s;
-}
-.card1:hover ~ .card1, .card2:hover ~ .card2, .card3:hover ~ .card3{
-  z-index: 1;
-  translate: 30px; 
-}
-
-.card2 + .card2{
-  margin-left: -14%; 
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
-}
-.overlay:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.box {
-  border: 3px solid #666; 
-  background-color: #ddd; 
-  border-radius: .5em; 
-  padding: 10px; 
-  cursor: move; 
-}
 /* styling for fortune display */
 
 .display-fortune {
@@ -316,19 +59,325 @@ body {
   opacity: 1;
 }
 
-.fortune-img img {
-  width: 250px;
-  height: 250px;
-}
-
 .fortune-text {
   width: 60%;
+}
+
+
+#center-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 85vh;
+  height: 85vh;
+  transition: ease;
+}
+
+/* styling for card deck */
+.deck {
+  display: flex;
+  position:relative; left:-12vh; top: -2vh;
+  justify-content: center;
+  flex-direction: row;
+  opacity: 1;
+  gap: .5vh;
+  transition: opacity 1s ease;
+  animation: fade-in 1s ease-in;
+}
+
+
+/* Picking containers styles */
+
+.pick-container.p1 {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  background-image: url('../../assets/cart/card-holder.png');
+  background-position: center;
+  background-size: cover; 
+  position: absolute;
+  top: -2vh;
+  right: 0;
+  width: 20vw;
+  height: 30vh;
+  color: white;
+  margin: 2vh;
+  cursor: move;
+  transition: opacity 1s ease;
+  transition: 300ms ease-in-out;
+  animation: fade-in 1s ease-in; 
+}
+
+.pick-container.p2 {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../assets/cart/card-holder.png');
+  background-position: center;
+  background-size: cover; 
+  position: absolute;
+  top: 48vh;
+  right: 0;
+  transform: translate(0, -50%);
+  width: 20vw;
+  height: 30vh;
+  color: white;
+  margin: 2vh;
+  cursor: move;
+  transition: opacity 1s ease;
+  animation: fade-in 1s ease-in; 
+}
+
+.pick-container.p3 {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../assets/cart/card-holder.png');
+  background-position: center;
+  background-size: cover; 
+  position: absolute;
+  bottom: -2vh;
+  right: 0;
+  width: 20vw;
+  height: 30vh;
+  color: white;
+  margin: 2vh;
+  cursor: move;
+  transition: opacity 1s ease;
+  transition: 300ms ease-in-out;
+  animation: fade-in 1s ease-in; 
+}
+
+
+/* Container for the read fortune button */
+
+.read-fortune-space {
+  position: fixed;
+  right: 22vw;
+  display: none; /* toggled when 3 cards are selected */
+  justify-content: center;
+  align-items: center;
+  top: 44vh;
+  width: 4.5vw;
+  height: 7.7vh;
+  text-decoration: none;
+  overflow: hidden;
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 5vh;
+  user-select: none;
+  touch-action: manipulation;
+  transition: opacity 500ms ease-in-out;
+}
+
+.menu-button img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1);
+}
+
+.fortune-img img {
+  width: 14vw;
+  height: 25vh;
+}
+
+
+.container .card-show {
+  position: relative;
+  max-width : 21vw;
+  height : 41.5vh;  
+  background-color : #fff;
+  margin : 30px 10px;
+  padding : 20px 15px;
+  display : flex;
+  flex-direction : column;
+  box-shadow : 0 5px 20px rgba(0, 0, 0, 50%);
+  transition : 0.3s ease-in-out;
+  border-radius : 15px;
+  animation: drop-in 1s ease 200ms backwards;
+}
+
+.container .card-show:hover {
+  height : 65vh;    
+}
+
+.container .card-show .image {
+  position : relative;
+  width : 20vw;
+  height : 36vh;
+  top : -40%;
+  left: 8px;
+  z-index : 1;
+}
+
+.container .card-show .image img {
+  max-width : 100%;
+}
+
+.container .card-show .content {
+  position : relative;
+  top : -40px;
+  padding : 10px 15px;
+  color : #111;
+  text-align : center;
+  visibility : hidden;
+  opacity : 0;
+  transition : 0.3s ease-in-out;
+
+}
+
+.container .card-show:hover .content {
+  margin-top : 30px;
+  visibility : visible;
+  opacity : 1;
+  transition-delay: 0.2s;
+
+}
+
+
+.read-container {
+  margin-top: 10%;
+  margin-left: 2%;
+  display: flex;
+  background-image: none;
+  background-position: center;
+}
+
+
+#read-fortune-anchor {
+  max-width: 85%;
+  color: black;
+  transition: opacity 1s ease;
+  transition: 300ms ease-in-out;
+  border-radius: 120%;
+}
+
+#reset-button {
+  position: fixed;
+  top: 1vh;
+  left: .6vw;
+  width: 6vw;
+  height: 5vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Serif', serif;
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 25px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+#read-fortune-anchor img {
+  max-width: 120%;
+  filter: brightness(0);
+}
+
+
+.hide {
+  transition: opacity 1s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* hide's cards but moving them out */
+.hide-cards { 
+  animation: animate-down 1.5s;
+}
+
+.card1, .card2, .card3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/assets/cartomancy/cartomancy-card-back.png');
+  background-size: cover ;
+  width: 10vw;
+  height: 30vh;
+  color: white;
+  margin: 20px;
+  cursor: move;
+  border: 1px solid black;
+  border-radius: 10px;
+  transition: opacity 1s ease;
+  transition: 300ms ease-in-out;
+}
+
+
+.card1 + .card1, .card3 + .card3{
+  margin-left: -14.5%; 
+}
+
+.card1:hover, .card2:hover, .card3:hover {
+  filter: brightness(0.8);
+  transform: rotate(-4deg); 
+  box-shadow: 0 0 20px #FFD700;
+  transition: 0.3s;
+}
+
+.card2 + .card2{
+  margin-left: -14%; 
+}
+
+.card1:hover ~ .card1, .card2:hover ~ .card2, .card3:hover ~ .card3{
+  z-index: 1;
+  translate: 30px; 
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 70%);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.box {
+  border: 3px solid #666; 
+  background-color: #ddd;  
+  padding: 10px; 
+  cursor: move; 
 }
 
 #fortune-message {
   margin: auto;
   max-width: 8em;  
 }
+
+
+/* 
+ * css for reading.card-shows
+ */
+
+#center-div.container{
+  flex-direction: row;
+  align-items: center; /* Center vertically */
+  padding : 50px;  
+}
+
 
 
 /* styling for buttons */
@@ -360,7 +409,6 @@ body {
   text-align: center;
   text-decoration: none;
   user-select: none;
-  -webkit-user-select: none;
   touch-action: manipulation;
 }
 
@@ -373,7 +421,7 @@ body {
   transform: translate(2px, 2px);
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .button-74 {
     min-width: 120px;
     padding: 0 25px;
@@ -393,12 +441,6 @@ body {
   overflow: hidden;
 }
 
-.menu-button img {
-  width: 30px;
-  height: 30px;
-  filter: brightness(0) invert(1);
-}
-
 .menu-button:hover {
   background-color: #857557;
 }
@@ -407,10 +449,10 @@ body {
 .info-popup {
   display: none;
   position: fixed;
-  bottom: 20px;
-  right: 85px;
-  width: 400px;
-  height: 300px;
+  bottom: 2vh;
+  right: 4.7vw;
+  width: 22.2vw;
+  height: 30vh;
   border-radius: 10%;
   background-color: #846e43;
   text-align: center;
@@ -418,11 +460,9 @@ body {
 }
 
 .choose-card { 
-  /*transition: transform 0.8s ease;*/
-  /*transform-style: preserve-3d; */ /*no 3d included*/
   left: 5000;
   top: 500;
-  animation-name: moveAndTurn;
+  animation-name: move-and-turn;
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
@@ -438,105 +478,41 @@ body {
   font-family: 'Noto Serif', serif;
 }
 
-/*
- * css for reading.cardShows
- */
-
-#center-div.container{
-  flex-direction: row;
-  align-items: center; /* Center vertically */
-  /*top: 50%;*/
-  padding : 50px;  
-}
-
-.container .cardShow {
-  position: relative;
-  max-width : 380px;
-  height : 415px;  
-  background-color : #fff;
-  margin : 30px 10px;
-  padding : 20px 15px;
-
-  display : flex;
-  flex-direction : column;
-  box-shadow : 0 5px 20px rgba(0,0,0,0.5);
-  transition : 0.3s ease-in-out;
-  border-radius : 15px;
-  animation: drop-in 1s ease 200ms backwards;
-}
-.container .cardShow:hover {
-  height : 650px;    
-}
-
-
-.container .cardShow .image {
-  position : relative;
-  width : 360px;
-  height : 360px;
-
-  top : -40%;
-  left: 8px;
-  box-shadow : 0 5px 20px rgba(0,0,0,0.2);
-  z-index : 1;
-}
-
-.container .cardShow .image img {
-  max-width : 100%;
-  border-radius : 15px;
-}
-
-.container .cardShow .content {
-  position : relative;
-  top : -40px;
-  padding : 10px 15px;
-  color : #111;
-  text-align : center;
-
-  visibility : hidden;
-  opacity : 0;
-  transition : 0.3s ease-in-out;
-
-}
-
-.container .cardShow:hover .content {
-  margin-top : 30px;
-  visibility : visible;
-  opacity : 1;
-  transition-delay: 0.2s;
-
-}
-
-
-.read-container {
-  margin-top: 10%;
-  margin-left: 2%;
-  display: flex;
-  background-image: none;
-  background-position: center;
-}
-
-
 /* 
  * animations
  */
 
-@keyframes moveAndTurn {
-  0% {
-  }
-  50% {
-    /*transform: translateX(-50%);*/
-  } 
+@keyframes move-and-turn {
   100% {
-    /*transform: translate(-50%, -50%) rotate(360deg);*/
     transform: translate(0, 0) rotateY(90deg);
   }
 }
 
-@keyframes animateDown {
-  0% {
-  }
+@keyframes animate-down {
   100% {    
     transform: translateY(100%);
     opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10vh);
+  }
+  
+  to {
+    opacity: 1;
+    transform: translate(0);
   }
 }
