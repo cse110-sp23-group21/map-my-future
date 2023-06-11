@@ -40,7 +40,7 @@ test.describe('UI Buttons', () => {
         const musicButton = await page.locator('#music-button');
 
         //  Check current status of music button
-        let state = await page.evaluate(() => {
+        let oldState = await page.evaluate(() => {
             const musicImage = document.getElementById('music');
 
             if (musicImage.src == 'http://127.0.0.1:5500/src/assets/audio_on.png')
@@ -54,7 +54,7 @@ test.describe('UI Buttons', () => {
         await musicButton.click();
 
         //  Check state again
-        state = await page.evaluate(() => {
+        let state = await page.evaluate(() => {
             const musicImage = document.getElementById('music');
 
             if (musicImage.src == 'http://127.0.0.1:5500/src/assets/audio_on.png')
@@ -65,8 +65,8 @@ test.describe('UI Buttons', () => {
             
         });
 
-        //  Music button should be set to muted
-        expect(state).toBe(false);
+        //  Music button should be set to the opposite state
+        expect(state).toBe(!oldState);
 
         //  Click music button to toggle it
         await musicButton.click();
@@ -83,6 +83,10 @@ test.describe('UI Buttons', () => {
         });
 
         //  Music button should be set to on
-        expect(state).toBe(true);
+        expect(state).toBe(oldState);
     });
-})
+});
+
+/*test.describe('Continents', () => {
+    test('Click on each continent should open and close')
+})*/
