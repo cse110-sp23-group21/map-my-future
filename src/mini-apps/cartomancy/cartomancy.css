@@ -23,7 +23,7 @@
 }
 
 /* animation for introduction and deck of card */ 
-.drop-in, .start-button, .deck{
+.drop-in, .start-button{
   animation: drop-in 1s ease 200ms backwards;
 }
 
@@ -82,7 +82,7 @@ body {
   opacity: 1;
   gap: .5vh;
   transition: opacity 1s ease;
-  animation: fade-in 1s ease-in;
+  animation: drop-in 1s ease 200ms backwards;
 }
 
 
@@ -106,7 +106,7 @@ body {
   cursor: move;
   transition: opacity 1s ease;
   transition: 300ms ease-in-out;
-  animation: fade-in 1s ease-in; 
+  animation: drop-in 1s ease 200ms backwards; 
 }
 
 .pick-container.p2 {
@@ -117,16 +117,15 @@ body {
   background-position: center;
   background-size: cover; 
   position: absolute;
-  top: 48vh;
+  top: 33vh;
   right: 0;
-  transform: translate(0, -50%);
   width: 20vw;
   height: 30vh;
   color: white;
   margin: 2vh;
   cursor: move;
   transition: opacity 1s ease;
-  animation: fade-in 1s ease-in; 
+  animation: drop-in 1s ease 200ms backwards;; 
 }
 
 .pick-container.p3 {
@@ -146,7 +145,7 @@ body {
   cursor: move;
   transition: opacity 1s ease;
   transition: 300ms ease-in-out;
-  animation: fade-in 1s ease-in; 
+  animation: drop-in 1s ease 200ms backwards;; 
 }
 
 
@@ -176,6 +175,7 @@ body {
   user-select: none;
   touch-action: manipulation;
   transition: opacity 500ms ease-in-out;
+  animation: grow 2s ease;
 }
 
 .menu-button img {
@@ -222,6 +222,11 @@ body {
   max-width : 100%;
 }
 
+
+.container .card-show:hover .image img{
+  box-shadow: 0 0 20px #FFD700;
+}
+
 .container .card-show .content {
   position : relative;
   top : -40px;
@@ -231,24 +236,26 @@ body {
   visibility : hidden;
   opacity : 0;
   transition : 0.3s ease-in-out;
-
 }
 
 .container .card-show:hover .content {
-  margin-top : 30px;
+  position: relative; 
+  top: 5vh; 
   visibility : visible;
   opacity : 1;
   transition-delay: 0.2s;
-
+  text-align: center;
+  height: 20vh;
 }
 
-
+/* container for the card image and correspinding fortunes */
 .read-container {
   margin-top: 10%;
   margin-left: 2%;
   display: flex;
   background-image: none;
   background-position: center;
+  animation: grow 2s ease;
 }
 
 
@@ -267,6 +274,7 @@ body {
   width: 6vw;
   height: 5vh;
   display: none;
+  visibility: hidden;
   align-items: center;
   justify-content: center;
   font-family: 'Noto Serif', serif;
@@ -276,14 +284,15 @@ body {
   box-shadow: #422800 4px 4px 0 0;
   color: #422800;
   cursor: pointer;
-  font-weight: 600;
-  font-size: 25px;
+  font-weight: 400;
+  font-size: 2vh;
   padding: 0 18px;
   line-height: 50px;
   text-align: center;
   text-decoration: none;
   user-select: none;
   touch-action: manipulation;
+  width: fit-content;
 }
 
 #read-fortune-anchor img {
@@ -300,7 +309,8 @@ body {
 
 /* hide's cards but moving them out */
 .hide-cards { 
-  animation: animate-down 1.5s;
+  animation: grow2 2s ease;
+  
 }
 
 .card1, .card2, .card3 {
@@ -318,8 +328,9 @@ body {
   border-radius: 10px;
   transition: opacity 1s ease;
   transition: 300ms ease-in-out;
+  backface-visibility: visible !important;
+  animation: none; 
 }
-
 
 .card1 + .card1, .card3 + .card3{
   margin-left: -14.5%; 
@@ -516,8 +527,41 @@ body {
     transform: translate(0);
   }
 }
-
+/*animation: elastic-spin 1s infinite ease;*/
 @keyframes elastic-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(720deg); }
+}
+
+@keyframes grow {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+@keyframes grow2 {
+  from { transform: scale(1); }
+  to { transform: scale(0); }
+}
+
+@keyframes flip {
+	0% {
+		transform: persp8ctive(800px) rotateY(0);
+		animation-timing-function: ease-out;
+	}
+	40% {
+		transform: perspective(800px) translateZ(150px) rotateY(170deg);
+		animation-timing-function: ease-out;
+	}
+	50% {
+		transform: perspective(800px) translateZ(150px) rotateY(190deg) scale(1);
+		animation-timing-function: ease-in;
+	}
+	80% {
+		transform: perspective(800px) rotateY(360deg) scale(.95);
+		animation-timing-function: ease-in;
+	}
+	100% {
+		transform: perspective(800px) scale(1);
+		animation-timing-function: ease-in;
+	}
 }
