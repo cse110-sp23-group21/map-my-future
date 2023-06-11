@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const centerDiv = document.getElementById('center-div');
 
   startButton.addEventListener('click', (e) => {
-    clickedButton.playbackRate = 2.5; 
+    clickedButton.playbackRate = 2.5;
     clickedButton.play();
     document.getElementById('intro').style.display = 'none';
     origDeck.style.display = 'initial';
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // button display:'flex' after 3 cards
   readFortuneButton.addEventListener('click', (e) => {
-    clickedButton.play(); 
+    clickedButton.play();
     pickContainer1.style.userSelect = 'auto';
     pickContainer1.style.pointerEvents = 'auto';
     pickContainer2.style.userSelect = 'auto';
