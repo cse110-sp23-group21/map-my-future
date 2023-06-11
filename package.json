@@ -14,7 +14,8 @@
       "dist/",
       "docs/",
       "dev-docs/",
-      "tests/"
+      "tests/",
+      "playwright.config.js"
     ]
   }
 }
