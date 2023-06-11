@@ -79,7 +79,11 @@ pickContainer2.addEventListener('dragover', cancelDefault);
 pickContainer3.addEventListener('dragenter', cancelDefault);
 pickContainer3.addEventListener('dragover', cancelDefault);
 
-const musicImg = document.getElementById('music');
+/**
+ * Music on/off image element (part of general UI)
+ */
+
+const musicImage = document.getElementById('music');
 
 /**
  * Allows the card to be hovered and eventually dropped into the respective container
@@ -243,11 +247,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Read JSON File
   // Taken of: https://www.thetarotguide.com/
   await engine.db_reader(`./${APP_NAME}.json`);
-
-  /**
-   * Music on/off image element (part of general UI)
-   */
-  const musicImage = document.getElementById('music');
 
   // Background music
   const bgm = new Audio('/src/assets/cart/bgm-background.mp3'); //  eslint-disable-line
