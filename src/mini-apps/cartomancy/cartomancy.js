@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', async () => {
    * @listens musicButton#click
    */
   musicButton.addEventListener('click', (event) => {
-    musicEnabled = setMusicState(bgm, !musicEnabled);
+    musicEnabled = setMusicState(bgm, musicImage, !musicEnabled);
   });
 
   // Info Button
