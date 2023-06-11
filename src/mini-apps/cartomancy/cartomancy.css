@@ -2,8 +2,8 @@
 
 /* styling for page */
 @font-face {
-  font-family: "Chinese Shanghai Demo";
-  src: url('/src/assets/cart/ChineseShangaiDemoVersionRegular.ttf');
+  font-family: "IMGFellEnglish";
+  src: url('/src/assets/cart/IMFellEnglishSC-Regular.ttf');
 }
 
 /* container for all elements on card page */ 
@@ -40,7 +40,6 @@ body {
   justify-content : center;  
   background: url('/src/assets/cart/background.jpeg') no-repeat fixed;
   background-size: cover;
-  font-family: 'Luxurious Script', cursive;
   overflow: hidden;
   min-height : 80vh;
 }
@@ -264,6 +263,8 @@ body {
   background-image: none;
   background-position: center;
   animation: grow 2s ease;
+  font-family: "IMGFellEnglish"; 
+  text-overflow: ellipsis;
 }
 
 

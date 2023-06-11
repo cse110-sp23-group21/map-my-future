@@ -12,7 +12,7 @@
         },
         {
             "option":"The High Preistess",
-            "result":"The High Priestess possesses intuition, mystery and sensuality combined with common sense. When the High Priestess appears in a tarot reading she indicates that now is the time to trust your instincts and go with your gut feeling. Pay attention to your dreams and the signs and symbols the universe is sending you when this Major Arcana trump card appears in your tarot reading.",
+            "result":"The High Priestess possesses intuition, mystery and sensuality. When the High Priestess appears in a tarot reading she indicates that now is the time to trust your instincts and go with your gut feeling. Pay attention to your dreams and the signs and symbols the universe is sending you when this Major Arcana trump card appears in your tarot reading.",
             "image": "2-TheHighPriestess"
         },
         {
@@ -62,7 +62,7 @@
         },
         {
             "option": "The Hanged Man", 
-            "result": "The Hanged Man has an interesting message for us: surrender. Often in life, we fight tooth and nail only to find out that we are exactly where we are supposed to be. This card shows us that it’s alright to let go of the fight, let go of old habits that are restricting you. Meditation and acceptance can lead to deliverance and renewed fervor for life.",
+            "result": "The Hanged Man has an interesting message for us: surrender. Often in life, we fight tooth and nail only to find out that we are exactly where we are supposed to be. This card shows us that it’s alright to let go of the fight, let go of old habits. Meditation and acceptance can lead to deliverance and renewed fervor for life.",
             "image": "12-TheHangedMan"
         },
         {
@@ -72,7 +72,7 @@
         },
         {
             "option": "The Temperance",
-            "result": "The Temperance tarot card is all about bringing your inner 4 elements back into their proper balance. Earth (your body - meeting your needs), water (your heart - do you love yourself?), fire (your passions - what motivates you?), and air (your mind - are you embracing your thoughts?) need to be in harmony to achieve serenity. Delve deep to see if you are confident in each of these areas.",
+            "result": "The Temperance is all about bringing your inner 4 elements back into their proper balance. Earth (your body - meeting your needs), water (your heart - do you love yourself?), fire (your passions - what motivates you?), and air (your mind - are you embracing your thoughts?) need to be in harmony to achieve serenity. Delve deep to see if you are confident.",
             "image": "14-Temperance"
         },
         {
@@ -103,7 +103,7 @@
         },
         {
             "option": "The Judgement", 
-            "result": "There is no escaping Judgement, and this card tells us so. All the imagery points to this fate, and when a reader draws this card, it tells him to reflect and evaluate his choices and actions in life. Possibly in response to a recent awakening or epiphany, Judgement tells us to be true to ourselves and to examine the choices carefully but to move on them.",
+            "result": "There is no escaping Judgement. All the imagery points to this fate, and when a reader draws this card, it tells him to reflect and evaluate his choices and actions in life. Possibly in response to a recent awakening or epiphany, Judgement tells us to be true to ourselves and to examine the choices carefully but to move on them.",
             "image": "20-Judgement"
         }
     ]
