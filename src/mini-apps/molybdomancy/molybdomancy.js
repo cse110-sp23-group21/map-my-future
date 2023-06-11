@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const infoButton = document.getElementById('info-button');
   const musicButton = document.getElementById('music-button');
-  const meltButton = document.querySelector('#meltButton');
+  const meltButton = document.querySelector('#melt-button');
   const resultTextShape = document.querySelector('.interpretation1');
   const resultTextMeaning = document.querySelector('.interpretation2');
 
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   meltButton.addEventListener('mouseover', () => {
     console.log('hover');
     actionButtonHoverSoundEffect.play();
-  })
+  });
 
   meltButton.addEventListener('click', () => {
     actionButtonPressSoundEffect.play();
