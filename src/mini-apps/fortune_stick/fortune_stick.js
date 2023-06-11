@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await engine.db_reader(`./${APP_NAME}.json`);
 
   // Background music
-  const bgm = new Audio('../../../assets/stick/bgm-background.mp3'); //  eslint-disable-line
+  const bgm = new Audio('../../assets/stick/bgm-background.mp3'); //  eslint-disable-line
   bgm.play();
   bgm.loop = true;
 
@@ -39,10 +39,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('music');
     const musicImg = document.getElementById('music');
     if (musicEnabled) {
-      musicImg.src = '../../../assets/audio_off.png';
+      musicImg.src = '../../assets/audio_off.png';
       bgm.pause();
     } else {
-      musicImg.src = '../../../assets/audio_on.png';
+      musicImg.src = '../../assets/audio_on.png';
       bgm.play();
     }
     musicEnabled = !musicEnabled;
@@ -116,7 +116,7 @@ function displayFortune () {
   let index = 0;
 
   // create a new audio object
-  const typingSound = new Audio('fortune_stick_reveal.ogg');
+  const typingSound = new Audio('../../assets/stick/bgm-reveal.ogg');
   typingSound.currentTime = 0;
   typingSound.play();
   // set up the typing effect

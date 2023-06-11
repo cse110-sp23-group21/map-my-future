@@ -98,16 +98,27 @@ document.addEventListener('DOMContentLoaded', async () => {
   const infoButton = document.getElementById('info-button');
   const musicButton = document.getElementById('music-button');
   const meltButton = document.querySelector('#meltButton');
-  const resultText = document.querySelector('.interpretation');
+  const resultTextShape = document.querySelector('.interpretation1');
+  const resultTextMeaning = document.querySelector('.interpretation2');
 
   let meltButtonState = 'melt';
   let musicEnabled = true;
   let showInfo = false;
 
-  const meltSoundEffect = new Audio('fire-2-10-sec.mp3');
+  const actionButtonPressSoundEffect = new Audio('../../assets/moly/action-button-press1.wav');
+  const actionButtonHoverSoundEffect = new Audio('../../assets/moly/action-button-hover2.mp3');
+
+  const meltSoundEffect = new Audio('../../assets/moly/bgm-melting.mp3');
   meltSoundEffect.volume = 0.7;
 
+  meltButton.addEventListener('mouseover', () => {
+    console.log('hover');
+    actionButtonHoverSoundEffect.play();
+  })
+
   meltButton.addEventListener('click', () => {
+    actionButtonPressSoundEffect.play();
+
     switch (meltButtonState) {
       case 'melt':
         meltButtonState = 'result';
@@ -117,10 +128,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         const result = engine.get_random_subset(1)[0];   //  eslint-disable-line
 
         setTimeout(() => {
-          resultText.innerHTML = `Shape: ${result.name}</br>${result.longMeaning}`;
-          resultText.classList.remove('interpretation');
-          void resultText.offsetWidth;  //  eslint-disable-line
-          resultText.classList.add('interpretation');
+          resultTextShape.innerHTML = `Shape: ${result.name}</br>`;
+          resultTextShape.classList.remove('interpretation1');
+          void resultTextShape.offsetWidth;  //  eslint-disable-line
+          resultTextShape.classList.add('interpretation1');
+
+          resultTextMeaning.innerHTML = `${result.longMeaning}`;
+          resultTextMeaning.classList.remove('interpretation2');
+          void resultTextMeaning.offsetWidth;  //  eslint-disable-line
+          resultTextMeaning.classList.add('interpretation2');
         }, morphTime * 1000);
 
         texts[1] = result.emoji;
@@ -133,7 +149,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         setTimeout(() => {
           meltButton.style.pointerEvents = 'all';
           meltButton.innerText = 'Try Again?';
-        }, morphTime * 1000 + 3000);
+        }, morphTime * 1000 + 1250);
 
         break;
 
@@ -145,13 +161,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         elts.text1.textContent = texts[0];
         elts.text2.textContent = texts[0];
         cooldown = cooldownTime;
-        resultText.innerHTML = '';
+        resultTextShape.innerHTML = '';
+        resultTextMeaning.innerHTML = '';
         break;
     }
   });
 
   // Background music
-  const bgm = new Audio('../../../assets/moly/moly-bgm.mp3');
+  const bgm = new Audio('../../assets/moly/bgm-background.mp3');
   bgm.loop = true;
   bgm.volume = 0.4;
   bgm.play();
@@ -161,10 +178,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('music');
     const musicImg = document.getElementById('music');
     if (musicEnabled) {
-      musicImg.src = '../../../assets/audio_off.png';
+      musicImg.src = '../../assets/audio_off.png';
       bgm.pause();
     } else {
-      musicImg.src = '../../../assets/audio_on.png';
+      musicImg.src = '../../assets/audio_on.png';
       bgm.play();
     }
     musicEnabled = !musicEnabled;

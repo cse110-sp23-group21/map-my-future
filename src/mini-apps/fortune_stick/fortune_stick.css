@@ -1,11 +1,11 @@
 /* styling for page */
 @font-face {
     font-family: "Chinese Shanghai Demo";
-    src: url('../../../assets/stick/ChineseShangaiDemoVersionRegular.ttf');
+    src: url('../../assets/stick/ChineseShangaiDemoVersionRegular.ttf');
 }
 
 html {
-    background: url('../../../assets/stick/background.png') no-repeat center center fixed;
+    background: url('../../assets/stick/background.png') no-repeat center center fixed;
     background-size: cover;
 
     /* -webkit-background-size: cover;
@@ -52,7 +52,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../../../assets/stick/card-cover.jpeg');
+    background-image: url('../../assets/stick/card-cover.jpeg');
     background-position: center;
     background-size: 200px 400px;
     width: 200px;
