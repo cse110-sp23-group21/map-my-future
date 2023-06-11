@@ -78,6 +78,26 @@ pickContainer2.addEventListener('dragover', cancelDefault);
 pickContainer3.addEventListener('dragenter', cancelDefault);
 pickContainer3.addEventListener('dragover', cancelDefault);
 
+  const musicImg = document.getElementById('music');
+/**
+ * Sets the state (on / off) of the background music
+ * @param {Audio} bgm Background music Audio object
+ * @param {boolean} newState Whether the background music
+ *  should be turned on or off
+ * @returns {boolean} the new state of the background music (set musicEnabled
+ * to this)
+ */
+function setMusicState (bgm, newState) {
+  if (!newState) {
+    musicImg.src = '/src/assets/audio_off.png';
+    bgm.pause();
+  } else {
+    musicImg.src = '/src/assets/audio_on.png';
+    bgm.play();
+  }
+  return newState;
+}
+
 /**
  * Allows the card to be hovered and eventually dropped into the respective container
  * @param {dragover} e - Object that contains information about the container that is being dragged over, including position coordinates.
@@ -312,17 +332,8 @@ document.addEventListener('DOMContentLoaded', async () => {
    *
    * @listens musicButton#click
    */
-  musicButton.addEventListener('click', (e) => {
-    console.log('music');
-    const musicImg = document.getElementById('music');
-    if (musicEnabled) {
-      musicImg.src = '/src/assets/audio_off.png';
-      bgm.pause();
-    } else {
-      musicImg.src = '/src/assets/audio_on.png';
-      bgm.play();
-    }
-    musicEnabled = !musicEnabled;
+  musicButton.addEventListener('click', (event) => {
+    musicEnabled = setMusicState(bgm, !musicEnabled);
   });
 
   // Info Button
