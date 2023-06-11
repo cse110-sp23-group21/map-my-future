@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Molybdomancy</title>
+    <link rel="stylesheet" type="text/css" href="molybdomancy-styles.css">
+    <link rel="icon" type="image/png" href="../../assets/moly/icon.png">
+</head>
+<body>
+    <div id="top" class="section">
+        <h1>Molybdomancy</h1>
+    </div>
+
+    <div id="middle" class="section">
+        <span id="text1">Solid Tin</span>
+        <span id="text2"></span>
+    </div>
+
+    <svg id="filters">
+        <defs>
+            <filter id="threshold">
+                <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
+                                        0 1 0 0 0
+                                        0 0 1 0 0
+                                        0 0 0 255 -140" />
+            </filter>
+        </defs>
+    </svg>
+
+    <div id="interpretation-container">
+        <p class="interpretation1"></p>
+        <p class="interpretation2"></p>
+    </div>
+    
+
+    <div class="section">
+        <button id="meltButton">Melt the Tin!</button>
+    </div>
+
+
+    <!-- Buttons -->
+    <div class="button-container-bottom-left">
+        <a href="#" id="music-button" class="menu-button">
+            <img src="../../assets/audio_on.png" id="music" alt="Music">
+        </a>
+        <a href="../../index.html" id="home-button" class="menu-button">
+            <img src="../../assets/home.png" id="home" alt="Home">
+        </a>
+    </div>
+
+    <div class="button-container-bottom-right">
+        <a href="#" id="info-button" class="menu-button">
+            <img src="../../assets/info.png" id="info" alt="Info">
+        </a>
+    </div>
+
+
+    <!-- Info Pop Up Screen -->
+    <div id="info-popup" class="info-popup">
+        <div>
+            <h2 id="info-header">Info</h2>
+            <p id="info-text">Molybdomancy is a divinatory practice characterized by the melting 
+                of tin or lead, followed by the pouring of the molten metal into 
+                water. The resulting solid shapes assumed by the metal are 
+                regarded as symbolic representations that are thought to provide 
+                insights into future events. This ancient tradition involves interpreting
+                 and discerning the patterns and forms exhibited by the cooled 
+                 metal as a means of forecasting the future. <br><br>
+                <a href="https://www.flaticon.com/free-icons/crucible" title="crucible icons">Crucible icons created by Good Ware - Flaticon</a> </p>
+        </div>
+    </div>
+    <script type="module" src="molybdomancy.js"></script>
+
+</body>
+</html>

@@ -5,20 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- make sure to change for your own mini app's html/css/js and page title -->
     <link rel="stylesheet" href="cartomancy.css">
-    <title>cartomancy</title>
-  
+    <link rel="icon" type="image/png" href="/src/assets/cart/tarot-card.png">
+    <title>Cartomancy</title>
   </head>
   <body>
-  
-    <script type="module" src="cartomancy.js"></script>
-    <!-- HTML !-->
 
-    <!-- Page Content (customize for each mini app!) -->
+    <script type="module" src="cartomancy.js"></script>
+
+    <!-- All page content here -->
     <div id="center-div">
 
-        <!-- instruction image -->
+      <!-- instruction image -->
       <div class="drop-in" id="intro"></div>
 
       <!-- Card Deck -->
@@ -26,88 +24,92 @@
       <div class="card-display" id="card-display"> 
 
         <div class="deck">
-          <div draggable = "true" class="card1" id="card1"></div>
-          <div draggable = "true" class="card1" id="card1"></div>
-          <div draggable = "true" class="card1" id="card1"></div>
-          <div draggable = "true" class="card1" id="card1"></div>
-          <div draggable = "true" class="card1" id="card1"></div>
-          <div draggable = "true" class="card1" id="card1"></div>
-          <div draggable = "true" class="card1" id="card1"></div>
-          <div draggable = "true" class="card1" id="card1"></div>
-          <div draggable = "true" class="card1" id="card1"></div>
+          <div draggable = "true" class="card1"></div>
+          <div draggable = "true" class="card1" ></div>
+          <div draggable = "true" class="card1" ></div>
+          <div draggable = "true" class="card1"></div>
+          <div draggable = "true" class="card1"></div>
+          <div draggable = "true" class="card1"></div>
+          <div draggable = "true" class="card1"></div>
+          <div draggable = "true" class="card1"></div>
+          <div draggable = "true" class="card1"></div>
         </div>
         <div class="deck">
-          <div draggable = "true" class="card2" id="card2"></div>
-          <div draggable = "true" class="card2" id="card2"></div>
-          <div draggable = "true" class="card2" id="card2"></div>
-          <div draggable = "true" class="card2" id="card2"></div>
-          <div draggable = "true" class="card2" id="card2"></div>
-          <div draggable = "true" class="card2" id="card2"></div>
-          <div draggable = "true" class="card2" id="card2"></div>
-          <div draggable = "true" class="card2" id="card2"></div>
-          <div draggable = "true" class="card2" id="card2"></div>
-          <div draggable = "true" class="card2" id="card2"></div>
+          <div draggable = "true" class="card2"></div>
+          <div draggable = "true" class="card2"></div>
+          <div draggable = "true" class="card2"></div>
+          <div draggable = "true" class="card2"></div>
+          <div draggable = "true" class="card2"></div>
+          <div draggable = "true" class="card2"></div>
+          <div draggable = "true" class="card2"></div>
+          <div draggable = "true" class="card2"></div>
+          <div draggable = "true" class="card2"></div>
+          <div draggable = "true" class="card2"></div>
         </div>
         <div class="deck">
-          <div draggable = "true" class="card3" id="card3"></div>
-          <div draggable = "true" class="card3" id="card3"></div>
-          <div draggable = "true" class="card3" id="card3"></div>
-          <div draggable = "true" class="card3" id="card3"></div>
-          <div draggable = "true" class="card3" id="card3"></div>
-          <div draggable = "true" class="card3" id="card3"></div>
-          <div draggable = "true" class="card3" id="card3"></div>
-          <div draggable = "true" class="card3" id="card3"></div>
-          <div draggable = "true" class="card3" id="card3" ></div>
+          <div draggable = "true" class="card3"></div>
+          <div draggable = "true" class="card3"></div>
+          <div draggable = "true" class="card3"></div>
+          <div draggable = "true" class="card3"></div>
+          <div draggable = "true" class="card3"></div>
+          <div draggable = "true" class="card3"></div>
+          <div draggable = "true" class="card3"></div>
+          <div draggable = "true" class="card3"></div>
+          <div draggable = "true" class="card3"></div>
         </div>
 
       </div>
 
       <!--- Containers For Choosing Cards --->
-      <div id="pickContainer1" class="pickContainer p1"></div>
-      <div id="pickContainer2" class ="pickContainer p2"></div>
-      <div id="pickContainer3" class ="pickContainer p3"></div>
+      <div id="pick-container1" class="pick-container p1"></div>
+      <div id="pick-container2" class ="pick-container p2"></div>
+      <div id="pick-container3" class ="pick-container p3"></div>
 
-    <!-- Start Button -->
-    <div class="start-button" id="start-button">START</div>
 
-     <!-- Music Button -->
-    <div class="button-container-bottom-left">
-      <a href="#" id="music-button" class="menu-button">
-        <img src="/assets/audio_on.png" id="music" alt="Music">
-      </a>
-      <a href="../../index.html" id="home-button" class="menu-button">
-        <img src="/assets/home.png" id="home" alt="Home">
-      </a>
-    </div>
+      <!-- BUTTONS -->
 
-    <!-- Reset Button -->
-    <div class="reset-space" id="reset-button">RESET</div>
+      <!-- Start Button -->
+      <div class="start-button" id="start-button">START</div>
 
-    <!---<img src="../../../assets/cards-button.png" alt="Read Fortune">-> 
-    <!-- Read Fortune Button -->
-    <div class="read-fortune-space" id="read-fortune-button">
-      <a id="read-fortune-anchor">
-        <img src="../../../assets/cards-button.png" alt="Read Fortune">
-      </a>
-    </div>
+      <!-- Music Button -->
+      <div class="button-container-bottom-left">
+        <a href="#" id="music-button" class="menu-button">
+          <img src="/src/assets/audio_on.png" id="music" alt="Music">
+        </a>
+        <a href="../../index.html" id="home-button" class="menu-button">
+          <img src="/src/assets/home.png" id="home" alt="Home">
+        </a>
+      </div>
 
-    <div class="button-container-bottom-right">
-      <a href="#" id="info-button" class="menu-button">
-        <img src="../../../assets/info.png" id="info" alt="Info">
-      </a>
-    </div>
+      <!-- Reset Button -->
+      <div class="reset-space" id="reset-button">READ AGAIN?</div>
+      
+      <!-- Read Fortune Button -->
+      <div class="read-fortune-space" id="read-fortune-button">
+        <a id="read-fortune-anchor">
+          <img src="/src/assets/cart/button-reveal.png" alt="Read Fortune">
+        </a>
+      </div>
 
-    <!-- Info Pop Up Screen -->
-    <div id="info-popup" class="info-popup">
-      <div class="info-text">
-        <h1>Info</h1>
-        <p>Tarot cards have a rich and complex history that dates back several centuries. 
-           The origin of tarot is believed to be in 14th-century Italy, where the cards were initially used for playing games.
+      <div class="button-container-bottom-right">
+        <a href="#" id="info-button" class="menu-button">
+          <img src="/src/assets/info.png" id="info" alt="Info">
+        </a>
+      </div>
+
+      <!-- Info Pop Up Screen -->
+      <div id="info-popup" class="info-popup">
+        <div class="info-text">
+          <h1>Info</h1>
+          <p>Tarot cards have a rich and complex history that dates back several centuries. 
+          The origin of tarot is believed to be in 14th-century Italy, where the cards were initially used for playing games.
           It wasn't until later that tarot cards started being associated with divination and esoteric practices. Each card's symbolism, imagery, and position 
           within the spread are interpreted to gain insight into the past, present, or future circumstances, as well as to explore personal emotions and relationships.
-        </p>
+          <a href="https://www.flaticon.com/free-icons/witch" title="witch icons">Witch icons created by frelayasia - Flaticon</a>
+          </p>
+        </div>
       </div>
     </div>
-
   </body>
 </html>
+

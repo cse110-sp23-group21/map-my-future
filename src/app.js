@@ -1,120 +1,208 @@
-// Main page map JavaScript file
-
-// Background music
-const bgm = new Audio('../assets/map-my-future-bgm.ogg'); //  eslint-disable-line
-bgm.play();
-bgm.loop = true;
+// Main page code goes here
 
 // Wait for all DOM to be ready
 document.addEventListener('DOMContentLoaded', () => {
+  /**
+   * Stores the current state of info screen.
+   */
+  let showInfo = false;
+
+  /**
+   * Stores the current state of main page music.
+   */
+  let musicEnabled = true;
+
+  /**
+   * Stores the selected location name.
+   */
+  let locationName = '';
+
+  /**
+   * Stores the previous selected location name.
+   */
+  let previousLocationName = '';
+
+  /**
+   * Stores the current state of side panel. Default to 'inactive'. Turn to 'active' when side panel open.
+   */
+  let panelState = 'inactive';
+
+  /**
+   * DOM access to music enable button.
+   */
+  const musicButton = document.getElementById('music-button');
+
+  /**
+   * DOM access to info display button.
+   */
+  const infoButton = document.getElementById('info-button');
+
+  /**
+   * DOM access to mini-app navigation button on the side panel.
+   */
+  const enterButton = document.querySelector('.enter-button');
+
+  /**
+   * List of 4 DOM access to map locations.
+   */
   const locations = document.querySelectorAll('.location');
-  const map = document.getElementsByClassName('map')[0];
 
-  map.onload = function (evt) {
-    let selectedElement = null;
-    let offset = { x: 0, y: 0 };
-    const svg = evt.target;
-    let transform = null;
-    let bbox, minX, minY, maxX, maxY;
-    svg.addEventListener('mousedown', startDrag);
-    svg.addEventListener('mousemove', drag);
-    svg.addEventListener('mouseup', endDrag);
-    svg.addEventListener('mouseleave', endDrag);
+  /**
+   * DOM access to side panel.
+   */
+  const sidePanel = document.getElementById('panel');
 
-    function getMousePosition (evt) {
-      const CTM = svg.getScreenCTM();
-      return { x: (evt.clientX - CTM.e) / CTM.a, y: (evt.clientY - CTM.f) / CTM.d };
-    }
-    function startDrag (evt) {
-      selectedElement = evt.target.parentNode;
-      if (selectedElement.classList.contains('undraggable')) {
-        selectedElement = null;
-        return;
-      }
+  /**
+   * DOM access to side panel layout grid.
+   */
+  const panelLayout = document.querySelector('.layout');
 
-      // Set drag constraint
-      if (selectedElement.classList.contains('confined')) {
-        bbox = selectedElement.getBBox();
-        minX = -100 - bbox.x;
-        maxX = 2200 - bbox.x - bbox.width;
-        minY = -30 - bbox.y;
-        maxY = 1200 - bbox.y - bbox.height;
-      }
-      offset = getMousePosition(evt);
-      const transforms = selectedElement.transform.baseVal;
+  /**
+   * DOM access to instruction text shown on side panel.
+   */
+  const instructionTxt = document.getElementById('instruction-text');
 
-      // OR transforms.getItem(0).type !== SVGTransform.SVG_TRANSFORM_TRANSLATE
-      if (transforms.length === 0) {
-        // Create an transform that translates by (0, 0)
-        const translate = svg.createSVGTransform();
-        translate.setTranslate(0, 0);
-        // Add the translation to the front of the transforms list
-        selectedElement.transform.baseVal.insertItemBefore(translate, 0);
-      }
-      // Get initial translation amount
-      transform = transforms.getItem(0);
-      offset.x -= transform.matrix.e;
-      offset.y -= transform.matrix.f;
-    }
-    function drag (evt) {
-      if (selectedElement) {
-        evt.preventDefault();
-        const coord = getMousePosition(evt);
-        let dx = coord.x - offset.x;
-        let dy = coord.y - offset.y;
+  /**
+   * Side panel open/switch/close sound effect.
+   * @type {Audio}
+   */
+  const sideAudio = new Audio('assets/home/bgm-side.wav'); 
 
-        // Add drag constraint
-        if (selectedElement.classList.contains('confined')) {
-          if (dx < minX) { dx = minX; } else if (dx > maxX) { dx = maxX; }
-          if (dy < minY) { dy = minY; } else if (dy > maxY) { dy = maxY; }
-        }
-        transform.setTranslate(dx, dy);
-      }
-    }
-    function endDrag (evt) {
-      selectedElement = null;
-    }
-  };
+  /**
+   * Background music audio.
+   * @type {Audio}
+   */
+  const bgm = new Audio('assets/home/bgm.mp3'); //  eslint-disable-line
 
-  // Region clicked/selected
+  // Initialize all sound property.
+  sideAudio.volume = 0.4;
+  bgm.play();
+  bgm.loop = true;
+
+  /**
+   * Listen to click event for the each location section on the map.
+   * Display the corresponding side instruction screen.
+   * Play side panel sound effect.
+   *
+   * @listens location#click
+   */
   locations.forEach(location => {
     location.addEventListener('click', () => {
-      const locationName = location.getAttribute('data-location');
-      // Add navigation to mini-app during Sprint 2 here.
-      console.log(`${locationName} is selected.`);
-      if (locationName === 'Cartomancy') {
-        window.location.href = './mini-apps/cartomancy/cartomancy.html';
-      }
-      else if (locationName == 'Molybdomancy') {
-        window.location.href = './mini-apps/molybdomancy/molybdomancy.html';
-      }
-      else if (locationName == 'Fortune Stick') {
-        window.location.href = './mini-apps/fortune_stick/fortune_stick.html';
-      }
-      else if (locationName == 'Yin Yang Coin') {
-        window.location.href = './mini-apps/yin_yang_coin/yin_yang_coin.html';
+      // Play side panel sound effect for every click
+      sideAudio.play();
+
+      // Retrieve selected location name.
+      locationName = location.getAttribute('data-location');
+
+      // When no continent is selected, this click would open the side panel.
+      if (panelState === 'inactive') {
+        // Update corresponding variable state
+        panelState = 'active';
+        previousLocationName = locationName;
+        location.setAttribute('toggle-by', 'true');
+        document.querySelector('.main').classList.toggle('side-panel-open');
+
+        // Update instruction content & background to the selected location.
+        if (locationName === 'Molybdomancy') {
+          instructionTxt.innerHTML = 'Molybdomancy is a traditional divination practice that involves the interpretation of shapes and symbols formed by molten metal, usually lead or tin, when poured into cold water. </br></br> In this method of fortune-telling, you will click to melt the solid tin and observe the transformed shape.';
+          sidePanel.style.backgroundImage = 'url(assets/home/side-moly.png)';
+          panelLayout.style.marginTop = '40%';
+        } else if (locationName === 'Fortune-Stick') {
+          instructionTxt.innerHTML = 'Fortune sticks, also known as Chinese fortune sticks or divination sticks, are a traditional method of seeking guidance and insight from Chinese culture. </br></br> In this method of fortune-telling, you will click to shake the container and retrieve a single fortune stick. </br></br> An intepretation would be generated at the end of each round.';
+          sidePanel.style.backgroundImage = 'url(assets/home/side-stick.png)';
+          panelLayout.style.marginTop = '60%';
+        } else if (locationName === 'Cartomancy') {
+          instructionTxt.innerHTML = 'Cartomancy is a divination practice that uses a deck of playing cards to gain insights into the past, present, and future. </br></br> In this method of fortune-telling, you will randomly draw 3 cards, 1 from each deck, drag-and-drop them into card holder, then proceed to reveal the forune.';
+          sidePanel.style.backgroundImage = 'url(assets/home/side-cart.png)';
+          panelLayout.style.marginTop = '40%';
+        } else {
+          instructionTxt.innerHTML = 'The Yin Yang Coin is a traditional tool used for divination and decision-making. </br></br> In this method of fortune-telling, you will toss 3 coins 6 times to generate your Hexagram. </br> </br> Every toss will result in either a broken or a solid line, indicating Yin or Yang. </br> </br> There are 64 hexagrams in total, each corresponds to a specific fortune.';
+          sidePanel.style.backgroundImage = 'url(assets/home/side-coin.png)';
+          panelLayout.style.marginTop = '40%';
+        }
+
+      // When a continent is currently selected
+      } else {
+        // Close the side panel if the click comes from the same location.
+        if (locationName === previousLocationName) {
+          // Reset corresponding variable state
+          panelState = 'inactive';
+          location.setAttribute('toggle-by', 'false');
+          sidePanel.style.backgroundImage = 'none';
+          document.querySelector('.main').classList.toggle('side-panel-open');
+        } else {
+          // Switch panel content if the click comes from different location.
+          const previousLocation = document.querySelector(`[data-location=${previousLocationName}]`);
+          previousLocation.setAttribute('toggle-by', 'false');
+          location.setAttribute('toggle-by', 'true');
+          previousLocationName = locationName;
+
+          // Update instruction content & background to the selected location.
+          if (locationName === 'Molybdomancy') {
+            instructionTxt.innerHTML = 'Molybdomancy is a traditional divination practice that involves the interpretation of shapes and symbols formed by molten metal, usually lead or tin, when poured into cold water. </br></br> In this method of fortune-telling, you will click to melt the solid tin and observe the transformed shape.';
+            sidePanel.style.backgroundImage = 'url(assets/home/side-moly.png)';
+            panelLayout.style.marginTop = '40%';
+          } else if (locationName === 'Fortune-Stick') {
+            instructionTxt.innerHTML = 'Fortune sticks, also known as Chinese fortune sticks or divination sticks, are a traditional method of seeking guidance and insight from Chinese culture. </br></br> In this method of fortune-telling, you will click to shake the container and retrieve a single fortune stick. </br></br> An intepretation would be generated at the end of each round.';
+            sidePanel.style.backgroundImage = 'url(assets/home/side-stick.png)';
+            panelLayout.style.marginTop = '60%';
+          } else if (locationName === 'Cartomancy') {
+            instructionTxt.innerHTML = 'Cartomancy is a divination practice that uses a deck of playing cards to gain insights into the past, present, and future. </br></br> In this method of fortune-telling, you will randomly draw 3 cards, 1 from each deck, drag-and-drop them into card holder, then proceed to reveal the forune.';
+            sidePanel.style.backgroundImage = 'url(assets/home/side-cart.png)';
+            panelLayout.style.marginTop = '40%';
+          } else {
+            instructionTxt.innerHTML = 'The Yin Yang Coin is a traditional tool used for divination and decision-making. </br></br> In this method of fortune-telling, you will toss 3 coins 6 times to generate your Hexagram. </br> </br> Every toss will result in either a broken or a solid line, indicating Yin or Yang. </br> </br> There are 64 hexagrams in total, each corresponds to a specific fortune.';
+            sidePanel.style.backgroundImage = 'url(assets/home/side-coin.png)';
+            panelLayout.style.marginTop = '40%';
+          }
+        }
       }
     });
   });
 
-  // Buttons
-  let musicEnabled = true;
-  let showInfo = false;
-  const musicButton = document.getElementById('music-button');
-  const infoButton = document.getElementById('info-button');
+  /**
+   * Listen to click event for the enter button on side panel.
+   * Navigate to the selected mini-app page.
+   *
+   * @listens enterButton#click
+   */
+  enterButton.addEventListener('click', (e) => {
+    // Navigation to mini-app pages.
+    if (locationName === 'Cartomancy') {
+      window.location.href = './mini-apps/cartomancy/cartomancy.html';
+    } else if (locationName === 'Molybdomancy') {
+      window.location.href = './mini-apps/molybdomancy/molybdomancy.html';
+    } else if (locationName === 'Fortune-Stick') {
+      window.location.href = './mini-apps/fortune_stick/fortune_stick.html';
+    } else if (locationName === 'Yin-Yang-Coin') {
+      window.location.href = './mini-apps/yin_yang_coin/yin_yang_coin.html';
+    }
+  });
 
+  /**
+   * Listen to click event for the music UI button.
+   * Toggles musicEnabled and calls the setMusicState() method.
+   *
+   * @listens musicButton#click
+   */
   musicButton.addEventListener('click', (e) => {
-    const musicImg = document.querySelectorAll('img')[0];
+    const musicImg = document.getElementById('music');
     if (musicEnabled) {
-      musicImg.src = '../assets/audio_off.png';
+      musicImg.src = 'assets/audio_off.png';
       bgm.pause();
     } else {
-      musicImg.src = '../assets/audio_on.png';
+      musicImg.src = 'assets/audio_on.png';
       bgm.play();
     }
     musicEnabled = !musicEnabled;
   });
 
+  /**
+   * Listen to click event for the info UI button.
+   * Toggles showInfo and toggles display of the info panel.
+   *
+   * @listens infoButton#click
+   */
   infoButton.addEventListener('click', (e) => {
     const infoPopup = document.getElementById('info-popup');
     infoPopup.style.display = !showInfo ? 'flex' : 'none';

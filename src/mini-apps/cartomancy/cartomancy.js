@@ -1,60 +1,65 @@
 // all driver code should be within this event listener, ie adding other event listeners and calling on imported engine
 
-import FortuneEngine from "../../engine.js";
+import FortuneEngine from '../../engine.js';
 
 const engine = new FortuneEngine();
-const APP_NAME = "cartomancy";
+const APP_NAME = 'cartomancy';
 
 let cardsPicked = 0; // counter when 3 cards are picked
 
 // Card selector counter
 let i = 0;
 
-// Allows cards to be selectable and dragged to satisfied palce 
-let sourceContainerID =''; 
-let droppedID =''; 
+// name of container card is dragged to
+let targetName; // eslint-disable-line
+
+// Allows cards to be selectable and dragged to satisfied place
+let sourceContainerID = '';
+let droppedID = '';
 const card1s = document.querySelectorAll('.card1');
 const card2s = document.querySelectorAll('.card2');
 const card3s = document.querySelectorAll('.card3');
-const pickContainer1 = document.getElementById('pickContainer1');
-const pickContainer2 = document.getElementById('pickContainer2');
-const pickContainer3 = document.getElementById('pickContainer3');
-
+const pickContainer1 = document.getElementById('pick-container1');
+const pickContainer2 = document.getElementById('pick-container2');
+const pickContainer3 = document.getElementById('pick-container3');
+const actionButtonPressSound = new Audio('/src/assets/cart/bgm-side.wav');
+const clickedButton = new Audio('/src/assets/cart/cartomancy-click-sound.mp3');
 const card1sArray = Array.from(card1s);
-const card2sArray = Array.from(card2s); 
+const card2sArray = Array.from(card2s);
 const card3sArray = Array.from(card3s);
 
 // make the cards of each row draggable
 card1s.forEach(card => {
-  card.addEventListener('dragstart', dragStart); 
-})
+  card.addEventListener('dragstart', dragStart);
+});
 card2s.forEach(card => {
-  card.addEventListener('dragstart', dragStart); 
-}); 
+  card.addEventListener('dragstart', dragStart);
+});
 card3s.forEach(card => {
-  card.addEventListener('dragstart', dragStart); 
-})
+  card.addEventListener('dragstart', dragStart);
+});
 
-pickContainer1.addEventListener('drop', dropped); 
-pickContainer1.addEventListener('dragenter', cancelDefault); 
-pickContainer1.addEventListener('dragover', cancelDefault); 
+// setting listeners for the containers to leave the cards
+pickContainer1.addEventListener('drop', dropped);
+pickContainer1.addEventListener('dragenter', cancelDefault);
+pickContainer1.addEventListener('dragover', cancelDefault);
 
-pickContainer2.addEventListener('drop', dropped); 
-pickContainer2.addEventListener('dragenter', cancelDefault); 
-pickContainer2.addEventListener('dragover', cancelDefault); 
+pickContainer2.addEventListener('drop', dropped);
+pickContainer2.addEventListener('dragenter', cancelDefault);
+pickContainer2.addEventListener('dragover', cancelDefault);
 
-pickContainer3.addEventListener('drop', dropped); 
-pickContainer3.addEventListener('dragenter', cancelDefault); 
-pickContainer3.addEventListener('dragover', cancelDefault); 
+pickContainer3.addEventListener('drop', dropped);
+pickContainer3.addEventListener('dragenter', cancelDefault);
+pickContainer3.addEventListener('dragover', cancelDefault);
 
 /**
  * Allows the card to be hovered and eventually dropped into the respective container
  * @param {dragover} e - Object that contains information about the container that is being dragged over, including position coordinates.
  */
 function cancelDefault (e) {
-  e.preventDefault(); 
-  e.stopPropagation(); 
-  return false; 
+  e.preventDefault();
+  e.stopPropagation();
+  return false;
 }
 
 /**
@@ -63,53 +68,63 @@ function cancelDefault (e) {
  * @param {dragstart} e - Object that has information of where a card has begun to be dragged from.
  */
 function dragStart (e) {
-  e.dataTransfer.setData('text/plain', e.target.id); 
-  sourceContainerID = this.parentElement.id; 
-  droppedID = this.id; 
+  e.dataTransfer.setData('text/plain', e.target.id);
+  sourceContainerID = this.parentElement.className;
+  droppedID = this.className;
 }
 
 /**
- * Finds the place where the card should be dropped. If it is dropped in 1 of the 3 correct containers it will add the card element to that container and increase the count of cards picked.
+ * Keeps track of information when a card is begun to be dragged. Called when starting to hold a card. Final place where the card is dropped compares information set here.
  *
- * Increases counte of cards dropped, with a reset button appearing at 1 and read button at 3
- *
- * @param {drop} e - Object that has information of the container and the place where and the target location.
+ * @param {dragstart} e - Object that has information of where a card has begun to be dragged from.
  */
 function dropped (e) {
+  targetName = e.target.id;
+
   if (this.id !== sourceContainerID) {
-    cancelDefault(e); 
-    let id = e.dataTransfer.getData('text/plain'); 
-    if (droppedID == 'card1') {
-      if((e.target.id == 'pickcontainer1' || e.target.id == 'pickcontainer2' || e.target.id == 'pickcontainer3') || (e.target.id !== 'card1' && e.target.id !== 'card2' && e.target.id !== 'card3')){
-        const droppedElement = card1sArray[i];
-        e.target.appendChild(card1sArray[i]);
-        droppedElement.draggable = false; 
-        cardsPicked++;
-        i++;  
-      }
-    } 
-    else if (droppedID == 'card2') {
-      if ((e.target.id == 'pickcontainer1' || e.target.id == 'pickcontainer2' || e.target.id == 'pickcontainer3') || (e.target.id !== 'card1' && e.target.id !== 'card2' && e.target.id !== 'card3')) {
-      const droppedElement = card2sArray[i];
-      e.target.appendChild(card2sArray[i]);
-      droppedElement.draggable = false; 
+    cancelDefault(e);
+    if (droppedID === 'card1') {
+      const droppedElement = card1sArray[i];
+      droppedElement.style.animation = 'flip 2s ease';
+      e.target.appendChild(card1sArray[i]);
+      actionButtonPressSound.play();
+      droppedElement.draggable = false;
+      console.log(droppedElement);
       cardsPicked++;
       i++;
-      }
-    } 
-    else if(droppedID == 'card3') {
-      if((e.target.id == 'pickcontainer1' || e.target.id == 'pickcontainer2' || e.target.id == 'pickcontainer3') || (e.target.id !== 'card1' && e.target.id !== 'card2' && e.target.id !== 'card3')) {
+    } else if (droppedID === 'card2') {
+      const droppedElement = card2sArray[i];
+      droppedElement.style.animation = 'flip 2s ease';
+      e.target.appendChild(card2sArray[i]);
+      actionButtonPressSound.play();
+      droppedElement.draggable = false;
+      cardsPicked++;
+      i++;
+    } else if (droppedID === 'card3') {
       const droppedElement = card3sArray[i];
+      droppedElement.style.animation = 'flip 2s ease';
       e.target.appendChild(card3sArray[i]);
-      droppedElement.draggable = false; 
-      cardsPicked++; 
-      i++; 
-      }
+      actionButtonPressSound.play();
+      droppedElement.draggable = false;
+      cardsPicked++;
+      i++;
+    }
+    if (pickContainer1.children.length > 0) {
+      pickContainer1.style.userSelect = 'none';
+      pickContainer1.style.pointerEvents = 'none';
+    }
+    if (pickContainer2.children.length > 0) {
+      pickContainer2.style.userSelect = 'none';
+      pickContainer2.style.pointerEvents = 'none';
+    }
+    if (pickContainer3.children.length > 0) {
+      pickContainer3.style.userSelect = 'none';
+      pickContainer3.style.pointerEvents = 'none';
+    }
   }
-}
 
   // Enable reset button after card is picked
-  if(cardsPicked == 1) {
+  if (cardsPicked === 1) {
     document.querySelector('#reset-button').style.display = 'flex';
   }
 
@@ -117,11 +132,10 @@ function dropped (e) {
   if (cardsPicked === 3) {
     document.querySelectorAll('.read-fortune-space')[0].style.display = 'flex';
   }
-
 }
 
 /**
- * Begins reading the three tarot cards selected by teh reader.
+ * Begins reading the three tarot cards selected by the reader.
  *
  * Overrides styling to display cards in a row by adding class and removes read fortune button. Then loops through each of the three fortunes and adds them through calling organizeCards() for each fortune.
  *
@@ -129,51 +143,43 @@ function dropped (e) {
  *
  */
 function readCards (centerDiv) {
-  // animations, grouping style added
+  // animations, grouping etc here
   centerDiv.classList.add('container');
   document.getElementById('read-fortune-button').style.display = 'none';
 
   // begins the stage of reading cards, 1-3 choices
   const receivedFortunes = engine.get_random_subset(3);
 
-  // look at container class
-  const pickContainer1 = document.getElementById('pickContainer1');
-  const pickContainer2 = document.getElementById('pickContainer2');
-  const pickContainer3 = document.getElementById('pickContainer3');
-
   for (let j = 1; j < 4; j++) { // loop through first 3
-    const picking = document.getElementById(`pickContainer${j}`);
+    const picking = document.getElementById(`pick-container${j}`);
     organizeCards(picking, receivedFortunes[j - 1]);
   }
-
 }
 
 /**
  * Sets up the fortune and the place for the fortune.
- * Cleans up the element <div> (assuming it has 1 child) where the cards are picked and creates and adds the elements in the 
- * structure shown below. It also makes the bg image transparent. 
+ * Cleans up the element <div> (assuming it has 1 child) where the cards are picked and creates and adds the elements in the
+ * structure shown below. It also makes the bg image transparent.
  *
- *  <div class ='cardShow'>
+ *  <div class ='card-show'>
  *    <div class ='image'>
  *      <img href = "#" src='<imgsrc>'>
  *    </div>
  *    <div class='content'>
  *      <p class ='read-fortune'>information</p>
  *    </div>
- *  </div> 
+ *  </div>
  *
  *
- * @param {div} pick - div that holds a card. 
+ * @param {div} pick - div that holds a card.
  * @param {Object} fortune - A fortune from .json file, containing fortune fields (like the name, result, etc)
- *
  */
-function organizeCards(pick, fortune) {
-  // remove only child and style differently
+function organizeCards (pick, fortune) {
   pick.removeChild(pick.firstChild);
-  pick.classList.remove('pickContainer');
+
+  pick.classList.remove('pick-container');
   pick.classList.add('read-container');
 
-  // create new elements
   const indCard = document.createElement('div');
   const indCardImageContainer = document.createElement('div');
   const indCardImage = document.createElement('img');
@@ -183,12 +189,11 @@ function organizeCards(pick, fortune) {
 
   // add attributes
   fDescr.classList.add('read-fortune');
-  indCard.classList.add('cardShow');
+  indCard.classList.add('card-show');
   indCardImageContainer.classList.add('image');
-  indCardImage.setAttribute("href", "#"); 
-  indCardImage.setAttribute("src", `/assets/${APP_NAME}/${fortune['image']}.png`); 
+  indCardImage.setAttribute('href', '#');
+  indCardImage.setAttribute('src', `/src/assets/cart/${fortune.image}.png`);
   content.classList.add('content');
-
 
   // nest them by adding as children
   fDescr.appendChild(node);
@@ -209,7 +214,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await engine.db_reader(`./${APP_NAME}.json`);
 
   // Background music
-  const bgm = new Audio('/assets/cartomancy-background-music.mp3'); //  eslint-disable-line
+  const bgm = new Audio('/src/assets/cart/bgm-background.mp3'); //  eslint-disable-line
   bgm.play();
   bgm.loop = true;
 
@@ -227,22 +232,37 @@ document.addEventListener('DOMContentLoaded', async () => {
   const centerDiv = document.getElementById('center-div');
 
   startButton.addEventListener('click', (e) => {
+    clickedButton.playbackRate = 2.5; 
+    clickedButton.play();
     document.getElementById('intro').style.display = 'none';
     origDeck.style.display = 'initial';
     document.getElementById('start-button').style.display = 'none';
-    document.getElementById('pickContainer1').style.display = 'flex';
-    document.getElementById('pickContainer2').style.display = 'flex';
-    document.getElementById('pickContainer3').style.display = 'flex';
+    pickContainer1.style.display = 'flex';
+    pickContainer2.style.display = 'flex';
+    pickContainer3.style.display = 'flex';
   });
 
   // button display:'flex' after 3 cards
   readFortuneButton.addEventListener('click', (e) => {
-
-    // put away cards animation
+    clickedButton.play(); 
+    pickContainer1.style.userSelect = 'auto';
+    pickContainer1.style.pointerEvents = 'auto';
+    pickContainer2.style.userSelect = 'auto';
+    pickContainer2.style.pointerEvents = 'auto';
+    pickContainer3.style.userSelect = 'auto';
+    pickContainer3.style.pointerEvents = 'auto';
+    document.getElementById('reset-button').style.visibility = 'visible';
+    pickContainer1.style.animation = 'shrink 1s ease';
+    pickContainer2.style.animation = 'shrink 1s ease';
+    pickContainer3.style.animation = 'shrink 1s ease';
+    // put away animation
     origDeck.classList.add('hide-cards');
 
     setTimeout(() => {
       origDeck.remove();
+      pickContainer1.style.animation = 'grow 2s ease';
+      pickContainer2.style.animation = 'grow 2s ease';
+      pickContainer3.style.animation = 'grow 2s ease';
 
       // start reading cards
       readCards(centerDiv);
@@ -254,16 +274,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('music');
     const musicImg = document.getElementById('music');
     if (musicEnabled) {
-      musicImg.src = '/assets/audio_off.png';
+      musicImg.src = '/src/assets/audio_off.png';
       bgm.pause();
     } else {
-      musicImg.src = '/assets/audio_on.png';
+      musicImg.src = '/src/assets/audio_on.png';
       bgm.play();
     }
     musicEnabled = !musicEnabled;
   });
 
-  // Info Button toggle
+  // toggle info popup
   infoButton.addEventListener('click', (e) => {
     const infoPopup = document.getElementById('info-popup');
     infoPopup.style.display = !showInfo ? 'flex' : 'none';

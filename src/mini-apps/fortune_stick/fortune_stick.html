@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to CSS Stylesheet -->
+    <link rel="stylesheet" href="fortune_stick.css">
+    <link rel="icon" type="image/png" href="fortune-stick32x32.png">
+    <!-- Title of the page -->
+    <title>Fortune Stick</title>
+</head>
+<body>
+    <!-- Link to JavaScript file -->
+    <script type="module" src="fortune_stick.js"></script>
+
+    <!-- Main content display -->
+    <div class="center-div">
+
+        <!-- Title heading -->
+        <div class="heading">
+            <h1>Fortune Sticks</h1>
+        </div>
+
+        <!-- Fortune category cards -->
+        <div class="categories">
+            <div class="card" id="career">
+                <h2>Career</h2>
+            </div>
+            
+            <div class="card" id="wealth">
+                <h2>Wealth</h2>
+            </div>
+            
+            <div class="card" id="health">
+                <h2>Health</h2>
+            </div>
+            
+            <div class="card" id="relationship">
+                <h2>Relationship</h2>
+            </div>
+        </div>
+        
+        <!-- Display received fortune -->
+        <div class="display-fortune">
+            <div class="fortune-img">
+                <img src="../../assets/stick/stick-logo.png" alt="Fortune Sticks Image">
+            </div>
+
+            <div class="fortune-text">
+                <h2 id="fortune-message">Your fortune for...</h2>
+                <h4 id="fortune-received">Received fortune message...</h4>
+            </div>
+
+            <div class="reset-button-container">
+                <a href="#" id="reset-button" class="menu-button">
+                    <img src="../../assets/reset.png" id="reset" alt="Reset">
+                </a>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- Music toggle and home buttons -->
+    <div class="button-container-bottom-left">
+        <a href="#" id="music-button" class="menu-button">
+            <img src="../../assets/audio_on.png" id="music" alt="Music">
+        </a>
+        <a href="../../index.html" id="home-button" class="menu-button">
+            <img src="../../assets/home.png" id="home" alt="Home">
+        </a>
+    </div>
+
+    <!-- Information button -->
+    <div class="button-container-bottom-right">
+        <a href="#" id="info-button" class="menu-button">
+            <img src="../../assets/info.png" id="info" alt="Info">
+        </a>
+    </div>
+
+    <!-- Info pop up screen -->
+    <div id="info-popup" class="info-popup">
+        <div class="info-text">
+            <h1>Info</h1>
+            <p>Fortune sticks, also known as Kau Cim or Chien Tung in Chinese culture, are a popular form of divination. The fortune-telling process involves using a container full of numbered sticks, usually made from bamboo or wood, each corresponding to a specific prophecy or fortune.</p>
+            <a href="https://www.flaticon.com/free-icons/fortune" title="fortune icons">Fortune icons created by Freepik - Flaticon</a>
+        </div>
+    </div>
+    
+</body>
+</html>
