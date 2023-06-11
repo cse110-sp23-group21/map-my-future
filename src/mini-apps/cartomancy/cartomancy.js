@@ -62,8 +62,6 @@ pickContainer1.addEventListener('drop', dropped);
 pickContainer2.addEventListener('drop', dropped);
 pickContainer3.addEventListener('drop', dropped);
 
-
-
 /*
  * Calls cancelDefault() to fix information about being dropped over the pickContainer. Function not responsible for placing the card as a child but making sure it does not happen when it shouldn't.
  *

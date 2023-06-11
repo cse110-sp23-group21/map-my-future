@@ -1,8 +1,9 @@
 /* customize for mini app! styling for buttons and onwards should remain untouched. */
 
 /* styling for page */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English&family=Instrument+Serif&display=swap');
 @font-face {
-  font-family: "IMGFellEnglish";
+  font-family: 'IM Fell English', serif;
   src: url('/src/assets/cart/IMFellEnglishSC-Regular.ttf');
 }
 
@@ -264,7 +265,7 @@ body {
   background-image: none;
   background-position: center;
   animation: grow 2s ease;
-  font-family: "IMGFellEnglish"; 
+  font-family: "IM Fell English"; 
   text-overflow: ellipsis;
 }
 
