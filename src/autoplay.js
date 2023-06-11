@@ -14,23 +14,18 @@
 function setMusicState (bgm, musicImg, newState, onPath, offPath) {
   if (!newState) {
     //  If undefined, assume path from a mini-app folder
-    if (offPath === undefined)
-    {
-        musicImg.src = '../../assets/audio_off.png';
-    } else 
-    {
-        musicImg.src = offPath;
+    if (offPath === undefined) {
+      musicImg.src = '../../assets/audio_off.png';
+    } else {
+      musicImg.src = offPath;
     }
     bgm.pause();
   } else {
     //  If undefined, assume path from a mini-app folder
-    if (onPath === undefined)
-    {
-        musicImg.src = '../../assets/audio_on.png';
-    }
-    else 
-    {
-        musicImg.src = onPath;
+    if (onPath === undefined) {
+      musicImg.src = '../../assets/audio_on.png';
+    } else {
+      musicImg.src = onPath;
     }
     bgm.play();
   }

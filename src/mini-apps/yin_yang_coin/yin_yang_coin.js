@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Update Record Counter
         setTimeout(function () {
           lineTxt.innerText = 'Record' + ' ' + tossCounter + '/6';
-        }, 5500)
+        }, 5500);
 
         // Coin Rotation
 

@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * Side panel open/switch/close sound effect.
    * @type {Audio}
    */
-  const sideAudio = new Audio('assets/home/bgm-side.wav'); 
+  const sideAudio = new Audio('assets/home/bgm-side.wav');
 
   /**
    * Background music audio.
@@ -83,9 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   const bgm = new Audio('assets/home/bgm.mp3'); //  eslint-disable-line
 
-  const MUSIC_ON_IMAGE = "assets/audio_on.png";
+  const MUSIC_ON_IMAGE = 'assets/audio_on.png';
 
-  const MUSIC_OFF_IMAGE = "assets/audio_off.png";
+  const MUSIC_OFF_IMAGE = 'assets/audio_off.png';
 
   // Initialize all sound property.
   sideAudio.volume = 0.4;

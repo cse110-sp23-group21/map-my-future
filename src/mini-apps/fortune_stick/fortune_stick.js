@@ -26,15 +26,15 @@ const bgm = new Audio('../../assets/stick/bgm-background.mp3'); //  eslint-disab
 const categories = ['career', 'wealth', 'health', 'relationship'];
 
 let selectedCategory = '';
-let musicEnabled = true;
-let showInfo = false;
+// let musicEnabled = true;
+// let showInfo = false;
 
 /* Waiting for DOM to have loaded */
 document.addEventListener('DOMContentLoaded', async () => {
   /* Read JSON File */
 
   await engine.db_reader(`./${APP_NAME}.json`);
-  
+
   /* Play background music */
 
   /**
@@ -105,9 +105,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       selectedCategory = '';
     }, 1000);
-
-    
-
   });
 
   /* Add event listeners to the card elements */

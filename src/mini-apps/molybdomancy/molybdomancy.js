@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const bgm = new Audio('../../assets/moly/bgm-background.mp3');
   bgm.loop = true;
   bgm.volume = 0.4;
-  
+
   //  Attempt to autoplay background music
   bgm.play().then(() => {
     //  Autoplay started!
