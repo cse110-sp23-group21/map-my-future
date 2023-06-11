@@ -276,9 +276,9 @@ body {
 
 #reset-button {
   position: fixed;
+  width: fit-content;
   top: 1vh;
   left: .6vw;
-  width: 6vw;
   height: 5vh;
   display: none;
   visibility: hidden;
@@ -299,7 +299,6 @@ body {
   text-decoration: none;
   user-select: none;
   touch-action: manipulation;
-  width: fit-content;
 }
 
 #read-fortune-anchor img {
@@ -533,7 +532,7 @@ body {
     transform: translate(0);
   }
 }
-/*animation: elastic-spin 1s infinite ease;*/
+
 @keyframes elastic-spin {
   from {
     transform: rotate(0deg);
@@ -570,18 +569,22 @@ body {
     transform: perspective(800px) rotateY(0);
     animation-timing-function: ease-out;
   }
+
   40% {
     transform: perspective(800px) translateZ(150px) rotateY(170deg);
     animation-timing-function: ease-out;
   }
+
   50% {
     transform: perspective(800px) translateZ(150px) rotateY(190deg) scale(1);
     animation-timing-function: ease-in;
   }
+
   80% {
     transform: perspective(800px) rotateY(360deg) scale(.95);
     animation-timing-function: ease-in;
   }
+
   100% {
     transform: perspective(800px) scale(1);
     animation-timing-function: ease-in;
