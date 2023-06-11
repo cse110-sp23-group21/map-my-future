@@ -13,7 +13,8 @@
     "ignore": [
       "dist/",
       "docs/",
-      "dev-docs"
+      "dev-docs/",
+      "tests/"
     ]
   }
 }
