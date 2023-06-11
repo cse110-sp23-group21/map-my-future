@@ -188,4 +188,85 @@ test.describe('Continents', () => {
         //  Sidebar should be closed
         await expect(page.locator('#panel')).not.toBeVisible();
       });
-})
+    test ('You can go to each mini-app and back to the main page via Enter buttons', async ({ page }) => {
+        //  Go to Cartomancy
+      
+        //  Open Cartomancy's sidebar
+        await page.locator('g > g > path:nth-child(3)').first().click();
+      
+        //  Sidebar should be visible
+        await expect(page.locator('#panel')).toBeVisible();
+      
+        //  Click Enter button
+        await page.getByRole('button', { name: 'Enter' }).click();
+      
+        //  Should have arrived at Cartomancy
+        await expect(page).toHaveTitle("Cartomancy");
+      
+        //  Click on Home Button
+        await page.getByRole('link', { name: 'Home' }).click();
+      
+        //  Should have arrived at main page
+        await expect(page).toHaveTitle("Map My Future");
+      
+        //  Go to Fortune Stick
+      
+        //  Open Fortune Stick's sidebar
+        await page.locator('g > g > path:nth-child(2)').first().click();
+      
+        //  Sidebar should be visible
+        await expect(page.locator('#panel')).toBeVisible();
+      
+        //  Click on Enter Button
+        await page.getByRole('button', { name: 'Enter' }).click();
+        
+        //  Should have arrived at Fortune Stick
+        await expect(page).toHaveTitle("Fortune Stick");
+      
+        //  Click on Home Button
+        await page.getByRole('link', { name: 'Home' }).click();
+      
+        //  Should have arrived at main page
+        await expect(page).toHaveTitle("Map My Future");
+      
+        //  Go to Molybdomancy
+      
+        //  Open Molybdomancy's sidebar
+        await page.locator('.location').first().click();
+      
+        //  Sidebar should be visible
+        await expect(page.locator('#panel')).toBeVisible();
+      
+        //  Click on Enter Button
+        await page.getByRole('button', { name: 'Enter' }).click();
+      
+        //  Should have arrived at Molybdomancy
+        await expect(page).toHaveTitle("Molybdomancy");
+      
+        //  Click on Home Button
+        await page.getByRole('link', { name: 'Home' }).click();
+      
+        //  Should have arrived at main page
+        await expect(page).toHaveTitle("Map My Future");
+      
+        //  Go to Yin Yang Coin
+      
+        //  Open Yin Yang Coin's sidebar
+        await page.locator('path:nth-child(4)').first().click();
+      
+        //  Sidebar should be visible
+        await expect(page.locator('#panel')).toBeVisible();
+      
+        //  Click on Enter Button
+        await page.getByRole('button', { name: 'Enter' }).click();
+      
+        //  Should have arrived at Yin Yang Coin
+        await expect(page).toHaveTitle("Yin Yang Mysterious World");
+        
+        //  Click on Home Button
+        await page.getByRole('link', { name: 'Home' }).click();
+      
+        //  Should have arrived at main page
+        await expect(page).toHaveTitle("Map My Future");
+    });
+});
