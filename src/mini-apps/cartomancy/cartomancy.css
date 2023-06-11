@@ -178,6 +178,10 @@ body {
   animation: grow 2s ease;
 }
 
+.read-fortune-space:hover {
+  background-color: #fff;
+}
+
 .menu-button img {
   width: 30px;
   height: 30px;
@@ -261,9 +265,13 @@ body {
 #read-fortune-anchor {
   max-width: 85%;
   color: black;
-  transition: opacity 1s ease;
-  transition: 300ms ease-in-out;
   border-radius: 120%;
+  position: relative;
+  left: 0.5vh;
+}
+
+#read-fortune-anchor:hover {
+  background-color: #fff;
 }
 
 #reset-button {
@@ -295,7 +303,8 @@ body {
 }
 
 #read-fortune-anchor img {
-  max-width: 120%;
+  display: flex;
+  max-width: 92%;
   filter: brightness(0);
   animation: jump 1s ease infinite;
 }
@@ -309,7 +318,7 @@ body {
 
 /* hide's cards but moving them out */
 .hide-cards { 
-  animation: grow2 2s ease;
+  animation: shrink 2s ease;
   
 }
 
@@ -526,41 +535,57 @@ body {
 }
 /*animation: elastic-spin 1s infinite ease;*/
 @keyframes elastic-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(720deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(720deg);
+  }
 }
 
 @keyframes grow {
-  from { transform: scale(0); }
-  to { transform: scale(1); }
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
 }
 
-@keyframes grow2 {
-  from { transform: scale(1); }
-  to { transform: scale(0); }
+@keyframes shrink {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
 }
 
 @keyframes flip {
-	0% {
-		transform: persp8ctive(800px) rotateY(0);
-		animation-timing-function: ease-out;
-	}
-	40% {
-		transform: perspective(800px) translateZ(150px) rotateY(170deg);
-		animation-timing-function: ease-out;
-	}
-	50% {
-		transform: perspective(800px) translateZ(150px) rotateY(190deg) scale(1);
-		animation-timing-function: ease-in;
-	}
-	80% {
-		transform: perspective(800px) rotateY(360deg) scale(.95);
-		animation-timing-function: ease-in;
-	}
-	100% {
-		transform: perspective(800px) scale(1);
-		animation-timing-function: ease-in;
-	}
+  0% {
+    transform: perspective(800px) rotateY(0);
+    animation-timing-function: ease-out;
+  }
+  40% {
+    transform: perspective(800px) translateZ(150px) rotateY(170deg);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: perspective(800px) translateZ(150px) rotateY(190deg) scale(1);
+    animation-timing-function: ease-in;
+  }
+  80% {
+    transform: perspective(800px) rotateY(360deg) scale(.95);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: perspective(800px) scale(1);
+    animation-timing-function: ease-in;
+  }
 }
 
 @keyframes jump {
