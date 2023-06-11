@@ -19,13 +19,8 @@ test.describe('UI Buttons', () => {
         //  Get info panel
         const infoPanel = await page.locator("#info-popup");
 
-        console.log(infoButton);
-        console.log(infoPanel);
-
         //  Info panel shouldn't be open currently
         await expect(infoPanel).not.toBeVisible();
-
-        //await page.click('music-button');
 
         //  Click info button
         await infoButton.click();
@@ -38,5 +33,56 @@ test.describe('UI Buttons', () => {
 
         //  Info panel shouldn't be open currently
         await expect(infoPanel).not.toBeVisible();
+    });
+
+    test('toggle music on and off', async ({ page }) => {
+        //  Get music UI button
+        const musicButton = await page.locator('#music-button');
+
+        //  Check current status of music button
+        let state = await page.evaluate(() => {
+            const musicImage = document.getElementById('music');
+
+            if (musicImage.src == 'http://127.0.0.1:5500/src/assets/audio_on.png')
+            {
+                return true;
+            }
+            return false;
+        });
+
+        //  Click music button to toggle it
+        await musicButton.click();
+
+        //  Check state again
+        state = await page.evaluate(() => {
+            const musicImage = document.getElementById('music');
+
+            if (musicImage.src == 'http://127.0.0.1:5500/src/assets/audio_on.png')
+            {
+                return true;
+            }
+            return false;
+            
+        });
+
+        //  Music button should be set to muted
+        expect(state).toBe(false);
+
+        //  Click music button to toggle it
+        await musicButton.click();
+
+        //  Check state again
+        state = await page.evaluate(() => {
+            const musicImage = document.getElementById('music');
+
+            if (musicImage.src == 'http://127.0.0.1:5500/src/assets/audio_on.png')
+            {
+                return true;
+            }
+            return false;
+        });
+
+        //  Music button should be set to on
+        expect(state).toBe(true);
     });
 })
