@@ -87,6 +87,105 @@ test.describe('UI Buttons', () => {
     });
 });
 
-/*test.describe('Continents', () => {
-    test('Click on each continent should open and close')
-})*/
+test.describe('Continents', () => {
+    test('Click on each continent should open and close the sidebar', async ({ page }) => {
+        //  Sidebar should be closed
+        await expect(page.locator('#panel')).not.toBeVisible();
+        
+        //  Click on Molybdomancy to open
+        await page.locator('.location').first().click();
+      
+        //  Verify that its sidebar is open
+        await expect(page.locator('#panel')).toBeVisible();
+      
+        //  Close its sidebar
+        await page.locator('.location').first().click();
+      
+        //  Sidebar should be closed
+        await expect(page.locator('#panel')).not.toBeVisible();
+      
+        //  Click on Cartomancy to open
+        await page.locator('g > g > path:nth-child(3)').first().click();
+        
+        //  Verify that its sidebar is open
+        await expect(page.locator('#panel')).toBeVisible();
+        
+        //  Close its sidebar
+        await page.locator('g > g > path:nth-child(3)').first().click();
+        
+        //  Sidebar should be closed
+        await expect(page.locator('#panel')).not.toBeVisible();
+      
+        //  Click on Yin Yang Coin to open
+        await page.locator('path:nth-child(4)').first().click();
+        
+        //  Verify that its sidebar is open
+        await expect(page.locator('#panel')).toBeVisible();
+        
+        //  Close its sidebar
+        await page.locator('path:nth-child(4)').first().click();
+      
+        //  Sidebar should be closed
+        await expect(page.locator('#panel')).not.toBeVisible();
+        
+        //  Click on Fortune Stick to open
+        await page.locator('g > g > path:nth-child(2)').first().click();
+        
+        //  Verify that its sidebar is open
+        await expect(page.locator('#panel')).toBeVisible();
+        
+        //  Close its sidebar
+        await page.locator('g > g > path:nth-child(2)').first().click();
+        
+        //  Sidebar should be closed
+        await expect(page.locator('#panel')).not.toBeVisible();
+      
+        //  Click on Molybdomancy to open its sidebar
+        await page.locator('.location').first().click();
+        
+        //  Verify that its sidebar is open
+        await expect(page.locator('#panel')).toBeVisible();
+      
+        //  Click on Cartomancy to change to it
+        await page.locator('g > g > path:nth-child(3)').first().click();
+        
+        //  Verify that its sidebar is open
+        await expect(page.locator('#panel')).toBeVisible();
+        
+        //  Click on Yin Yang Coin to change to it
+        await page.locator('path:nth-child(4)').first().click();
+        
+        //  Verify that its sidebar is open
+        await expect(page.locator('#panel')).toBeVisible();
+        
+        //  Click on Fortune Stick to change to it
+        await page.locator('g > g > path:nth-child(2)').first().click();
+        
+        //  Verify that its sidebar is open
+        await expect(page.locator('#panel')).toBeVisible();
+        
+        //  Click on Yin Yang Coin to change to it
+        await page.locator('path:nth-child(4)').first().click();
+        
+        //  Verify that its sidebar is open
+        await expect(page.locator('#panel')).toBeVisible();
+        
+        //  Click on Cartomancy to change to it
+        await page.locator('g > g > path:nth-child(3)').first().click();
+        
+        //  Verify that its sidebar is open
+        await expect(page.locator('#panel')).toBeVisible();
+        
+        //  Click on Molybdomancy to change to it
+        await page.locator('.location').first().click();
+      
+        //  Verify that its sidebar is open
+        await expect(page.locator('#panel')).toBeVisible();
+        
+        //  Click on Molybdomancy to close it
+        await page.locator('.location').first().click();
+      
+        //  Sidebar should be closed
+        await expect(page.locator('#panel')).not.toBeVisible();
+      });
+})
