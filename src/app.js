@@ -2,7 +2,7 @@
  * Main page JavaScript code
  */
 
-import setMusicState from "./autoplay.js";
+import setMusicState from './autoplay.js';
 
 // Wait for all DOM to be ready
 document.addEventListener('DOMContentLoaded', () => {
