@@ -1,4 +1,13 @@
-// all driver code should be within this event listener, ie adding other event listeners and calling on imported engine
+/* Cartomancy Mini-App */
+/*
+ *  Steps:
+ *
+ *  1. Read the instructions and press <start>
+ *  2. After three rows of cards appear choose 3 by dragging one card at a time to the right. Bring them over to the hands, which are the elements pickContainerX in the code.
+ *  3. For every time a card is dropped into place a counter increases. After it reaches 3 the <read-fortunes> button becomes visible. Press this button to begin reading fortunes. This shrinks the current elements and brings forward pickContainers but changes the children to cards.
+ *  4. Hover above these cards to read the fortunes.
+ *
+ */
 
 import FortuneEngine from '../../engine.js';
 
@@ -28,7 +37,11 @@ const card1sArray = Array.from(card1s);
 const card2sArray = Array.from(card2s);
 const card3sArray = Array.from(card3s);
 
-// make the cards of each row draggable
+/*
+ * Calls dragStart() to get info of a card when it has begun to be dragged.
+ *
+ * @listens dragstart (a card is begin to be dragged by mouse)
+ */
 card1s.forEach(card => {
   card.addEventListener('dragstart', dragStart);
 });
@@ -39,16 +52,29 @@ card3s.forEach(card => {
   card.addEventListener('dragstart', dragStart);
 });
 
-// setting listeners for the containers to leave the cards
+/*
+ * Calls dropped() to compare info of the card and where it was dropped last
+ *
+ * @listens drop (A dragged card has been let go over pickContainerX)
+ */
 pickContainer1.addEventListener('drop', dropped);
+pickContainer2.addEventListener('drop', dropped);
+pickContainer3.addEventListener('drop', dropped);
+
+
+
+/*
+ * Calls cancelDefault() to fix information about being dropped over the pickContainer. Function not responsible for placing the card as a child but making sure it does not happen when it shouldn't.
+ *
+ * @listens dragenter (Draggable card enters over the pickContainerX element)
+ * @listens dragover (Draggable card is being dragged over pickContainerX element)
+ */
 pickContainer1.addEventListener('dragenter', cancelDefault);
 pickContainer1.addEventListener('dragover', cancelDefault);
 
-pickContainer2.addEventListener('drop', dropped);
 pickContainer2.addEventListener('dragenter', cancelDefault);
 pickContainer2.addEventListener('dragover', cancelDefault);
 
-pickContainer3.addEventListener('drop', dropped);
 pickContainer3.addEventListener('dragenter', cancelDefault);
 pickContainer3.addEventListener('dragover', cancelDefault);
 
@@ -209,6 +235,7 @@ function organizeCards (pick, fortune) {
   pick.appendChild(indCard);
 }
 
+// all driver code should be within this event listener, ie adding other event listeners and calling on imported engine
 document.addEventListener('DOMContentLoaded', async () => {
   // Read JSON File
   // Taken of: https://www.thetarotguide.com/
@@ -270,6 +297,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     }, 1000);
   });
 
+  //  Attempt to autoplay background music
+  bgm.play().then(() => {
+    //  Autoplay started!
+  }).catch(() => {
+    //  Autoplay failed - set music to off
+    musicEnabled = false;
+    setMusicState(bgm, musicEnabled);
+  });
+
+  /*
+   * Listen to click event for the music UI button.
+   * Toggles musicEnabled and calls the setMusicState() method.
+   *
+   * @listens musicButton#click
+   */
   musicButton.addEventListener('click', (e) => {
     console.log('music');
     const musicImg = document.getElementById('music');
@@ -283,7 +325,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     musicEnabled = !musicEnabled;
   });
 
-  // toggle info popup
+  // Info Button
+  /**
+   * Listen to click event for the info UI button.
+   * Toggles showInfo and toggles display of the info panel.
+   *
+   * @listens infoButton#click
+   */
   infoButton.addEventListener('click', (e) => {
     const infoPopup = document.getElementById('info-popup');
     infoPopup.style.display = !showInfo ? 'flex' : 'none';
