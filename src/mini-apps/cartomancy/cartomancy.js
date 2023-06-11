@@ -22,7 +22,8 @@ const card3s = document.querySelectorAll('.card3');
 const pickContainer1 = document.getElementById('pick-container1');
 const pickContainer2 = document.getElementById('pick-container2');
 const pickContainer3 = document.getElementById('pick-container3');
-
+const actionButtonPressSound = new Audio('/src/assets/cart/bgm-side.wav');
+const clickedButton = new Audio('/src/assets/cart/cartomancy-click-sound.mp3');
 const card1sArray = Array.from(card1s);
 const card2sArray = Array.from(card2s);
 const card3sArray = Array.from(card3s);
@@ -86,6 +87,7 @@ function dropped (e) {
       const droppedElement = card1sArray[i];
       droppedElement.style.animation = 'flip 2s ease';
       e.target.appendChild(card1sArray[i]);
+      actionButtonPressSound.play();
       droppedElement.draggable = false;
       console.log(droppedElement);
       cardsPicked++;
@@ -94,6 +96,7 @@ function dropped (e) {
       const droppedElement = card2sArray[i];
       droppedElement.style.animation = 'flip 2s ease';
       e.target.appendChild(card2sArray[i]);
+      actionButtonPressSound.play();
       droppedElement.draggable = false;
       cardsPicked++;
       i++;
@@ -101,6 +104,7 @@ function dropped (e) {
       const droppedElement = card3sArray[i];
       droppedElement.style.animation = 'flip 2s ease';
       e.target.appendChild(card3sArray[i]);
+      actionButtonPressSound.play();
       droppedElement.draggable = false;
       cardsPicked++;
       i++;
@@ -229,6 +233,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   const centerDiv = document.getElementById('center-div');
 
   startButton.addEventListener('click', (e) => {
+    clickedButton.playbackRate = 2.5; 
+    clickedButton.play();
     document.getElementById('intro').style.display = 'none';
     origDeck.style.display = 'initial';
     document.getElementById('start-button').style.display = 'none';
@@ -239,6 +245,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // button display:'flex' after 3 cards
   readFortuneButton.addEventListener('click', (e) => {
+    clickedButton.play(); 
     document.getElementById('pick-container1').style.userSelect = 'auto';
     document.getElementById('pick-container1').style.pointerEvents = 'auto';
     document.getElementById('pick-container2').style.userSelect = 'auto';
