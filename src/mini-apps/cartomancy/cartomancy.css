@@ -245,9 +245,10 @@ body {
   transition : 0.3s ease-in-out;
 }
 
+/* container for holding the fortunes */ 
 .container .card-show:hover .content {
   position: relative; 
-  top: 5vh; 
+  top: 7vh; 
   visibility : visible;
   opacity : 1;
   transition-delay: 0.2s;
@@ -255,7 +256,7 @@ body {
   height: 20vh;
 }
 
-/* container for the card image and correspinding fortunes */
+/* container for the card image and corresponding fortunes */
 .read-container {
   margin-top: 10%;
   margin-left: 2%;
