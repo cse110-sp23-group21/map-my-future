@@ -22,8 +22,12 @@ test('Getting fortune works correctly when pressing melt tin button', async ({ p
 
     //  Check that text is visible
     await expect(page.locator('.interpretation1')).toBeVisible({timeout: 15000});
-    await expect(page.locator('.interpretation2')).toBeVisible({timeout: 15000});
+    await expect(page.locator('.interpretation2')).toBeVisible();
 
-    //  After 10 seconds, click button again
+    //  Click Try Again button
     await page.getByRole('button', { name: 'Try Again?' }).click();
+
+    //  Interpretation text should not be visible
+    await expect(page.locator('.interpretation1')).not.toBeVisible();
+    await expect(page.locator('.interpretation2')).not.toBeVisible();
   });
