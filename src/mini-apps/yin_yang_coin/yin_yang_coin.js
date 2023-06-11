@@ -21,26 +21,7 @@
 */
 
 import FortuneEngine from '../../engine.js';
-
-/**
- * Sets the state (on / off) of the background music
- * @param {Audio} bgm Background music Audio object
- * @param {boolean} newState Whether the background music
- *  should be turned on or off
- * @returns {boolean} the new state of the background music (set musicEnabled
- * to this)
- */
-function setMusicState (bgm, newState) {
-  const musicImg = document.getElementById('music');
-  if (!newState) {
-    musicImg.src = '../../assets//audio_off.png';
-    bgm.pause();
-  } else {
-    musicImg.src = '../../assets/audio_on.png';
-    bgm.play();
-  }
-  return newState;
-}
+import setMusicState from '../../autoplay.js';
 
 // Wait for the DOM to be ready
 document.addEventListener('DOMContentLoaded', async () => {
@@ -92,6 +73,11 @@ document.addEventListener('DOMContentLoaded', async () => {
    * Music on/off button element (part of general UI)
    */
   const musicButton = document.getElementById('music-button');
+
+  /**
+   * Music on/off image element (part of general UI)
+   */
+  const musicImage = document.getElementById('music');
 
   /**
    * Info button element (part of general UI)
@@ -179,24 +165,27 @@ document.addEventListener('DOMContentLoaded', async () => {
    * Fortune reveal sound effect object
    * @type {Audio}
    */
-  const fortuneRevealSound = new Audio('../../assets/coin/hex-reveal.mp3');
+  const fortuneRevealSound = new Audio('../../assets/coin/bgm-hex-reveal.mp3');
 
   /**
    * Line reveal sound effect object
    * @type {Audio}
    */
-  const lineRevealSound = new Audio('../../assets/coin/line-reveal2.mp3');
+  const lineRevealSound = new Audio('../../assets/coin/bgm-line-reveal.mp3');
 
   /**
    * Action button press sound effect object
    * @type {Audio}
    */
-  const actionButtonPressSound = new Audio('../../assets/coin/action-button-press4.wav');
+  const actionButtonPressSound = new Audio('../../assets/coin/bgm-button-click.wav');
 
   //  Music and sound effect settings
   bgm.loop = true;
   bgm.volume = 0.4;
   flipSound.volume = 0.5;
+  fortuneRevealSound.volume = 0.5;
+  lineRevealSound.volume = 0.5;
+  actionButtonPressSound.volume = 0.5;
 
   //  Attempt to autoplay background music
   bgm.play().then(() => {
@@ -204,7 +193,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }).catch(() => {
     //  Autoplay failed - set music to off
     musicEnabled = false;
-    setMusicState(bgm, musicEnabled);
+    setMusicState(bgm, musicImage, musicEnabled);
   });
 
   /**
@@ -215,16 +204,7 @@ document.addEventListener('DOMContentLoaded', async () => {
    */
   musicButton.addEventListener('click', (event) => {
     console.log('music');
-    /* const musicImg = document.getElementById('music');
-    if (musicEnabled) {
-      musicImg.src = '../../../assets/audio_off.png';
-      bgm.pause();
-    } else {
-      musicImg.src = '../../../assets/audio_on.png';
-      bgm.play();
-    }
-    musicEnabled = !musicEnabled; */
-    musicEnabled = setMusicState(bgm, !musicEnabled);
+    musicEnabled = setMusicState(bgm, musicImage, !musicEnabled);
   });
 
   // Info Button
@@ -248,15 +228,13 @@ document.addEventListener('DOMContentLoaded', async () => {
    * @listens buttonElement#click
    */
   buttonElement.addEventListener('click', (event) => {
-    actionButtonPressSound.play();
-
     const buttonElement = event.target;
     const buttonValue = buttonElement.value;
-    console.log(buttonValue);
 
     // Start State
     switch (buttonValue) {
       case 'start':
+        actionButtonPressSound.play();
         // Update Button State
         buttonElement.value = 'toss';
         buttonElement.innerText = 'Toss Coins';
@@ -277,20 +255,12 @@ document.addEventListener('DOMContentLoaded', async () => {
          * Randomly generated 3-coin toss result
          */
         const coinResult = engine.get_random_subset(1)[0];  //  eslint-disable-line
-        console.log('coinResult:', coinResult.value);
-        console.log('Power of two:', powerOfTwo);
 
         //  Calculate the Hexagram Index
         hexagramIndex += coinResult.value * powerOfTwo;
         powerOfTwo = powerOfTwo << 1;
 
-        console.log('Hexagram Index:', hexagramIndex);
-
         tossCounter++;
-        console.log('Tossing coins! tossCounter =', tossCounter);
-
-
-        // UI Generation
 
         // Lines Animation
         console.log(gridList[tossCounter]);
@@ -309,7 +279,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Update Record Counter
         setTimeout(function () {
           lineTxt.innerText = 'Record' + ' ' + tossCounter + '/6';
-        }, 5500)
+        }, 5500);
 
         // Coin Rotation
 
@@ -343,15 +313,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         break;
 
       case 'result':
-        // Map hexagram to intepretation
-
         fortuneRevealSound.play();
 
         /**
          * Resulting hexagram object
          */
         const hexagram = hexagrams[hexagramIndex];  //  eslint-disable-line
-        console.log('Hexagram Result:', hexagram);
 
         // Update Button State
         buttonElement.value = 'reset';
@@ -394,6 +361,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         break;
 
       case 'reset':
+        actionButtonPressSound.play();
+
         //  Reset variables relevant to hexagram generation
         hexagramIndex = 0;
         tossCounter = 0;
@@ -410,7 +379,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         character.innerHTML = '';
         intepretationTxt.innerHTML = '';
-        instructionTxt.innerHTML = 'Possible Combinations';
+        instructionTxt.innerHTML = 'Coin Combination';
         lineTxt.innerHTML = 'Side Info';
 
         character.className = 'inactive';

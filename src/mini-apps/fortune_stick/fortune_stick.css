@@ -82,6 +82,12 @@ body {
 
 .display-fortune {
     opacity: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
     transition: opacity 1s ease;
 }
 
@@ -93,6 +99,7 @@ body {
     text-align: center;
     color: white;
     opacity: 1;
+    transition: opacity 1s ease;
 }
 
 .fortune-img img {
@@ -110,12 +117,15 @@ body {
 }
 
 .reset-button-container {
+    pointer-events: none;
     opacity: 0;
     transition: opacity 1s ease;
 }
 
 .reset-button-container.show {
+    pointer-events: auto;
     opacity: 1;
+    transition: opacity 1s ease;
 }
 
 /* Styling for buttons */

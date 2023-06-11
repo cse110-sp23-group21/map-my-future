@@ -7,14 +7,6 @@
     src: url('../../assets/coin/chinese.stxingka.ttf') format('truetype');
 }
 
-/*  @font-face {
-        font-family:"stxingkai-regular";
-        src:url("https://www.dafontfree.net/data/1/s/291/chinese.stxingka.ttf") 
-        format("woff"),url("https://www.dafontfree.net/data/1/s/291/chinese.stxingka.ttf") 
-        format("opentype"),url("https://www.dafontfree.net/data/1/s/291/chinese.stxingka.ttf") 
-        format("truetype");
-}   */
-
 /*  General selectors   */
 
 /* Body part design */
@@ -39,8 +31,8 @@ h1 {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: rgba(black);
-    text-shadow: 1px 0 10px rgb(55, 40, 130);
+    color: black;
+    text-shadow: 0.25vh 0.25vh 2vh rgb(55, 40, 130);
     transform: scale(0.94);
     animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
 }
@@ -154,14 +146,14 @@ span:nth-child(3) {
 
 /* Design the side grid with 5% gap with the instruction grid */
 #side {
-    background-color: rgba(92, 83, 103, 0.6);
+    background-color: rgba(84, 78, 92, 60%);
     margin-right: 5%;
     border-radius: 10px;
 }
 
 /* Design the instruction grid */
 #instructions {
-    background-color:  rgba(92, 83, 103, 0.6);
+    background-color:  rgba(84, 78, 92, 60%);
     border-radius: 10px;
 }
 
@@ -329,8 +321,8 @@ span:nth-child(3) {
 .action-button {
     padding: 2vh 3vw;
     border: none;
-    background-color: rgba(92, 83, 103, 0.9);
-    color: #ffffff;
+    background-color: rgba(84, 78, 92, 90%);
+    color: white;
     cursor: pointer;
     border-radius: 20px;
     font-size: 1.2rem;
