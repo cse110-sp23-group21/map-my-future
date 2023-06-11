@@ -1,6 +1,7 @@
 // all driver code should be within this event listener, ie adding other event listeners and calling on imported engine
 
-import FortuneEngine from '../../engine.js';
+import FortuneEngine from "../../engine.js";
+import setMusicState from '../../autoplay.js';
 
 const engine = new FortuneEngine();
 const APP_NAME = 'cartomancy';
@@ -206,11 +207,24 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Taken of: https://www.thetarotguide.com/
   await engine.db_reader(`./${APP_NAME}.json`);
 
+  /**
+   * Music on/off image element (part of general UI)
+   */
+  const musicImage = document.getElementById('music');
+
   // Background music
   const bgm = new Audio('/src/assets/cart/cartomancy-bgm.mp3'); //  eslint-disable-line
-  bgm.play();
   bgm.loop = true;
-
+  
+  //  Attempt to autoplay background music
+  bgm.play().then(() => {
+    //  Autoplay started!
+  }).catch(() => {
+    //  Autoplay failed - set music to off
+    musicEnabled = false;
+    setMusicState(bgm, musicImage, musicEnabled);
+  });
+  
   // Buttons
   let musicEnabled = true;
   let showInfo = false;

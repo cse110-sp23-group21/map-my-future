@@ -1,4 +1,8 @@
-// Main page code goes here
+/**
+ * Main page JavaScript code
+ */
+
+import setMusicState from "./autoplay.js";
 
 // Wait for all DOM to be ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,6 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
    * DOM access to music enable button.
    */
   const musicButton = document.getElementById('music-button');
+
+  /**
+   * Music on/off image element (part of general UI)
+   */
+  const musicImage = document.getElementById('music');
 
   /**
    * DOM access to info display button.
@@ -74,10 +83,22 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   const bgm = new Audio('assets/home/bgm.mp3'); //  eslint-disable-line
 
+  const MUSIC_ON_IMAGE = "assets/audio_on.png";
+
+  const MUSIC_OFF_IMAGE = "assets/audio_off.png";
+
   // Initialize all sound property.
   sideAudio.volume = 0.4;
-  bgm.play();
   bgm.loop = true;
+
+  //  Attempt to autoplay background music
+  bgm.play().then(() => {
+    //  Autoplay started!
+  }).catch(() => {
+    //  Autoplay failed - set music to off
+    musicEnabled = false;
+    setMusicState(bgm, musicImage, musicEnabled, MUSIC_ON_IMAGE, MUSIC_OFF_IMAGE);
+  });
 
   /**
    * Listen to click event for the each location section on the map.
@@ -186,15 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * @listens musicButton#click
    */
   musicButton.addEventListener('click', (e) => {
-    const musicImg = document.getElementById('music');
-    if (musicEnabled) {
-      musicImg.src = 'assets/audio_off.png';
-      bgm.pause();
-    } else {
-      musicImg.src = 'assets/audio_on.png';
-      bgm.play();
-    }
-    musicEnabled = !musicEnabled;
+    musicEnabled = setMusicState(bgm, musicImage, !musicEnabled, MUSIC_ON_IMAGE, MUSIC_OFF_IMAGE);
   });
 
   /**

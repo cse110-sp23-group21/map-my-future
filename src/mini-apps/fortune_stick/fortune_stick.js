@@ -15,6 +15,7 @@
 /* Imports */
 
 import FortuneEngine from '../../engine.js';
+import setMusicState from '../../autoplay.js';
 
 /* Global variables */
 const APP_NAME = 'fortune_stick';
@@ -36,20 +37,27 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   /* Play background music */
 
-  const playMusic = bgm.play();
-  if (playMusic !== undefined) {
-    playMusic.then(() => {
-      bgm.loop = true;
-    }).catch((err) => {
-      console.log(err);
-      musicEnabled = false;
-      const musicImg = document.querySelectorAll('img')[0];
-      musicImg.src = '../assets/audio_off.png';
-    });
-  }
+  /**
+   * Music on/off image element (part of general UI)
+   */
+  const musicImage = document.getElementById('music');
 
-  /* Add event listeners to menu corner buttons */
+  // Background music
+  const bgm = new Audio('../../assets/stick/bgm-background.mp3'); //  eslint-disable-line
+  bgm.loop = true;
 
+  //  Attempt to autoplay background music
+  bgm.play().then(() => {
+    //  Autoplay started!
+  }).catch(() => {
+    //  Autoplay failed - set music to off
+    musicEnabled = false;
+    setMusicState(bgm, musicImage, musicEnabled);
+  });
+
+  // Buttons
+  let musicEnabled = true;
+  let showInfo = false;
   const musicButton = document.getElementById('music-button');
   const infoButton = document.getElementById('info-button');
   const resetButton = document.getElementById('reset-button');
@@ -57,16 +65,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   /* Music button */
 
   musicButton.addEventListener('click', (e) => {
-    console.log('music');
-    const musicImg = document.getElementById('music');
-    if (musicEnabled) {
-      musicImg.src = '../../assets/audio_off.png';
-      bgm.pause();
-    } else {
-      musicImg.src = '../../assets/audio_on.png';
-      bgm.play();
-    }
-    musicEnabled = !musicEnabled;
+    musicEnabled = setMusicState(bgm, musicImage, !musicEnabled);
   });
 
   /* Info button */
