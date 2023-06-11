@@ -104,6 +104,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       cardElement.classList.toggle('choose-card');
 
       selectedCategory = '';
+
+      container.style.display = 'none';
     }, 1000);
   });
 
