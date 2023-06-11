@@ -15,7 +15,7 @@
       "docs/",
       "dev-docs/",
       "tests/",
-      "tests-examples",
+      "tests-examples/",
       "playwright.config.js"
     ]
   }
