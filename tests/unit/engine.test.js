@@ -1,4 +1,4 @@
-import FortuneEngine from '../src/engine.js';
+import FortuneEngine from '../../src/engine.js';
 
 //  get_outcomes()
 
