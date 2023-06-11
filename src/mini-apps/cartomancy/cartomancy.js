@@ -84,22 +84,22 @@ function dropped (e) {
     cancelDefault(e);
     if (droppedID === 'card1') {
       const droppedElement = card1sArray[i];
-      droppedElement.style.animation = 'flip 2s ease'; 
+      droppedElement.style.animation = 'flip 2s ease';
       e.target.appendChild(card1sArray[i]);
       droppedElement.draggable = false;
-      console.log(droppedElement); 
+      console.log(droppedElement);
       cardsPicked++;
       i++;
     } else if (droppedID === 'card2') {
       const droppedElement = card2sArray[i];
-      droppedElement.style.animation = 'flip 2s ease'; 
+      droppedElement.style.animation = 'flip 2s ease';
       e.target.appendChild(card2sArray[i]);
       droppedElement.draggable = false;
       cardsPicked++;
       i++;
     } else if (droppedID === 'card3') {
       const droppedElement = card3sArray[i];
-      droppedElement.style.animation = 'flip 2s ease'; 
+      droppedElement.style.animation = 'flip 2s ease';
       e.target.appendChild(card3sArray[i]);
       droppedElement.draggable = false;
       cardsPicked++;
@@ -245,11 +245,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('pick-container2').style.pointerEvents = 'auto';
     document.getElementById('pick-container3').style.userSelect = 'auto';
     document.getElementById('pick-container3').style.pointerEvents = 'auto';
-    document.getElementById('reset-button').style.visibility = 'visible'; 
+    document.getElementById('reset-button').style.visibility = 'visible';
     document.getElementById('pick-container1').style.animation = 'grow2 2s ease';
     document.getElementById('pick-container2').style.animation = 'grow2 2s ease';
     document.getElementById('pick-container3').style.animation = 'grow2 2s ease';
-   
     // put away animation
     origDeck.classList.add('hide-cards');
 
