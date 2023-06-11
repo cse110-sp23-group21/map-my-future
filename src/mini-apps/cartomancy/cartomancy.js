@@ -314,15 +314,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }, 1000);
   });
 
-  //  Attempt to autoplay background music
-  bgm.play().then(() => {
-    //  Autoplay started!
-  }).catch(() => {
-    //  Autoplay failed - set music to off
-    musicEnabled = false;
-    setMusicState(bgm, musicEnabled);
-  });
-
   /*
    * Listen to click event for the music UI button.
    * Toggles musicEnabled and calls the setMusicState() method.
