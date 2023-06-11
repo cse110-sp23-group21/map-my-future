@@ -111,11 +111,15 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          branch: ${{ github.ref }}   
   run-minimizer:
     name: Run Minimizer v4
     needs: create-documentation
     runs-on: ubuntu-latest
+
+    permissions:
+      # Lets this job push the docs to the repository
+      contents: write
 
     steps:
       - name: Checkout Code
@@ -125,6 +129,19 @@ jobs:
       - name: Minify code in src/ directory
         run: |
           ./.github/minimize.sh
+      - name: Commit files to dist directory
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git pull
+          git add dist
+          git commit -a -m "Minimized files" --allow-empty
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+
   deploy:
     name: Deploy
     needs: run-minimizer

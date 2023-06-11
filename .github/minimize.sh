@@ -10,6 +10,9 @@ npm install uglify-js -g
 npm install html-minifier-terser -g
 FILES="src/"
 
+#   Make dist/ directory if it doesn't already exist
+mkdir -p "dist"
+
 #   Make subdirectories from src/ into dist/ (preserve subdirectory structure)
 find $FILES -type d ! -name "src" | while read fname
     do
