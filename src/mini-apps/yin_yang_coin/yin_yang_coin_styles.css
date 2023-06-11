@@ -322,7 +322,7 @@ span:nth-child(3) {
     padding: 2vh 3vw;
     border: none;
     background-color: rgba(84, 78, 92, 90%);
-    color: #ffffff;
+    color: white;
     cursor: pointer;
     border-radius: 20px;
     font-size: 1.2rem;

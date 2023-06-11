@@ -1,6 +1,6 @@
 // all driver code should be within this event listener, ie adding other event listeners and calling on imported engine
 
-import FortuneEngine from "../../engine.js";
+import FortuneEngine from '../../engine.js';
 import setMusicState from '../../autoplay.js';
 
 const engine = new FortuneEngine();
@@ -187,7 +187,7 @@ function organizeCards (pick, fortune) {
   indCardImage.setAttribute('href', '#');
   indCardImage.setAttribute('src', `/src/assets/cart/${fortune.image}.png`);
   content.classList.add('content');
- 
+
   // nest them by adding as children
   fDescr.appendChild(node);
 
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Background music
   const bgm = new Audio('/src/assets/cart/cartomancy-bgm.mp3'); //  eslint-disable-line
   bgm.loop = true;
-  
+
   //  Attempt to autoplay background music
   bgm.play().then(() => {
     //  Autoplay started!
@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     musicEnabled = false;
     setMusicState(bgm, musicImage, musicEnabled);
   });
-  
+
   // Buttons
   let musicEnabled = true;
   let showInfo = false;
