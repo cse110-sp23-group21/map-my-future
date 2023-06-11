@@ -189,7 +189,6 @@ body {
   height: 25vh;
 }
 
-
 .container .card-show {
   position: relative;
   max-width : 21vw;
@@ -298,6 +297,7 @@ body {
 #read-fortune-anchor img {
   max-width: 120%;
   filter: brightness(0);
+  animation: jump 1s ease infinite;
 }
 
 
@@ -320,12 +320,10 @@ body {
   background-image: url('/src/assets/cart/card-back.png');
   background-size: cover ;
   width: 10vw;
-  height: 30vh;
+  height: 32vh;
+  margin: 10px; 
   color: white;
-  margin: 20px;
   cursor: move;
-  border: 1px solid black;
-  border-radius: 10px;
   transition: opacity 1s ease;
   transition: 300ms ease-in-out;
   backface-visibility: visible !important;
@@ -388,7 +386,6 @@ body {
   align-items: center; /* Center vertically */
   padding : 50px;  
 }
-
 
 
 /* styling for buttons */
@@ -564,4 +561,12 @@ body {
 		transform: perspective(800px) scale(1);
 		animation-timing-function: ease-in;
 	}
+}
+
+@keyframes jump {
+  30% { transform: scale(1.2); }
+  40%, 60% { transform: rotate(-20deg) scale(1.2); }
+  50% { transform: rotate(20deg) scale(1.2); }
+  70% { transform: rotate(0deg) scale(1.2); }
+  100% { transform: scale(1); }
 }
