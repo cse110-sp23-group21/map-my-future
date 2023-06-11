@@ -184,7 +184,7 @@ function organizeCards (pick, fortune) {
   indCard.classList.add('card-show');
   indCardImageContainer.classList.add('image');
   indCardImage.setAttribute('href', '#');
-  indCardImage.setAttribute('src', `/assets/${APP_NAME}/${fortune.image}.png`);
+  indCardImage.setAttribute('src', `/src/assets/cart/${fortune.image}.png`);
   content.classList.add('content');
 
   // nest them by adding as children
