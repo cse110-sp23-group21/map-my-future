@@ -33,10 +33,10 @@ import FortuneEngine from '../../engine.js';
 function setMusicState (bgm, newState) {
   const musicImg = document.getElementById('music');
   if (!newState) {
-    musicImg.src = '../../../assets/audio_off.png';
+    musicImg.src = '../../assets//audio_off.png';
     bgm.pause();
   } else {
-    musicImg.src = '../../../assets/audio_on.png';
+    musicImg.src = '../../assets/audio_on.png';
     bgm.play();
   }
   return newState;
@@ -167,13 +167,31 @@ document.addEventListener('DOMContentLoaded', async () => {
    * Background music object
    * @type {Audio}
    */
-  const bgm = new Audio('../../../assets/coin/bgm-background.mp3');
+  const bgm = new Audio('../../assets/coin/bgm-background.mp3');
 
   /**
    * Coin flip sound effect object
    * @type {Audio}
    */
-  const flipSound = new Audio('../../../assets/coin/bgm-coin-flip.ogg');
+  const flipSound = new Audio('../../assets/coin/bgm-coin-flip.ogg');
+
+  /**
+   * Fortune reveal sound effect object
+   * @type {Audio}
+   */
+  const fortuneRevealSound = new Audio('../../assets/coin/hex-reveal.mp3');
+
+  /**
+   * Line reveal sound effect object
+   * @type {Audio}
+   */
+  const lineRevealSound = new Audio('../../assets/coin/line-reveal2.mp3');
+
+  /**
+   * Action button press sound effect object
+   * @type {Audio}
+   */
+  const actionButtonPressSound = new Audio('../../assets/coin/action-button-press4.wav');
 
   //  Music and sound effect settings
   bgm.loop = true;
@@ -230,6 +248,8 @@ document.addEventListener('DOMContentLoaded', async () => {
    * @listens buttonElement#click
    */
   buttonElement.addEventListener('click', (event) => {
+    actionButtonPressSound.play();
+
     const buttonElement = event.target;
     const buttonValue = buttonElement.value;
     console.log(buttonValue);
@@ -242,7 +262,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         buttonElement.innerText = 'Toss Coins';
 
         // Update Content Screen
-        lineTxt.innerText = 'Record';
+        lineTxt.innerText = 'Record 0/6';
         lineTxt.style.fontSize = '3rem';
 
         instructionImg.style.display = 'none';
@@ -269,19 +289,27 @@ document.addEventListener('DOMContentLoaded', async () => {
         tossCounter++;
         console.log('Tossing coins! tossCounter =', tossCounter);
 
+
         // UI Generation
 
         // Lines Animation
         console.log(gridList[tossCounter]);
         if (coinResult.type === 'Yin') {
           setTimeout(function () {
-            gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../../assets/coin/line-broken.PNG" alt="instruction image display failed."/>';
+            gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../assets/coin/line-broken.PNG" alt="instruction image display failed."/>';
+            lineRevealSound.play();
           }, 4500);
         } else {
           setTimeout(function () {
-            gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../../assets/coin/line-solid.PNG" alt="instruction image display failed."/>';
+            gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../assets/coin/line-solid.PNG" alt="instruction image display failed."/>';
+            lineRevealSound.play();
           }, 4500);
         }
+
+        // Update Record Counter
+        setTimeout(function () {
+          lineTxt.innerText = 'Record' + ' ' + tossCounter + '/6';
+        }, 5500)
 
         // Coin Rotation
 
@@ -317,6 +345,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       case 'result':
         // Map hexagram to intepretation
 
+        fortuneRevealSound.play();
+
         /**
          * Resulting hexagram object
          */
@@ -342,7 +372,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         }, 3500);
 
         instructionTxt.style.animation = 'blurfadein 3s ease-in forwards';
-        instructionTxt.style.fontSize = '3rem';
+        instructionTxt.style.fontSize = '8vh';
+        instructionTxt.style.margin = '0';
+        instructionTxt.style.padding = '0';
         instructionTxt.style.display = 'block';
         coinDisplay.style.display = 'none';
 
@@ -378,16 +410,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         character.innerHTML = '';
         intepretationTxt.innerHTML = '';
-        instructionTxt.innerHTML = 'Instruction';
+        instructionTxt.innerHTML = 'Possible Combinations';
         lineTxt.innerHTML = 'Side Info';
 
         character.className = 'inactive';
         instructionTxt.style.fontSize = '2rem';
+        instructionTxt.style.margin = '';
+        instructionTxt.style.padding = '';
         instructionTxt.style.animation = 'none';
         instructionImg.style.display = 'inline-block';
         intepretationTxt.style.display = 'none';
 
-        contentGrid.style.display = 'inline';
+        contentGrid.style.display = '';
 
         // Update Side Screen
         lineTxt.style.fontSize = '2rem';

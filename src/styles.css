@@ -1,29 +1,96 @@
-/* style sheet for main page */
+/*  Specify Hexagram Chinese name font-face (calligraphy)   */
+@font-face {
+    font-family: Badhead;
+    src: url('assets/home/badhead.ttf') format('truetype');
+}
+
+/* General Page Layout & Style */
 body {
-    background-color: #164EBC;
+    margin: 0;
+    background: url("assets/home/background.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+mask {
+    mask-type:luminance;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .canvas {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    stroke: #164EBC;
+    display: grid;
+    grid-template-rows: 5% 95%;
+}
+
+.title {
+    font-family: Badhead;
+    font-size: 15vh;
+    font-weight: 700;
+    color: gold;
+    text-shadow: 1vh 0.5vh 1vh rgb(0, 0, 0);
+    padding-left: 5vh;
+}
+
+/* Map Style */
+.map-container {
+    width: min-content;
 }
 
 .map {
+    width: 100vw;
+    height: 100vh;
     transform-origin: center center;
     transition: transform 0.3s;
 }
 
-.location:hover{
-    fill: white;
+/* Location Hover & Select Effect */
+.location[toggle-by="true"] {
+    fill: rgb(44, 211, 211);
 }
 
-/* styling for buttons */
+.location:hover {
+    fill: rgb(44, 211, 211);
+    cursor: pointer;
+}
+
+/* Side Panel Layout & Style */
+.side-panel {
+    display: none;
+    width: 30vw;
+    height: 100vh;
+    flex-shrink: 0;
+    padding: 2vh;
+    color: #fff;
+    background: rgb(244, 244, 242);
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 35%);
+}
+
+.side-panel-open .side-panel {
+    display: initial;
+}
+
+.layout {
+    width: 26vw;
+    margin-top: 60%;
+    padding: 1vh;
+    border-radius: 2vh;
+    background-color: rgba(0, 0, 0, 60%);
+    display: grid;
+    gap: 13%;
+}
+
+#instruction-text {
+    font-size: 2vh;
+}
+
+/* Buttons Layout */
 .button-container-bottom-right {
     position: fixed;
     bottom: 20px;
@@ -35,7 +102,22 @@ body {
     bottom: 20px;
     left: 20px;
 }
-  
+
+/* Buttons Style */
+.enter-button {
+    position: relative;
+    display: inline-block;
+    width: 15vh;
+    height: 6vh;
+    font-size: 3vh;
+    border-radius: 2vh;
+    border: 1px solid;
+    background-color: rgb(0, 0, 0, 60%);
+    color: white;
+    cursor: pointer;
+    overflow: hidden;
+}
+
 .menu-button {
     display: flex;
     justify-content: center;
@@ -59,7 +141,7 @@ body {
     background-color: #857557;
 }
 
-/* styling for info pop up screen */
+/* Info Screen Style */
 .info-popup {
     display: none;
     position: fixed;
@@ -70,11 +152,10 @@ body {
     border-radius: 10%;
     background-color: #846e43;
     text-align: center;
-    justify-content: center;    
+    justify-content: center;
 }
 
 .info-text {
     color: white;
     width: 90%;
 }
-

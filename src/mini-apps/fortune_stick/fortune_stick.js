@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   /* Read JSON File */
 
   await engine.db_reader(`./${APP_NAME}.json`);
-
+  
   /* Play background music */
 
   const playMusic = bgm.play();
@@ -60,10 +60,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('music');
     const musicImg = document.getElementById('music');
     if (musicEnabled) {
-      musicImg.src = '../../../assets/audio_off.png';
+      musicImg.src = '../../assets/audio_off.png';
       bgm.pause();
     } else {
-      musicImg.src = '../../../assets/audio_on.png';
+      musicImg.src = '../../assets/audio_on.png';
       bgm.play();
     }
     musicEnabled = !musicEnabled;
