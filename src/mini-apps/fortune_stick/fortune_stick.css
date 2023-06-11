@@ -35,7 +35,7 @@ body {
 
 .heading h1 {
     color: white;
-    font-size: 42px;
+    font-size: 2.625em;
     font-family: "Chinese Shanghai Demo", sans-serif;
 }
 
@@ -69,6 +69,7 @@ body {
     border: 1px solid black;
     border-radius: 10px;
     transition: opacity 1s ease;
+    font-size: 1em;
 }
 
 .card:hover {
@@ -105,8 +106,8 @@ body {
 }
 
 .fortune-img img {
-    width: 250px;
-    height: 250px;
+    width: 16em;
+    height: 16em;
 }
 
 .fortune-text {
@@ -115,7 +116,11 @@ body {
 
 #fortune-message {
     margin: auto;
-    max-width: 8em;
+    font-size: 2em;
+}
+
+#fortune-received {
+    font-size: 1.2em;
 }
 
 .reset-button-container {
