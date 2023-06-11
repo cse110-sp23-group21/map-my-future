@@ -21,7 +21,7 @@ const APP_NAME = 'fortune_stick';
 const TYPING_SPEED = 35;
 
 const engine = new FortuneEngine();
-const bgm = new Audio('../../../assets/stick/bgm-background.mp3'); //  eslint-disable-line
+const bgm = new Audio('../../assets/stick/bgm-background.mp3'); //  eslint-disable-line
 const categories = ['career', 'wealth', 'health', 'relationship'];
 
 let selectedCategory = '';
@@ -80,7 +80,35 @@ document.addEventListener('DOMContentLoaded', async () => {
   /* Reset button */
 
   resetButton.addEventListener('click', (e) => {
-    window.location.reload();
+    // window.location.reload();
+
+    const container = document.getElementsByClassName('display-fortune')[0];
+    const resetButton = document.getElementsByClassName('reset-button-container')[0];
+
+    container.classList.remove('show');
+    resetButton.classList.remove('show');
+
+    setTimeout(() => {
+      const notChosen = document.querySelectorAll(`.card:not(#${selectedCategory})`);
+      const allCards = document.getElementsByClassName('categories')[0];
+
+      for (let i = 0; i < notChosen.length; i++) {
+        notChosen[i].classList.toggle('hide');
+        notChosen[i].style.opacity = '1';
+      }
+
+      allCards.style.display = 'flex';
+
+      const cardElement = document.getElementById(`${selectedCategory}`);
+
+      cardElement.style.pointerEvents = 'auto';
+      cardElement.classList.toggle('choose-card');
+
+      selectedCategory = '';
+    }, 1000);
+
+    
+
   });
 
   /* Add event listeners to the card elements */
@@ -88,8 +116,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   const cardElements = document.querySelectorAll('.card');
 
   cardElements.forEach(cardElement => {
-    console.log("element's id:", cardElement.id);
-
     cardElement.addEventListener('click', (e) => {
       selectCategory(cardElement.id);
     });
@@ -168,14 +194,17 @@ function displayFortune () {
 
   const receivedFortune = engine.get_random_subset(1)[0][selectedCategory];
 
+  console.log(receivedFortune);
+  fortune.innerHTML = '';
+
   message.textContent = `Your fortune for ${selectedCategory} is:`;
 
+  container.style.display = 'flex';
   container.classList.add('show');
-  resetButton.classList.add('show');
 
   /* Play fortune received audio effect */
 
-  const typingSound = new Audio('fortune_stick_reveal.ogg');
+  const typingSound = new Audio('../../assets/stick/bgm-reveal.ogg');
   typingSound.currentTime = 0;
   typingSound.play();
 
@@ -191,6 +220,10 @@ function displayFortune () {
       clearInterval(typingInterval);
     }
   }, TYPING_SPEED);
+
+  setTimeout(() => {
+    resetButton.classList.add('show');
+  }, TYPING_SPEED * receivedFortune.length);
 
   return true;
 }
