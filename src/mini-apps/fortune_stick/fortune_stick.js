@@ -1,7 +1,7 @@
 
 /*  Steps:
 
-1. After selecting the Fortune Sticks continent, the user is greeted with the Fortune Sticks 
+1. After selecting the Fortune Sticks continent, the user is greeted with the Fortune Sticks
    application with the title, and 4 fortune categories to select from. There are also menu buttons
    on the corners of the screen to toggle music, return home, and receive more info.
 2. Once the user clicks on one of the 4 categories (career, wealth, health, relationship), the card
@@ -30,18 +30,17 @@ let showInfo = false;
 
 /* Waiting for DOM to have loaded */
 document.addEventListener('DOMContentLoaded', async () => {
-
   /* Read JSON File */
 
   await engine.db_reader(`./${APP_NAME}.json`);
 
   /* Play background music */
 
-  let playMusic = bgm.play();
+  const playMusic = bgm.play();
   if (playMusic !== undefined) {
-    playMusic.then( () => {
+    playMusic.then(() => {
       bgm.loop = true;
-    }).catch( (err) => {
+    }).catch((err) => {
       console.log(err);
       musicEnabled = false;
       const musicImg = document.querySelectorAll('img')[0];
@@ -98,12 +97,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 /**
- * Transitions from category selection to displaying received fortune. Uses the 
- * chooseCardAnimation function to animate transition, and displayFortune function 
+ * Transitions from category selection to displaying received fortune. Uses the
+ * chooseCardAnimation function to animate transition, and displayFortune function
  * to animate displaying the received fortune.
  * @param {String} category string representing fortune category chosen
  * @returns {boolean} whether or not the transition was successful
- */ 
+ */
 function selectCategory (category) {
   if (!categories.includes(category)) {
     console.error('invalid category');
@@ -150,7 +149,6 @@ function chooseCardAnimation (category) {
 
   cardElement.style.pointerEvents = 'none';
   cardElement.classList.toggle('choose-card');
-  
   return true;
 }
 
@@ -160,7 +158,6 @@ function chooseCardAnimation (category) {
  * @returns {boolean} whether or not the display was successful;
  */
 function displayFortune () {
-
   /* Obtaining elements and displaying fortune */
 
   const container = document.getElementsByClassName('display-fortune')[0];
