@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   meltButton.addEventListener('mouseover', () => {
     console.log('hover');
     actionButtonHoverSoundEffect.play();
-  })
+  });
 
   meltButton.addEventListener('click', () => {
     actionButtonPressSoundEffect.play();
