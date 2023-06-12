@@ -203,7 +203,6 @@ document.addEventListener('DOMContentLoaded', async () => {
    * @listens musicButton#click
    */
   musicButton.addEventListener('click', (event) => {
-    console.log('music');
     musicEnabled = setMusicState(bgm, musicImage, !musicEnabled);
   });
 
@@ -263,7 +262,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         tossCounter++;
 
         // Lines Animation
-        console.log(gridList[tossCounter]);
         if (coinResult.type === 'Yin') {
           setTimeout(function () {
             gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../assets/coin/line-broken.png" alt="instruction image display failed."/>';
@@ -397,7 +395,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         lineImg.style.display = 'inline-block';
 
         for (let i = 0; i < 6; i++) {
-          console.log(gridList[i]);
           gridList[i].innerHTML = '';
         }
 

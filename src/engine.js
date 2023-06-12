@@ -61,8 +61,6 @@ class FortuneEngine {
    *    outcomes
    */
   async db_reader (json_file) {
-    console.log(json_file);
-
     await fetch(json_file)
       .then(response => response.json())
       .then(data => {
@@ -74,9 +72,6 @@ class FortuneEngine {
         //  filled, it can be considered initialized (safe to run
         //  get_random_subset() and other such methods)
         this.initialized = true;
-
-        //  Debug
-        this.db_dump();
       })
       .catch(error => console.error(error));
   }

@@ -74,7 +74,6 @@ function animate () {
   if (cooldown <= 0) {
     if (shouldIncrementIndex) {
       textIndex++;
-      console.log(textIndex);
     }
 
     doMorph();
@@ -118,7 +117,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   meltSoundEffect.volume = 0.7;
 
   meltButton.addEventListener('mouseover', () => {
-    console.log('hover');
     actionButtonHoverSoundEffect.play();
   });
 
