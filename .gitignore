@@ -4,4 +4,4 @@ node_modules
 /playwright-report/
 /playwright/.cache/
 .vscode
-/tests-examples/
+tests-examples
