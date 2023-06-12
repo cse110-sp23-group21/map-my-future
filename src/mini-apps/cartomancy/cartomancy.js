@@ -1,4 +1,13 @@
-// all driver code should be within this event listener, ie adding other event listeners and calling on imported engine
+/* Cartomancy Mini-App */
+/*
+ *  Steps:
+ *
+ *  1. Read the instructions and press <start>
+ *  2. After three rows of cards appear choose 3 by dragging one card at a time to the right. Bring them over to the hands, which are the elements pickContainerX in the code.
+ *  3. For every time a card is dropped into place a counter increases. After it reaches 3 the <read-fortunes> button becomes visible. Press this button to begin reading fortunes. This shrinks the current elements and brings forward pickContainers but changes the children to cards.
+ *  4. Hover above these cards to read the fortunes.
+ *
+ */
 
 import FortuneEngine from '../../engine.js';
 import setMusicState from '../../autoplay.js';
@@ -23,12 +32,17 @@ const card3s = document.querySelectorAll('.card3');
 const pickContainer1 = document.getElementById('pick-container1');
 const pickContainer2 = document.getElementById('pick-container2');
 const pickContainer3 = document.getElementById('pick-container3');
-
+const cardPlaced = new Audio('../../assets/cart/bgm-side.wav');
+const clickedButton = new Audio('../../assets/cart/cartomancy-click-sound.mp3');
 const card1sArray = Array.from(card1s);
 const card2sArray = Array.from(card2s);
 const card3sArray = Array.from(card3s);
 
-// make the cards of each row draggable
+/*
+ * Calls dragStart() to get info of a card when it has begun to be dragged.
+ *
+ * @listens dragstart (a card is begin to be dragged by mouse)
+ */
 card1s.forEach(card => {
   card.addEventListener('dragstart', dragStart);
 });
@@ -39,18 +53,35 @@ card3s.forEach(card => {
   card.addEventListener('dragstart', dragStart);
 });
 
-// setting listeners for the containers to leave the cards
+/*
+ * Calls dropped() to compare info of the card and where it was dropped last
+ *
+ * @listens drop (A dragged card has been let go over pickContainerX)
+ */
 pickContainer1.addEventListener('drop', dropped);
+pickContainer2.addEventListener('drop', dropped);
+pickContainer3.addEventListener('drop', dropped);
+
+/*
+ * Calls cancelDefault() to fix information about being dropped over the pickContainer. Function not responsible for placing the card as a child but making sure it does not happen when it shouldn't.
+ *
+ * @listens dragenter (Draggable card enters over the pickContainerX element)
+ * @listens dragover (Draggable card is being dragged over pickContainerX element)
+ */
 pickContainer1.addEventListener('dragenter', cancelDefault);
 pickContainer1.addEventListener('dragover', cancelDefault);
 
-pickContainer2.addEventListener('drop', dropped);
 pickContainer2.addEventListener('dragenter', cancelDefault);
 pickContainer2.addEventListener('dragover', cancelDefault);
 
-pickContainer3.addEventListener('drop', dropped);
 pickContainer3.addEventListener('dragenter', cancelDefault);
 pickContainer3.addEventListener('dragover', cancelDefault);
+
+/**
+ * Music on/off image element (part of general UI)
+ */
+
+const musicImage = document.getElementById('music');
 
 /**
  * Allows the card to be hovered and eventually dropped into the respective container
@@ -85,34 +116,41 @@ function dropped (e) {
     cancelDefault(e);
     if (droppedID === 'card1') {
       const droppedElement = card1sArray[i];
+      droppedElement.style.animation = 'flip 2s ease';
       e.target.appendChild(card1sArray[i]);
+      cardPlaced.play();
       droppedElement.draggable = false;
+      console.log(droppedElement);
       cardsPicked++;
       i++;
     } else if (droppedID === 'card2') {
       const droppedElement = card2sArray[i];
+      droppedElement.style.animation = 'flip 2s ease';
       e.target.appendChild(card2sArray[i]);
+      cardPlaced.play();
       droppedElement.draggable = false;
       cardsPicked++;
       i++;
     } else if (droppedID === 'card3') {
       const droppedElement = card3sArray[i];
+      droppedElement.style.animation = 'flip 2s ease';
       e.target.appendChild(card3sArray[i]);
+      cardPlaced.play();
       droppedElement.draggable = false;
       cardsPicked++;
       i++;
     }
-    if (document.getElementById('pick-container1').children.length > 0) {
-      document.getElementById('pick-container1').style.userSelect = 'none';
-      document.getElementById('pick-container1').style.pointerEvents = 'none';
+    if (pickContainer1.children.length > 0) {
+      pickContainer1.style.userSelect = 'none';
+      pickContainer1.style.pointerEvents = 'none';
     }
-    if (document.getElementById('pick-container2').children.length > 0) {
-      document.getElementById('pick-container2').style.userSelect = 'none';
-      document.getElementById('pick-container2').style.pointerEvents = 'none';
+    if (pickContainer2.children.length > 0) {
+      pickContainer2.style.userSelect = 'none';
+      pickContainer2.style.pointerEvents = 'none';
     }
-    if (document.getElementById('pick-container3').children.length > 0) {
-      document.getElementById('pick-container3').style.userSelect = 'none';
-      document.getElementById('pick-container3').style.pointerEvents = 'none';
+    if (pickContainer3.children.length > 0) {
+      pickContainer3.style.userSelect = 'none';
+      pickContainer3.style.pointerEvents = 'none';
     }
   }
 
@@ -185,7 +223,7 @@ function organizeCards (pick, fortune) {
   indCard.classList.add('card-show');
   indCardImageContainer.classList.add('image');
   indCardImage.setAttribute('href', '#');
-  indCardImage.setAttribute('src', `/src/assets/cart/${fortune.image}.png`);
+  indCardImage.setAttribute('src', `../../assets/cart/${fortune.image}.png`);
   content.classList.add('content');
 
   // nest them by adding as children
@@ -202,18 +240,15 @@ function organizeCards (pick, fortune) {
   pick.appendChild(indCard);
 }
 
+// all driver code should be within this event listener, ie adding other event listeners and calling on imported engine
 document.addEventListener('DOMContentLoaded', async () => {
   // Read JSON File
   // Taken of: https://www.thetarotguide.com/
   await engine.db_reader(`./${APP_NAME}.json`);
 
-  /**
-   * Music on/off image element (part of general UI)
-   */
-  const musicImage = document.getElementById('music');
-
   // Background music
-  const bgm = new Audio('/src/assets/cart/cartomancy-bgm.mp3'); //  eslint-disable-line
+  const bgm = new Audio('../../assets/cart/bgm-background.mp3'); //  eslint-disable-line
+
   bgm.loop = true;
 
   //  Attempt to autoplay background music
@@ -239,47 +274,61 @@ document.addEventListener('DOMContentLoaded', async () => {
   const centerDiv = document.getElementById('center-div');
 
   startButton.addEventListener('click', (e) => {
+    clickedButton.playbackRate = 2.5;
+    clickedButton.play();
     document.getElementById('intro').style.display = 'none';
     origDeck.style.display = 'initial';
     document.getElementById('start-button').style.display = 'none';
-    document.getElementById('pick-container1').style.display = 'flex';
-    document.getElementById('pick-container2').style.display = 'flex';
-    document.getElementById('pick-container3').style.display = 'flex';
+    pickContainer1.style.display = 'flex';
+    pickContainer2.style.display = 'flex';
+    pickContainer3.style.display = 'flex';
   });
 
   // button display:'flex' after 3 cards
   readFortuneButton.addEventListener('click', (e) => {
-    document.getElementById('pick-container1').style.userSelect = 'auto';
-    document.getElementById('pick-container1').style.pointerEvents = 'auto';
-    document.getElementById('pick-container2').style.userSelect = 'auto';
-    document.getElementById('pick-container2').style.pointerEvents = 'auto';
-    document.getElementById('pick-container3').style.userSelect = 'auto';
-    document.getElementById('pick-container3').style.pointerEvents = 'auto';
+    clickedButton.playbackRate = 2.5;
+    clickedButton.play();
+    pickContainer1.style.userSelect = 'auto';
+    pickContainer1.style.pointerEvents = 'auto';
+    pickContainer2.style.userSelect = 'auto';
+    pickContainer2.style.pointerEvents = 'auto';
+    pickContainer3.style.userSelect = 'auto';
+    pickContainer3.style.pointerEvents = 'auto';
+    document.getElementById('reset-button').style.visibility = 'visible';
+    pickContainer1.style.animation = 'shrink 1s ease';
+    pickContainer2.style.animation = 'shrink 1s ease';
+    pickContainer3.style.animation = 'shrink 1s ease';
     // put away animation
     origDeck.classList.add('hide-cards');
 
     setTimeout(() => {
       origDeck.remove();
+      pickContainer1.style.animation = 'grow 2s ease';
+      pickContainer2.style.animation = 'grow 2s ease';
+      pickContainer3.style.animation = 'grow 2s ease';
 
       // start reading cards
       readCards(centerDiv);
     }, 1000);
   });
 
-  musicButton.addEventListener('click', (e) => {
-    console.log('music');
-    const musicImg = document.getElementById('music');
-    if (musicEnabled) {
-      musicImg.src = '/src/assets/audio_off.png';
-      bgm.pause();
-    } else {
-      musicImg.src = '/src/assets/audio_on.png';
-      bgm.play();
-    }
-    musicEnabled = !musicEnabled;
+  /*
+   * Listen to click event for the music UI button.
+   * Toggles musicEnabled and calls the setMusicState() method.
+   *
+   * @listens musicButton#click
+   */
+  musicButton.addEventListener('click', (event) => {
+    musicEnabled = setMusicState(bgm, musicImage, !musicEnabled);
   });
 
-  // toggle info popup
+  // Info Button
+  /**
+   * Listen to click event for the info UI button.
+   * Toggles showInfo and toggles display of the info panel.
+   *
+   * @listens infoButton#click
+   */
   infoButton.addEventListener('click', (e) => {
     const infoPopup = document.getElementById('info-popup');
     infoPopup.style.display = !showInfo ? 'flex' : 'none';
@@ -289,6 +338,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Reset Button
   const resetButton = document.getElementById('reset-button');
   resetButton.addEventListener('click', (e) => {
+    clickedButton.play();
     window.location.reload();
   });
 });
