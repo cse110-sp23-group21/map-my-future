@@ -1,7 +1,7 @@
 //  @ts-check
 const {test, expect} = require('@playwright/test');
 
-const MAIN_PAGE_URL = 'http://127.0.0.1:5500/src/index.html';
+const MAIN_PAGE_URL = 'https://cse110-sp23-group21.github.io/map-my-future/index.html';
 
 test.beforeEach(async ({ page }) => {
     await page.goto(MAIN_PAGE_URL);
@@ -43,7 +43,7 @@ test.describe('UI Buttons', () => {
         let oldState = await page.evaluate(() => {
             const musicImage = document.getElementById('music');
 
-            if (musicImage.src == 'http://127.0.0.1:5500/src/assets/audio_on.png')
+            if (musicImage.src == 'https://cse110-sp23-group21.github.io/map-my-future/assets/audio_on.png')
             {
                 return true;
             }
@@ -57,7 +57,7 @@ test.describe('UI Buttons', () => {
         let state = await page.evaluate(() => {
             const musicImage = document.getElementById('music');
 
-            if (musicImage.src == 'http://127.0.0.1:5500/src/assets/audio_on.png')
+            if (musicImage.src == 'https://cse110-sp23-group21.github.io/map-my-future/assets/audio_on.png')
             {
                 return true;
             }
@@ -75,7 +75,7 @@ test.describe('UI Buttons', () => {
         state = await page.evaluate(() => {
             const musicImage = document.getElementById('music');
 
-            if (musicImage.src == 'http://127.0.0.1:5500/src/assets/audio_on.png')
+            if (musicImage.src == 'https://cse110-sp23-group21.github.io/map-my-future/assets/audio_on.png')
             {
                 return true;
             }
