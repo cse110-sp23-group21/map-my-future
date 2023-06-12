@@ -1,4 +1,3 @@
-
 /*  Steps:
 
 1. After selecting the Fortune Sticks continent, the user is greeted with the Fortune Sticks
