@@ -1,4 +1,3 @@
-
 /*  Steps:
 
 1. After selecting the Fortune Sticks continent, the user is greeted with the Fortune Sticks
@@ -104,6 +103,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       cardElement.classList.toggle('choose-card');
 
       selectedCategory = '';
+
+      container.style.display = 'none';
     }, 1000);
   });
 

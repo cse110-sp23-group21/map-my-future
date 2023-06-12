@@ -9,8 +9,8 @@
  *
  */
 
-import FortuneEngine from '/src/engine.js';
-import setMusicState from '/src/autoplay.js';
+import FortuneEngine from '../../engine.js';
+import setMusicState from '../../autoplay.js';
 
 const engine = new FortuneEngine();
 const APP_NAME = 'cartomancy';
@@ -32,8 +32,8 @@ const card3s = document.querySelectorAll('.card3');
 const pickContainer1 = document.getElementById('pick-container1');
 const pickContainer2 = document.getElementById('pick-container2');
 const pickContainer3 = document.getElementById('pick-container3');
-const actionButtonPressSound = new Audio('/src/assets/cart/bgm-side.wav');
-const clickedButton = new Audio('/src/assets/cart/cartomancy-click-sound.mp3');
+const cardPlaced = new Audio('../../assets/cart/bgm-side.wav');
+const clickedButton = new Audio('../../assets/cart/cartomancy-click-sound.mp3');
 const card1sArray = Array.from(card1s);
 const card2sArray = Array.from(card2s);
 const card3sArray = Array.from(card3s);
@@ -61,8 +61,6 @@ card3s.forEach(card => {
 pickContainer1.addEventListener('drop', dropped);
 pickContainer2.addEventListener('drop', dropped);
 pickContainer3.addEventListener('drop', dropped);
-
-
 
 /*
  * Calls cancelDefault() to fix information about being dropped over the pickContainer. Function not responsible for placing the card as a child but making sure it does not happen when it shouldn't.
@@ -120,7 +118,7 @@ function dropped (e) {
       const droppedElement = card1sArray[i];
       droppedElement.style.animation = 'flip 2s ease';
       e.target.appendChild(card1sArray[i]);
-      actionButtonPressSound.play();
+      cardPlaced.play();
       droppedElement.draggable = false;
       console.log(droppedElement);
       cardsPicked++;
@@ -129,7 +127,7 @@ function dropped (e) {
       const droppedElement = card2sArray[i];
       droppedElement.style.animation = 'flip 2s ease';
       e.target.appendChild(card2sArray[i]);
-      actionButtonPressSound.play();
+      cardPlaced.play();
       droppedElement.draggable = false;
       cardsPicked++;
       i++;
@@ -137,7 +135,7 @@ function dropped (e) {
       const droppedElement = card3sArray[i];
       droppedElement.style.animation = 'flip 2s ease';
       e.target.appendChild(card3sArray[i]);
-      actionButtonPressSound.play();
+      cardPlaced.play();
       droppedElement.draggable = false;
       cardsPicked++;
       i++;
@@ -225,7 +223,7 @@ function organizeCards (pick, fortune) {
   indCard.classList.add('card-show');
   indCardImageContainer.classList.add('image');
   indCardImage.setAttribute('href', '#');
-  indCardImage.setAttribute('src', `/src/assets/cart/${fortune.image}.png`);
+  indCardImage.setAttribute('src', `../../assets/cart/${fortune.image}.png`);
   content.classList.add('content');
 
   // nest them by adding as children
@@ -248,7 +246,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await engine.db_reader(`./${APP_NAME}.json`);
 
   // Background music
-  const bgm = new Audio('/src/assets/cart/bgm-background.mp3'); //  eslint-disable-line
+  const bgm = new Audio('../../assets/cart/bgm-background.mp3'); //  eslint-disable-line
 
   bgm.loop = true;
 
@@ -287,6 +285,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // button display:'flex' after 3 cards
   readFortuneButton.addEventListener('click', (e) => {
+    clickedButton.playbackRate = 2.5;
     clickedButton.play();
     pickContainer1.style.userSelect = 'auto';
     pickContainer1.style.pointerEvents = 'auto';
@@ -338,6 +337,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Reset Button
   const resetButton = document.getElementById('reset-button');
   resetButton.addEventListener('click', (e) => {
+    clickedButton.play();
     window.location.reload();
   });
 });
