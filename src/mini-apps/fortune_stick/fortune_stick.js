@@ -15,41 +15,49 @@
 /* Imports */
 
 import FortuneEngine from '../../engine.js';
+import setMusicState from '../../autoplay.js';
 
 /* Global variables */
 const APP_NAME = 'fortune_stick';
 const TYPING_SPEED = 35;
 
 const engine = new FortuneEngine();
-const bgm = new Audio('../../../assets/stick/bgm-background.mp3'); //  eslint-disable-line
+const bgm = new Audio('../../assets/stick/bgm-background.mp3'); //  eslint-disable-line
 const categories = ['career', 'wealth', 'health', 'relationship'];
 
 let selectedCategory = '';
-let musicEnabled = true;
-let showInfo = false;
+// let musicEnabled = true;
+// let showInfo = false;
 
 /* Waiting for DOM to have loaded */
 document.addEventListener('DOMContentLoaded', async () => {
   /* Read JSON File */
 
   await engine.db_reader(`./${APP_NAME}.json`);
-  
+
   /* Play background music */
 
-  const playMusic = bgm.play();
-  if (playMusic !== undefined) {
-    playMusic.then(() => {
-      bgm.loop = true;
-    }).catch((err) => {
-      console.log(err);
-      musicEnabled = false;
-      const musicImg = document.querySelectorAll('img')[0];
-      musicImg.src = '../assets/audio_off.png';
-    });
-  }
+  /**
+   * Music on/off image element (part of general UI)
+   */
+  const musicImage = document.getElementById('music');
 
-  /* Add event listeners to menu corner buttons */
+  // Background music
+  const bgm = new Audio('../../assets/stick/bgm-background.mp3'); //  eslint-disable-line
+  bgm.loop = true;
 
+  //  Attempt to autoplay background music
+  bgm.play().then(() => {
+    //  Autoplay started!
+  }).catch(() => {
+    //  Autoplay failed - set music to off
+    musicEnabled = false;
+    setMusicState(bgm, musicImage, musicEnabled);
+  });
+
+  // Buttons
+  let musicEnabled = true;
+  let showInfo = false;
   const musicButton = document.getElementById('music-button');
   const infoButton = document.getElementById('info-button');
   const resetButton = document.getElementById('reset-button');
@@ -57,16 +65,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   /* Music button */
 
   musicButton.addEventListener('click', (e) => {
-    console.log('music');
-    const musicImg = document.getElementById('music');
-    if (musicEnabled) {
-      musicImg.src = '../../assets/audio_off.png';
-      bgm.pause();
-    } else {
-      musicImg.src = '../../assets/audio_on.png';
-      bgm.play();
-    }
-    musicEnabled = !musicEnabled;
+    musicEnabled = setMusicState(bgm, musicImage, !musicEnabled);
   });
 
   /* Info button */
@@ -80,7 +79,32 @@ document.addEventListener('DOMContentLoaded', async () => {
   /* Reset button */
 
   resetButton.addEventListener('click', (e) => {
-    window.location.reload();
+    // window.location.reload();
+
+    const container = document.getElementsByClassName('display-fortune')[0];
+    const resetButton = document.getElementsByClassName('reset-button-container')[0];
+
+    container.classList.remove('show');
+    resetButton.classList.remove('show');
+
+    setTimeout(() => {
+      const notChosen = document.querySelectorAll(`.card:not(#${selectedCategory})`);
+      const allCards = document.getElementsByClassName('categories')[0];
+
+      for (let i = 0; i < notChosen.length; i++) {
+        notChosen[i].classList.toggle('hide');
+        notChosen[i].style.opacity = '1';
+      }
+
+      allCards.style.display = 'flex';
+
+      const cardElement = document.getElementById(`${selectedCategory}`);
+
+      cardElement.style.pointerEvents = 'auto';
+      cardElement.classList.toggle('choose-card');
+
+      selectedCategory = '';
+    }, 1000);
   });
 
   /* Add event listeners to the card elements */
@@ -88,8 +112,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   const cardElements = document.querySelectorAll('.card');
 
   cardElements.forEach(cardElement => {
-    console.log("element's id:", cardElement.id);
-
     cardElement.addEventListener('click', (e) => {
       selectCategory(cardElement.id);
     });
@@ -168,14 +190,17 @@ function displayFortune () {
 
   const receivedFortune = engine.get_random_subset(1)[0][selectedCategory];
 
+  console.log(receivedFortune);
+  fortune.innerHTML = '';
+
   message.textContent = `Your fortune for ${selectedCategory} is:`;
 
+  container.style.display = 'flex';
   container.classList.add('show');
-  resetButton.classList.add('show');
 
   /* Play fortune received audio effect */
 
-  const typingSound = new Audio('fortune_stick_reveal.ogg');
+  const typingSound = new Audio('../../assets/stick/bgm-reveal.ogg');
   typingSound.currentTime = 0;
   typingSound.play();
 
@@ -191,6 +216,10 @@ function displayFortune () {
       clearInterval(typingInterval);
     }
   }, TYPING_SPEED);
+
+  setTimeout(() => {
+    resetButton.classList.add('show');
+  }, TYPING_SPEED * receivedFortune.length);
 
   return true;
 }
