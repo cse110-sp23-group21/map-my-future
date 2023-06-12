@@ -1,0 +1,32 @@
+{
+    "option-result pair": [
+        {
+            "name": "fortune stick 1",
+            "wealth": "Beware of risky financial ventures. Impulsive decisions may lead to financial loss. Exercise caution and seek advice before making significant investments.",
+            "career": " A period of stagnation in your career may be ahead. Embrace this time as an opportunity for self-reflection, skill development, and exploring new avenues.",
+            "health": "Neglecting your well-being will have consequences. Prioritize self-care and seek professional guidance for any health concerns that arise.",
+            "relationship": "Miscommunication may strain your relationships. Practice active listening, express yourself clearly, and seek resolution through open and honest dialogue."
+        },
+        {
+            "name": "fortune stick 2",
+            "wealth": "Money matters may become challenging in the near future. Avoid unnecessary expenses and focus on saving for unexpected situations.",
+            "career": "Challenges at work may test your resilience. Stay focused, learn from setbacks, and adapt to overcome obstacles that come your way.",
+            "health": "Burnout and exhaustion may hinder your health. Take breaks, practice relaxation techniques, and ensure you maintain a healthy work-life balance.",
+            "relationship": "Relationship conflicts may arise. Approach disagreements with empathy, understanding, and a willingness to find common ground."
+        },
+        {
+            "name": "fortune stick 3",
+            "wealth": "Fortune smiles upon your finances. A lucrative opportunity or unexpected windfall is on its way. Embrace it with gratitude and wise financial management.",
+            "career": "Professional recognition and success are within reach. Your talents and skills will be acknowledged, opening doors for advancement and new opportunities.",
+            "health": "Good health and vitality are on the horizon. Take care of your body, nourish it with wholesome choices, and enjoy the benefits of a strong and vibrant physique.",
+            "relationship": "Love and harmony will flourish in your relationships. Nurture your connections with care, kindness, and heartfelt communication, leading to deeper bonds."
+        },
+        {
+            "name": "fortune stick 4",
+            "wealth": "Hard work and dedication will pave the way to financial success. Your efforts will be rewarded with increased wealth and stability.",
+            "career": "Your career is on an upward trajectory. Exciting prospects and breakthroughs await you, leading to personal fulfillment and achievement of your goals.",
+            "health": " A positive shift in your overall well-being is imminent. Embrace healthy habits, engage in physical activity, and cultivate a positive mindset for optimal health.",
+            "relationship": "A new romantic chapter awaits you. Love is in the air, and a special person will enter your life, bringing joy, companionship, and shared adventures."
+        }
+    ]
+}
