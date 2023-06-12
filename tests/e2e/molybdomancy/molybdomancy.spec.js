@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 
 import FortuneEngine from '../../../src/engine';
 
-const MOLYBDOMANCY_URL = 'http://127.0.0.1:5500/src/mini-apps/molybdomancy/molybdomancy.html';
+const MOLYBDOMANCY_URL = 'https://cse110-sp23-group21.github.io/map-my-future/mini-apps/molybdomancy/molybdomancy.html';
 
 test.beforeEach(async ({ page }) => {
     await page.goto(MOLYBDOMANCY_URL);
@@ -30,7 +30,7 @@ test('Getting fortune works correctly when pressing melt tin button', async ({ p
 
     //  Create a new FortuneEngine and fill it with molybdomancy.json's contents
     const engine = new FortuneEngine('Molybdomancy');
-    await engine.db_reader('http://127.0.0.1:5500/src/mini-apps/molybdomancy/molybdomancy.json');
+    await engine.db_reader('https://cse110-sp23-group21.github.io/map-my-future/mini-apps/molybdomancy/molybdomancy.json');
 
     //  Get the outcomes list
     const outcomes = engine.get_outcomes();
