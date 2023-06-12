@@ -191,7 +191,6 @@ function displayFortune () {
 
   const receivedFortune = engine.get_random_subset(1)[0][selectedCategory];
 
-  console.log(receivedFortune);
   fortune.innerHTML = '';
 
   message.textContent = `Your fortune for ${selectedCategory} is:`;
