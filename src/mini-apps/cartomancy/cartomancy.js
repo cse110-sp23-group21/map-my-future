@@ -120,7 +120,6 @@ function dropped (e) {
       e.target.appendChild(card1sArray[i]);
       cardPlaced.play();
       droppedElement.draggable = false;
-      console.log(droppedElement);
       cardsPicked++;
       i++;
     } else if (droppedID === 'card2') {
