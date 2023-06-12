@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await engine.db_reader(`./${APP_NAME}.json`);
 
   // Background music
-  const bgm = new Audio('/src/assets/cart/bgm-background.mp3'); //  eslint-disable-line
+  const bgm = new Audio('../../assets/cart/bgm-background.mp3'); //  eslint-disable-line
 
   bgm.loop = true;
 
