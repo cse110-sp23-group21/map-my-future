@@ -1,0 +1,110 @@
+{
+    "option-result pair":[
+        {
+            "option":"The Fool",
+            "result":"The Fool is generally a positive card indicating new beginnings. You are on verge of an exciting, unexpected new adventure!!! You may need to take a big leap of faith but you will grow. Traveling to new places. While the Fool is generally positive, its appearance in a reading can also indicate that you need to be cautious before you leap.",
+            "image": "0-TheFool"
+        },
+        {
+            "option":"The Magician", 
+            "result": "The Magician card is telling you to push yourself to your limits because, with that kind of determination, you're bound to succeed. Disregard distractions for a higher purpose, focusing on the task at hand. The reverse of this is recognizing deception when it rears its ugly head. Proceed with caution, weighing your options, and then make the right decisions.",
+            "image": "1-TheMagician"
+        },
+        {
+            "option":"The High Preistess",
+            "result":"The High Priestess possesses intuition, mystery and sensuality. When the High Priestess appears in a tarot reading she indicates that now is the time to trust your instincts and go with your gut feeling. Pay attention to your dreams and the signs and symbols the universe is sending you when this Major Arcana trump card appears in your tarot reading.",
+            "image": "2-TheHighPriestess"
+        },
+        {
+            "option":"The Empress",
+            "result": "The Empress is the Major Arcana card of femininity and motherhood. One of the strongest pregnancy cards. If you are a mother, you will find fulfilment. If you are a father, it encourages you to build on your communication with your children. If you are not a parent, the message is the same, you should embrace your softer side, allow yourself to explore your emotions.",
+            "image": "3-TheEmpress"
+        },
+        {
+            "option":"The Emperor",
+            "result":"The Emperor represents an older, wealthy man, a powerful and protective figure. In the present or future, it is a positive omen, indicating a wise older man who will provide valuable advice for the right path. If not representing, focus to turn your dreams into reality.",
+            "image": "4-TheEmperor"
+        },
+        {
+            "option":"The Hierophant",
+            "result":"The Hierophant represent traditional values, a mentor providing wisdom and guidance. You may be dealing with someone set in their ways. It can signify that now is a time to conform to convention or tradition. It’s not a time to rock the boat, start creating your own traditions.",
+            "image": "5-TheHierophant"
+        },
+        {
+            "option":"The Lovers",
+            "result":"The Lovers signifies perfect union, harmony, love and attraction. You are learning to understand yourself, your own personal moral code and what you value in life. It is an indication that you have major choices with uncertainties. It will lead you to great things.",
+            "image": "6-TheLovers"
+        },
+        {
+            "option":"The Chariot",
+            "result":"The Chariot represents overcoming obstacles through determination, focus, and willpower. It is time to pursue what you truly desire. The Chariot may reveal defensive or aggressive behavior stemming from emotional vulnerability, but maintaining focus will lead to victory. Find balance between the heart and mind. ",
+            "image": "7-TheChariot"
+        },
+        {
+            "option":"The Strength",
+            "result":"The Strength addresses inner struggles. This card suggests you have the courage to be daring. You possess the necessary skills for success; now, the focus is on believing in yourself. Be patient and compassionate with yourself, and you will gain newfound confidence.",
+            "image": "8-Strength"
+        },
+        {
+            "option":"The Hermit",
+            "result":"A phase of introspection, self-reflection, and spiritual growth. It indicates the need for solitude to discover your true self could also suggest a temporary withdrawal from social interactions. Or a potential need for professional guidance or support. This is a time to prioritize self-care and personal fulfillment.",
+            "image": "9-TheHermit"
+        },
+        {
+            "option": "The Wheel of Fortune Tarot Card", 
+            "result": "The Wheel of Fortune represents the life cycles we go through in every area of life. It represents transition and the need for serious consideration of major foundational aspects of our lives. This card needs to be explored more deeply than most, and an expert reader should be consulted.",
+            "image": "10-WheelOfFortune"
+        },
+        {
+            "option": "The Justice", 
+            "result": "Often, your inner soul has had enough, but your subconscious is too afraid to make a change. While you crave deeper meanings. The karmic balance of the scales of Justice is the universe's way of telling you to take a long, hard look at your present situation, and reassess with honesty.",
+            "image": "11-Justice"
+        },
+        {
+            "option": "The Hanged Man", 
+            "result": "The Hanged Man has an interesting message for us: surrender. Often in life, we fight tooth and nail only to find out that we are exactly where we are supposed to be. This card shows us that it’s alright to let go of the fight, let go of old habits. Meditation and acceptance can lead to deliverance and renewed fervor for life.",
+            "image": "12-TheHangedMan"
+        },
+        {
+            "option":"The Death", 
+            "result": "Death is one of the most empowering cards. Death, symbolizes an end and retrospectively, a new start. Light, hope, and new beginnings. Commit to this new spirit, and you can expect great things to follow.",
+            "image": "13-Death"
+        },
+        {
+            "option": "The Temperance",
+            "result": "The Temperance is all about bringing your inner 4 elements back into their proper balance. Earth (your body - meeting your needs), water (your heart - do you love yourself?), fire (your passions - what motivates you?), and air (your mind - are you embracing your thoughts?) need to be in harmony to achieve serenity. Delve deep to see if you are confident.",
+            "image": "14-Temperance"
+        },
+        {
+            "option": "The Devil", 
+            "result": "At some point in life, we need to make a choice and define ourselves, and that automatically requires dismissing other choices of who we could be. The Devil challenges us to unlock those inner selves and be true to them. we have room to become the whole us—if we have the courage.",
+            "image": "15-Devil"
+        },
+        {
+            "option": "The Tower",
+            "result": "The Tower represents change and consequences of our actions, whether positive or negative. The consequence will lead to our salvation. It can have important ramifications and positive outpourings in the future. Don’t be too drastic in your choices!!!",         
+            "image": "16-Tower"
+        },
+        {
+            "option": "The Star", 
+            "result": "The Star is a beautiful, reassuring, and welcomed symbol. It tells the reader that they have arrived at peace. Whatever hardships have been plaguing their lives until now have come to a close, and they can expect calmer waters from here on in. This could symbolize finding the right life partner, a satisfying job, or health.",
+            "image": "17-TheStar"
+        },
+        {
+            "option": "The Moon", 
+            "result": "The Moon tarot card has a clear message for us all. Soften. Be lighter. Be gentler. Don't be afraid to add a little femininity into your life, whether you are a man or a woman because that is what your inner self is craving right now. Listen to your dreams, return to your roots, and give yourself permission to feel what you are feeling.",
+            "image": "18-TheMoon"
+        },
+        {
+            "option": "The Sun",
+            "result": "As one might expect, the Sun card represents optimism, the dawn that follows even the darkest nights. The child in the card shows us innocence, purity. This card symbolizes success and abundance. Take action now because all will be well.",
+            "image": "19-TheSun"
+            
+        },
+        {
+            "option": "The Judgement", 
+            "result": "There is no escaping Judgement. All the imagery points to this fate, and when a reader draws this card, it tells him to reflect and evaluate his choices and actions in life. Possibly in response to a recent awakening or epiphany, Judgement tells us to be true to ourselves and to examine the choices carefully but to move on them.",
+            "image": "20-Judgement"
+        }
+    ]
+}
