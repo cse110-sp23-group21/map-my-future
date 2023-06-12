@@ -9,8 +9,8 @@
  *
  */
 
-import FortuneEngine from '/src/engine.js';
-import setMusicState from '/src/autoplay.js';
+import FortuneEngine from '../../engine.js';
+import setMusicState from '../../autoplay.js';
 
 const engine = new FortuneEngine();
 const APP_NAME = 'cartomancy';
@@ -32,8 +32,8 @@ const card3s = document.querySelectorAll('.card3');
 const pickContainer1 = document.getElementById('pick-container1');
 const pickContainer2 = document.getElementById('pick-container2');
 const pickContainer3 = document.getElementById('pick-container3');
-const cardPlaced = new Audio('/src/assets/cart/bgm-side.wav');
-const clickedButton = new Audio('/src/assets/cart/cartomancy-click-sound.mp3');
+const cardPlaced = new Audio('../../assets/cart/bgm-side.wav');
+const clickedButton = new Audio('../../assets/cart/cartomancy-click-sound.mp3');
 const card1sArray = Array.from(card1s);
 const card2sArray = Array.from(card2s);
 const card3sArray = Array.from(card3s);
@@ -223,7 +223,7 @@ function organizeCards (pick, fortune) {
   indCard.classList.add('card-show');
   indCardImageContainer.classList.add('image');
   indCardImage.setAttribute('href', '#');
-  indCardImage.setAttribute('src', `/src/assets/cart/${fortune.image}.png`);
+  indCardImage.setAttribute('src', `../../assets/cart/${fortune.image}.png`);
   content.classList.add('content');
 
   // nest them by adding as children

@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English&family=Instrument+Serif&display=swap');
 @font-face {
   font-family: 'IM Fell English', serif;
-  src: url('/src/assets/cart/IMFellEnglishSC-Regular.ttf');
+  src: url('../../assets/cart/IMFellEnglishSC-Regular.ttf');
 }
 
 /* container for all elements on card page */ 
@@ -19,7 +19,7 @@
   width: 80vh;
   height: 80vh;
   position: center; 
-  background-image: url('/src/assets/cart/instruction-image.png') ;
+  background-image: url('../../assets/cart/instruction-image.png') ;
   background-size: cover;
   background-position: center center; 
   overflow : hidden; 
@@ -39,7 +39,7 @@ body {
   display : flex;
   align-items : center;
   justify-content : center;  
-  background: url('/src/assets/cart/background.jpeg') no-repeat fixed;
+  background: url('../../assets/cart/background.jpeg') no-repeat fixed;
   background-size: cover;
   overflow: hidden;
   min-height : 80vh;
@@ -96,7 +96,7 @@ body {
   justify-content: center;
   align-items: center;
   align-self: center;
-  background-image: url('/src/assets/cart/card-holder.png');
+  background-image: url('../../assets/cart/card-holder.png');
   background-position: center;
   background-size: cover; 
   position: absolute;
@@ -116,7 +116,7 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
-  background-image: url('/src/assets/cart/card-holder.png');
+  background-image: url('../../assets/cart/card-holder.png');
   background-position: center;
   background-size: cover; 
   position: absolute;
@@ -135,7 +135,7 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
-  background-image: url('/src/assets/cart/card-holder.png');
+  background-image: url('../../assets/cart/card-holder.png');
   background-position: center;
   background-size: cover; 
   position: absolute;
@@ -333,7 +333,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('/src/assets/cart/card-back.png');
+  background-image: url('../../assets/cart/card-back.png');
   background-size: cover ;
   width: 10vw;
   height: 32vh;
@@ -487,7 +487,8 @@ body {
   justify-content: center;  
   size-adjust: auto;
   font-size: .85vw; 
-  font-size: 1.5vh; 
+  font-size: 1.7vh; 
+  font-family: "IM Fell English"; 
 }
 
 .choose-card { 
@@ -506,7 +507,7 @@ body {
 .info-text {
   color: white;
   width: 90%;
-  font-family: 'Noto Serif', serif;
+  font-family: "IM Fell English"; 
 }
 
 /* 
