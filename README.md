@@ -24,6 +24,12 @@ Building happens automatically whenever you push to `main` - this triggers the C
 - Minify the files in `src` and copy them into `dist`
 - Deploy the website with `dist` as the root into GitHub Pages here: https://cse110-sp23-group21.github.io/map-my-future/index.html
 
+##  Notes
+
+We kept 7 branches open. Three of them are essential: `main`, `dev` (representing our `main` + `dev` branching strategy), and `gh-pages` for deployment.
+The other 4 are our development branches for each mini-app, which we've included as they were our main offshoot branches from `dev` and if we were to continue development would likely continue using them
+to work on bug fixes / feature additions for the mini-apps.
+
 ##  Credits
 
 This project would not have been possible to make without the fine people of Team 21 - The Canaries!
