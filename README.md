@@ -32,7 +32,7 @@ to work on bug fixes / feature additions for the mini-apps.
 
 ##  Credits
 
-This project would not have been possible to make without the fine people of Team 21 - The Canaries!
+This project would not have been possible to make without the fine people of Team 21 - [The Canaries](https://github.com/cse110-sp23-group21/cse110-sp23-group21)!
 
 - Saman Khadivar - Team Lead
 - Zhengyu(Van) Huang - Team Lead
