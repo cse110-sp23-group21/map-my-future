@@ -266,12 +266,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log(gridList[tossCounter]);
         if (coinResult.type === 'Yin') {
           setTimeout(function () {
-            gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../assets/coin/line-broken.PNG" alt="instruction image display failed."/>';
+            gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../assets/coin/line-broken.png" alt="instruction image display failed."/>';
             lineRevealSound.play();
           }, 4500);
         } else {
           setTimeout(function () {
-            gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../assets/coin/line-solid.PNG" alt="instruction image display failed."/>';
+            gridList[tossCounter - 1].innerHTML += '<img class="animated-line-image" src="../../assets/coin/line-solid.png" alt="instruction image display failed."/>';
             lineRevealSound.play();
           }, 4500);
         }
