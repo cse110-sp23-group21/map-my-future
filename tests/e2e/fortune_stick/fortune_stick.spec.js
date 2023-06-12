@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 import FortuneEngine from '../../../src/engine';
 
-const FORTUNE_STICKS_URL = 'http://127.0.0.1:5500/src/mini-apps/fortune_stick/fortune_stick.html';
+const FORTUNE_STICKS_URL = 'https://cse110-sp23-group21.github.io/map-my-future/mini-apps/fortune_stick/fortune_stick.html';
 
 // Navigate to Fortune Stick mini app
 test.beforeEach(async ({ page }) => {
@@ -29,7 +29,7 @@ test('UI button functionality', async ({ page }) => {
 test('user flow for selecting category and receiving fortune', async ({ page }) => {
     // Get possible outcomes of Fortune Stick reading
     const engine = new FortuneEngine();
-    await engine.db_reader('http://127.0.0.1:5500/src/mini-apps/fortune_stick/fortune_stick.json');
+    await engine.db_reader('https://cse110-sp23-group21.github.io/map-my-future/mini-apps/fortune_stick/fortune_stick.json');
 
     // Get the outcomes list
     const outcomes = engine.get_outcomes();
