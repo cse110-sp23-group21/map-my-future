@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Reset Button
   const resetButton = document.getElementById('reset-button');
   resetButton.addEventListener('click', (e) => {
-    clickedButton.play(); 
+    clickedButton.play();
     window.location.reload();
   });
 });
