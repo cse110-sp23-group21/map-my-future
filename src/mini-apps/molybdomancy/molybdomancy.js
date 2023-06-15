@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', async () => {
    * @type {HTMLElement}
    */
   const musicImage = document.getElementById('music');
-  
+
   /**
    * The melt button (press it to start the melting animation)
    * @type {HTMLElement}
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', async () => {
    * @type {Audio}
    */
   const actionButtonPressSoundEffect = new Audio('../../assets/moly/action-button-press1.wav');
-  
+
   /**
    * Melt button hover sound effect object
    * @type {Audio}
@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   /**
    * Listen to mouseover event for the melt button.
    * Plays the action button hover sound effect.
-   * 
+   *
    * @listens meltButton#mouseover
    */
   meltButton.addEventListener('mouseover', () => {
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', async () => {
    * Listens to click event for the melt button.
    * Starts the melting animation if in "melt" state or resets if in "result" state
    * when clicked.
-   * 
+   *
    * @listens meltButton#click
    */
   meltButton.addEventListener('click', () => {
@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         meltButton.innerText = 'Melting tin...';
         animate();
 
-        // Set Button Delay (melt button is disabled until animation 
+        // Set Button Delay (melt button is disabled until animation
         // completes and the shape and meaning have been shown)
         setTimeout(() => {
           meltButton.style.pointerEvents = 'all';
@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   /**
    * Listen to click event for the music UI button.
    * Toggles musicEnabled and calls the setMusicState() method.
-   * 
+   *
    * @listens musicButton#click
    */
   musicButton.addEventListener('click', (event) => {
@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   /**
    * Listens to click event for the info UI button.
    * Toggles showInfo and toggles display of the info panel.
-   * 
+   *
    * @listens infoButton#click
    */
   infoButton.addEventListener('click', (event) => {
