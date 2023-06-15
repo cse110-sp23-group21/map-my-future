@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
    * Instance of the FortuneEngine class. Reads the JSON file `yin_yang_coin.json`
    * and generates random 3-coin tosses.
    *
+   * @type {FortuneEngine}
    * @memberof MiniApps.YinYangCoin
    */
   const engine = new FortuneEngine('ying_yang_coin');

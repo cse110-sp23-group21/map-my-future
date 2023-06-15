@@ -132,6 +132,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   /**
    * Instance of the FortuneEngine class. Reads the JSON file 'molybdomancy.json'
    * and generates a random shape that the tin melts into.
+   *
+   * @type {FortuneEngine}
    * @memberof MiniApps.Molybdomancy
    */
   const engine = new FortuneEngine('molybdomancy');

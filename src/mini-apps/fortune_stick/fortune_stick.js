@@ -11,19 +11,54 @@
 
 */
 
+/**
+ * @namespace MiniApps.FortuneStick
+ */
+
 /* Imports */
 
 import FortuneEngine from '../../engine.js';
 import setMusicState from '../../autoplay.js';
 
 /* Global variables */
+
+/**
+ * Name of the Fortune Stick app.
+ * @type {string}
+ * @memberof MiniApps.FortuneStick
+ */
 const APP_NAME = 'fortune_stick';
+
+/**
+ * Sets the typing speed for the interpretation text reveal
+ * @type {number}
+ * @memberof MiniApps.FortuneStick
+ */
 const TYPING_SPEED = 35;
 
+/**
+ * Instance of the FortuneEngine class. Reads the JSON file `fortune_stick.json`
+ * and generates a random fortune stick object.
+ *
+ * @type {FortuneEngine}
+ * @memberof MiniApps.FortuneStick
+ */
 const engine = new FortuneEngine();
+
 const bgm = new Audio('../../assets/stick/bgm-background.mp3'); //  eslint-disable-line
+
+/**
+ * Array of fortune stick categories.
+ * @type {string[]}
+ * @memberof MiniApps.FortuneStick
+ */
 const categories = ['career', 'wealth', 'health', 'relationship'];
 
+/**
+ * The selected fortune stick category.
+ * @type {string}
+ * @memberof MiniApps.FortuneStick
+ */
 let selectedCategory = '';
 // let musicEnabled = true;
 // let showInfo = false;
@@ -38,10 +73,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   /**
    * Music on/off image element (part of general UI)
+   * @memberof MiniApps.FortuneStick
    */
   const musicImage = document.getElementById('music');
 
-  // Background music
+  /**
+   * Background music object
+   * @type {Audio}
+   * @memberof MiniApps.FortuneStick
+   */
   const bgm = new Audio('../../assets/stick/bgm-background.mp3'); //  eslint-disable-line
   bgm.loop = true;
 
@@ -55,20 +95,64 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   // Buttons
+
+  /**
+   * Keeps track of the music on/off state.
+   * @type {boolean}
+   * @memberof MiniApps.FortuneStick
+   */
   let musicEnabled = true;
+
+  /**
+   * Keeps track of whether the info panel is shown.
+   * @type {boolean}
+   * @memberof MiniApps.FortuneStick
+   */
   let showInfo = false;
+
+  /**
+   * Music on/off button element (part of general UI)
+   * @type {HTMLElement}
+   * @memberof MiniApps.FortuneStick
+   */
   const musicButton = document.getElementById('music-button');
+
+  /**
+   * Info button element (part of general UI)
+   * @type {HTMLElement}
+   * @memberof MiniApps.FortuneStick
+   */
   const infoButton = document.getElementById('info-button');
+
+  /**
+   * Reset button element (when clicked, lets user get another fortune)
+   * @type {HTMLElement}
+   * @memberof MiniApps.FortuneStick
+   */
   const resetButton = document.getElementById('reset-button');
 
   /* Music button */
 
+  /**
+   * Listen to click event for the music UI button.
+   * Toggles musicEnabled and calls the setMusicState() method.
+   *
+   * @listens musicButton#click
+   * @memberof MiniApps.FortuneStick
+   */
   musicButton.addEventListener('click', (e) => {
     musicEnabled = setMusicState(bgm, musicImage, !musicEnabled);
   });
 
   /* Info button */
 
+  /**
+   * Listens to click event for the info UI button.
+   * Toggles showInfo and toggles display of the info panel.
+   *
+   * @listens infoButton#click
+   * @memberof MiniApps.FortuneStick
+   */
   infoButton.addEventListener('click', (e) => {
     const infoPopup = document.getElementById('info-popup');
     infoPopup.style.display = !showInfo ? 'flex' : 'none';
@@ -77,6 +161,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   /* Reset button */
 
+  /**
+   * Listens to click event for the reset button.
+   * When clicked, resets the app and lets the user get another fortune.
+   *
+   * @listens resetButton#click
+   * @memberof MiniApps.FortuneStick
+   */
   resetButton.addEventListener('click', (e) => {
     // window.location.reload();
 
@@ -110,6 +201,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   /* Add event listeners to the card elements */
 
+  /**
+   * List of all card class elements
+   * @memberof MiniApps.FortuneStick
+   */
   const cardElements = document.querySelectorAll('.card');
 
   cardElements.forEach(cardElement => {
@@ -123,6 +218,7 @@ document.addEventListener('DOMContentLoaded', async () => {
  * Transitions from category selection to displaying received fortune. Uses the
  * chooseCardAnimation function to animate transition, and displayFortune function
  * to animate displaying the received fortune.
+ * @memberof MiniApps.FortuneStick
  * @param {String} category string representing fortune category chosen
  * @returns {boolean} whether or not the transition was successful
  */
@@ -159,6 +255,7 @@ function selectCategory (category) {
 /**
  * Animates category card selection, enabling choose-card class on selected
  * card element for CSS keyframe animation
+ * @memberof MiniApps.FortuneStick
  * @param {String} category string representing fortune category chosen
  * @returns {boolean} whether or not the animation was succesful
  */
@@ -178,6 +275,7 @@ function chooseCardAnimation (category) {
 /**
  * Displays the fortune received by FortuneEngine. Plays the audio for receiving fortune,
  * and animates the text shown with a typing animation
+ * @memberof MiniApps.FortuneStick
  * @returns {boolean} whether or not the display was successful;
  */
 function displayFortune () {
