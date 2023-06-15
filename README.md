@@ -5,7 +5,7 @@
 [![GitHub release](https://img.shields.io/github/release/cse110-sp23-group21/map-my-future?include_prereleases=&sort=semver&color=blue)](https://github.com/cse110-sp23-group21/map-my-future/releases/)
 [![issues - map-my-future](https://img.shields.io/github/issues/cse110-sp23-group21/map-my-future)](https://github.com/cse110-sp23-group21/map-my-future/issues)
 
-This is Team 21's project repository.
+This is Team 21's project repository. Gil was here (small change for private video)
 
 ##  Project Description
 
