@@ -3,6 +3,7 @@
 /**
  * Expected field name in the mini-app's JSON file that contains
  * the array of outcome objects for that mini-app.
+ * @memberof Utility
  */
 const JSON_OUTCOMES_FIELD = 'option-result pair';
 
