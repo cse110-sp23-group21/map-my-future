@@ -1,4 +1,8 @@
 /**
+ * @namespace Utility
+ */
+
+/**
  * Sets the state (on / off) of the background music
  * @param {Audio} bgm Background music Audio object
  * @param {HTMLElement} musicImg HTML Element of the music UI button image
@@ -8,6 +12,7 @@
  * from a mini-app folder.
  * @param {string} offPath Path to the "audio_off.png" image; defaults to valid path
  * from a mini-app folder.
+ * @memberof Utility
  * @returns {boolean} the new state of the background music (set musicEnabled
  * to this)
  */

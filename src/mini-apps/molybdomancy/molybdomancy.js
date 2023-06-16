@@ -1,3 +1,8 @@
+/* Molybdomancy Mini-App */
+/**
+ * @namespace MiniApps.Molybdomancy
+ */
+
 import FortuneEngine from '../../engine.js';
 import setMusicState from '../../autoplay.js';
 
@@ -5,12 +10,14 @@ import setMusicState from '../../autoplay.js';
  * Object that contains references to the start and end strings
  * used in the melting animation
  * @type {{text1: HTMLElement, text2: HTMLElement}}
+ * @memberof MiniApps.Molybdomancy
  */
 let elts = {};
 
 /**
  * Array of strings used in the melting tin animation
  * @type {string[]}
+ * @memberof MiniApps.Molybdomancy
  */
 const texts = [
   'Solid Tin'
@@ -19,6 +26,7 @@ const texts = [
 /**
  * Defines how long the melting animation is (in seconds)
  * @type {number}
+ * @memberof MiniApps.Molybdomancy
  */
 const morphTime = 10;
 
@@ -26,18 +34,21 @@ const morphTime = 10;
  * Defines how long the cooldown time for the animation is relative
  * to the animation length (morphTime)
  * @type {number}
+ * @memberof MiniApps.Molybdomancy
  */
 const cooldownTime = 0.25;
 
 /**
  * Current string the animation morphs from
  * @type {number}
+ * @memberof MiniApps.Molybdomancy
  */
 let textIndex = -1;
 
 /**
  * Stores the start time for the animation
  * @type {Date}
+ * @memberof MiniApps.Molybdomancy
  */
 let time;
 let morph = 0;
@@ -81,6 +92,7 @@ function doCooldown () {
 
 /**
  * Starts melting animation.
+ * @memberof MiniApps.Molybdomancy
  */
 function animate () {
   if (textIndex === texts.length - 1) {
@@ -91,12 +103,14 @@ function animate () {
   /**
    * Contains new start time from the beginning of the animation.
    * @type {Date}
+   * @memberof MiniApps.Molybdomancy
    */
   const newTime = new Date();
   const shouldIncrementIndex = cooldown > 0;
 
   /**
    * Determine difference of time in seconds from last start time to newTime
+   * @memberof MiniApps.Molybdomancy
    */
   const dt = (newTime - time) / 1000;
   time = newTime;
@@ -119,6 +133,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   /**
    * Instance of the FortuneEngine class. Reads the JSON file 'molybdomancy.json'
    * and generates a random shape that the tin melts into.
+   *
+   * @type {FortuneEngine}
+   * @memberof MiniApps.Molybdomancy
    */
   const engine = new FortuneEngine('molybdomancy');
 
@@ -139,72 +156,84 @@ document.addEventListener('DOMContentLoaded', async () => {
   /**
    * Info button element (part of general UI)
    * @type {HTMLElement}
+   * @memberof MiniApps.Molybdomancy
    */
   const infoButton = document.getElementById('info-button');
 
   /**
    * Music on/off button element (part of general UI)
    * @type {HTMLElement}
+   * @memberof MiniApps.Molybdomancy
    */
   const musicButton = document.getElementById('music-button');
 
   /**
    * Music on/off image element (part of general UI)
    * @type {HTMLElement}
+   * @memberof MiniApps.Molybdomancy
    */
   const musicImage = document.getElementById('music');
 
   /**
    * The melt button (press it to start the melting animation)
    * @type {HTMLElement}
+   * @memberof MiniApps.Molybdomancy
    */
   const meltButton = document.querySelector('#melt-button');
 
   /**
    * HTML element that contains the resulting shape name
    * @type {HTMLElement}
+   * @memberof MiniApps.Molybdomancy
    */
   const resultTextShape = document.querySelector('.interpretation1');
 
   /**
    * HTML element that contains the resulting shape meaning
    * @type {HTMLElement}
+   * @memberof MiniApps.Molybdomancy
    */
   const resultTextMeaning = document.querySelector('.interpretation2');
 
   /**
    * State of the melt button - cycles between "melt" and "result"
    * @type {string}
+   * @memberof MiniApps.Molybdomancy
    */
   let meltButtonState = 'melt';
 
   /**
    * Keeps track of the music on/off state.
    * @type {boolean}
+   * @memberof MiniApps.Molybdomancy
    */
   let musicEnabled = true;
 
   /**
    * Keeps track of whether the info panel is shown.
    * @type {boolean}
+   * @memberof MiniApps.Molybdomancy
    */
   let showInfo = false;
 
   /**
    * Melt button press sound effect object
    * @type {Audio}
+   * @memberof MiniApps.Molybdomancy
    */
   const actionButtonPressSoundEffect = new Audio('../../assets/moly/action-button-press1.wav');
 
   /**
    * Melt button hover sound effect object
    * @type {Audio}
+   * @memberof MiniApps.Molybdomancy
    */
   const actionButtonHoverSoundEffect = new Audio('../../assets/moly/action-button-hover2.mp3');
 
   /**
    * Melting sound effect object
    * @type {Audio}
+   * @memberof MiniApps.Molybdomancy
    */
   const meltSoundEffect = new Audio('../../assets/moly/bgm-melting.mp3');
   meltSoundEffect.volume = 0.7;
@@ -214,6 +243,7 @@ document.addEventListener('DOMContentLoaded', async () => {
    * Plays the action button hover sound effect.
    *
    * @listens meltButton#mouseover
+   * @memberof MiniApps.Molybdomancy
    */
   meltButton.addEventListener('mouseover', () => {
     actionButtonHoverSoundEffect.play();
@@ -225,6 +255,7 @@ document.addEventListener('DOMContentLoaded', async () => {
    * when clicked.
    *
    * @listens meltButton#click
+   * @memberof MiniApps.Molybdomancy
    */
   meltButton.addEventListener('click', () => {
     actionButtonPressSoundEffect.play();
@@ -238,12 +269,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         /**
          * Stores random shape object generated by FortuneEngine
+         * @memberof MiniApps.Molybdomancy
          */
         const result = engine.get_random_subset(1)[0];   //  eslint-disable-line
 
         /**
          * After the animation completes, show the resulting shape name
          * and meaning.
+         * @memberof MiniApps.Molybdomancy
          */
         setTimeout(() => {
           resultTextShape.innerHTML = `Shape: ${result.name}</br>`;
@@ -294,6 +327,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   /**
    * Background music object
    * @type {Audio}
+   * @memberof MiniApps.Molybdomancy
    */
   const bgm = new Audio('../../assets/moly/bgm-background.mp3');
   bgm.loop = true;
@@ -313,6 +347,7 @@ document.addEventListener('DOMContentLoaded', async () => {
    * Toggles musicEnabled and calls the setMusicState() method.
    *
    * @listens musicButton#click
+   * @memberof MiniApps.Molybdomancy
    */
   musicButton.addEventListener('click', (event) => {
     musicEnabled = setMusicState(bgm, musicImage, !musicEnabled);
@@ -323,6 +358,7 @@ document.addEventListener('DOMContentLoaded', async () => {
    * Toggles showInfo and toggles display of the info panel.
    *
    * @listens infoButton#click
+   * @memberof MiniApps.Molybdomancy
    */
   infoButton.addEventListener('click', (event) => {
     const infoPopup = document.getElementById('info-popup');

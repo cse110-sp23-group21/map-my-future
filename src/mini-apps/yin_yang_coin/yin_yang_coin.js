@@ -1,4 +1,4 @@
-/* Yin Yang Coin code goes here */
+/* Yin Yang Coin Mini-App */
 /*
     Steps:
 
@@ -20,6 +20,10 @@
         The bottom button should now say "Toss Again?"
 */
 
+/**
+ * @namespace MiniApps.YinYangCoin
+ */
+
 import FortuneEngine from '../../engine.js';
 import setMusicState from '../../autoplay.js';
 
@@ -28,6 +32,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   /**
    * Instance of the FortuneEngine class. Reads the JSON file `yin_yang_coin.json`
    * and generates random 3-coin tosses.
+   *
+   * @type {FortuneEngine}
+   * @memberof MiniApps.YinYangCoin
    */
   const engine = new FortuneEngine('ying_yang_coin');
 
@@ -37,6 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   /**
    * Counter to keep track of how many times the user tossed 3 coins.
    * Once this reaches 6, the user should be prompted to get their fortune.
+   * @memberof MiniApps.YinYangCoin
    */
   let tossCounter = 0;
 
@@ -45,137 +53,162 @@ document.addEventListener('DOMContentLoaded', async () => {
    * If the toss matched "Yang", or 1, then we add 2^i to hexagramIndex where i is the
    * how many coins have been tossed thus far - 1 (e.g., if this is the first coin toss, then
    * i is 0)
+   * @memberof MiniApps.YinYangCoin
    */
   let hexagramIndex = 0;
 
   /**
    * Stores the current power of 2 (shifted once to the left in each iteration)
+   * @memberof MiniApps.YinYangCoin
    */
   let powerOfTwo = 1;
 
   /**
    * Contents of the ying_yang_coin.json file.
    * Contains the list of 64 hexagram objects and the 8 possible 3-coin tosses
+   * @memberof MiniApps.YinYangCoin
    */
   const jsonFile = engine.get_json_contents();
 
   /**
    * Array of the 64 hexagram objects.
+   * @memberof MiniApps.YinYangCoin
    */
   const hexagrams = jsonFile.hexagrams; // eslint-disable-line
 
   /**
    * Action button element ("Start" / "Toss Coins" / "Get Result" button)
+   * @memberof MiniApps.YinYangCoin
    */
   const buttonElement = document.querySelector('.action-button');
 
   /**
    * Music on/off button element (part of general UI)
+   * @memberof MiniApps.YinYangCoin
    */
   const musicButton = document.getElementById('music-button');
 
   /**
    * Music on/off image element (part of general UI)
+   * @memberof MiniApps.YinYangCoin
    */
   const musicImage = document.getElementById('music');
 
   /**
    * Info button element (part of general UI)
+   * @memberof MiniApps.YinYangCoin
    */
   const infoButton = document.getElementById('info-button');
 
   /**
    * Line image element (instructions image that appears in the Line Representation
    * sidebar)
+   * @memberof MiniApps.YinYangCoin
    */
   const lineImg = document.querySelector('.line-image');
 
   /**
    * Line text element (sidebar heading)
+   * @memberof MiniApps.YinYangCoin
    */
   const lineTxt = document.getElementById('line-text');
 
   /**
    * Array of all side grid elements (six in total for each line of the hexagram
    * that is generated)
+   * @memberof MiniApps.YinYangCoin
    */
   const gridList = document.querySelectorAll('.side-grid-element');
 
   /**
    * Main content element container (i.e. contains instructions heading + image
    * and interpretation result)
+   * @memberof MiniApps.YinYangCoin
    */
   const contentGrid = document.querySelector('.content-grid');
 
   /**
    * Instruction image element (possible coin result combinations)
+   * @memberof MiniApps.YinYangCoin
    */
   const instructionImg = document.getElementById('instruction-image');
 
   /**
    * Instruction text heading element
+   * @memberof MiniApps.YinYangCoin
    */
   const instructionTxt = document.getElementById('instruction-text');
 
   /**
    * Interpretation text element (where hexagram meaning is shown)
+   * @memberof MiniApps.YinYangCoin
    */
   const intepretationTxt = document.getElementById('interpretation-text');
 
   /**
    * Hexagram Chinese Character element
+   * @memberof MiniApps.YinYangCoin
    */
   const character = document.getElementById('character');
 
   /**
    * 3 Yin Yang Coin container element
+   * @memberof MiniApps.YinYangCoin
    */
   const coinDisplay = document.querySelector('.coin-display');
 
   /**
    * List of coin elements
+   * @memberof MiniApps.YinYangCoin
    */
   const coins = document.getElementsByClassName('coins');
 
   /**
    * Keeps track of the music on/off state.
    * @type {boolean}
+   * @memberof MiniApps.YinYangCoin
    */
   let musicEnabled = true;
 
   /**
    * Keeps track of whether the info panel is shown.
    * @type {boolean}
+   * @memberof MiniApps.YinYangCoin
    */
   let showInfo = false;
 
   /**
    * Background music object
    * @type {Audio}
+   * @memberof MiniApps.YinYangCoin
    */
   const bgm = new Audio('../../assets/coin/bgm-background.mp3');
 
   /**
    * Coin flip sound effect object
    * @type {Audio}
+   * @memberof MiniApps.YinYangCoin
    */
   const flipSound = new Audio('../../assets/coin/bgm-coin-flip.ogg');
 
   /**
    * Fortune reveal sound effect object
    * @type {Audio}
+   * @memberof MiniApps.YinYangCoin
    */
   const fortuneRevealSound = new Audio('../../assets/coin/bgm-hex-reveal.mp3');
 
   /**
    * Line reveal sound effect object
    * @type {Audio}
+   * @memberof MiniApps.YinYangCoin
    */
   const lineRevealSound = new Audio('../../assets/coin/bgm-line-reveal.mp3');
 
   /**
    * Action button press sound effect object
    * @type {Audio}
+   * @memberof MiniApps.YinYangCoin
    */
   const actionButtonPressSound = new Audio('../../assets/coin/bgm-button-click.wav');
 
@@ -201,6 +234,7 @@ document.addEventListener('DOMContentLoaded', async () => {
    * Toggles musicEnabled and calls the setMusicState() method.
    *
    * @listens musicButton#click
+   * @memberof MiniApps.YinYangCoin
    */
   musicButton.addEventListener('click', (event) => {
     musicEnabled = setMusicState(bgm, musicImage, !musicEnabled);
@@ -212,6 +246,7 @@ document.addEventListener('DOMContentLoaded', async () => {
    * Toggles showInfo and toggles display of the info panel.
    *
    * @listens infoButton#click
+   * @memberof MiniApps.YinYangCoin
    */
   infoButton.addEventListener('click', (event) => {
     const infoPopup = document.getElementById('info-popup');
@@ -225,6 +260,7 @@ document.addEventListener('DOMContentLoaded', async () => {
    * state, remains in that state 6 times (once for each coin toss).
    *
    * @listens buttonElement#click
+   * @memberof MiniApps.YinYangCoin
    */
   buttonElement.addEventListener('click', (event) => {
     const buttonElement = event.target;
@@ -252,6 +288,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       case 'toss':
         /**
          * Randomly generated 3-coin toss result
+         * @memberof MiniApps.YinYangCoin
          */
         const coinResult = engine.get_random_subset(1)[0];  //  eslint-disable-line
 
@@ -315,6 +352,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         /**
          * Resulting hexagram object
+         * @memberof MiniApps.YinYangCoin
          */
         const hexagram = hexagrams[hexagramIndex];  //  eslint-disable-line
 

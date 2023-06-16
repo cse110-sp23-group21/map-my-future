@@ -2,84 +2,103 @@
  * Main page JavaScript code
  */
 
+/**
+ * @namespace MainPage
+ */
+
 import setMusicState from './autoplay.js';
 
 // Wait for all DOM to be ready
 document.addEventListener('DOMContentLoaded', () => {
   /**
    * Stores the current state of info screen.
+   * @memberof MainPage
    */
   let showInfo = false;
 
   /**
    * Stores the current state of main page music.
+   * @memberof MainPage
    */
   let musicEnabled = true;
 
   /**
    * Stores the selected location name.
+   * @memberof MainPage
    */
   let locationName = '';
 
   /**
    * Stores the previous selected location name.
+   * @memberof MainPage
    */
   let previousLocationName = '';
 
   /**
    * Stores the current state of side panel. Default to 'inactive'. Turn to 'active' when side panel open.
+   * @memberof MainPage
    */
   let panelState = 'inactive';
 
   /**
    * DOM access to music enable button.
+   * @memberof MainPage
    */
   const musicButton = document.getElementById('music-button');
 
   /**
    * Music on/off image element (part of general UI)
+   * @memberof MainPage
    */
   const musicImage = document.getElementById('music');
 
   /**
    * DOM access to info display button.
+   * @memberof MainPage
    */
   const infoButton = document.getElementById('info-button');
 
   /**
    * DOM access to mini-app navigation button on the side panel.
+   * @memberof MainPage
    */
   const enterButton = document.querySelector('.enter-button');
 
   /**
    * List of 4 DOM access to map locations.
+   * @memberof MainPage
    */
   const locations = document.querySelectorAll('.location');
 
   /**
    * DOM access to side panel.
+   * @memberof MainPage
    */
   const sidePanel = document.getElementById('panel');
 
   /**
    * DOM access to side panel layout grid.
+   * @memberof MainPage
    */
   const panelLayout = document.querySelector('.layout');
 
   /**
    * DOM access to instruction text shown on side panel.
+   * @memberof MainPage
    */
   const instructionTxt = document.getElementById('instruction-text');
 
   /**
    * Side panel open/switch/close sound effect.
    * @type {Audio}
+   * @memberof MainPage
    */
   const sideAudio = new Audio('assets/home/bgm-side.wav');
 
   /**
    * Background music audio.
    * @type {Audio}
+   * @memberof MainPage
    */
   const bgm = new Audio('assets/home/bgm.mp3'); //  eslint-disable-line
 
@@ -106,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * Play side panel sound effect.
    *
    * @listens location#click
+   * @memberof MainPage
    */
   locations.forEach(location => {
     location.addEventListener('click', () => {
@@ -186,6 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * Navigate to the selected mini-app page.
    *
    * @listens enterButton#click
+   * @memberof MainPage
    */
   enterButton.addEventListener('click', (e) => {
     // Navigation to mini-app pages.
@@ -205,6 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * Toggles musicEnabled and calls the setMusicState() method.
    *
    * @listens musicButton#click
+   * @memberof MainPage
    */
   musicButton.addEventListener('click', (e) => {
     musicEnabled = setMusicState(bgm, musicImage, !musicEnabled, MUSIC_ON_IMAGE, MUSIC_OFF_IMAGE);
@@ -215,6 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * Toggles showInfo and toggles display of the info panel.
    *
    * @listens infoButton#click
+   * @memberof MainPage
    */
   infoButton.addEventListener('click', (e) => {
     const infoPopup = document.getElementById('info-popup');

@@ -10,6 +10,7 @@ const JSON_OUTCOMES_FIELD = 'option-result pair';
  * The FortuneEngine class
  *  contains an array of possible outcomes and can generate a random permutation
  *  of its contents.
+ * @memberof Utility
  */
 class FortuneEngine {
   /**

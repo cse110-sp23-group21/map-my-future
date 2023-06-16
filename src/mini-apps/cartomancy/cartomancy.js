@@ -9,18 +9,48 @@
  *
  */
 
+/**
+ * @namespace MiniApps.Cartomancy
+ */
+
 import FortuneEngine from '../../engine.js';
 import setMusicState from '../../autoplay.js';
 
+/**
+ * Instance of the FortuneEngine class. Reads the JSON file 'cartomancy.json'
+ * and generates 3 random cards.
+ *
+ * @type {FortuneEngine}
+ * @memberof MiniApps.Cartomancy
+ */
 const engine = new FortuneEngine();
+
+/**
+ * Name of the Cartomancy app.
+ * @type {string}
+ * @memberof MiniApps.Cartomancy
+ */
 const APP_NAME = 'cartomancy';
 
-let cardsPicked = 0; // counter when 3 cards are picked
+/**
+ * Counter when 3 cards are picked.
+ * @type {number}
+ * @memberof MiniApps.Cartomancy
+ */
+let cardsPicked = 0;
 
-// Card selector counter
+/**
+ * Card selector counter.
+ * @type {number}
+ * @memberof MiniApps.Cartomancy
+ */
 let i = 0;
 
-// name of container card is dragged to
+/**
+ * Name of container that a card is dragged to.
+ * @type {string}
+ * @memberof MiniApps.Cartomancy
+ */
 let targetName; // eslint-disable-line
 
 // Allows cards to be selectable and dragged to satisfied place
@@ -38,10 +68,11 @@ const card1sArray = Array.from(card1s);
 const card2sArray = Array.from(card2s);
 const card3sArray = Array.from(card3s);
 
-/*
+/**
  * Calls dragStart() to get info of a card when it has begun to be dragged.
  *
  * @listens dragstart (a card is begin to be dragged by mouse)
+ * @memberof MiniApps.Cartomancy
  */
 card1s.forEach(card => {
   card.addEventListener('dragstart', dragStart);
@@ -53,20 +84,22 @@ card3s.forEach(card => {
   card.addEventListener('dragstart', dragStart);
 });
 
-/*
+/**
  * Calls dropped() to compare info of the card and where it was dropped last
  *
  * @listens drop (A dragged card has been let go over pickContainerX)
+ * @memberof MiniApps.Cartomancy
  */
 pickContainer1.addEventListener('drop', dropped);
 pickContainer2.addEventListener('drop', dropped);
 pickContainer3.addEventListener('drop', dropped);
 
-/*
+/**
  * Calls cancelDefault() to fix information about being dropped over the pickContainer. Function not responsible for placing the card as a child but making sure it does not happen when it shouldn't.
  *
  * @listens dragenter (Draggable card enters over the pickContainerX element)
  * @listens dragover (Draggable card is being dragged over pickContainerX element)
+ * @memberof MiniApps.Cartomancy
  */
 pickContainer1.addEventListener('dragenter', cancelDefault);
 pickContainer1.addEventListener('dragover', cancelDefault);
@@ -79,13 +112,15 @@ pickContainer3.addEventListener('dragover', cancelDefault);
 
 /**
  * Music on/off image element (part of general UI)
+ * @type {HTMLElement}
+ * @memberof MiniApps.Cartomancy
  */
-
 const musicImage = document.getElementById('music');
 
 /**
  * Allows the card to be hovered and eventually dropped into the respective container
  * @param {dragover} e - Object that contains information about the container that is being dragged over, including position coordinates.
+ * @memberof MiniApps.Cartomancy
  */
 function cancelDefault (e) {
   e.preventDefault();
@@ -97,6 +132,7 @@ function cancelDefault (e) {
  * Keeps track of information when a card is begun to be dragged. Called when starting to hold a card. Final place where the card is dropped compares information set here.
  *
  * @param {dragstart} e - Object that has information of where a card has begun to be dragged from.
+ * @memberof MiniApps.Cartomancy
  */
 function dragStart (e) {
   e.dataTransfer.setData('text/plain', e.target.id);
@@ -108,6 +144,7 @@ function dragStart (e) {
  * Keeps track of information when a card is begun to be dragged. Called when starting to hold a card. Final place where the card is dropped compares information set here.
  *
  * @param {dragstart} e - Object that has information of where a card has begun to be dragged from.
+ * @memberof MiniApps.Cartomancy
  */
 function dropped (e) {
   targetName = e.target.id;
@@ -170,7 +207,7 @@ function dropped (e) {
  * Overrides styling to display cards in a row by adding class and removes read fortune button. Then loops through each of the three fortunes and adds them through calling organizeCards() for each fortune.
  *
  * @param {div} centerDiv - the main <div> of the page. Argument here allows to make changes to whatever may be appropriate in order to read the cards.
- *
+ * @memberof MiniApps.Cartomancy
  */
 function readCards (centerDiv) {
   // animations, grouping etc here
@@ -203,6 +240,7 @@ function readCards (centerDiv) {
  *
  * @param {div} pick - div that holds a card.
  * @param {Object} fortune - A fortune from .json file, containing fortune fields (like the name, result, etc)
+ * @memberof MiniApps.Cartomancy
  */
 function organizeCards (pick, fortune) {
   pick.removeChild(pick.firstChild);
@@ -311,22 +349,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     }, 1000);
   });
 
-  /*
+  /**
    * Listen to click event for the music UI button.
    * Toggles musicEnabled and calls the setMusicState() method.
    *
    * @listens musicButton#click
+   * @memberof MiniApps.Cartomancy
    */
   musicButton.addEventListener('click', (event) => {
     musicEnabled = setMusicState(bgm, musicImage, !musicEnabled);
   });
 
-  // Info Button
   /**
    * Listen to click event for the info UI button.
    * Toggles showInfo and toggles display of the info panel.
    *
    * @listens infoButton#click
+   * @memberof MiniApps.Cartomancy
    */
   infoButton.addEventListener('click', (e) => {
     const infoPopup = document.getElementById('info-popup');
