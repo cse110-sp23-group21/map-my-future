@@ -1,3 +1,4 @@
+/* Fortune Stick Mini-App */
 /*  Steps:
 
 1. After selecting the Fortune Sticks continent, the user is greeted with the Fortune Sticks
@@ -60,8 +61,6 @@ const categories = ['career', 'wealth', 'health', 'relationship'];
  * @memberof MiniApps.FortuneStick
  */
 let selectedCategory = '';
-// let musicEnabled = true;
-// let showInfo = false;
 
 /* Waiting for DOM to have loaded */
 document.addEventListener('DOMContentLoaded', async () => {

@@ -1,3 +1,4 @@
+/* Molybdomancy Mini-App */
 /**
  * @namespace MiniApps.Molybdomancy
  */

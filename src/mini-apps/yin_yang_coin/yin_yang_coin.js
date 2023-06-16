@@ -1,4 +1,4 @@
-/* Yin Yang Coin code goes here */
+/* Yin Yang Coin Mini-App */
 /*
     Steps:
 
